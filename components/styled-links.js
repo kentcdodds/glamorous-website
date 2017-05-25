@@ -41,7 +41,12 @@ const StyledSecondaryButton = glamorous('a')(sharedStyles, transparentColors, {
   ':hover': solidColors
 })
 
-export const Anchor = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
+export const Anchor = ({href, prefetch, external, children}) => { // eslint-disable-line no-unused-vars
+  if (external) {
+    return (
+      <StyledAnchor href={href}>{children}</StyledAnchor>
+    )
+  }
   return (
     <Link prefetch={prefetch} href={href}>
       <StyledAnchor>{children}</StyledAnchor>
@@ -49,18 +54,14 @@ export const Anchor = ({href, prefetch, children}) => { // eslint-disable-line n
   )
 }
 
-export const Button = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
+export const Button = ({href, children}) => { // eslint-disable-line no-unused-vars
   return (
-    <Link prefetch={prefetch} href={href}>
-      <StyledButton>{children}</StyledButton>
-    </Link>
+    <StyledButton href={href}>{children}</StyledButton>
   )
 }
 
-export const SecondaryButton = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
+export const SecondaryButton = ({href, children}) => { // eslint-disable-line no-unused-vars
   return (
-    <Link prefetch={prefetch} href={href}>
-      <StyledSecondaryButton>{children}</StyledSecondaryButton>
-    </Link>
+    <StyledSecondaryButton href={href}>{children}</StyledSecondaryButton>
   )
 }

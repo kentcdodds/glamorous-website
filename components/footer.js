@@ -19,7 +19,7 @@ export default () => {
         >
         Made with 💙 by
         {' '}
-        <Anchor href="https://github.com/paypal">PayPal</Anchor>
+        <Anchor external href="https://github.com/paypal">PayPal</Anchor>
         .
       </glamorous.Div>
     </glamorous.Footer>

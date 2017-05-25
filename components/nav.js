@@ -29,7 +29,7 @@ export default () => {
           </Link>
         </ListItem>
         <ListItem>
-          <Anchor href="https://github.com/paypal/glamorous">GitHub</Anchor>
+          <Anchor external href="https://github.com/paypal/glamorous">GitHub</Anchor>
         </ListItem>
         <ListItem>
           <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">Guides</Anchor>
