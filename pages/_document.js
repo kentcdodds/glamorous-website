@@ -23,6 +23,8 @@ export default class MyDocument extends Document {
         <Head>
           <title>glamorous - React component styling solved 💄</title>
           <style dangerouslySetInnerHTML={{__html: this.props.css}}/>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/paypal/glamorous/master/other/logo/full.png" />
         </Head>
         <body>
           <Main/>
