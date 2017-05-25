@@ -43,7 +43,7 @@ const StyledSecondaryButton = glamorous('a')(sharedStyles, transparentColors, {
 
 export const Anchor = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
   return (
-    <Link prefetch href={href}>
+    <Link prefetch={prefetch} href={href}>
       <StyledAnchor>{children}</StyledAnchor>
     </Link>
   )
@@ -51,7 +51,7 @@ export const Anchor = ({href, prefetch, children}) => { // eslint-disable-line n
 
 export const Button = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
   return (
-    <Link prefetch href={href}>
+    <Link prefetch={prefetch} href={href}>
       <StyledButton>{children}</StyledButton>
     </Link>
   )
@@ -59,7 +59,7 @@ export const Button = ({href, prefetch, children}) => { // eslint-disable-line n
 
 export const SecondaryButton = ({href, prefetch, children}) => { // eslint-disable-line no-unused-vars
   return (
-    <Link prefetch href={href}>
+    <Link prefetch={prefetch} href={href}>
       <StyledSecondaryButton>{children}</StyledSecondaryButton>
     </Link>
   )
