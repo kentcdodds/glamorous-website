@@ -1,0 +1,54 @@
+{
+  "name": "glamorous-website",
+  "version": "1.0.0",
+  "description": "Website for glamorous",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "xo",
+    "pretest": "npm run lint",
+    "test": "NODE_ENV=test jest"
+  },
+  "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
+  "license": "MIT",
+  "keywords": [
+    "glamorous",
+    "react",
+    "css-in-js"
+  ],
+  "dependencies": {
+    "glamor": "^2.20.25",
+    "glamorous": "^3.16.0",
+    "next": "^2.4.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint-config-xo-react": "^0.12.0",
+    "eslint-plugin-react": "^7.0.1",
+    "jest": "^20.0.4",
+    "react-test-renderer": "^15.5.4",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "envs": [
+      "browser"
+    ],
+    "extends": "xo-react",
+    "space": true,
+    "rules": {
+      "no-dupe-keys": 0,
+      "react/no-danger": 1,
+      "react/prop-types": 0,
+      "semi": [
+        2,
+        "never"
+      ]
+    }
+  }
+}
