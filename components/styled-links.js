@@ -3,6 +3,10 @@ import Link from 'next/link'
 import glamorous from 'glamorous'
 import * as colors from '../styles/colors'
 
+const basicLinkStyles = {
+  cursor: 'pointer'
+}
+
 const anchorStyles = {
   textDecoration: 'none',
   color: colors.primary,
@@ -31,13 +35,13 @@ const sharedStyles = {
   transition: 'all .3s'
 }
 
-const StyledAnchor = glamorous('a')(anchorStyles)
+const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
 
-const StyledButton = glamorous('a')(sharedStyles, solidColors, {
+const StyledButton = glamorous('a')(basicLinkStyles, sharedStyles, solidColors, {
   ':hover': transparentColors
 })
 
-const StyledSecondaryButton = glamorous('a')(sharedStyles, transparentColors, {
+const StyledSecondaryButton = glamorous('a')(basicLinkStyles, sharedStyles, transparentColors, {
   ':hover': solidColors
 })
 

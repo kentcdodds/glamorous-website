@@ -1,6 +1,5 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import Link from 'next/link'
 import {Anchor} from '../components/styled-links'
 import LipstickIcon from './lipstick-icon'
 
@@ -24,9 +23,9 @@ export default () => {
         paddingLeft={0}
         >
         <ListItem>
-          <Link prefetch={process.env.USE_PREFETCH} href="/">
+          <Anchor prefetch={process.env.USE_PREFETCH} href="/">
             <LipstickIcon width={20}/>
-          </Link>
+          </Anchor>
         </ListItem>
         <ListItem>
           <Anchor external href="https://github.com/paypal/glamorous">GitHub</Anchor>
