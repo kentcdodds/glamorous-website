@@ -65,7 +65,7 @@ exports[`Testing Index Renders! 1`] = `
           >
             <a
               className="css-zr73hg"
-              onClick={[Function]}
+              href="https://github.com/paypal/glamorous"
             >
               GitHub
             </a>
@@ -176,13 +176,13 @@ exports[`Testing Index Renders! 1`] = `
       </div>
       <a
         className="css-193bu2m"
-        onClick={[Function]}
+        href="https://github.com/paypal/glamorous"
       >
         GitHub
       </a>
       <a
         className="css-1ppty2n"
-        onClick={[Function]}
+        href="http://kcd.im/glamorous-help"
       >
         Try It
       </a>
@@ -197,7 +197,7 @@ exports[`Testing Index Renders! 1`] = `
          
         <a
           className="css-zr73hg"
-          onClick={[Function]}
+          href="https://github.com/paypal"
         >
           PayPal
         </a>
