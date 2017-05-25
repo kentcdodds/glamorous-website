@@ -22,10 +22,10 @@ export default () => {
         <Div marginTop={30}>
           Maintainable CSS with React
         </Div>
-        <Button external href="https://github.com/paypal/glamorous">
+        <Button href="https://github.com/paypal/glamorous">
           GitHub
         </Button>
-        <SecondaryButton external href="http://kcd.im/glamorous-help">
+        <SecondaryButton href="http://kcd.im/glamorous-help">
           Try It
         </SecondaryButton>
       </Div>
