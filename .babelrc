@@ -1,0 +1,3 @@
+{
+  "presets": ["next/babel", "es2015", "react"]
+}
