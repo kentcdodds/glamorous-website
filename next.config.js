@@ -16,15 +16,15 @@ module.exports = {
     // Markdown loader so we can use docs as .md files
     config.module.rules.push({
       test: /\.md$/,
-      loader: 'html-loader'
-    })
-    config.module.rules.push({
-      test: /\.md$/,
-      loader: 'markdown-loader',
-      options: {
-        pedantic: true,
-        renderer
-      }
+      use: [{
+        loader: 'html-loader'
+      },{
+        loader: 'markdown-loader',
+        options: {
+          pedantic: true,
+          renderer
+        }
+      }]
     })
 
     return config
