@@ -1,16 +1,31 @@
-// This file will let us add in prefetch conditionally so we don't break jest snapshot testing
-
 const webpack = require('webpack')
+const marked = require('marked')
 
+const renderer = new marked.Renderer()
 const USE_PREFETCH = process.env.NODE_ENV !== 'test'
 
 module.exports = {
   webpack: config => {
+    // Add in prefetch conditionally so we don't break jest snapshot testing
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH)
       })
     )
+
+    // Markdown loader so we can use docs as .md files
+    config.module.rules.push({
+      test: /\.md$/,
+      loader: 'html-loader'
+    })
+    config.module.rules.push({
+      test: /\.md$/,
+      loader: 'markdown-loader',
+      options: {
+        pedantic: true,
+        renderer
+      }
+    })
 
     return config
   }

@@ -20,9 +20,14 @@
   "dependencies": {
     "glamor": "^2.20.25",
     "glamorous": "^3.16.0",
+    "html-loader": "^0.4.5",
+    "json-loader": "^0.5.4",
+    "markdown-loader": "^2.0.0",
+    "marked": "^0.3.6",
     "next": "^2.4.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-markdown": "^2.5.0",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
