@@ -19,7 +19,6 @@ const MarkdownWrapper = glamorous.div({
   margin: '20px auto',
   width: '100%',
   maxWidth: '50rem',
-
   '& pre, & code': {
     backgroundColor: '#eee',
     fontSize: '1rem'
@@ -32,17 +31,12 @@ const MarkdownWrapper = glamorous.div({
     textDecoration: 'none',
     color: colors.primary
   },
-  '& p': {
+  '& p, & li': {
     lineHeight: '2rem',
   },
-  '& li': {
-    lineHeight: '2rem',
-  },
-  '& p code, & li code': {
-    "& code": {
-       padding: '.3rem',
-      borderRadius: '.3rem'
-    }
+  '& p code, & li code, & blockquote code': {
+    padding: '.3rem',
+    borderRadius: '.3rem'
   },
   '& blockquote': {
     margin: '1rem 0',
