@@ -5,10 +5,11 @@ import * as colors from '../styles/colors'
 
 export default () => {
   return (
-    <glamorous.Footer position="fixed" bottom={0} right={0} left={0}>
+    <glamorous.Footer bottom={0} right={0} left={0}>
       <glamorous.Div
         marginLeft="auto"
         marginRight="auto"
+        marginTop="5rem"
         width="100%"
         maxWidth={600}
         paddingTop={10}

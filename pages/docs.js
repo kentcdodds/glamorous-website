@@ -31,7 +31,29 @@ const MarkdownWrapper = glamorous.div({
   '& a': {
     textDecoration: 'none',
     color: colors.primary
-  }
+  },
+  '& p': {
+    'line-height': '2rem',
+    '& code': {
+      padding: '.3rem',
+      'border-radius': '.3rem'
+    }
+  },
+  '& blockquote': {
+    margin: '1rem 0',
+    padding: '0 1rem',
+    color: '#666',
+    'border-left': '6px solid #ddd'
+  },
+
+  '& li': {
+    'line-height': '2rem',
+    "& code": {
+       padding: '.3rem',
+      'border-radius': '.3rem'
+    }
+  },
+
 })
 
 export default class Docs extends React.Component {
