@@ -34,7 +34,7 @@ const MarkdownWrapper = glamorous.div({
   },
   '& p': {
     lineHeight: '2rem',
- },
+  },
   '& li': {
     lineHeight: '2rem',
   },
