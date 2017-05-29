@@ -67,6 +67,7 @@
       "no-dupe-keys": 0,
       "react/no-danger": 1,
       "react/prop-types": 0,
+      "import/no-named-as-default-member": 0,
       "semi": [
         2,
         "never"
