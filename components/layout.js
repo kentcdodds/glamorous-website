@@ -1,6 +1,8 @@
 import React from 'react'
-import {rehydrate} from 'glamor'
-import glamorous from 'glamorous'
+import {css, rehydrate} from 'glamor'
+import glamorous, {ThemeProvider} from 'glamorous'
+import baseStyles from '../styles/base'
+import GlobalStyles from '../styles/global-styles'
 import Nav from './nav'
 import Footer from './footer'
 
@@ -11,22 +13,29 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
   rehydrate(window.__NEXT_DATA__.ids)
 }
 
+const Wrapper = glamorous.div((props, theme) => ({
+  fontFamily: theme.font.glamorous
+}))
+
+const NavWrapper = glamorous.div({
+  display: 'flex',
+  justifyContent: 'space-between',
+  marginTop: 10,
+  marginRight: 20,
+  marginLeft: 20
+})
+
 export default ({children}) => {
+  css.insert(baseStyles())
   return (
-    <div>
-      <glamorous.Div fontSize={18} fontFamily="Playfair Display, serif">
-        <glamorous.Div
-          display="flex"
-          justifyContent="space-between"
-          marginTop={10}
-          marginRight={20}
-          marginLeft={20}
-          >
+    <ThemeProvider theme={GlobalStyles}>
+      <Wrapper>
+        <NavWrapper>
           <Nav/>
-        </glamorous.Div>
+        </NavWrapper>
         {children}
         <Footer/>
-      </glamorous.Div>
-    </div>
+      </Wrapper>
+    </ThemeProvider>
   )
 }
