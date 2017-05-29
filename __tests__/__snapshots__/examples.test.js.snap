@@ -179,21 +179,16 @@ exports[`Testing Examples Renders! 1`] = `
     </p>
   </div>
   <footer
-    className="css-kv69lr"
+    className="css-46vng8"
   >
-    <div
-      className="css-ubp1jq"
+    Made with 💙 by 
+    <a
+      className="css-858wo0"
+      href="https://github.com/paypal"
     >
-      Made with 💙 by
-       
-      <a
-        className="css-858wo0"
-        href="https://github.com/paypal"
-      >
-        PayPal
-      </a>
-      .
-    </div>
+      PayPal
+    </a>
+    .
   </footer>
 </div>
 `;

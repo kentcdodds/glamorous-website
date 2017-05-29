@@ -30,6 +30,16 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "liadbiz",
+      "name": "zhu haihao",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11924130?v=3",
+      "profile": "http://liadbiz.github.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ]
 }
