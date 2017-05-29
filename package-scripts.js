@@ -1,7 +1,7 @@
 const npsUtils = require('nps-utils')
+
 const series = npsUtils.series
 const concurrent = npsUtils.concurrent
-const rimraf = npsUtils.rimraf
 
 module.exports = {
   scripts: {
@@ -23,6 +23,10 @@ module.exports = {
       default: 'jest --coverage',
       watch: 'jest --watch',
     },
+    build: {
+      description: 'delete the dist directory and run babel to build the files',
+      script: 'next build',
+    },
     lint: {
       description: 'lint the entire project',
       script: 'xo',
@@ -37,7 +41,7 @@ module.exports = {
     },
     validate: {
       description: 'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'build', 'test'),
+      script: concurrent.nps('lint', 'test'),
     },
   },
   options: {
@@ -45,7 +49,7 @@ module.exports = {
   },
 }
 
-// this is not transpiled
+// This is not transpiled
 /*
   eslint
   max-len: 0,
