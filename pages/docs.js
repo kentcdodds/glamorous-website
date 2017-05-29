@@ -28,7 +28,7 @@ const MarkdownWrapper = glamorous.div({
     color: colors.primary
   },
   '& p, & li': {
-    lineHeight: '2rem',
+    lineHeight: '2rem'
   },
   '& p code, & li code, & blockquote code': {
     padding: '.3rem',

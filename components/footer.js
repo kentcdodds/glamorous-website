@@ -16,7 +16,6 @@ const Footer = glamorous.footer({
   borderTop: `1px solid ${colors.faded}`
 })
 
-
 export default () => {
   return (
     <Footer>
