@@ -62,6 +62,7 @@
     ],
     "extends": "xo-react",
     "space": true,
+    "ignores": ["package-scripts.js"],
     "rules": {
       "no-dupe-keys": 0,
       "react/no-danger": 1,
