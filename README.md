@@ -11,7 +11,7 @@ This is the website for [`glamorous`](https://github.com/paypal/glamorous/) and 
 [![downloads][downloads-badge]][npm-stat]
 [![MIT License][license-badge]][LICENSE]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Donate][donate-badge]][donate]
 [![Code of Conduct][coc-badge]][coc]
@@ -47,8 +47,8 @@ If you make changes that require updating the `jest` snapshots, run `npm test --
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds) 🚇 [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds) |
-| :---: |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Tests") | [<img src="https://avatars0.githubusercontent.com/u/737065?v=3" width="100px;"/><br /><sub>Paul Molluzzo</sub>](https://paul.molluzzo.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Documentation") [👀](#review-paulmolluzzo "Reviewed Pull Requests") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Tests") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
