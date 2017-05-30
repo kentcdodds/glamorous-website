@@ -120,7 +120,15 @@ exports[`Testing Docs Renders! 1`] = `
   <footer
     className="css-46vng8"
   >
-    Made with 💙 by 
+    Made with 
+    <span
+      aria-label="love"
+      role="img"
+    >
+      💙
+    </span>
+     by
+     
     <a
       className="css-858wo0"
       href="https://github.com/paypal"

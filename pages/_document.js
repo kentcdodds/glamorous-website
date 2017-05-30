@@ -3,10 +3,10 @@ import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
 
 export default class MyDocument extends Document {
-  static async getInitialProps({renderPage}) {
+  static getInitialProps({renderPage}) {
     const page = renderPage()
     const styles = renderStatic(() => page.html)
-    return {...page, ...styles}
+    return Promise.resolve({...page, ...styles})
   }
 
   constructor(props) {
@@ -18,19 +18,26 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    // TODO: change lang dynamically?
     return (
-      <html>
+      <html lang="en">
         <Head>
           <title>glamorous - React component styling solved 💄</title>
-          <style dangerouslySetInnerHTML={{__html: this.props.css}}/>
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <link rel="shortcut icon" type="image/x-icon" href="/static/images/icon.png"/>
+          <style dangerouslySetInnerHTML={{__html: this.props.css}} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/static/images/icon.png"
+          />
         </Head>
         <body>
-          <Main/>
-          <NextScript/>
+          <Main />
+          <NextScript />
         </body>
       </html>
     )
   }
 }
+// doesn't make sense in the <title> I think
+/* eslint jsx-a11y/accessible-emoji:0 */

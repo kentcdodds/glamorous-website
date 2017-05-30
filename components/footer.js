@@ -7,13 +7,18 @@ const Footer = glamorous.footer({
   paddingBottom: 10,
   fontSize: '0.6em',
   textAlign: 'center',
-  background: 'white'
+  background: 'white',
 })
 
-export default () => {
+export default PageFooter
+
+function PageFooter() {
   return (
     <Footer>
-      Made with 💙 by <Anchor external href="https://github.com/paypal">PayPal</Anchor>.
+       Made with <span role="img" aria-label="love">💙</span>by
+      {' '}
+      <Anchor external href="https://github.com/paypal">PayPal</Anchor>
+      .
     </Footer>
   )
 }

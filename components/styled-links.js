@@ -3,25 +3,20 @@ import Link from 'next/link'
 import glamorous from 'glamorous'
 import {colors} from '../styles/global-styles'
 
-const basicLinkStyles = {
-  cursor: 'pointer'
-}
+const basicLinkStyles = {cursor: 'pointer'}
 
 const anchorStyles = {
   textDecoration: 'none',
   color: colors.primaryMed,
-  ':visited': {
-    color: colors.primaryMed
-  }
+  ':visited': {color: colors.secondary},
 }
 
 const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
 
-export const Anchor = ({href, prefetch, external, children}) => { // eslint-disable-line no-unused-vars
+export const Anchor = ({href, prefetch, external, children}) => {
+  // eslint-disable-line no-unused-vars
   if (external) {
-    return (
-      <StyledAnchor href={href}>{children}</StyledAnchor>
-    )
+    return <StyledAnchor href={href}>{children}</StyledAnchor>
   }
   return (
     <Link prefetch={prefetch} href={href}>
@@ -30,20 +25,14 @@ export const Anchor = ({href, prefetch, external, children}) => { // eslint-disa
   )
 }
 
-const solidColors = {
-  backgroundColor: colors.primary,
-  color: 'white'
-}
+const solidColors = {backgroundColor: colors.primary, color: 'white'}
 
 const transparentColors = {
   backgroundColor: 'rgba(255, 255, 255, 0.5)',
-  color: colors.primary
+  color: colors.primary,
 }
 
-const secondaryButtonStyles = {
-  ...transparentColors,
-  ':hover': solidColors
-}
+const secondaryButtonStyles = {...transparentColors, ':hover': solidColors}
 
 export const Button = glamorous.a(
   basicLinkStyles,
@@ -58,9 +47,7 @@ export const Button = glamorous.a(
     margin: '.5em 1em',
     transition: 'all .3s',
     ...solidColors,
-    ':hover': transparentColors
+    ':hover': transparentColors,
   },
-  props => ({
-    ...(props.secondary) ? secondaryButtonStyles : {}
-  })
+  props => ({...(props.secondary ? secondaryButtonStyles : {})}),
 )

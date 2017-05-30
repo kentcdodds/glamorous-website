@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "kentcdodds",
+    "kentcdodds/react",
+    "kentcdodds/jsx-a11y",
+    "kentcdodds/jest",
+    "kentcdodds/prettier"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "func-style": "off",
+    "max-len": "off",
+  }
+}

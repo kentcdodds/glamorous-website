@@ -19,36 +19,31 @@ module.exports = {
       description: 'This uses commitizen to help us generate well formatted commit messages',
       script: 'git-cz',
     },
-    test: {
-      default: 'jest --coverage',
-      watch: 'jest --watch',
-    },
+    test: {default: 'jest --coverage', watch: 'jest --watch'},
     build: {
       description: 'delete the dist directory and run babel to build the files',
       script: 'next build',
     },
-    lint: {
-      description: 'lint the entire project',
-      script: 'xo',
-    },
+    lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
       description: 'Report coverage stats to codecov. This should be run after the `test` script',
       script: 'codecov',
     },
     release: {
       description: 'We automate releases with semantic-release. This should only be run on travis',
-      script: series('semantic-release pre', 'npm publish', 'semantic-release post'),
+      script: series(
+        'semantic-release pre',
+        'npm publish',
+        'semantic-release post'
+      ),
     },
     validate: {
       description: 'This runs several scripts to make sure things look good before committing or on clean install',
       script: concurrent.nps('lint', 'test'),
     },
   },
-  options: {
-    silent: false,
-  },
+  options: {silent: false},
 }
-
 // This is not transpiled
 /*
   eslint

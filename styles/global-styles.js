@@ -5,8 +5,14 @@ const mediumBreakpoint = 1024
 const largeBreakpoint = 1224
 
 const [, upperSmallRange] = [0, smallBreakpoint]
-const [lowerMediumRange, upperMediumRange] = [smallBreakpoint + 1, mediumBreakpoint]
-const [lowerLargeRange, upperLargeRange] = [mediumBreakpoint + 1, largeBreakpoint]
+const [lowerMediumRange, upperMediumRange] = [
+  smallBreakpoint + 1,
+  mediumBreakpoint,
+]
+const [lowerLargeRange, upperLargeRange] = [
+  mediumBreakpoint + 1,
+  largeBreakpoint,
+]
 
 const screen = 'only screen'
 
@@ -23,27 +29,21 @@ export const colors = {
   gray: '#cccccc',
   medGray: '#777',
   darkGray: '#333',
-  black: '#000'
+  black: '#000',
 }
 
 export const fonts = {
   sansserif: '"Montserrat", sans-serif',
-  glamorous: '"Playfair Display, serif"'
+  glamorous: '"Playfair Display, serif"',
 }
 
 export const mediaQueries = {
   smallUp: `@media ${screen}`,
   smallOnly: `@media ${screen} and (max-width: ${upperSmallRange}px)`,
-
   mediumUp: `@media ${screen} and (min-width: ${lowerMediumRange}px)`,
   mediumOnly: `@media ${screen} and (min-width: ${lowerMediumRange}px and (min-width: ${upperMediumRange}px)`,
-
   largeUp: `@media ${screen} and (min-width: ${lowerLargeRange}px)`,
-  largeOnly: `@media ${screen} and (min-width: ${lowerLargeRange}px and (min-width: ${upperLargeRange}px)`
+  largeOnly: `@media ${screen} and (min-width: ${lowerLargeRange}px and (min-width: ${upperLargeRange}px)`,
 }
 
-export default {
-  fonts,
-  colors,
-  mediaQueries
-}
+export default {fonts, colors, mediaQueries}
