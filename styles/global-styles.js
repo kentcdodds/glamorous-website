@@ -1,10 +1,23 @@
-module.exports = {
+// Inspired by http://foundation.zurb.com/sites/docs/media-queries.html
+
+const smallBreakpoint = 480
+const mediumBreakpoint = 1024
+const largeBreakpoint = 1224
+
+const [, upperSmallRange] = [0, smallBreakpoint]
+const [lowerMediumRange, upperMediumRange] = [smallBreakpoint + 1, mediumBreakpoint]
+const [lowerLargeRange, upperLargeRange] = [mediumBreakpoint + 1, largeBreakpoint]
+
+const screen = 'only screen'
+
+export default {
   font: {
-    sansserif: '"Source Sans Pro", sans-serif',
+    sansserif: '"Montserrat", sans-serif',
     glamorous: '"Playfair Display, serif"'
   },
   colors: {
-    primary: '#ED4C5C',
+    primary: '#FD8180',
+    primaryLight: '#FFEFEF',
     secondary: '#BD3D90',
     faded: '#B2C1C0',
     white: '#fff',
@@ -17,8 +30,13 @@ module.exports = {
     black: '#000'
   },
   mediaQueries: {
-    mobile: '@media screen and (min-device-width : 320px) and (max-device-width : 480px)',
-    tablet: '@media screen and (min-device-width : 768px) and (max-device-width : 1024px)',
-    desktop: '@media screen and (min-width : 1224px)'
+    smallUp: `@media ${screen}`,
+    smallOnly: `@media ${screen} and (max-width: ${upperSmallRange}px)`,
+
+    mediumUp: `@media ${screen} and (min-width: ${lowerMediumRange}px)`,
+    mediumOnly: `@media ${screen} and (min-width: ${lowerMediumRange}px and (min-width: ${upperMediumRange}px)`,
+
+    largeUp: `@media ${screen} and (min-width: ${lowerLargeRange}px)`,
+    largeOnly: `@media ${screen} and (min-width: ${lowerLargeRange}px and (min-width: ${upperLargeRange}px)`
   }
 }
