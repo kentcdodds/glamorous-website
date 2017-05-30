@@ -17,7 +17,7 @@ export default class Docs extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout pathname={this.props.url ? this.props.url.pathname : ''}>
         <MarkdownWrapper>
           <div dangerouslySetInnerHTML={this.rawMarkup()} />
         </MarkdownWrapper>

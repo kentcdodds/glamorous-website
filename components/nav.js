@@ -6,7 +6,7 @@ import LipstickIcon from './lipstick-icon'
 const ListItem = glamorous.li({
   paddingLeft: 10,
   paddingRight: 10,
-  paddingBottom: 4
+  paddingBottom: 4,
 })
 
 // Use withTheme with glamorous.Ul, or this ?
@@ -22,27 +22,51 @@ const List = glamorous.ul((props, {mediaQueries}) => ({
   height: 56,
   [mediaQueries.mediumUp]: {
     height: 64,
-    justifyContent: 'flex-end'
-  }
+    justifyContent: 'flex-end',
+  },
 }))
 
-export default () => {
+export default Nav
+
+function Nav(pathname) {
   return (
     <glamorous.Nav>
       <List>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/">
-            <LipstickIcon width={20}/>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/"
+            pathname={pathname}
+          >
+            <LipstickIcon width={20} />
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">Guides</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/guides"
+            pathname={pathname}
+          >
+            Guides
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/examples">Examples</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/examples"
+            pathname={pathname}
+          >
+            Examples
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/docs">Docs</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/docs"
+            pathname={pathname}
+          >
+            Documentation
+          </Anchor>
         </ListItem>
       </List>
     </glamorous.Nav>

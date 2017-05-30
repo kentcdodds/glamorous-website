@@ -58,9 +58,9 @@ const Container = glamorous.div((props, {colors}) => ({
   paddingBottom: 1,
 }))
 
-const Home = () => {
+const Home = ({url}) => {
   return (
-    <Layout>
+    <Layout pathname={url ? url.pathname : ''}>
       <Div margin={20}>
         <Div margin="0 auto" maxWidth={800} textAlign="center">
           <Logo maxWidth={500} margin="0 auto" />
