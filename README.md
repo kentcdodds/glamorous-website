@@ -71,13 +71,13 @@ MIT
 [downloads-badge]: https://img.shields.io/npm/dm/glamorous-website.svg?style=flat-square
 [npm-stat]: http://npm-stat.com/charts.html?package=glamorous-website&from=2016-04-01
 [license-badge]: https://img.shields.io/npm/l/glamorous-website.svg?style=flat-square
-[license]: https://github.com/kentcdodds/glamorous-website/blob/master/other/LICENSE
+[license]: https://github.com/kentcdodds/glamorous-website/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
 [donate]: http://kcd.im/donate
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/glamorous-website/blob/master/other/CODE_OF_CONDUCT.md
+[coc]: https://github.com/kentcdodds/glamorous-website/blob/master/CODE_OF_CONDUCT.MD
 [roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square
 [roadmap]: https://github.com/kentcdodds/glamorous-website/blob/master/other/ROADMAP.md
 [examples-badge]: https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg?style=flat-square
