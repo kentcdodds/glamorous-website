@@ -17,7 +17,7 @@ exports[`Testing Guides Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             <svg
@@ -67,7 +67,7 @@ exports[`Testing Guides Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Guides
@@ -77,7 +77,7 @@ exports[`Testing Guides Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Examples
@@ -87,7 +87,7 @@ exports[`Testing Guides Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Documentation
@@ -190,26 +190,31 @@ exports[`Testing Guides Renders! 1`] = `
         edit in pages/guides.js
       </p>
     </div>
-    <footer
-      className="css-qyz8mk"
-    >
-      Made with 
-      <span
-        aria-label="love"
-        role="img"
+    <div>
+      <div
+        className="css-1djfccv"
+      />
+      <footer
+        className="css-qyz8mk"
       >
-        💙
-      </span>
-      by
-       
-      <a
-        className="css-1sbv75w"
-        href="https://github.com/paypal"
-      >
-        PayPal
-      </a>
-      .
-    </footer>
+        Made with 
+        <span
+          aria-label="love"
+          role="img"
+        >
+          💙
+        </span>
+        by
+         
+        <a
+          className="css-1sbv75w"
+          href="https://github.com/paypal"
+        >
+          PayPal
+        </a>
+        .
+      </footer>
+    </div>
   </div>
 </div>
 `;

@@ -17,7 +17,7 @@ exports[`Testing Index Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             <svg
@@ -67,7 +67,7 @@ exports[`Testing Index Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Guides
@@ -77,7 +77,7 @@ exports[`Testing Index Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Examples
@@ -87,7 +87,7 @@ exports[`Testing Index Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-fib1m0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Documentation
@@ -102,7 +102,7 @@ exports[`Testing Index Renders! 1`] = `
         className="css-w9zktn"
       >
         <div
-          className="css-hknpsx"
+          className="css-12y5iqf"
         >
           <svg
             version="1.1"
@@ -210,55 +210,44 @@ exports[`Testing Index Renders! 1`] = `
       className="css-9sg7cd"
     >
       <div
-        className="css-t36o5m"
+        className="css-yo7jc1"
       />
+      <div
+        className="css-1bb467q"
+      >
+        npm install --save glamorous react glamor prop-types
+      </div>
       <div
         className="css-1snf17o"
       >
         Used by peeps at
       </div>
     </div>
-    <div
-      className="css-1djfccv"
-    />
-    <div
-      className="css-1o7c6q7"
-    >
+    <div>
       <div
-        className="css-1tz0j7g"
+        className="css-1djfccv"
+      />
+      <footer
+        className="css-qyz8mk"
       >
-        <div
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "",
-            }
-          }
-        />
-      </div>
+        Made with 
+        <span
+          aria-label="love"
+          role="img"
+        >
+          💙
+        </span>
+        by
+         
+        <a
+          className="css-1sbv75w"
+          href="https://github.com/paypal"
+        >
+          PayPal
+        </a>
+        .
+      </footer>
     </div>
-    <div
-      className="css-1djfccv"
-    />
-    <footer
-      className="css-qyz8mk"
-    >
-      Made with 
-      <span
-        aria-label="love"
-        role="img"
-      >
-        💙
-      </span>
-      by
-       
-      <a
-        className="css-1sbv75w"
-        href="https://github.com/paypal"
-      >
-        PayPal
-      </a>
-      .
-    </footer>
   </div>
 </div>
 `;
