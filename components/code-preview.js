@@ -5,7 +5,7 @@ const CodePreview = glamorous.div({
   height: '24em',
   background: '#1d1f27',
   maxWidth: '34em',
-  margin: '0 auto'
+  margin: '0 auto',
 })
 
 export default CodePreview
