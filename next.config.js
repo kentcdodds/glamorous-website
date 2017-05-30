@@ -10,7 +10,7 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH),
-      }),
+      })
     )
 
     // Markdown loader so we can use docs as .md files
@@ -33,3 +33,16 @@ module.exports = {
     return config
   },
 }
+
+// This is not transpiled
+/*
+  eslint
+  comma-dangle: [
+    2,
+    {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      functions: 'never'
+    }
+  ]
+ */
