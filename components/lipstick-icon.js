@@ -1,5 +1,5 @@
 import React from 'react'
-import * as colors from '../styles/colors'
+import {colors} from '../styles/global-styles'
 
 function LipstickIcon(props) {
   return (

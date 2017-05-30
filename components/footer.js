@@ -1,30 +1,28 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import {Anchor} from '../components/styled-links'
-import * as colors from '../styles/colors'
+import Separator from '../components/separator'
 
-const Footer = glamorous.footer({
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '5rem',
-  width: '100%',
-  maxWidth: 600,
+const Footer = glamorous.footer((props, theme) => ({
   paddingTop: 10,
   paddingBottom: 10,
   fontSize: '0.6em',
   textAlign: 'center',
-  borderTop: `1px solid ${colors.faded}`,
-})
+  background: theme.colors.white,
+}))
 
 export default PageFooter
 
 function PageFooter() {
   return (
-    <Footer>
-      Made with <span role="img" aria-label="love">💙</span> by
-      {' '}
-      <Anchor external href="https://github.com/paypal">PayPal</Anchor>
-      .
-    </Footer>
+    <div>
+      <Separator />
+      <Footer>
+        Made with <span role="img" aria-label="love">💙</span>by
+        {' '}
+        <Anchor external href="https://github.com/paypal">PayPal</Anchor>
+        .
+      </Footer>
+    </div>
   )
 }

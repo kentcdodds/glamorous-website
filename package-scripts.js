@@ -19,18 +19,12 @@ module.exports = {
       description: 'This uses commitizen to help us generate well formatted commit messages',
       script: 'git-cz',
     },
-    test: {
-      default: 'jest --coverage',
-      watch: 'jest --watch',
-    },
+    test: {default: 'jest --coverage', watch: 'jest --watch'},
     build: {
       description: 'delete the dist directory and run babel to build the files',
       script: 'next build',
     },
-    lint: {
-      description: 'lint the entire project',
-      script: 'eslint .',
-    },
+    lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
       description: 'Report coverage stats to codecov. This should be run after the `test` script',
       script: 'codecov',
@@ -48,11 +42,8 @@ module.exports = {
       script: concurrent.nps('lint', 'test'),
     },
   },
-  options: {
-    silent: false,
-  },
+  options: {silent: false},
 }
-
 // This is not transpiled
 /*
   eslint

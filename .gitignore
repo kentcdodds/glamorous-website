@@ -1,7 +1,9 @@
 .next
+.vscode/settings.json
 node_modules
 npm-debug.log
 coverage
 dist
 .opt-in
 .opt-out
+yarn-error.log

@@ -39,6 +39,5 @@ export default class MyDocument extends Document {
     )
   }
 }
-
 // doesn't make sense in the <title> I think
 /* eslint jsx-a11y/accessible-emoji:0 */

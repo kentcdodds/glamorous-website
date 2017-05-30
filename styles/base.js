@@ -1,27 +1,27 @@
-import GlobalStyles from '../styles/global-styles'
+import {fonts, colors, mediaQueries} from '../styles/global-styles'
 
 export default () => `
   * {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    margin: 0:
-    padding: 0
+    margin: 0;
+    padding: 0;
   }
 
   html {
-    font-family: ${GlobalStyles.font.sansserif};
-    font-size: 18px;
+    font-family: ${fonts.sansserif};
+    font-size: 16px;
     line-height: 1.5;
-    color:  ${GlobalStyles.colors.darkGray};
+    color:  ${colors.darkGray};
     min-height: 100%;
     margin: 0;
     padding: 0;
     min-height: 100%;
   }
-  ${GlobalStyles.mediaQueries.desktop} {
+  ${mediaQueries.largeUp} {
     html {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 
@@ -44,7 +44,7 @@ export default () => `
     line-height: 1.25;
     text-rendering: optimizeLegibility;
     font-size: 2rem;
-    margin: 0
+    margin: 0;
   }
 
   h2 {

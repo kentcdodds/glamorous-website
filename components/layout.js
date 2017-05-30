@@ -13,31 +13,43 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
   rehydrate(window.__NEXT_DATA__.ids)
 }
 
-const Wrapper = glamorous.div((props, theme) => ({
-  fontFamily: theme.font.glamorous,
+const Wrapper = glamorous.div((props, {fonts, colors}) => ({
+  fontFamily: fonts.sansserif,
+  backgroundColor: colors.primaryLight,
+  ':after': {
+    content: '""',
+    pointerEvents: 'none',
+    backgroundImage: 'url(/static/images/g-background.svg)',
+    backgroundSize: '800px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '70% -300px',
+    position: 'absolute',
+    zIndex: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
 }))
 
 const NavWrapper = glamorous.div({
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginTop: 10,
-  marginRight: 20,
-  marginLeft: 20,
+  position: 'relative',
+  zIndex: 1,
 })
 
-export default Layout
-
-function Layout({children}) {
+const layout = ({pathname, children}) => {
   css.insert(baseStyles())
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper>
         <NavWrapper>
-          <Nav />
+          <Nav pathname={pathname} />
+          {children}
+          <Footer />
         </NavWrapper>
-        {children}
-        <Footer />
       </Wrapper>
     </ThemeProvider>
   )
 }
+
+export default layout
