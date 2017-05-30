@@ -9,24 +9,27 @@ module.exports = {
     // Add in prefetch conditionally so we don't break jest snapshot testing
     config.plugins.push(
       new webpack.DefinePlugin({
-        'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH)
-      })
+        'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH),
+      }),
     )
 
     // Markdown loader so we can use docs as .md files
     config.module.rules.push({
       test: /\.md$/,
-      use: [{
-        loader: 'html-loader'
-      }, {
-        loader: 'markdown-loader',
-        options: {
-          pedantic: true,
-          renderer
-        }
-      }]
+      use: [
+        {
+          loader: 'html-loader',
+        },
+        {
+          loader: 'markdown-loader',
+          options: {
+            pedantic: true,
+            renderer,
+          },
+        },
+      ],
     })
 
     return config
-  }
+  },
 }

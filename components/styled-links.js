@@ -4,24 +4,24 @@ import glamorous from 'glamorous'
 import * as colors from '../styles/colors'
 
 const basicLinkStyles = {
-  cursor: 'pointer'
+  cursor: 'pointer',
 }
 
 const anchorStyles = {
   textDecoration: 'none',
   color: colors.primary,
   ':visited': {
-    color: colors.secondary
-  }
+    color: colors.secondary,
+  },
 }
 const solidColors = {
   backgroundColor: colors.primary,
-  color: 'white'
+  color: 'white',
 }
 
 const transparentColors = {
   backgroundColor: 'white',
-  color: colors.primary
+  color: colors.primary,
 }
 
 const sharedStyles = {
@@ -32,24 +32,27 @@ const sharedStyles = {
   borderRadius: 4,
   display: 'inline-block',
   margin: 25,
-  transition: 'all .3s'
+  transition: 'all .3s',
 }
 
 const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
 
-const StyledButton = glamorous('a')(basicLinkStyles, sharedStyles, solidColors, {
-  ':hover': transparentColors
+const StyledButton = glamorous(
+  'a',
+)(basicLinkStyles, sharedStyles, solidColors, {
+  ':hover': transparentColors,
 })
 
-const StyledSecondaryButton = glamorous('a')(basicLinkStyles, sharedStyles, transparentColors, {
-  ':hover': solidColors
+const StyledSecondaryButton = glamorous(
+  'a',
+)(basicLinkStyles, sharedStyles, transparentColors, {
+  ':hover': solidColors,
 })
 
-export const Anchor = ({href, prefetch, external, children}) => { // eslint-disable-line no-unused-vars
+export const Anchor = ({href, prefetch, external, children}) => {
+  // eslint-disable-line no-unused-vars
   if (external) {
-    return (
-      <StyledAnchor href={href}>{children}</StyledAnchor>
-    )
+    return <StyledAnchor href={href}>{children}</StyledAnchor>
   }
   return (
     <Link prefetch={prefetch} href={href}>
@@ -58,14 +61,12 @@ export const Anchor = ({href, prefetch, external, children}) => { // eslint-disa
   )
 }
 
-export const Button = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledButton href={href}>{children}</StyledButton>
-  )
+export const Button = ({href, children}) => {
+  // eslint-disable-line no-unused-vars
+  return <StyledButton href={href}>{children}</StyledButton>
 }
 
-export const SecondaryButton = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledSecondaryButton href={href}>{children}</StyledSecondaryButton>
-  )
+export const SecondaryButton = ({href, children}) => {
+  // eslint-disable-line no-unused-vars
+  return <StyledSecondaryButton href={href}>{children}</StyledSecondaryButton>
 }

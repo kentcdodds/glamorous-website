@@ -20,7 +20,7 @@ function GlamorousLogo(props) {
       textAlign="center"
       border="2px solid"
       {...props}
-      >
+    >
       <glamorous.Div fontWeight={200} color={colors.faded}>
         <glamorous.Div
           display="flex"
@@ -29,10 +29,10 @@ function GlamorousLogo(props) {
           overflow="hidden"
           height={100}
           fontSize={64}
-          >
+        >
           {'{'}
           <glamorous.Div padding="12px 16px 0 16px" width={74}>
-            <LipstickIcon/>
+            <LipstickIcon />
           </glamorous.Div>
           {'}'}
         </glamorous.Div>
@@ -42,7 +42,7 @@ function GlamorousLogo(props) {
           letterSpacing={-2}
           color={colors.primary}
           lineHeight={0.6}
-          >
+        >
           glamorous
         </glamorous.Div>
       </glamorous.Div>

@@ -6,11 +6,13 @@ import Layout from '../components/layout'
 
 const {Div} = glamorous
 
-export default () => {
+export default Root
+
+function Root() {
   return (
     <Layout>
       <Div margin="20px auto" maxWidth={700} textAlign="center">
-        <Logo marginTop={50}/>
+        <Logo marginTop={50} />
         <Div marginTop={30}>
           Maintainable CSS with React
         </Div>
@@ -24,4 +26,3 @@ export default () => {
     </Layout>
   )
 }
-

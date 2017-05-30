@@ -7,10 +7,12 @@ const ListItem = glamorous.li({
   paddingLeft: 10,
   paddingRight: 10,
   borderBottom: '1px solid',
-  paddingBottom: 4
+  paddingBottom: 4,
 })
 
-export default () => {
+export default Nav
+
+function Nav() {
   return (
     <glamorous.Nav width="100%">
       <glamorous.Ul
@@ -21,20 +23,26 @@ export default () => {
         marginTop={0}
         marginBottom={0}
         paddingLeft={0}
-        >
+      >
         <ListItem>
           <Anchor prefetch={process.env.USE_PREFETCH} href="/">
-            <LipstickIcon width={20}/>
+            <LipstickIcon width={20} />
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor external href="https://github.com/paypal/glamorous">GitHub</Anchor>
+          <Anchor external href="https://github.com/paypal/glamorous">
+            GitHub
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">Guides</Anchor>
+          <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">
+            Guides
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/examples">Examples</Anchor>
+          <Anchor prefetch={process.env.USE_PREFETCH} href="/examples">
+            Examples
+          </Anchor>
         </ListItem>
         <ListItem>
           <Anchor prefetch={process.env.USE_PREFETCH} href="/docs">Docs</Anchor>

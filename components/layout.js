@@ -14,7 +14,7 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
 }
 
 const Wrapper = glamorous.div((props, theme) => ({
-  fontFamily: theme.font.glamorous
+  fontFamily: theme.font.glamorous,
 }))
 
 const NavWrapper = glamorous.div({
@@ -22,19 +22,21 @@ const NavWrapper = glamorous.div({
   justifyContent: 'space-between',
   marginTop: 10,
   marginRight: 20,
-  marginLeft: 20
+  marginLeft: 20,
 })
 
-export default ({children}) => {
+export default Layout
+
+function Layout({children}) {
   css.insert(baseStyles())
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper>
         <NavWrapper>
-          <Nav/>
+          <Nav />
         </NavWrapper>
         {children}
-        <Footer/>
+        <Footer />
       </Wrapper>
     </ThemeProvider>
   )
