@@ -26,7 +26,6 @@
     "markdown-loader": "^2.0.0",
     "marked": "^0.3.6",
     "next": "^2.4.0",
-    "prettier": "kentcdodds/prettier",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-markdown": "^2.5.0",

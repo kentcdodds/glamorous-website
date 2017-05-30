@@ -5,14 +5,25 @@ import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import Separator from '../components/separator'
 import CodePreview from '../components/code-preview'
+import MarkdownWrapper from '../components/markdown-wrapper'
 
 const {Div} = glamorous
+
+// Quick and Dirty copy paste
+
+// Define main file here so we can require the markdown file in the client
+let main = ''
+
+// Adds in main.md on client only
+if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
+  main = require('../docs/intro.md')
+}
 
 const Title = glamorous.h1((props, {colors}) => ({
   margin: '1em 0',
   color: colors.primaryMed,
   fontWeight: 'normal',
-  fontSize: '1em'
+  fontSize: '1em',
 }))
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
@@ -27,35 +38,32 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
     right: 0,
     position: 'absolute',
     background: colors.primaryMed,
-    zIndex: -1
-  }
+    zIndex: -1,
+  },
 }))
 
-const UsersHeading = glamorous.div({
+const UsersHeading = glamorous.div((props, {colors}) => ({
   textTransform: 'uppercase',
-  color: '#fff',
+  color: colors.white,
   fontSize: '0.8rem',
   fontWeight: '600',
   margin: '2.5rem 0 0.5rem',
   opacity: 0.8,
-  textAlign: 'center'
-})
+  textAlign: 'center',
+}))
 
-const Container = glamorous.div({
-  height: 500,
-  background: 'white'
-})
+const Container = glamorous.div((props, {colors}) => ({
+  background: colors.white,
+  paddingTop: 1,
+  paddingBottom: 1,
+}))
 
-export default () => {
+const Home = () => {
   return (
     <Layout>
       <Div margin={20}>
-        <Div
-          margin="0 auto"
-          maxWidth={800}
-          textAlign="center"
-          >
-          <Logo maxWidth={500} margin="0 auto"/>
+        <Div margin="0 auto" maxWidth={800} textAlign="center">
+          <Logo maxWidth={500} margin="0 auto" />
           <Title>
             Maintainable CSS with React
           </Title>
@@ -68,12 +76,18 @@ export default () => {
         </Div>
       </Div>
       <CodePreviewWrapper>
-        <CodePreview/>
+        <CodePreview />
         <UsersHeading>Used by peeps at</UsersHeading>
       </CodePreviewWrapper>
-      <Separator/>
-      <Container/>
-      <Separator/>
+      <Separator />
+      <Container>
+        <MarkdownWrapper>
+          <div dangerouslySetInnerHTML={{__html: main}} />
+        </MarkdownWrapper>
+      </Container>
+      <Separator />
     </Layout>
   )
 }
+
+export default Home
