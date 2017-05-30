@@ -2,22 +2,22 @@
 
 exports[`Testing Docs Renders! 1`] = `
 <div
-  className="css-92v5cs"
+  className="css-204t0b"
 >
   <div
-    className="css-151tlpa"
+    className="css-4cv6bo"
   >
     <nav
-      className="css-63oe3q"
+      className="css-nil"
     >
       <ul
-        className="css-35577l"
+        className="css-1amo1na"
       >
         <li
-          className="css-wfyxwh"
+          className="css-1oaxt76"
         >
           <a
-            className="css-858wo0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             <svg
@@ -27,7 +27,7 @@ exports[`Testing Docs Renders! 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <g
-                fill="#ED4C5C"
+                fill="#ED5C70"
               >
                 <path
                   d="M20.8 6.4 40.9 26.5 29.7 37.7 2.2 10.2z"
@@ -64,40 +64,30 @@ exports[`Testing Docs Renders! 1`] = `
           </a>
         </li>
         <li
-          className="css-wfyxwh"
+          className="css-1oaxt76"
         >
           <a
-            className="css-858wo0"
-            href="https://github.com/paypal/glamorous"
-          >
-            GitHub
-          </a>
-        </li>
-        <li
-          className="css-wfyxwh"
-        >
-          <a
-            className="css-858wo0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Guides
           </a>
         </li>
         <li
-          className="css-wfyxwh"
+          className="css-1oaxt76"
         >
           <a
-            className="css-858wo0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Examples
           </a>
         </li>
         <li
-          className="css-wfyxwh"
+          className="css-1oaxt76"
         >
           <a
-            className="css-858wo0"
+            className="css-1xw95l9"
             onClick={[Function]}
           >
             Docs
@@ -105,37 +95,37 @@ exports[`Testing Docs Renders! 1`] = `
         </li>
       </ul>
     </nav>
-  </div>
-  <div
-    className="css-9ngwtr"
-  >
     <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "",
+      className="css-1tz0j7g"
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
         }
-      }
-    />
+      />
+    </div>
+    <footer
+      className="css-qyz8mk"
+    >
+      Made with 
+      <span
+        aria-label="love"
+        role="img"
+      >
+        💙
+      </span>
+      by
+       
+      <a
+        className="css-1xw95l9"
+        href="https://github.com/paypal"
+      >
+        PayPal
+      </a>
+      .
+    </footer>
   </div>
-  <footer
-    className="css-46vng8"
-  >
-    Made with 
-    <span
-      aria-label="love"
-      role="img"
-    >
-      💙
-    </span>
-     by
-     
-    <a
-      className="css-858wo0"
-      href="https://github.com/paypal"
-    >
-      PayPal
-    </a>
-    .
-  </footer>
 </div>
 `;
