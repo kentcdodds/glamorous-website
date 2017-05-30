@@ -28,27 +28,45 @@ const List = glamorous.ul((props, {mediaQueries}) => ({
 
 export default Nav
 
-function Nav() {
+function Nav(pathname) {
   return (
     <glamorous.Nav>
       <List>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/">
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/"
+            pathname={pathname}
+          >
             <LipstickIcon width={20} />
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/guides"
+            pathname={pathname}
+          >
             Guides
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/examples">
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/examples"
+            pathname={pathname}
+          >
             Examples
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/docs">Docs</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/docs"
+            pathname={pathname}
+          >
+            Documentation
+          </Anchor>
         </ListItem>
       </List>
     </glamorous.Nav>

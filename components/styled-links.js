@@ -3,24 +3,41 @@ import Link from 'next/link'
 import glamorous from 'glamorous'
 import {colors} from '../styles/global-styles'
 
+const getPathname = pathname => {
+  return pathname === undefined ? '' : pathname.pathname
+}
+
 const basicLinkStyles = {cursor: 'pointer'}
 
 const anchorStyles = {
-  textDecoration: 'none',
+  textDecoration: 'underline',
   color: colors.primaryMed,
   ':visited': {color: colors.secondary},
 }
 
-const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
+const activeLinkStyles = (props, theme) => ({
+  color: props.active || props.external ?
+    theme.colors.primary :
+    theme.colors.darkGray,
+  textDecoration: props.active || props.external ? 'underline' : 'none',
+})
 
-export const Anchor = ({href, prefetch, external, children}) => {
+const StyledAnchor = glamorous(
+  'a',
+)(basicLinkStyles, anchorStyles, (props, theme) =>
+  activeLinkStyles(props, theme),
+)
+
+export const Anchor = ({href, prefetch, external, pathname, children}) => {
   // eslint-disable-line no-unused-vars
   if (external) {
-    return <StyledAnchor href={href}>{children}</StyledAnchor>
+    return <StyledAnchor href={href} external>{children}</StyledAnchor>
   }
   return (
     <Link prefetch={prefetch} href={href}>
-      <StyledAnchor>{children}</StyledAnchor>
+      <StyledAnchor active={getPathname(pathname) === href}>
+        {children}
+      </StyledAnchor>
     </Link>
   )
 }

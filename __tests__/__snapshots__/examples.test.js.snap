@@ -17,7 +17,7 @@ exports[`Testing Examples Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-1xw95l9"
+            className="css-fib1m0"
             onClick={[Function]}
           >
             <svg
@@ -67,7 +67,7 @@ exports[`Testing Examples Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-1xw95l9"
+            className="css-fib1m0"
             onClick={[Function]}
           >
             Guides
@@ -77,7 +77,7 @@ exports[`Testing Examples Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-1xw95l9"
+            className="css-fib1m0"
             onClick={[Function]}
           >
             Examples
@@ -87,10 +87,10 @@ exports[`Testing Examples Renders! 1`] = `
           className="css-1oaxt76"
         >
           <a
-            className="css-1xw95l9"
+            className="css-fib1m0"
             onClick={[Function]}
           >
-            Docs
+            Documentation
           </a>
         </li>
       </ul>
@@ -203,7 +203,7 @@ exports[`Testing Examples Renders! 1`] = `
       by
        
       <a
-        className="css-1xw95l9"
+        className="css-1sbv75w"
         href="https://github.com/paypal"
       >
         PayPal

@@ -5,11 +5,9 @@ import Layout from '../components/layout'
 
 const {Div} = glamorous
 
-export default Guides
-
-function Guides() {
+const Guides = props => {
   return (
-    <Layout>
+    <Layout pathname={props.url ? props.url.pathname : ''}>
       <Div margin="20px auto" maxWidth={700} textAlign="center">
         <Logo marginTop={50} />
         <glamorous.P>edit in pages/guides.js</glamorous.P>
@@ -17,3 +15,5 @@ function Guides() {
     </Layout>
   )
 }
+
+export default Guides

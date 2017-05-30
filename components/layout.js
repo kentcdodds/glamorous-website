@@ -37,13 +37,13 @@ const NavWrapper = glamorous.div({
   zIndex: 1,
 })
 
-const layout = ({children}) => {
+const layout = ({pathname, children}) => {
   css.insert(baseStyles())
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper>
         <NavWrapper>
-          <Nav />
+          <Nav pathname={pathname} />
           {children}
           <Footer />
         </NavWrapper>
