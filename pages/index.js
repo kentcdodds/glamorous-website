@@ -9,19 +9,24 @@ const {Div} = glamorous
 export default () => {
   return (
     <Layout>
-      <Div margin="20px auto" maxWidth={700} textAlign="center">
-        <Logo marginTop={50}/>
-        <Div marginTop={30}>
-          Maintainable CSS with React
+      <Div margin={20}>
+        <Div
+          margin="0 auto"
+          maxWidth={800}
+          textAlign="center"
+          >
+          <Logo maxWidth={500} margin="0 auto"/>
+          <Div marginTop={30}>
+            Maintainable CSS with React
+          </Div>
+          <Button href="https://github.com/paypal/glamorous">
+            GitHub
+          </Button>
+          <SecondaryButton href="http://kcd.im/glamorous-help">
+            Try It
+          </SecondaryButton>
         </Div>
-        <Button href="https://github.com/paypal/glamorous">
-          GitHub
-        </Button>
-        <SecondaryButton href="http://kcd.im/glamorous-help">
-          Try It
-        </SecondaryButton>
       </Div>
     </Layout>
   )
 }
-

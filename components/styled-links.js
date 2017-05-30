@@ -11,7 +11,7 @@ const anchorStyles = {
   textDecoration: 'none',
   color: colors.primary,
   ':visited': {
-    color: colors.secondary
+    color: colors.primary
   }
 }
 const solidColors = {

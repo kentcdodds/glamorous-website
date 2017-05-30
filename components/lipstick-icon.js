@@ -1,5 +1,4 @@
 import React from 'react'
-import * as colors from '../styles/colors'
 
 function LipstickIcon(props) {
   return (
@@ -9,7 +8,7 @@ function LipstickIcon(props) {
       enableBackground="new 0 0 64 64"
       {...props}
       >
-      <g fill={colors.primary}>
+      <g fill="#ED4C5C">
         <path d="M20.8 6.4 40.9 26.5 29.7 37.7 2.2 10.2z"/>
         <path d="m10.6 5.8c-5.2.9-9 2.7-8.6 4.1.5 1.4 5.1 1.8 10.4.9 5.2-1 9.1-2.8 8.6-4.2-.5-1.4-5.2-1.7-10.4-.8"/>
       </g>
