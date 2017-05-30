@@ -1,19 +1,13 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import {Anchor} from '../components/styled-links'
-import {colors} from '../styles/global-styles'
 
 const Footer = glamorous.footer({
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '5rem',
-  width: '100%',
-  maxWidth: 600,
   paddingTop: 10,
   paddingBottom: 10,
   fontSize: '0.6em',
   textAlign: 'center',
-  borderTop: `1px solid ${colors.faded}`
+  background: 'white'
 })
 
 export default () => {

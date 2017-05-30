@@ -36,7 +36,7 @@ const solidColors = {
 }
 
 const transparentColors = {
-  backgroundColor: 'white',
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
   color: colors.primary
 }
 
@@ -50,11 +50,12 @@ export const Button = glamorous.a(
   {
     fontSize: '1em',
     border: `1px solid ${colors.primaryMed}`,
-    padding: '0.25em 1em',
+    width: '11em',
+    padding: '0.7em 0',
     textDecoration: 'none',
     borderRadius: 4,
     display: 'inline-block',
-    margin: '1em',
+    margin: '.5em 1em',
     transition: 'all .3s',
     ...solidColors,
     ':hover': transparentColors
