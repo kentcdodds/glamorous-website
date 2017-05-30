@@ -3,21 +3,9 @@ import glamorous from 'glamorous'
 import Logo from '../components/glamorous-logo'
 import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
-import Separator from '../components/separator'
 import CodePreview from '../components/code-preview'
-import MarkdownWrapper from '../components/markdown-wrapper'
 
 const {Div} = glamorous
-
-// Quick and Dirty copy paste
-
-// Define main file here so we can require the markdown file in the client
-let main = ''
-
-// Adds in main.md on client only
-if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
-  main = require('../docs/intro.md')
-}
 
 const Title = glamorous.h1((props, {colors}) => ({
   margin: '1em 0',
@@ -52,10 +40,17 @@ const UsersHeading = glamorous.div((props, {colors}) => ({
   textAlign: 'center',
 }))
 
-const Container = glamorous.div((props, {colors}) => ({
-  background: colors.white,
-  paddingTop: 1,
-  paddingBottom: 1,
+const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
+  background: colors.code,
+  borderRadius: 5,
+  fontFamily: fonts.monospace,
+  color: colors.lightGray,
+  padding: '15px 0',
+  maxWidth: 650,
+  width: '100%',
+  textAlign: 'center',
+  margin: '0 auto',
+  marginTop: 40,
 }))
 
 const Home = ({url}) => {
@@ -63,7 +58,7 @@ const Home = ({url}) => {
     <Layout pathname={url ? url.pathname : ''}>
       <Div margin={20}>
         <Div margin="0 auto" maxWidth={800} textAlign="center">
-          <Logo maxWidth={500} margin="0 auto" />
+          <Logo margin="0 auto" />
           <Title>
             Maintainable CSS with React
           </Title>
@@ -77,15 +72,11 @@ const Home = ({url}) => {
       </Div>
       <CodePreviewWrapper>
         <CodePreview />
+        <CodeBlock>
+          npm install --save glamorous react glamor prop-types
+        </CodeBlock>
         <UsersHeading>Used by peeps at</UsersHeading>
       </CodePreviewWrapper>
-      <Separator />
-      <Container>
-        <MarkdownWrapper>
-          <div dangerouslySetInnerHTML={{__html: main}} />
-        </MarkdownWrapper>
-      </Container>
-      <Separator />
     </Layout>
   )
 }

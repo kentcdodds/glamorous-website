@@ -29,12 +29,14 @@ export const colors = {
   gray: '#cccccc',
   medGray: '#777',
   darkGray: '#333',
+  code: '#4F4F4F',
   black: '#000',
 }
 
 export const fonts = {
   sansserif: '"Montserrat", sans-serif',
   glamorous: '"Playfair Display, serif"',
+  monospace: 'monospace',
 }
 
 export const mediaQueries = {

@@ -18,14 +18,14 @@ const anchorStyles = {
 const activeLinkStyles = (props, theme) => ({
   color: props.active || props.external ?
     theme.colors.primary :
-    theme.colors.darkGray,
+    theme.colors.primaryMed,
   textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
-const StyledAnchor = glamorous(
-  'a',
-)(basicLinkStyles, anchorStyles, (props, theme) =>
-  activeLinkStyles(props, theme),
+const StyledAnchor = glamorous.a(
+  basicLinkStyles,
+  anchorStyles,
+  (props, theme) => activeLinkStyles(props, theme),
 )
 
 export const Anchor = ({href, prefetch, external, pathname, children}) => {
