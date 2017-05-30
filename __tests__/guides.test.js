@@ -10,7 +10,7 @@ expect.extend(matcher)
 
 describe('Testing Guides', () => {
   it('Renders!', () => {
-    const component = renderer.create(<Guides/>)
+    const component = renderer.create(<Guides />)
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })

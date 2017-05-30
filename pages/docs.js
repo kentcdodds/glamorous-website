@@ -17,29 +17,29 @@ const MarkdownWrapper = glamorous.div({
   maxWidth: '50rem',
   '& pre, & code': {
     backgroundColor: '#eee',
-    fontSize: '1rem'
+    fontSize: '1rem',
   },
   '& pre': {
     padding: '1rem',
-    overflowX: 'scroll'
+    overflowX: 'scroll',
   },
   '& a': {
     textDecoration: 'none',
-    color: colors.primary
+    color: colors.primary,
   },
   '& p, & li': {
-    lineHeight: '2rem'
+    lineHeight: '2rem',
   },
   '& p code, & li code, & blockquote code': {
     padding: '.3rem',
-    borderRadius: '.3rem'
+    borderRadius: '.3rem',
   },
   '& blockquote': {
     margin: '1rem 0',
     padding: '0 1rem',
     color: '#666',
-    borderLeft: '6px solid #ddd'
-  }
+    borderLeft: '6px solid #ddd',
+  },
 })
 
 export default class Docs extends React.Component {
@@ -51,10 +51,9 @@ export default class Docs extends React.Component {
     return (
       <Layout>
         <MarkdownWrapper>
-          <div dangerouslySetInnerHTML={this.rawMarkup()}/>
+          <div dangerouslySetInnerHTML={this.rawMarkup()} />
         </MarkdownWrapper>
       </Layout>
     )
   }
 }
-

@@ -10,7 +10,7 @@ expect.extend(matcher)
 
 describe('Testing Index', () => {
   it('Renders!', () => {
-    const component = renderer.create(<Index/>)
+    const component = renderer.create(<Index />)
     const tree = component.toJSON()
     expect(tree).toMatchSnapshotWithGlamor()
   })

@@ -1,7 +1,7 @@
 module.exports = {
   font: {
     sansserif: '"Source Sans Pro", sans-serif',
-    glamorous: '"Playfair Display, serif"'
+    glamorous: '"Playfair Display, serif"',
   },
   colors: {
     primary: '#ED4C5C',
@@ -14,11 +14,11 @@ module.exports = {
     gray: '#cccccc',
     medGray: '#777',
     darkGray: '#333',
-    black: '#000'
+    black: '#000',
   },
   mediaQueries: {
     mobile: '@media screen and (min-device-width : 320px) and (max-device-width : 480px)',
     tablet: '@media screen and (min-device-width : 768px) and (max-device-width : 1024px)',
-    desktop: '@media screen and (min-width : 1224px)'
-  }
+    desktop: '@media screen and (min-width : 1224px)',
+  },
 }
