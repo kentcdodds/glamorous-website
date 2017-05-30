@@ -33,10 +33,8 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
 const UsersHeading = glamorous.div((props, {colors}) => ({
   textTransform: 'uppercase',
   color: colors.white,
-  fontSize: '0.8rem',
   fontWeight: '600',
   margin: '2.5rem 0 0.5rem',
-  opacity: 0.8,
   textAlign: 'center',
 }))
 
@@ -52,6 +50,23 @@ const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
   margin: '0 auto',
   marginTop: 40,
 }))
+
+const UsersList = glamorous.ul((props, {colors}) => ({
+  color: colors.white,
+  listStyle: 'none',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  fontSize: '2em',
+  fontWeight: 'bold',
+  margin: '0 auto',
+  padding: 0,
+  maxWidth: '50rem',
+  height: '4rem',
+  textTransform: 'uppercase',
+}))
+
+const User = glamorous.li()
 
 const Home = ({url}) => {
   return (
@@ -76,6 +91,12 @@ const Home = ({url}) => {
           npm install --save glamorous react glamor prop-types
         </CodeBlock>
         <UsersHeading>Used by peeps at</UsersHeading>
+        <UsersList>
+          <User>Target</User>
+          <User>Walmart</User>
+          <User>Reddit</User>
+          <User>Bloomberg</User>
+        </UsersList>
       </CodePreviewWrapper>
     </Layout>
   )
