@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import Layout from '../components/layout'
-import * as colors from '../styles/colors'
+import {colors} from '../styles/global-styles'
 
 // Define main file here so we can require the markdown file in the client
 let main = ''

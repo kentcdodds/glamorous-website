@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import {Anchor} from '../components/styled-links'
-import * as colors from '../styles/colors'
+import {colors} from '../styles/global-styles'
 
 const Footer = glamorous.footer({
   marginLeft: 'auto',

@@ -1,6 +1,6 @@
 import React from 'react'
 import {css, rehydrate} from 'glamor'
-import glamorous, {ThemeProvider} from 'glamorous'
+import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
 import Nav from './nav'
@@ -13,11 +13,12 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
   rehydrate(window.__NEXT_DATA__.ids)
 }
 
-const Wrapper = glamorous.div((props, {font, colors}) => ({
-  fontFamily: font.sansserif,
+const Wrapper = glamorous.div((props, {fonts, colors}) => ({
+  fontFamily: fonts.sansserif,
   backgroundColor: colors.primaryLight,
   ':after': {
     content: '""',
+    pointerEvents: 'none',
     backgroundImage: 'url(/static/images/g-background.svg)',
     backgroundSize: '800px',
     backgroundRepeat: 'no-repeat',
@@ -36,9 +37,11 @@ export default ({children}) => {
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper>
-        <Nav/>
-        {children}
-        <Footer/>
+        <Div position="relative" zIndex={1}>
+          <Nav/>
+          {children}
+          <Footer/>
+        </Div>
       </Wrapper>
     </ThemeProvider>
   )

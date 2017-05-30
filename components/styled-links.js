@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import glamorous from 'glamorous'
-import * as colors from '../styles/colors'
+import {colors} from '../styles/global-styles'
 
 const basicLinkStyles = {
   cursor: 'pointer'
@@ -9,41 +9,13 @@ const basicLinkStyles = {
 
 const anchorStyles = {
   textDecoration: 'none',
-  color: colors.primary,
+  color: colors.primaryMed,
   ':visited': {
-    color: colors.primary
+    color: colors.primaryMed
   }
-}
-const solidColors = {
-  backgroundColor: colors.primary,
-  color: 'white'
-}
-
-const transparentColors = {
-  backgroundColor: 'white',
-  color: colors.primary
-}
-
-const sharedStyles = {
-  fontSize: '1em',
-  border: `2px solid ${colors.faded}`,
-  padding: '0.25em 1em',
-  textDecoration: 'none',
-  borderRadius: 4,
-  display: 'inline-block',
-  margin: 25,
-  transition: 'all .3s'
 }
 
 const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
-
-const StyledButton = glamorous('a')(basicLinkStyles, sharedStyles, solidColors, {
-  ':hover': transparentColors
-})
-
-const StyledSecondaryButton = glamorous('a')(basicLinkStyles, sharedStyles, transparentColors, {
-  ':hover': solidColors
-})
 
 export const Anchor = ({href, prefetch, external, children}) => { // eslint-disable-line no-unused-vars
   if (external) {
@@ -58,14 +30,36 @@ export const Anchor = ({href, prefetch, external, children}) => { // eslint-disa
   )
 }
 
-export const Button = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledButton href={href}>{children}</StyledButton>
-  )
+const solidColors = {
+  backgroundColor: colors.primary,
+  color: 'white'
 }
 
-export const SecondaryButton = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledSecondaryButton href={href}>{children}</StyledSecondaryButton>
-  )
+const transparentColors = {
+  backgroundColor: 'white',
+  color: colors.primary
 }
+
+const secondaryButtonStyles = {
+  ...transparentColors,
+  ':hover': solidColors
+}
+
+export const Button = glamorous.a(
+  basicLinkStyles,
+  {
+    fontSize: '1em',
+    border: `1px solid ${colors.primaryMed}`,
+    padding: '0.25em 1em',
+    textDecoration: 'none',
+    borderRadius: 4,
+    display: 'inline-block',
+    margin: '1em',
+    transition: 'all .3s',
+    ...solidColors,
+    ':hover': transparentColors
+  },
+  props => ({
+    ...(props.secondary) ? secondaryButtonStyles : {}
+  })
+)
