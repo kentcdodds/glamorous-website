@@ -11,7 +11,7 @@ exports[`Testing Index Renders! 1`] = `
       className="css-nil"
     >
       <ul
-        className="css-1amo1na"
+        className="css-dkzezy"
       >
         <li
           className="css-1oaxt76"
@@ -218,10 +218,34 @@ exports[`Testing Index Renders! 1`] = `
         npm install --save glamorous react glamor prop-types
       </div>
       <div
-        className="css-1snf17o"
+        className="css-occ7o4"
       >
         Used by peeps at
       </div>
+      <ul
+        className="css-1bhimm1"
+      >
+        <li
+          className="css-nil"
+        >
+          Target
+        </li>
+        <li
+          className="css-nil"
+        >
+          Walmart
+        </li>
+        <li
+          className="css-nil"
+        >
+          Reddit
+        </li>
+        <li
+          className="css-nil"
+        >
+          Bloomberg
+        </li>
+      </ul>
     </div>
     <div>
       <div
