@@ -1,6 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Docs Renders! 1`] = `
+.css-204t0b,
+[data-css-204t0b] {
+  font-family: "Montserrat", sans-serif;
+  background-color: #FFEFEF;
+}
+
+.css-204t0b:after,
+[data-css-204t0b]:after {
+  position: absolute;
+  content: "";
+  background-image: url(/static/images/g-background.svg);
+  background-size: 800px;
+  background-repeat: no-repeat;
+  background-position: 70% -300px;
+  pointer-events: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.css-4cv6bo,
+[data-css-4cv6bo] {
+  position: relative;
+  z-index: 1;
+}
+
+.css-dkzezy,
+[data-css-dkzezy] {
+  -webkit-box-align: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -ms-flex-align: center;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 4rem;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.css-1oaxt76,
+[data-css-1oaxt76] {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 4px;
+}
+
+.css-1xw95l9,
+[data-css-1xw95l9] {
+  cursor: pointer;
+  text-decoration: none;
+  color: #F67982;
+}
+
+.css-1xw95l9:visited,
+[data-css-1xw95l9]:visited {
+  color: #BD3D90;
+}
+
+.css-1tz0j7g,
+[data-css-1tz0j7g] {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 50rem;
+}
+
+.css-1tz0j7g pre,
+[data-css-1tz0j7g] pre,
+.css-1tz0j7g code,
+[data-css-1tz0j7g] code {
+  background-color: #eee;
+  font-size: 1rem;
+}
+
+.css-1tz0j7g pre,
+[data-css-1tz0j7g] pre {
+  padding: 1rem;
+  overflow-x: scroll;
+}
+
+.css-1tz0j7g a,
+[data-css-1tz0j7g] a {
+  text-decoration: none;
+  color: #ED5C70;
+}
+
+.css-1tz0j7g p,
+[data-css-1tz0j7g] p,
+.css-1tz0j7g li,
+[data-css-1tz0j7g] li {
+  line-height: 2rem;
+}
+
+.css-1tz0j7g p code,
+[data-css-1tz0j7g] p code,
+.css-1tz0j7g li code,
+[data-css-1tz0j7g] li code,
+.css-1tz0j7g blockquote code,
+[data-css-1tz0j7g] blockquote code {
+  padding: .3rem;
+  border-radius: .3rem;
+}
+
+.css-1tz0j7g blockquote,
+[data-css-1tz0j7g] blockquote {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  color: #666;
+  border-left: 6px solid #ddd;
+}
+
+.css-1djfccv,
+[data-css-1djfccv] {
+  height: 7px;
+  background: -webkit-linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+  background: -moz-linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+  background: linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+}
+
+.css-qyz8mk,
+[data-css-qyz8mk] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 0.6em;
+  text-align: center;
+  background: #fff;
+}
+
+.css-1sbv75w,
+[data-css-1sbv75w] {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ED5C70;
+}
+
+.css-1sbv75w:visited,
+[data-css-1sbv75w]:visited {
+  color: #BD3D90;
+}
+
+@media only screen and (min-width: 481px) {
+  .css-dkzezy,
+  [data-css-dkzezy] {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+  }
+}
+
 <div
   className="css-204t0b"
 >

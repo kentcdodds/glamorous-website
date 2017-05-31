@@ -6,6 +6,9 @@ import GlobalStyles from '../styles/global-styles'
 import Nav from './nav'
 import Footer from './footer'
 
+// when we can use babel-plugin-glamorous-displayname then this will be handy
+// glamorous.config.useDisplayNameInClassName = true
+
 // Adds server generated styles to glamor cache.
 // Has to run before any `style()` calls
 // '__NEXT_DATA__.ids' is set in '_document.js'

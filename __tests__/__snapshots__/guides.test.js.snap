@@ -1,6 +1,127 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Guides Renders! 1`] = `
+.css-204t0b,
+[data-css-204t0b] {
+  font-family: "Montserrat", sans-serif;
+  background-color: #FFEFEF;
+}
+
+.css-204t0b:after,
+[data-css-204t0b]:after {
+  position: absolute;
+  content: "";
+  background-image: url(/static/images/g-background.svg);
+  background-size: 800px;
+  background-repeat: no-repeat;
+  background-position: 70% -300px;
+  pointer-events: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.css-4cv6bo,
+[data-css-4cv6bo] {
+  position: relative;
+  z-index: 1;
+}
+
+.css-dkzezy,
+[data-css-dkzezy] {
+  -webkit-box-align: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -ms-flex-align: center;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 4rem;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.css-1oaxt76,
+[data-css-1oaxt76] {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 4px;
+}
+
+.css-1xw95l9,
+[data-css-1xw95l9] {
+  cursor: pointer;
+  text-decoration: none;
+  color: #F67982;
+}
+
+.css-1xw95l9:visited,
+[data-css-1xw95l9]:visited {
+  color: #BD3D90;
+}
+
+.css-2y5bqi,
+[data-css-2y5bqi] {
+  margin: 20px auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+.css-bpvqew,
+[data-css-bpvqew] {
+  margin-top: 50px;
+}
+
+.css-1djfccv,
+[data-css-1djfccv] {
+  height: 7px;
+  background: -webkit-linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+  background: -moz-linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+  background: linear-gradient(to right, #f67982 0%,#f67982 33%,#FEBBC0 33%,#FEBBC0 66%,#FECDCD 66%,#FECDCD 100%);
+}
+
+.css-qyz8mk,
+[data-css-qyz8mk] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 0.6em;
+  text-align: center;
+  background: #fff;
+}
+
+.css-1sbv75w,
+[data-css-1sbv75w] {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ED5C70;
+}
+
+.css-1sbv75w:visited,
+[data-css-1sbv75w]:visited {
+  color: #BD3D90;
+}
+
+@media only screen and (min-width: 481px) {
+  .css-dkzezy,
+  [data-css-dkzezy] {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+  }
+}
+
 <div
   className="css-204t0b"
 >
