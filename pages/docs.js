@@ -7,7 +7,7 @@ let main = ''
 
 // Adds in main.md on client only
 if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
-  main = require('../translations/docs/en/main.md')
+  main = require('../translations/en/docs/main.md')
 }
 
 export default class Docs extends React.Component {
