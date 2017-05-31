@@ -4,6 +4,7 @@ import Logo from '../components/glamorous-logo'
 import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import CodePreview from '../components/code-preview'
+import {HomePageExample} from '../examples/home-page-example'
 
 const {Div} = glamorous
 
@@ -86,7 +87,7 @@ const Home = ({url}) => {
         </Div>
       </Div>
       <CodePreviewWrapper>
-        <CodePreview />
+        <CodePreview code={HomePageExample} />
         <CodeBlock>
           npm install --save glamorous react glamor prop-types
         </CodeBlock>
