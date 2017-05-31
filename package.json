@@ -28,6 +28,7 @@
     "next": "^2.4.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-live": "^1.5.3",
     "react-markdown": "^2.5.0",
     "webpack": "^2.6.1"
   },
