@@ -21,6 +21,7 @@ module.exports = {
     },
     test: {
       default: 'cross-env NODE_ENV=test jest --coverage',
+      update: 'cross-env NODE_ENV=test jest -u',
       watch: 'cross-env NODE_ENV=test jest --watch',
     },
     build: {
