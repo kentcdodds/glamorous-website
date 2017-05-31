@@ -31,8 +31,8 @@ const CodePreview = props => {
   return (
     <StyledLiveProvider noInline code={props.code} scope={{glamorous}}>
       <StyledLivePreview />
-      <StyledLiveEditor />
       <StyledLiveError />
+      <StyledLiveEditor />
     </StyledLiveProvider>
   )
 }
