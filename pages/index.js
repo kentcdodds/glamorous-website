@@ -58,7 +58,8 @@ const GettingStarted = glamorous(Button)(
     textTransform: 'uppercase',
     fontWeight: '600',
     fontSize: '1.3rem',
-    width: 450,
+    width: '90%',
+    maxWidth: 450,
   },
   (props, {colors}) => ({
     color: colors.white,
