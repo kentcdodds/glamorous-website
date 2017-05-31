@@ -83,7 +83,7 @@ For usage notes and known issues see [other/TYPESCRIPT_USAGE.md][typescript-usag
 ## Video Intro :tv:
 
 <a href="https://youtu.be/lmrQTpJ_3PM" title="glamorous walkthrough">
-  <img src="https://github.com/paypal/glamorous/raw/master/other/glamorous-walkthrough.png" alt="Video Screenshot" title="Video Screenshot" width="700" />
+  <img src="https://github.com/paypal/glamorous/raw/master/other/glamorous-walkthrough.png" alt="Video Screenshot" title="Video Screenshot"/>
 </a>
 
 ## Terms and concepts

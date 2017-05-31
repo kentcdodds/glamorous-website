@@ -5,6 +5,8 @@ const MarkdownWrapper = glamorous.div({
   margin: '20px auto',
   width: '100%',
   maxWidth: '50rem',
+  padding: '0 1rem',
+  '& img': {width: '100%'},
   '& pre, & code': {backgroundColor: '#eee', fontSize: '1rem'},
   '& pre': {padding: '1rem', overflowX: 'scroll'},
   '& a': {textDecoration: 'none', color: colors.primary},
