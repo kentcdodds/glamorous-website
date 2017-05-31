@@ -1,7 +1,6 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import Logo from '../components/glamorous-logo'
-import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import CodePreview from '../components/code-preview'
 import {HomePageExample} from '../examples/home-page-example'
@@ -21,7 +20,7 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   background: 'transparent',
   '::after': {
     content: '""',
-    top: '8em',
+    top: '15em',
     left: 0,
     bottom: 0,
     right: 0,
@@ -83,12 +82,6 @@ const Home = ({url}) => {
           <Title>
             Maintainable CSS with React
           </Title>
-          <Button href="https://github.com/paypal/glamorous">
-            GitHub
-          </Button>
-          <Button secondary href="http://kcd.im/glamorous-help">
-            Try It
-          </Button>
         </Div>
       </Div>
       <CodePreviewWrapper>

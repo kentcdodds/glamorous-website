@@ -55,4 +55,8 @@ export default () => `
     font-size: 1.2rem;
     line-height: 1.2rem;
   }
+
+  pre {
+    overflow-x: scroll;
+  }
 `
