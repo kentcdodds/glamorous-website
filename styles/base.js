@@ -58,5 +58,6 @@ export default () => `
 
   pre {
     overflow-x: scroll;
+    max-width: 100%;
   }
 `
