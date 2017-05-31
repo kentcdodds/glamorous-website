@@ -6,8 +6,8 @@ const StyledLiveProvider = glamorous(LiveProvider)({
   margin: '0 auto',
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'stretch',
-  alignItems: 'stretch',
+  flexWrap: 'wrap',
+  justifyContent: 'space-around',
   maxWidth: '50rem',
 })
 
@@ -25,12 +25,22 @@ const StyledLivePreview = glamorous(LivePreview)((props, {colors}) => ({
   padding: '1rem',
 }))
 
+const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
+  color: colors.code,
+  fontFamily: fonts.monospace,
+  backgroundColor: colors.white,
+  flexBasis: '100%',
+  width: '100%',
+  maxWidth: '100%',
+  padding: '1rem',
+}))
+
 const CodePreview = props => {
   return (
     <StyledLiveProvider noInline code={props.code} scope={{glamorous}}>
       <StyledLiveEditor />
-      <LiveError />
       <StyledLivePreview />
+      <StyledLiveError />
     </StyledLiveProvider>
   )
 }
