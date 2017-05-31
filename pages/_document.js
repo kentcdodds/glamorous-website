@@ -25,6 +25,19 @@ export default class MyDocument extends Document {
           <title>glamorous - React component styling solved 💄</title>
           <style dangerouslySetInnerHTML={{__html: this.props.css}} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@glamorousCSS" />
+          <meta name="twitter:creator" content="@glamorousCSS" />
+          <meta name="twitter:title" content="Maintainable CSS with React" />
+          <meta
+            name="twitter:description"
+            content="React component styling solved with an elegant API, small footprint, and great performance"
+          />
+          <meta
+            name="twitter:image"
+            content="https://cloud.githubusercontent.com/assets/7799266/26611099/74c2a45c-4571-11e7-8290-dbdc822339be.png"
+          />
+          <meta name="twitter:url" content="https://glamorous.rocks" />
           <link
             rel="shortcut icon"
             type="image/x-icon"
