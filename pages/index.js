@@ -63,11 +63,16 @@ const UsersList = glamorous.ul((props, {colors}) => ({
   margin: '0 auto',
   padding: 0,
   maxWidth: '50rem',
-  height: '4rem',
   textTransform: 'uppercase',
+  flexWrap: 'wrap',
 }))
 
-const User = glamorous.li()
+const User = glamorous.li((props, {mediaQueries}) => ({
+  [mediaQueries.smallOnly]: {
+    width: '100vw',
+    textAlign: 'center',
+  },
+}))
 
 const Home = ({url}) => {
   return (
