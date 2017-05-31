@@ -28,16 +28,13 @@ const StyledAnchor = glamorous.a(
   (props, theme) => activeLinkStyles(props, theme),
 )
 
-export const Anchor = ({href, prefetch, external, pathname, children}) => {
-  // eslint-disable-line no-unused-vars
+const Anchor = ({href, prefetch, external, pathname, ...rest}) => {
   if (external) {
-    return <StyledAnchor href={href} external>{children}</StyledAnchor>
+    return <StyledAnchor href={href} external {...rest} />
   }
   return (
     <Link prefetch={prefetch} href={href}>
-      <StyledAnchor active={getPathname(pathname) === href}>
-        {children}
-      </StyledAnchor>
+      <StyledAnchor active={getPathname(pathname) === href} {...rest} />
     </Link>
   )
 }
@@ -51,7 +48,7 @@ const transparentColors = {
 
 const secondaryButtonStyles = {...transparentColors, ':hover': solidColors}
 
-export const Button = glamorous.a(
+const Button = glamorous(Anchor)(
   basicLinkStyles,
   {
     fontSize: '1em',
@@ -68,3 +65,5 @@ export const Button = glamorous.a(
   },
   props => ({...(props.secondary ? secondaryButtonStyles : {})}),
 )
+
+export {Button, Anchor}

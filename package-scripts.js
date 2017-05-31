@@ -19,7 +19,10 @@ module.exports = {
       description: 'This uses commitizen to help us generate well formatted commit messages',
       script: 'git-cz',
     },
-    test: {default: 'jest --coverage', watch: 'jest --watch'},
+    test: {
+      default: 'cross-env NODE_ENV=test jest --coverage',
+      watch: 'cross-env NODE_ENV=test jest --watch',
+    },
     build: {
       description: 'delete the dist directory and run babel to build the files',
       script: 'next build',

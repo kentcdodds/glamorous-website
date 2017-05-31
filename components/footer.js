@@ -18,7 +18,7 @@ function PageFooter() {
     <div>
       <Separator />
       <Footer>
-        Made with <span role="img" aria-label="love">💙</span>by
+        Made with <span role="img" aria-label="love">💙</span> by
         {' '}
         <Anchor external href="https://github.com/paypal">PayPal</Anchor>
         .

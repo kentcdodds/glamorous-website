@@ -1,17 +1,24 @@
 import React from 'react'
-import glamorous from 'glamorous'
+import glamorous, {Div} from 'glamorous'
 import Logo from '../components/glamorous-logo'
 import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import CodePreview from '../components/code-preview'
+import HomePageExample from '../examples/home-page-example'
 
-const {Div} = glamorous
-
-const Title = glamorous.h1((props, {colors}) => ({
+const Title = glamorous.h1((props, {colors, mediaQueries}) => ({
   margin: '1em 0',
   color: colors.primaryMed,
-  fontWeight: 'normal',
-  fontSize: '1em',
+  fontWeight: 'lighter',
+  [mediaQueries.smallUp]: {
+    fontSize: '6vw',
+  },
+  [mediaQueries.mediumUp]: {
+    fontSize: '5vw',
+  },
+  [mediaQueries.largeUp]: {
+    fontSize: 50,
+  },
 }))
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
@@ -20,7 +27,7 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   background: 'transparent',
   '::after': {
     content: '""',
-    top: '8em',
+    top: '15em',
     left: 0,
     bottom: 0,
     right: 0,
@@ -28,16 +35,6 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
     background: colors.primaryMed,
     zIndex: -1,
   },
-}))
-
-const UsersHeading = glamorous.div((props, {colors}) => ({
-  textTransform: 'uppercase',
-  color: colors.white,
-  fontSize: '0.8rem',
-  fontWeight: '600',
-  margin: '2.5rem 0 0.5rem',
-  opacity: 0.8,
-  textAlign: 'center',
 }))
 
 const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
@@ -53,6 +50,22 @@ const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
   marginTop: 40,
 }))
 
+const GettingStarted = glamorous(Button)(
+  {
+    display: 'block',
+    margin: '3.5rem auto',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    fontSize: '1.3rem',
+    width: '90%',
+    maxWidth: 450,
+  },
+  (props, {colors}) => ({
+    color: colors.white,
+  }),
+)
+
 const Home = ({url}) => {
   return (
     <Layout pathname={url ? url.pathname : ''}>
@@ -62,21 +75,17 @@ const Home = ({url}) => {
           <Title>
             Maintainable CSS with React
           </Title>
-          <Button href="https://github.com/paypal/glamorous">
-            GitHub
-          </Button>
-          <Button secondary href="http://kcd.im/glamorous-help">
-            Try It
-          </Button>
         </Div>
       </Div>
       <CodePreviewWrapper>
-        <CodePreview />
+        <CodePreview code={HomePageExample} />
         <CodeBlock>
           npm install --save glamorous react glamor prop-types
         </CodeBlock>
-        <UsersHeading>Used by peeps at</UsersHeading>
       </CodePreviewWrapper>
+      <GettingStarted prefetch={process.env.USE_PREFETCH} href="/guides">
+        Click Here to get started
+      </GettingStarted>
     </Layout>
   )
 }

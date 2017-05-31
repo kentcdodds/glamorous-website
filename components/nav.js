@@ -15,13 +15,12 @@ const List = glamorous.ul((props, {mediaQueries}) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '0.9em',
-  marginTop: 0,
-  marginBottom: 0,
-  padding: '0 20px',
-  height: 56,
+  fontSize: '1.25em',
+  margin: '0 auto',
+  padding: 0,
+  maxWidth: '50rem',
+  height: '4rem',
   [mediaQueries.mediumUp]: {
-    height: 64,
     justifyContent: 'flex-end',
   },
 }))
