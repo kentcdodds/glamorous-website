@@ -4,22 +4,9 @@ exports[`shallow 1`] = `
 <layout
   pathname=""
 >
-  <glamorous.Div
-    margin={20}
-  >
-    <glamorous.Div
-      margin="0 auto"
-      maxWidth={800}
-      textAlign="center"
-    >
-      <GlamorousLogo
-        margin="0 auto"
-      />
-      <glamorous(h1)>
-        Maintainable CSS with React
-      </glamorous(h1)>
-    </glamorous.Div>
-  </glamorous.Div>
+  <Hero>
+    Maintainable CSS with React
+  </Hero>
   <glamorous(div)>
     <CodePreview
       code="const Button = glamorous.a({
