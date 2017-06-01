@@ -6,7 +6,7 @@ const MarkdownWrapper = glamorous.div({
   width: '100%',
   maxWidth: '50rem',
   padding: '0 1rem',
-  '& img': {width: '100%'},
+  '& img:not([src*="img.badgesize.io"])': {width: '100%'}, // exclude images with a source at img.badgesize.io
   '& pre, & code': {backgroundColor: '#eee', fontSize: '1rem'},
   '& pre': {padding: '1rem', overflowX: 'scroll'},
   '& a': {textDecoration: 'none', color: colors.primary},
