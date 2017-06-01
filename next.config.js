@@ -4,6 +4,12 @@ const marked = require('marked')
 const renderer = new marked.Renderer()
 const USE_PREFETCH = process.env.NODE_ENV !== 'test'
 
+renderer.heading = (text, level) => {
+  const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
+
+  return `<h${level}><a name="${escapedText}" href="#${escapedText}">${text}</a></h${level}>`
+}
+
 module.exports = {
   webpack: config => {
     // Add in prefetch conditionally so we don't break jest snapshot testing
