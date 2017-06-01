@@ -71,52 +71,58 @@ exports[`Testing Docs Renders! 1`] = `
   color: #BD3D90;
 }
 
-.css-1tz0j7g,
-[data-css-1tz0j7g] {
+.css-utq8en,
+[data-css-utq8en] {
   margin: 20px auto;
   width: 100%;
   max-width: 50rem;
+  padding: 0 1rem;
 }
 
-.css-1tz0j7g pre,
-[data-css-1tz0j7g] pre,
-.css-1tz0j7g code,
-[data-css-1tz0j7g] code {
+.css-utq8en img:not([src*="img.badgesize.io"]),
+[data-css-utq8en] img:not([src*="img.badgesize.io"]) {
+  width: 100%;
+}
+
+.css-utq8en pre,
+[data-css-utq8en] pre,
+.css-utq8en code,
+[data-css-utq8en] code {
   background-color: #eee;
   font-size: 1rem;
 }
 
-.css-1tz0j7g pre,
-[data-css-1tz0j7g] pre {
+.css-utq8en pre,
+[data-css-utq8en] pre {
   padding: 1rem;
   overflow-x: scroll;
 }
 
-.css-1tz0j7g a,
-[data-css-1tz0j7g] a {
+.css-utq8en a,
+[data-css-utq8en] a {
   text-decoration: none;
   color: #ED5C70;
 }
 
-.css-1tz0j7g p,
-[data-css-1tz0j7g] p,
-.css-1tz0j7g li,
-[data-css-1tz0j7g] li {
+.css-utq8en p,
+[data-css-utq8en] p,
+.css-utq8en li,
+[data-css-utq8en] li {
   line-height: 2rem;
 }
 
-.css-1tz0j7g p code,
-[data-css-1tz0j7g] p code,
-.css-1tz0j7g li code,
-[data-css-1tz0j7g] li code,
-.css-1tz0j7g blockquote code,
-[data-css-1tz0j7g] blockquote code {
+.css-utq8en p code,
+[data-css-utq8en] p code,
+.css-utq8en li code,
+[data-css-utq8en] li code,
+.css-utq8en blockquote code,
+[data-css-utq8en] blockquote code {
   padding: .3rem;
   border-radius: .3rem;
 }
 
-.css-1tz0j7g blockquote,
-[data-css-1tz0j7g] blockquote {
+.css-utq8en blockquote,
+[data-css-utq8en] blockquote {
   margin: 1rem 0;
   padding: 0 1rem;
   color: #666;
@@ -257,7 +263,7 @@ exports[`Testing Docs Renders! 1`] = `
       </ul>
     </nav>
     <div
-      className="css-1tz0j7g"
+      className="css-utq8en"
     >
       <div
         dangerouslySetInnerHTML={

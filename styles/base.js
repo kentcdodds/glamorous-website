@@ -18,6 +18,9 @@ export default () => `
     margin: 0;
     padding: 0;
     min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   ${mediaQueries.largeUp} {
     html {
@@ -31,6 +34,9 @@ export default () => `
     margin: 0;
     padding: 0;
     min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   a {
@@ -58,5 +64,6 @@ export default () => `
 
   pre {
     overflow-x: scroll;
+    max-width: 100%;
   }
 `
