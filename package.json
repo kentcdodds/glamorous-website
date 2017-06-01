@@ -19,6 +19,7 @@
     "css-in-js"
   ],
   "dependencies": {
+    "axios": "^0.16.1",
     "glamor": "^2.20.25",
     "glamorous": "^3.19.1",
     "html-loader": "^0.4.5",
@@ -30,6 +31,9 @@
     "react-dom": "^15.5.4",
     "react-live": "^1.5.3",
     "react-markdown": "^2.5.0",
+    "remark": "^7.0.1",
+    "remark-html": "^6.0.0",
+    "unist-util-visit": "^1.1.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {

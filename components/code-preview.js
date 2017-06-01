@@ -27,9 +27,9 @@ const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
   padding: '1rem',
 }))
 
-const CodePreview = props => {
+const CodePreview = ({noInline = true, code}) => {
   return (
-    <StyledLiveProvider noInline code={props.code} scope={{glamorous}}>
+    <StyledLiveProvider noInline={noInline} code={code} scope={{glamorous}}>
       <StyledLivePreview />
       <StyledLiveError />
       <StyledLiveEditor />
