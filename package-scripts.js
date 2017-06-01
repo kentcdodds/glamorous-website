@@ -1,6 +1,7 @@
 const npsUtils = require('nps-utils')
 
 const concurrent = npsUtils.concurrent
+const hiddenFromHelp = true
 
 module.exports = {
   scripts: {
@@ -35,6 +36,16 @@ module.exports = {
     validate: {
       description: 'This runs several scripts to make sure things look good before committing or on clean install',
       script: concurrent.nps('lint', 'test'),
+    },
+    deploy: {
+      hiddenFromHelp,
+      description: 'Runs the deploy script.',
+      script: 'NOW_ALIAS=rc.glamorous.rocks ./other/now-travis || true',
+    },
+    validateAndDeploy: {
+      hiddenFromHelp,
+      description: 'This runs the validation and deploy concurrently',
+      script: concurrent.nps('validate', 'deploy'),
     },
   },
   options: {silent: false},
