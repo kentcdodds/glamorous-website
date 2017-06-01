@@ -1,25 +1,10 @@
 import React from 'react'
-import glamorous, {Div} from 'glamorous'
-import Logo from '../components/glamorous-logo'
+import glamorous from 'glamorous'
 import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import CodePreview from '../components/code-preview'
 import HomePageExample from '../examples/home-page-example'
-
-const Title = glamorous.h1((props, {colors, mediaQueries}) => ({
-  margin: '1em 0',
-  color: colors.primaryMed,
-  fontWeight: 'lighter',
-  [mediaQueries.smallUp]: {
-    fontSize: '6vw',
-  },
-  [mediaQueries.mediumUp]: {
-    fontSize: '5vw',
-  },
-  [mediaQueries.largeUp]: {
-    fontSize: 50,
-  },
-}))
+import Hero from '../components/hero'
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   position: 'relative',
@@ -69,14 +54,9 @@ const GettingStarted = glamorous(Button)(
 const Home = ({url}) => {
   return (
     <Layout pathname={url ? url.pathname : ''}>
-      <Div margin={20}>
-        <Div margin="0 auto" maxWidth={800} textAlign="center">
-          <Logo margin="0 auto" />
-          <Title>
-            Maintainable CSS with React
-          </Title>
-        </Div>
-      </Div>
+      <Hero>
+        Maintainable CSS with React
+      </Hero>
       <CodePreviewWrapper>
         <CodePreview code={HomePageExample} />
         <CodeBlock>
