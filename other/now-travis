@@ -1,0 +1,154 @@
+#! /usr/bin/env node
+
+/*
+ * this was copied and modified from https://github.com/eliperelman/now-travis
+ */
+
+const path = require('path')
+const github = require('octonode')
+const spawn = require('cross-spawn')
+
+const nowCli = path.resolve(__dirname, '../node_modules/.bin/now')
+
+if (!process.env.CI || !process.env.TRAVIS) {
+  throw new Error('Could not detect Travis CI environment')
+}
+
+const githubToken = process.env.GH_TOKEN
+const nowToken = process.env.NOW_TOKEN
+
+if (!githubToken) {
+  throw new Error('Missing required environment variable GH_TOKEN')
+}
+
+if (!nowToken) {
+  throw new Error('Missing required environment variable NOW_TOKEN')
+}
+
+const client = github.client(githubToken)
+const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
+
+function logError(message) {
+  return function onError(error) {
+    if (error) {
+      console.log(message, error)
+    }
+  }
+}
+
+function deploy(context, alias, sha) {
+  updateStatus({
+    state: 'pending',
+    description: `▲ Now ${context} deployment pending`,
+  })
+
+  const args = ['alias', `$(now --token ${nowToken} --no-clipboard)`, alias]
+
+  safeLog('Executing:', nowCli, args.join(' '))
+  const child = spawn(nowCli, args)
+
+  child.stdout.on('data', data => {
+    safeLog(String(data))
+  })
+
+  child.stderr.on('data', data => {
+    safeError(String(data))
+  })
+
+  child.on('error', err => {
+    safeError(err)
+    updateStatus({
+      state: 'error',
+      description: `▲ Now ${context} deployment failed. See Travis logs for details.`,
+    })
+  })
+
+  child.on('close', () => {
+    updateStatus({
+      state: 'success',
+      description: `▲ Now ${context} deployment complete`,
+    })
+  })
+
+  function updateStatus(options) {
+    console.log(`${options.description}: ${options.target_url}`)
+    const mergedOptions = Object.assign({context, target_url: alias}, options)
+    ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+  }
+}
+
+const {
+  TRAVIS_EVENT_TYPE,
+  TRAVIS_PULL_REQUEST_BRANCH,
+  TRAVIS_PULL_REQUEST_SLUG,
+  TRAVIS_PULL_REQUEST_SHA,
+  NOW_ALIAS,
+  TRAVIS_COMMIT,
+} = process.env
+
+switch (TRAVIS_EVENT_TYPE) {
+  case 'pull_request': {
+    const VALID_URI_CHARACTERS = /[^A-Z0-9]/gi
+    const branch = TRAVIS_PULL_REQUEST_BRANCH.replace(
+      VALID_URI_CHARACTERS,
+      '-'
+    )
+    const repo = TRAVIS_PULL_REQUEST_SLUG.replace(VALID_URI_CHARACTERS, '-')
+    const alias = `https://${repo}-${branch}.now.sh`
+    deploy('staging', alias, TRAVIS_PULL_REQUEST_SHA)
+    break
+  }
+  case 'push': {
+    deploy('production', NOW_ALIAS, TRAVIS_COMMIT)
+    break
+  }
+  default: {
+    console.log(`${TRAVIS_EVENT_TYPE} is not supported by now-travis`)
+  }
+}
+
+function safeLog(...args) {
+  const safeArgs = args.map(safeify)
+  console.log(...safeArgs)
+}
+
+function safeError(...args) {
+  const safeArgs = args.map(safeify)
+  console.error(...safeArgs)
+}
+
+function safeify(s, safed = []) {
+  if (safed.includes(s)) {
+    return 'CIRCULAR'
+  }
+  safed.push(s)
+  if (typeof s === 'string') {
+    return s
+      .split(nowToken)
+      .join('NOW_TOKEN')
+      .split(githubToken)
+      .join('GITHUB_TOKEN')
+  } else if (typeof s === 'object' && s !== null) {
+    return Object.keys(s).reduce((acc, k) => {
+      acc[k] = safeify(s, safed)
+      return acc
+    }, {})
+  } else {
+    return s
+  }
+}
+
+// This is not transpiled
+/*
+  eslint
+  no-console: 0,
+  camelcase: 0,
+  comma-dangle: [
+    2,
+    {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      functions: 'never'
+    }
+  ]
+ */
