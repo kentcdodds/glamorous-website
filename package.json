@@ -39,7 +39,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "codecov": "^2.2.0",
     "commitizen": "^2.9.6",
     "cross-env": "^5.0.0",
     "cz-conventional-changelog": "^2.0.0",
@@ -55,12 +54,12 @@
     "jest": "^20.0.4",
     "jest-glamor-react": "^1.3.0",
     "lint-staged": "^3.5.1",
+    "now-travis": "^1.0.0",
     "nps": "^5.3.1",
     "nps-utils": "^1.2.0",
     "opt-cli": "^1.5.1",
     "prettier-eslint-cli": "^3.6.1",
     "react-test-renderer": "^15.5.4",
-    "semantic-release": "^6.3.6",
     "validate-commit-msg": "^2.12.1"
   },
   "jest": {

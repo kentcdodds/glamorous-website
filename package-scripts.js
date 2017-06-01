@@ -1,6 +1,5 @@
 const npsUtils = require('nps-utils')
 
-const series = npsUtils.series
 const concurrent = npsUtils.concurrent
 
 module.exports = {
@@ -32,14 +31,6 @@ module.exports = {
     reportCoverage: {
       description: 'Report coverage stats to codecov. This should be run after the `test` script',
       script: 'codecov',
-    },
-    release: {
-      description: 'We automate releases with semantic-release. This should only be run on travis',
-      script: series(
-        'semantic-release pre',
-        'npm publish',
-        'semantic-release post'
-      ),
     },
     validate: {
       description: 'This runs several scripts to make sure things look good before committing or on clean install',
