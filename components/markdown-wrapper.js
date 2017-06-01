@@ -1,11 +1,11 @@
 import glamorous from 'glamorous'
-import {colors} from '../styles/global-styles'
 
-const MarkdownWrapper = glamorous.div({
-  margin: '20px auto',
+const MarkdownWrapper = glamorous.div((props, {colors}) => ({
+  margin: '20px auto 0',
   width: '100%',
-  maxWidth: '50rem',
-  padding: '0 1rem',
+  padding: '1rem',
+  backgroundColor: colors.white,
+  '& > div': {maxWidth: '50rem', margin: '0 auto'},
   '& img:not([src*="img.badgesize.io"])': {width: '100%'}, // exclude images with a source at img.badgesize.io
   '& pre, & code': {backgroundColor: '#eee', fontSize: '1rem'},
   '& pre': {padding: '1rem', overflowX: 'scroll'},
@@ -21,6 +21,6 @@ const MarkdownWrapper = glamorous.div({
     color: '#666',
     borderLeft: '6px solid #ddd',
   },
-})
+}))
 
 export default MarkdownWrapper
