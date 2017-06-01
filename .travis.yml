@@ -1,18 +1,21 @@
 sudo: false
 language: node_js
 cache:
+  yarn: true
   directories:
     - node_modules
 notifications:
   email: false
 node_js:
-  - '6'
+  - '8'
+before_install:
+  - npm install -g now
 script:
-  - yarn start validate
+  - npm start validateAndDeploy
+  # report code coverage
 after_success:
   - npm install codecov
   - codecov
-  - NOW_ALIAS=rc.glamorous.rocks node_modules/.bin/now-travis
 branches:
   only:
     - master
