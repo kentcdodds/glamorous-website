@@ -7,7 +7,6 @@ import CodePreview from './code-preview'
 export default markdownToReactLive
 
 function markdownToReactLive(markdownString) {
-  // eslint-disable-next-line import/no-dynamic-require
   const codeblocks = []
 
   function plugin() {

@@ -10,5 +10,6 @@
     "react/prop-types": "off",
     "func-style": "off",
     "max-len": "off",
+    "import/no-dynamic-require": "off",
   }
 }
