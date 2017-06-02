@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Website for glamorous",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "now-start": "next start",
+    "build": "npm start build",
     "start": "nps",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
     "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
@@ -30,12 +28,16 @@
     "react-dom": "^15.5.4",
     "react-live": "^1.5.3",
     "react-markdown": "^2.5.0",
+    "remark": "^7.0.1",
+    "remark-html": "^6.0.0",
+    "unist-util-visit": "^1.1.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
     "all-contributors-cli": "^4.3.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",

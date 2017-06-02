@@ -24,10 +24,10 @@ module.exports = {
       update: 'cross-env NODE_ENV=test jest -u',
       watch: 'cross-env NODE_ENV=test jest --watch',
     },
-    build: {
-      description: 'delete the dist directory and run babel to build the files',
-      script: 'next build',
-    },
+    // default is run when you run `nps` or `npm start`
+    default: 'next start',
+    dev: 'next',
+    build: 'next build',
     lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
       description: 'Report coverage stats to codecov. This should be run after the `test` script',
@@ -35,7 +35,7 @@ module.exports = {
     },
     validate: {
       description: 'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'test'),
+      script: concurrent.nps('lint', 'test', 'build'),
     },
     deploy: {
       hiddenFromHelp,

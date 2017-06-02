@@ -43,10 +43,19 @@ function Nav(pathname) {
         <ListItem>
           <Anchor
             prefetch={process.env.USE_PREFETCH}
-            href="/guides"
+            href="/basics"
             pathname={pathname}
           >
-            Guides
+            Basics
+          </Anchor>
+        </ListItem>
+        <ListItem>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/advanced"
+            pathname={pathname}
+          >
+            Advanced
           </Anchor>
         </ListItem>
         <ListItem>
@@ -61,10 +70,19 @@ function Nav(pathname) {
         <ListItem>
           <Anchor
             prefetch={process.env.USE_PREFETCH}
-            href="/docs"
+            href="/integrations"
             pathname={pathname}
           >
-            Documentation
+            Integrations
+          </Anchor>
+        </ListItem>
+        <ListItem>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/api"
+            pathname={pathname}
+          >
+            API
           </Anchor>
         </ListItem>
       </List>
