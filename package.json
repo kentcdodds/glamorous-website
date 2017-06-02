@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Website for glamorous",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "now-start": "next start",
+    "build": "npm start build",
     "start": "nps",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
     "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
@@ -32,7 +30,6 @@
     "react-markdown": "^2.5.0",
     "remark": "^7.0.1",
     "remark-html": "^6.0.0",
-    "strip-indent": "^2.0.0",
     "unist-util-visit": "^1.1.1",
     "webpack": "^2.6.1"
   },
