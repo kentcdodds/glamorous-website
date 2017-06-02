@@ -1,8 +1,8 @@
 import React from 'react'
 import {Div} from 'glamorous'
 
-const GlamorousLogo = props => (
-  <Div {...props}>
+const GlamorousLogo = props =>
+  (<Div {...props}>
     <svg
       width="100%"
       viewBox="0 0 2267 503"
@@ -73,6 +73,5 @@ const GlamorousLogo = props => (
         </g>
       </g>
     </svg>
-  </Div>
-)
+  </Div>)
 export default GlamorousLogo

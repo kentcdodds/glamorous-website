@@ -16,7 +16,8 @@ module.exports = {
       },
     },
     commit: {
-      description: 'This uses commitizen to help us generate well formatted commit messages',
+      description:
+        'This uses commitizen to help us generate well formatted commit messages',
       script: 'git-cz',
     },
     test: {
@@ -30,11 +31,13 @@ module.exports = {
     build: 'next build',
     lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
-      description: 'Report coverage stats to codecov. This should be run after the `test` script',
+      description:
+        'Report coverage stats to codecov. This should be run after the `test` script',
       script: 'codecov',
     },
     validate: {
-      description: 'This runs several scripts to make sure things look good before committing or on clean install',
+      description:
+        'This runs several scripts to make sure things look good before committing or on clean install',
       script: concurrent.nps('lint', 'test', 'build'),
     },
     deploy: {

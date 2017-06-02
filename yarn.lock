@@ -255,10 +255,6 @@ ast-types@0.9.6:
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.6.tgz#102c9e9e9005d3e7e3829bf0c4fa24ee862ee9b9"
 
-ast-types@0.9.8:
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.9.8.tgz#6cb6a40beba31f49f20928e28439fc14a3dab078"
-
 async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
@@ -295,7 +291,7 @@ axobject-query@^0.1.0:
   dependencies:
     ast-types-flow "0.0.7"
 
-babel-code-frame@6.22.0, babel-code-frame@^6.16.0, babel-code-frame@^6.20.0, babel-code-frame@^6.22.0:
+babel-code-frame@^6.16.0, babel-code-frame@^6.20.0, babel-code-frame@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
   dependencies:
@@ -1039,6 +1035,15 @@ babel-traverse@^6.18.0, babel-traverse@^6.23.1, babel-traverse@^6.24.1:
     invariant "^2.2.0"
     lodash "^4.2.0"
 
+babel-types@6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.23.0.tgz#bb17179d7538bad38cd0c9e115d340f77e7e9acf"
+  dependencies:
+    babel-runtime "^6.22.0"
+    esutils "^2.0.2"
+    lodash "^4.2.0"
+    to-fast-properties "^1.0.1"
+
 babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.21.0, babel-types@^6.23.0, babel-types@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.24.1.tgz#a136879dc15b3606bda0d90c1fc74304c2ff0975"
@@ -1051,10 +1056,6 @@ babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.21.0, babel-types@^6.23
 babylon@6.14.1:
   version "6.14.1"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.14.1.tgz#956275fab72753ad9b3435d7afe58f8bf0a29815"
-
-babylon@7.0.0-beta.8:
-  version "7.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.8.tgz#2bdc5ae366041442c27e068cce6f0d7c06ea9949"
 
 babylon@^6.11.0, babylon@^6.13.0, babylon@^6.15.0, babylon@^6.17.0:
   version "6.17.2"
@@ -1774,6 +1775,12 @@ css-select@~1.2.0:
     domutils "1.5.1"
     nth-check "~1.0.1"
 
+css-tree@1.0.0-alpha17:
+  version "1.0.0-alpha17"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha17.tgz#7ab95ab72c533917af8be54313fec81841c5223a"
+  dependencies:
+    source-map "^0.5.3"
+
 css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
@@ -2452,7 +2459,7 @@ estraverse@~4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.1.1.tgz#f6caca728933a850ef90661d0e17982ba47111a2"
 
-esutils@2.0.2, esutils@^2.0.0, esutils@^2.0.2:
+esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
@@ -2716,10 +2723,6 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-parser@0.45.0:
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.45.0.tgz#aa29d4ae27f06aa02817772bba0fcbefef7e62f0"
-
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -2841,13 +2844,13 @@ get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
 
-get-stdin@5.0.1, get-stdin@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
-
 get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
+
+get-stdin@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
 
 get-stream@^3.0.0:
   version "3.0.0"
@@ -3933,15 +3936,6 @@ jest-util@^20.0.3:
     leven "^2.1.0"
     mkdirp "^0.5.1"
 
-jest-validate@19.0.0:
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/jest-validate/-/jest-validate-19.0.0.tgz#8c6318a20ecfeaba0ba5378bfbb8277abded4173"
-  dependencies:
-    chalk "^1.1.1"
-    jest-matcher-utils "^19.0.0"
-    leven "^2.0.0"
-    pretty-format "^19.0.0"
-
 jest-validate@^19.0.2:
   version "19.0.2"
   resolved "https://registry.yarnpkg.com/jest-validate/-/jest-validate-19.0.2.tgz#dc534df5f1278d5b63df32b14241d4dbf7244c0c"
@@ -4705,9 +4699,9 @@ nested-error-stacks@^1.0.0, nested-error-stacks@^1.0.1:
   dependencies:
     inherits "~2.0.1"
 
-next@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/next/-/next-2.4.0.tgz#9cf9ebff79921b3bb1d7de813dc420302eb66081"
+next@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/next/-/next-2.4.1.tgz#ab1e62fecd946cce5f41f4adc972478f474f3e5d"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.24.0"
@@ -4746,11 +4740,11 @@ next@^2.4.0:
     path-match "1.2.4"
     pkg-up "2.0.0"
     prop-types "15.5.10"
-    react-hot-loader "3.0.0-beta.6"
+    react-hot-loader "3.0.0-beta.7"
     send "0.15.2"
     source-map-support "0.4.15"
     strip-ansi "3.0.1"
-    styled-jsx "0.5.7"
+    styled-jsx "1.0.3"
     touch "1.0.0"
     unfetch "2.1.2"
     url "0.11.0"
@@ -5000,7 +4994,7 @@ object.assign@^4.0.4:
     function-bind "^1.1.0"
     object-keys "^1.0.10"
 
-object.entries@1.0.4, object.entries@^1.0.3:
+object.entries@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/object.entries/-/object.entries-1.0.4.tgz#1bf9a4dd2288f5b33f3a993d257661f05d161a5f"
   dependencies:
@@ -5348,9 +5342,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint-cli@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-3.6.1.tgz#6f4d838a7b4a95f8b0e232c4cb8c595cee9cf64a"
+prettier-eslint-cli@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-4.0.2.tgz#84520ff9efc80bbae4a7a477ea362e36be836103"
   dependencies:
     arrify "^1.0.1"
     babel-runtime "^6.23.0"
@@ -5366,13 +5360,13 @@ prettier-eslint-cli@^3.6.1:
     lodash.memoize "^4.1.2"
     loglevel-colored-level-prefix "^1.0.0"
     messageformat "^1.0.2"
-    prettier-eslint "^5.1.0"
+    prettier-eslint "^6.0.0"
     rxjs "^5.3.0"
     yargs "^7.1.0"
 
-prettier-eslint@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-5.1.0.tgz#cee9aaaa9f3370665e5897057313a823da0932e2"
+prettier-eslint@^6.0.0:
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.2.3.tgz#3f6acea5104712242b07b5d4646eeba77f5c42f1"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
@@ -5380,24 +5374,13 @@ prettier-eslint@^5.1.0:
     indent-string "^3.1.0"
     lodash.merge "^4.6.0"
     loglevel-colored-level-prefix "^1.0.0"
-    prettier "^1.0.2"
+    prettier "^1.3.0"
     pretty-format "^19.0.0"
     require-relative "^0.8.7"
 
-prettier@^1.0.2:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.3.1.tgz#fa0ea84b45ac0ba6de6a1e4cecdcff900d563151"
-  dependencies:
-    ast-types "0.9.8"
-    babel-code-frame "6.22.0"
-    babylon "7.0.0-beta.8"
-    chalk "1.1.3"
-    esutils "2.0.2"
-    flow-parser "0.45.0"
-    get-stdin "5.0.1"
-    glob "7.1.1"
-    jest-validate "19.0.0"
-    minimist "1.2.0"
+prettier@^1.3.0:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.4.1.tgz#3526cc46aea102e980db5b70cabe2020910ef142"
 
 pretty-format@^19.0.0:
   version "19.0.0"
@@ -5546,15 +5529,15 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-hot-loader@3.0.0-beta.6:
-  version "3.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-3.0.0-beta.6.tgz#463fac0bfc8b63a8385258af20c91636abce75f4"
+react-hot-loader@3.0.0-beta.7:
+  version "3.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-3.0.0-beta.7.tgz#d5847b8165d731c4d5b30d86d5d4716227a0fa83"
   dependencies:
     babel-template "^6.7.0"
     global "^4.3.0"
     react-deep-force-update "^2.0.1"
     react-proxy "^3.0.0-alpha.0"
-    redbox-react "^1.2.5"
+    redbox-react "^1.3.6"
     source-map "^0.4.4"
 
 react-html-attributes@^1.3.0:
@@ -5683,9 +5666,9 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-redbox-react@^1.2.5:
-  version "1.3.7"
-  resolved "https://registry.yarnpkg.com/redbox-react/-/redbox-react-1.3.7.tgz#bb3a1a73c07ebe1d67b55860908ee2bc35386968"
+redbox-react@^1.3.6:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/redbox-react/-/redbox-react-1.4.0.tgz#0b571dab6a7acbf3da0e0034825c44b5bd8dba34"
   dependencies:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
@@ -6372,10 +6355,6 @@ strip-indent@^1.0.1:
   dependencies:
     get-stdin "^4.0.1"
 
-strip-indent@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/strip-indent/-/strip-indent-2.0.0.tgz#5ef8db295d01e6ed6cbf7aab96998d7822527b68"
-
 strip-json-comments@2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
@@ -6386,18 +6365,24 @@ structured-source@^3.0.2:
   dependencies:
     boundary "^1.0.1"
 
-styled-jsx@0.5.7:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-0.5.7.tgz#2cb02263ffa719b1435a864fdd6c62802ae86669"
+styled-jsx@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-1.0.3.tgz#3d8e2eda09fffccc131d321a02ae6d6f9f79da53"
   dependencies:
     babel-plugin-syntax-jsx "6.18.0"
     babel-traverse "6.21.0"
+    babel-types "6.23.0"
     babylon "6.14.1"
     convert-source-map "1.3.0"
+    css-tree "1.0.0-alpha17"
     escape-string-regexp "1.0.5"
-    object.entries "1.0.4"
     source-map "0.5.6"
     string-hash "1.1.1"
+    stylis "3.0.10"
+
+stylis@3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.0.10.tgz#9f561e8a9799c2c317c596583bcaaa52a0d27663"
 
 supports-color@^0.2.0:
   version "0.2.0"

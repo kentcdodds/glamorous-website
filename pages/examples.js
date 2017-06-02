@@ -15,9 +15,9 @@ function Examples(props) {
       </Hero>
       {interactiveMarkdown(examplesData.heading)}
       <div>
-        {examplesData.examples.map(example => (
-          <Example key={example.title} {...example} />
-        ))}
+        {examplesData.examples.map(example =>
+          <Example key={example.title} {...example} />,
+        )}
       </div>
     </Layout>
   )

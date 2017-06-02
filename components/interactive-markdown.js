@@ -40,9 +40,7 @@ function interactiveMarkdown(markdownString) {
             return false
           }
           const space = 1
-          const options = getOptions(
-            codeNode.lang.slice(pragma.length + space),
-          )
+          const options = getOptions(codeNode.lang.slice(pragma.length + space))
           componentBlocks.push(pragmaHandlers[pragma](options, codeNode.value))
           // if it's a special code block then we need to
           // change the node from a code block to a paragraph
