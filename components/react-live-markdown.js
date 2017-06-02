@@ -17,6 +17,9 @@ function markdownToReactLive(markdownString) {
           return
         }
         codeblocks.push(codeNode.value)
+        // change the node from a code block to a paragraph
+        // so when we do our replacing stuff it doesn't mess up
+        // the HTML
         Object.assign(codeNode, {
           type: 'paragraph',
           children: [{type: 'text', value: 'REACT_LIVE_CODEBLOCK'}],
