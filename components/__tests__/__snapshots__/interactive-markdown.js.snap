@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parses interactive pragmas into CodePreviews 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h1>hello world</h1>
+      <p>I am some content</p>
+      ",
+      }
+    }
+  />
+  <ClickToRenderCodePreview
+    clickToRender={true}
+    code="render(<button onClick={() => alert('Hello World')}>Hello World</button>)"
+    component={[Function]}
+    summary="I am the summary"
+  >
+    <ClickToRender
+      component={[Function]}
+      props={
+        Object {
+          "clickToRender": true,
+          "code": "render(<button onClick={() => alert('Hello World')}>Hello World</button>)",
+          "component": [Function],
+          "summary": "I am the summary",
+        }
+      }
+      summary="I am the summary"
+    >
+      <details
+        onClick={[Function]}
+      >
+        <summary>
+          I am the summary
+        </summary>
+      </details>
+    </ClickToRender>
+  </ClickToRenderCodePreview>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+      <p>I am some more content
+      </p>
+      ",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`parses interactive pragmas into CodePreviews 2`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h1>hello world</h1>
+      <p>I am some content</p>
+      ",
+      }
+    }
+  />
+  <ClickToRenderCodePreview
+    clickToRender={true}
+    code="render(<button onClick={() => alert('Hello World')}>Hello World</button>)"
+    component={[Function]}
+    summary="I am the summary"
+  >
+    <ClickToRender
+      component={[Function]}
+      props={
+        Object {
+          "clickToRender": true,
+          "code": "render(<button onClick={() => alert('Hello World')}>Hello World</button>)",
+          "component": [Function],
+          "summary": "I am the summary",
+        }
+      }
+      summary="I am the summary"
+    >
+      <details
+        onClick={[Function]}
+      >
+        <summary>
+          I am the summary
+        </summary>
+      </details>
+    </ClickToRender>
+  </ClickToRenderCodePreview>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+      <p>I am some more content
+      </p>
+      ",
+      }
+    }
+  />
+</div>
+`;
