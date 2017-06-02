@@ -9,7 +9,7 @@ the ~innerRef~ prop.
 This is a function and if provided, will be called with the inner element's
 reference.
 
-~~~react-live
+~~~interactive
 const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
 class MyComponent extends React.Component {
