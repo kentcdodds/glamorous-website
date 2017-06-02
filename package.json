@@ -19,7 +19,6 @@
     "css-in-js"
   ],
   "dependencies": {
-    "axios": "^0.16.1",
     "glamor": "^2.20.25",
     "glamorous": "^3.19.1",
     "html-loader": "^0.4.5",
