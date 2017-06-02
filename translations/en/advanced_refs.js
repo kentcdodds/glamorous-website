@@ -1,14 +1,15 @@
-# `innerRef`
+module.exports = `
+# ~innerRef~
 
 Sometimes you need access to the
-[`ref`](https://facebook.github.io/react/docs/refs-and-the-dom.html)
+[~ref~](https://facebook.github.io/react/docs/refs-and-the-dom.html)
 of the underlying component that's rendered. You can accomplish this with
-the `innerRef` prop.
+the ~innerRef~ prop.
 
 This is a function and if provided, will be called with the inner element's
 reference.
 
-```react-live
+~~~react-live
 const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
 class MyComponent extends React.Component {
@@ -31,4 +32,5 @@ class MyComponent extends React.Component {
 }
 
 render(<MyComponent />)
-```
+~~~
+`.replace(/~/g, '`')

@@ -1,27 +1,10 @@
-import React, {Component} from 'react'
-import axios from 'axios'
+import React from 'react'
 import remark from 'remark'
 import remarkHtml from 'remark-html'
 import visit from 'unist-util-visit'
 import CodePreview from './code-preview'
 
-class ReactLiveMarkdown extends Component {
-  constructor() {
-    super()
-    this.state = {markdownComponents: <div>loading</div>}
-  }
-  componentDidMount() {
-    if (typeof window === 'undefined' || window.__NEXT_DATA__ === undefined) {
-      return
-    }
-    axios.get(this.props.path).then(({data: string}) => {
-      this.setState({markdownComponents: markdownToReactLive(string)})
-    })
-  }
-  render() {
-    return <div>{this.state.markdownComponents}</div>
-  }
-}
+export default markdownToReactLive
 
 function markdownToReactLive(markdownString) {
   // eslint-disable-next-line import/no-dynamic-require
@@ -34,7 +17,12 @@ function markdownToReactLive(markdownString) {
           return
         }
         codeblocks.push(codeNode.value)
-        codeNode.value = `__CODEBLOCK__`
+        Object.assign(codeNode, {
+          type: 'paragraph',
+          children: [{type: 'text', value: 'REACT_LIVE_CODEBLOCK'}],
+          lang: null,
+          value: null,
+        })
       })
     }
   }
@@ -45,14 +33,15 @@ function markdownToReactLive(markdownString) {
     .processSync(markdownString)
 
   const markdownComponents = String(result)
-    .split('__CODEBLOCK__')
+    .split('REACT_LIVE_CODEBLOCK')
     .reduce((all, s, index) => {
       return all.concat(
-        <div dangerouslySetInnerHTML={{__html: s}} />,
-        codeblocks[index] ? <CodePreview code={codeblocks[index]} /> : undefined,
+        <div key={`md${index}`} dangerouslySetInnerHTML={{__html: s}} />,
+        codeblocks[index] ?
+          <CodePreview key={`cb${index}`} code={codeblocks[index]} /> :
+          undefined,
       )
     }, [])
+
   return markdownComponents
 }
-
-export default ReactLiveMarkdown
