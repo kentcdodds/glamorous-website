@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Website for glamorous",
   "scripts": {
+    "dev": "npm start dev",
     "build": "npm start build",
     "start": "nps",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
