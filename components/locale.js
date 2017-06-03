@@ -33,8 +33,8 @@ function withLocale(Comp) {
   return ThemedComponent
 }
 
-function getInitialLocaleProps({req: {headers: {host = 'en'} = {}} = {}}) {
-  console.log(host)
+function getInitialLocaleProps({req}) {
+  const host = req ? req.headers.host : window.location.host
   const [locale] = host.split('.')
   return Promise.resolve({
     locale: supportedLocales.includes(locale) ? locale : 'en',
