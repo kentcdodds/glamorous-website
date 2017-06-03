@@ -60,7 +60,7 @@ exports[`shallow 1`] = `
     </glamorous(div)>
   </glamorous(div)>
   <glamorous(glamorous(Anchor))
-    href="/guides"
+    href="/basics"
   >
     Click Here to get started
   </glamorous(glamorous(Anchor))>
