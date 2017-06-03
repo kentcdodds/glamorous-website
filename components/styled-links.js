@@ -34,7 +34,11 @@ const Anchor = ({href, prefetch, external, pathname, ...rest}) => {
   }
   return (
     <Link prefetch={prefetch} href={href}>
-      <StyledAnchor active={getPathname(pathname) === href} {...rest} />
+      <StyledAnchor
+        href={href}
+        active={getPathname(pathname) === href}
+        {...rest}
+      />
     </Link>
   )
 }

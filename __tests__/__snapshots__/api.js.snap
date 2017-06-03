@@ -172,6 +172,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/"
             onClick={[Function]}
           >
             <svg
@@ -222,6 +223,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/basics"
             onClick={[Function]}
           >
             Basics
@@ -232,6 +234,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/advanced"
             onClick={[Function]}
           >
             Advanced
@@ -242,6 +245,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/examples"
             onClick={[Function]}
           >
             Examples
@@ -252,6 +256,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/integrations"
             onClick={[Function]}
           >
             Integrations
@@ -262,6 +267,7 @@ exports[`Testing Api Renders! 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/api"
             onClick={[Function]}
           >
             API
