@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shallow 1`] = `
+<withLocale>
+  <div
+    sample="prop"
+  >
+    Hello World
+  </div>
+</withLocale>
+`;
