@@ -70,6 +70,6 @@ function Home({url, locale}) {
     </Layout>
   )
 }
-Home.getInitialProps = (...args) => getInitialLocaleProps(...args)
+Home.getInitialProps = getInitialLocaleProps
 
 export default Home

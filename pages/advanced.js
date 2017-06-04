@@ -11,6 +11,6 @@ function Advanced({url, locale}) {
     </Layout>
   )
 }
-Advanced.getInitialProps = (...args) => getInitialLocaleProps(...args)
+Advanced.getInitialProps = getInitialLocaleProps
 
 export default Advanced

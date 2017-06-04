@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<CodeSandboxEmbed>
+  <iframe
+    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+    src="https://codesandbox.io/embed/undefined"
+    style={
+      Object {
+        "border": 0,
+        "borderRadius": 4,
+        "height": 500,
+        "overflow": "hidden",
+        "width": "100%",
+      }
+    }
+  />
+</CodeSandboxEmbed>
+`;

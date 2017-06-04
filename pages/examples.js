@@ -11,6 +11,6 @@ function Examples({url, locale}) {
     </Layout>
   )
 }
-Examples.getInitialProps = (...args) => getInitialLocaleProps(...args)
+Examples.getInitialProps = getInitialLocaleProps
 
 export default Examples

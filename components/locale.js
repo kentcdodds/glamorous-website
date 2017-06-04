@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const CONTEXT_NAME = '__locale__'
-const supportedLocales = ['en', 'es']
+const supportedLocales = ['en', 'es', 'fr']
 const fallbackLocale = 'en'
 
 class LocaleProvider extends Component {
-  static childContextTypes: {[CONTEXT_NAME]: PropTypes.string}
-  static getChildContext() {
+  static childContextTypes = {[CONTEXT_NAME]: PropTypes.string}
+  getChildContext() {
     return {[CONTEXT_NAME]: this.props.locale}
   }
   render() {
@@ -16,7 +16,7 @@ class LocaleProvider extends Component {
 }
 
 function withLocale(Comp) {
-  class ThemedComponent extends Component {
+  class LocaleComponent extends Component {
     state = {locale: 'en'}
     componentWillMount() {
       this.setState({locale: this.context[CONTEXT_NAME]})
@@ -26,14 +26,14 @@ function withLocale(Comp) {
     }
   }
 
-  ThemedComponent.contextTypes = {
+  LocaleComponent.contextTypes = {
     [CONTEXT_NAME]: PropTypes.string,
   }
 
-  return ThemedComponent
+  return LocaleComponent
 }
 
-function getInitialLocaleProps({req}) {
+function getInitialLocaleProps({req} = {}) {
   const host = req ? req.headers.host : window.location.host
   const [locale] = host.split('.')
   return Promise.resolve({
