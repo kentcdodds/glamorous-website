@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Api Renders! 1`] = `
+exports[`renders 1`] = `
 .css-204t0b,
 [data-css-204t0b] {
   font-family: "Montserrat", sans-serif;

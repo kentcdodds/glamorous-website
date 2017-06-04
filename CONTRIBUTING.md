@@ -52,6 +52,14 @@ commit-msg
 pre-commit
 ```
 
+### Working with Locales
+
+To test this out locally, you need to set up this in your hosts file:
+
+127.0.0.1 en.localhost.dev
+127.0.0.1 es.localhost.dev
+Then navigate to es.localhost.dev:3000 and you should see the Spanish content.
+
 ## Help needed
 
 Please checkout the [ROADMAP.md][ROADMAP] and raise an issue to discuss

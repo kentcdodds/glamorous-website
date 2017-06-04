@@ -1,5 +1,6 @@
 import React from 'react'
 import glamorous from 'glamorous'
+import {getInitialLocaleProps} from '../components/locale'
 import {Button} from '../components/styled-links'
 import Layout from '../components/layout'
 import CodePreview from '../components/code-preview'
@@ -51,9 +52,9 @@ const GettingStarted = glamorous(Button)(
   }),
 )
 
-const Home = ({url}) => {
+function Home({url, locale}) {
   return (
-    <Layout pathname={url ? url.pathname : ''}>
+    <Layout pathname={url ? url.pathname : ''} locale={locale}>
       <Hero>
         Maintainable CSS with React
       </Hero>
@@ -63,11 +64,12 @@ const Home = ({url}) => {
           npm install --save glamorous react glamor prop-types
         </CodeBlock>
       </CodePreviewWrapper>
-      <GettingStarted prefetch={process.env.USE_PREFETCH} href="/guides">
+      <GettingStarted prefetch={process.env.USE_PREFETCH} href="/basics">
         Click Here to get started
       </GettingStarted>
     </Layout>
   )
 }
+Home.getInitialProps = getInitialLocaleProps
 
 export default Home

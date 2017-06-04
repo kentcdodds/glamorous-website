@@ -374,16 +374,14 @@ exports[`renders 1`] = `
           <h1
             className="css-wb6aqj"
           >
-            Community Examples (English)
+            Advanced Guides
           </h1>
         </div>
       </div>
       <div
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<p>If you've got an example of something that you've done with glamorous that
-          doesn't really work on one of the other pages, then please feel free to
-          open a pull request on this page!
+            "__html": "<p>This is some of the more advanced stuff you can do with glamorous
           </p>
           ",
           }
@@ -392,13 +390,13 @@ exports[`renders 1`] = `
       <div>
         <div>
           <h2>
-            CSS Grid (Spanish)
+            \`innerRef\`
           </h2>
           <details
             onClick={[Function]}
           >
             <summary>
-              The best solution for CSS layout
+              How to access the underlying \`ref\`
             </summary>
           </details>
         </div>

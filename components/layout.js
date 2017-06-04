@@ -3,6 +3,7 @@ import {css, rehydrate} from 'glamor'
 import glamorous, {ThemeProvider} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
+import {LocaleProvider} from './locale'
 import Nav from './nav'
 import Footer from './footer'
 
@@ -12,6 +13,7 @@ import Footer from './footer'
 // Adds server generated styles to glamor cache.
 // Has to run before any `style()` calls
 // '__NEXT_DATA__.ids' is set in '_document.js'
+/* istanbul ignore next */
 if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
   rehydrate(window.__NEXT_DATA__.ids)
 }
@@ -40,18 +42,20 @@ const NavWrapper = glamorous.div({
   zIndex: 1,
 })
 
-const layout = ({pathname, children}) => {
+const layout = ({pathname, children, locale}) => {
   css.insert(baseStyles())
   return (
-    <ThemeProvider theme={GlobalStyles}>
-      <Wrapper>
-        <NavWrapper>
-          <Nav pathname={pathname} />
-          {children}
-          <Footer />
-        </NavWrapper>
-      </Wrapper>
-    </ThemeProvider>
+    <LocaleProvider locale={locale}>
+      <ThemeProvider theme={GlobalStyles}>
+        <Wrapper>
+          <NavWrapper>
+            <Nav pathname={pathname} />
+            {children}
+            <Footer />
+          </NavWrapper>
+        </Wrapper>
+      </ThemeProvider>
+    </LocaleProvider>
   )
 }
 
