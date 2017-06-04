@@ -7,7 +7,7 @@
     "build": "npm start build",
     "start": "nps",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
-    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
+    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
     "test": "npm start test"
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",

@@ -1,6 +1,7 @@
 const npsUtils = require('nps-utils')
 
 const concurrent = npsUtils.concurrent
+const rimraf = npsUtils.rimraf
 const hiddenFromHelp = true
 
 module.exports = {
@@ -28,7 +29,13 @@ module.exports = {
     // default is run when you run `nps` or `npm start`
     default: 'next start',
     dev: 'next',
-    build: 'next build',
+    build: {
+      default: concurrent({
+        next: 'next build',
+        buildInfo: 'node other/get-build-info.js > static/build-info.json',
+      }),
+      clean: rimraf('.next static/build-info.json'),
+    },
     lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
       description:
