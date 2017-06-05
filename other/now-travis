@@ -31,37 +31,57 @@ function deploy(context, sha) {
     description: `▲ Now ${context} deployment pending`,
   })
   const isProd = context === 'production'
-  let command = `now --token ${nowToken} --no-clipboard -e BUILD_INFO=$(node other/get-build-info.js)`
-  if (context === 'production') {
-    alias = process.env.NOW_ALIAS
-    command = `now alias set $(${command}) "${alias}" --token ${nowToken}`
-  }
+  const args = ['--token', nowToken, '--no-clipboard', '--public']
+  safeLog('spawning shell with command:', `now ${args.join(' ')}`)
+  const child = spawn('now', [
+    '--token',
+    nowToken,
+    '--no-clipboard',
+    '--public',
+  ])
 
-  safeLog('spawning shell with command:', command)
-  const child = spawn('sh', ['-c', command])
-
-  if (!isProd) {
-    child.stdout.on('data', data => (stdout += data))
-  }
-
-  child.stdout.on('data', data => safeLog(String(data)))
+  child.stdout.on('data', data => {
+    stdout += data
+    safeLog(String(data))
+  })
   child.stderr.on('data', data => safeError(String(data)))
-  child.on('error', err => {
+  child.on('error', onError)
+
+  child.on('close', () => {
+    const target_url = getUrl(stdout)
+    if (isProd) {
+      const aliasChild = spawn('sh', ['./other/alias.sh'], {
+        env: Object.assign({}, process.env, {
+          NOW_TOKEN: nowToken,
+          NOW_ID: target_url,
+        }),
+      })
+      aliasChild.stdout.on('data', data => safeLog(String(data)))
+      aliasChild.stderr.on('data', data => safeError(String(data)))
+      aliasChild.on('error', onError)
+      aliasChild.on('close', () => {
+        updateStatus({
+          state: 'success',
+          target_url,
+          description: `▲ Now ${context} deployment complete`,
+        })
+      })
+    } else {
+      updateStatus({
+        state: 'success',
+        target_url,
+        description: `▲ Now ${context} deployment complete`,
+      })
+    }
+  })
+
+  function onError(err) {
     safeError(err)
     updateStatus({
       state: 'error',
       description: `▲ Now ${context} deployment failed. See Travis logs for details.`,
     })
-  })
-
-  child.on('close', () => {
-    const target_url = alias || getUrl(stdout)
-    updateStatus({
-      state: 'success',
-      target_url,
-      description: `▲ Now ${context} deployment complete`,
-    })
-  })
+  }
 
   function updateStatus(options) {
     const mergedOptions = Object.assign({context, target_url: alias}, options)
