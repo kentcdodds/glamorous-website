@@ -32,7 +32,7 @@ function PageSections({data}) {
 }
 
 function DocSection(props) {
-  const {title} = props
+  const {title, subtitle} = props
 
   // eslint-disable-next-line no-shadow
   const Section = glamorous.section((props, {colors}) => ({
@@ -46,6 +46,7 @@ function DocSection(props) {
   return (
     <Section>
       <h2>{title}</h2>
+      <h4>{subtitle}</h4>
       <DocSectionDetails {...props} />
     </Section>
   )
