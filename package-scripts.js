@@ -32,7 +32,7 @@ module.exports = {
     build: {
       default: concurrent({
         next: 'next build',
-        buildInfo: 'node other/get-build-info.js > static/build-info.json',
+        buildInfo: 'echo $BUILD_INFO > static/build-info.json',
       }),
       clean: rimraf('.next static/build-info.json'),
     },

@@ -2,6 +2,8 @@
 
 const github = require('octonode')
 const spawn = require('cross-spawn')
+const normalizeUrl = require('normalize-url')
+const urlRegex = require('url-regex')
 
 if (!process.env.CI || !process.env.TRAVIS) {
   throw new Error('Could not detect Travis CI environment')
@@ -21,15 +23,26 @@ if (!nowToken) {
 const client = github.client(githubToken)
 const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
 
-function deploy(context, alias, sha) {
+function deploy(context, sha) {
+  let alias
+  let stdout = ''
   updateStatus({
     state: 'pending',
     description: `▲ Now ${context} deployment pending`,
   })
+  const isProd = context === 'production'
+  let command = `now --token ${nowToken} --no-clipboard -e BUILD_INFO=$(node other/get-build-info.js)`
+  if (context === 'production') {
+    alias = process.env.NOW_ALIAS
+    command = `now alias set $(${command}) "${alias}" --token ${nowToken}`
+  }
 
-  const command = `now alias set $(now --token ${nowToken} --no-clipboard) "${alias}" --token ${nowToken}`
   safeLog('spawning shell with command:', command)
   const child = spawn('sh', ['-c', command])
+
+  if (!isProd) {
+    child.stdout.on('data', data => (stdout += data))
+  }
 
   child.stdout.on('data', data => safeLog(String(data)))
   child.stderr.on('data', data => safeError(String(data)))
@@ -42,8 +55,10 @@ function deploy(context, alias, sha) {
   })
 
   child.on('close', () => {
+    const target_url = alias || getUrl(stdout)
     updateStatus({
       state: 'success',
+      target_url,
       description: `▲ Now ${context} deployment complete`,
     })
   })
@@ -55,34 +70,26 @@ function deploy(context, alias, sha) {
   }
 }
 
-const {
-  TRAVIS_EVENT_TYPE,
-  TRAVIS_PULL_REQUEST_BRANCH,
-  TRAVIS_PULL_REQUEST_SLUG,
-  TRAVIS_PULL_REQUEST_SHA,
-  NOW_ALIAS,
-  TRAVIS_COMMIT,
-} = process.env
+const {TRAVIS_EVENT_TYPE, TRAVIS_PULL_REQUEST_SHA, TRAVIS_COMMIT} = process.env
 
 switch (TRAVIS_EVENT_TYPE) {
   case 'pull_request': {
-    const VALID_URI_CHARACTERS = /[^A-Z0-9]/gi
-    const branch = TRAVIS_PULL_REQUEST_BRANCH.replace(
-      VALID_URI_CHARACTERS,
-      '-'
-    )
-    const repo = TRAVIS_PULL_REQUEST_SLUG.replace(VALID_URI_CHARACTERS, '-')
-    const alias = `https://${repo}-${branch}.now.sh`
-    deploy('staging', alias, TRAVIS_PULL_REQUEST_SHA)
+    deploy('staging', TRAVIS_PULL_REQUEST_SHA)
     break
   }
   case 'push': {
-    deploy('production', NOW_ALIAS, TRAVIS_COMMIT)
+    deploy('production', TRAVIS_COMMIT)
     break
   }
   default: {
     console.log(`${TRAVIS_EVENT_TYPE} is not supported by now-travis`)
   }
+}
+
+function getUrl(content) {
+  const urls = content.match(urlRegex()) || []
+
+  return urls.map(url => normalizeUrl(url.trim().replace(/\.+$/, '')))[0]
 }
 
 function logError(message) {
