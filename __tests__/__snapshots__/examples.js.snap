@@ -71,13 +71,6 @@ exports[`renders 1`] = `
   color: #BD3D90;
 }
 
-.css-2y5bqi,
-[data-css-2y5bqi] {
-  margin: 20px auto;
-  max-width: 700px;
-  text-align: center;
-}
-
 .css-2hbptg,
 [data-css-2hbptg] {
   margin: 20px;
@@ -100,6 +93,29 @@ exports[`renders 1`] = `
   margin: 1em 0;
   color: #F67982;
   font-weight: lighter;
+}
+
+.css-1cx0vtd,
+[data-css-1cx0vtd] {
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem;
+}
+
+.css-1cx0vtd > h3,
+[data-css-1cx0vtd] > h3 {
+  width: 100%;
+  margin: 20px auto;
+  max-width: 50rem;
+}
+
+.css-1w1n09,
+[data-css-1w1n09] {
+  border-bottom: 1px solid #ED5C70;
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  max-width: 50rem;
 }
 
 .css-1djfccv,
@@ -283,7 +299,7 @@ exports[`renders 1`] = `
       </ul>
     </nav>
     <div
-      className="css-2y5bqi"
+      className="css-nil"
     >
       <div
         className="css-2hbptg"
@@ -385,29 +401,61 @@ exports[`renders 1`] = `
         </div>
       </div>
       <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>If you've got an example of something that you've done with glamorous that
-          doesn't really work on one of the other pages, then please feel free to
-          open a pull request on this page!
-          </p>
-          ",
-          }
-        }
-      />
-      <div>
-        <div>
+        className="css-1cx0vtd"
+      >
+        <h3>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>If you've got an example of something that you've done with glamorous that
+              doesn't really work on one of the other pages, then please feel free to
+              open a pull request on this page!
+              </p>
+              ",
+              }
+            }
+          />
+        </h3>
+        <section
+          className="css-1w1n09"
+        >
           <h2>
             CSS Grid (Spanish)
           </h2>
-          <details
-            onClick={[Function]}
-          >
-            <summary>
-              The best solution for CSS layout
-            </summary>
-          </details>
-        </div>
+          <h4>
+            The best solution for CSS layout
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p><a href=\\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout\\">CSS Grid Layout</a>
+                is a relatively new layout tool for the web. It's incredibly powerful and expressive
+                and enables new layouts that were previously very difficult or altogether impossible.</p>
+                <p>In this example, we use the <a href=\\"https://developer.mozilla.org/en-US/docs/Web/CSS/@supports\\"><code>@supports</code></a>
+                feature of CSS to opt-into CSS Grid in browsers where this is available. Be warned that
+                not all browsers will support <code>@supports</code>.
+                </p>
+                ",
+                }
+              }
+            />
+            <iframe
+              sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+              src="https://codesandbox.io/embed/2k8yll8qj"
+              style={
+                Object {
+                  "border": 0,
+                  "borderRadius": 4,
+                  "height": 500,
+                  "overflow": "hidden",
+                  "width": "100%",
+                }
+              }
+              title="CSS Grid (Spanish)"
+            />
+          </div>
+        </section>
       </div>
     </div>
     <div>

@@ -71,13 +71,6 @@ exports[`renders 1`] = `
   color: #BD3D90;
 }
 
-.css-2y5bqi,
-[data-css-2y5bqi] {
-  margin: 20px auto;
-  max-width: 700px;
-  text-align: center;
-}
-
 .css-2hbptg,
 [data-css-2hbptg] {
   margin: 20px;
@@ -100,6 +93,29 @@ exports[`renders 1`] = `
   margin: 1em 0;
   color: #F67982;
   font-weight: lighter;
+}
+
+.css-1cx0vtd,
+[data-css-1cx0vtd] {
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem;
+}
+
+.css-1cx0vtd > h3,
+[data-css-1cx0vtd] > h3 {
+  width: 100%;
+  margin: 20px auto;
+  max-width: 50rem;
+}
+
+.css-1w1n09,
+[data-css-1w1n09] {
+  border-bottom: 1px solid #ED5C70;
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  max-width: 50rem;
 }
 
 .css-1djfccv,
@@ -179,6 +195,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/"
             onClick={[Function]}
           >
             <svg
@@ -229,6 +246,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/basics"
             onClick={[Function]}
           >
             Basics
@@ -239,6 +257,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/advanced"
             onClick={[Function]}
           >
             Advanced
@@ -249,6 +268,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/examples"
             onClick={[Function]}
           >
             Examples
@@ -259,6 +279,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/integrations"
             onClick={[Function]}
           >
             Integrations
@@ -269,6 +290,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/api"
             onClick={[Function]}
           >
             API
@@ -277,7 +299,7 @@ exports[`renders 1`] = `
       </ul>
     </nav>
     <div
-      className="css-2y5bqi"
+      className="css-nil"
     >
       <div
         className="css-2hbptg"
@@ -379,27 +401,79 @@ exports[`renders 1`] = `
         </div>
       </div>
       <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>This is some of the more advanced stuff you can do with glamorous
-          </p>
-          ",
-          }
-        }
-      />
-      <div>
-        <div>
+        className="css-1cx0vtd"
+      >
+        <h3>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>This is some of the more advanced stuff you can do with glamorous
+              </p>
+              ",
+              }
+            }
+          />
+        </h3>
+        <section
+          className="css-1w1n09"
+        >
           <h2>
             \`innerRef\`
           </h2>
-          <details
-            onClick={[Function]}
-          >
-            <summary>
-              How to access the underlying \`ref\`
-            </summary>
-          </details>
-        </div>
+          <h4>
+            How to access the underlying \`ref\`
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>Sometimes you need access to the
+                <a href=\\"https://facebook.github.io/react/docs/refs-and-the-dom.html\\"><code>ref</code></a>
+                of the underlying component that's rendered. You can accomplish this with
+                the <code>innerRef</code> prop.</p>
+                <p>This is a function and if provided, will be called with the inner element's
+                reference.</p>
+                ",
+                }
+              }
+            />
+            <details
+              onClick={[Function]}
+            >
+              <summary>
+                An input in a form
+              </summary>
+            </details>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+                ",
+                }
+              }
+            />
+          </div>
+        </section>
+        <section
+          className="css-1w1n09"
+        >
+          <h2>
+            Working with existing CSS
+          </h2>
+          <h4>
+            
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>testing</p>
+                ",
+                }
+              }
+            />
+          </div>
+        </section>
       </div>
     </div>
     <div>
