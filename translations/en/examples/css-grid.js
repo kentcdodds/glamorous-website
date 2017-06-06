@@ -11,4 +11,5 @@ module.exports = {
     not all browsers will support ~@supports~.
   `.replace(/~/g, '`'),
   codeSandboxId: '2k8yll8qj',
+  editLink: '/translations/en/examples/css-grid.js',
 }

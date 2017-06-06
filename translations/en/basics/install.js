@@ -17,4 +17,5 @@ module.exports = {
   > NOTE: If you're using React v15.5 or greater, you'll also need to have
   > ~prop-types~ installed: ~npm install --save prop-types~
   `.replace(/~/g, '`'),
+  editLink: '/translations/en/basics/install.js',
 }
