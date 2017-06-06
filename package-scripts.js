@@ -1,6 +1,8 @@
 const npsUtils = require('nps-utils')
 
 const concurrent = npsUtils.concurrent
+const series = npsUtils.series
+const rimraf = npsUtils.rimraf
 const hiddenFromHelp = true
 
 module.exports = {
@@ -28,7 +30,11 @@ module.exports = {
     // default is run when you run `nps` or `npm start`
     default: 'next start',
     dev: 'next',
-    build: 'next build',
+    build: {
+      default: 'next build',
+      info: 'node other/get-build-info.js > static/build-info.json',
+      clean: rimraf('.next static/build-info.json'),
+    },
     lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
       description:
@@ -43,7 +49,7 @@ module.exports = {
     deploy: {
       hiddenFromHelp,
       description: 'Runs the deploy script.',
-      script: 'NOW_ALIAS=rc.glamorous.rocks ./other/now-travis || true',
+      script: series('nps build.info', './other/now-travis'),
     },
     validateAndDeploy: {
       hiddenFromHelp,
