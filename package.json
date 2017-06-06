@@ -18,6 +18,7 @@
     "css-in-js"
   ],
   "dependencies": {
+    "common-tags": "^1.4.0",
     "glamor": "^2.20.25",
     "glamorous": "^3.19.1",
     "html-loader": "^0.4.5",

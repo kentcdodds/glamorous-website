@@ -1,6 +1,7 @@
 import React from 'react'
 import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
+import GoogleAnalytics from '../components/google-analytics'
 
 export default class MyDocument extends Document {
   static getInitialProps({renderPage}) {
@@ -47,6 +48,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <GoogleAnalytics />
         </body>
       </html>
     )
