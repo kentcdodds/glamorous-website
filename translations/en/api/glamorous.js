@@ -1,3 +1,5 @@
-module.exports = `
-# ~glamorous~
-`.replace(/~/g, '`')
+module.exports = {
+  title: '`glamorous`',
+  subtitle: '',
+  description: ``.replace(/~/g, '`'),
+}

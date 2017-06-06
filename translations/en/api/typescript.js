@@ -1,3 +1,5 @@
-module.exports = `
-# TypeScript
-`.replace(/~/g, '`')
+module.exports = {
+  title: 'TypeScript',
+  subtitle: '',
+  description: ``.replace(/~/g, '`'),
+}

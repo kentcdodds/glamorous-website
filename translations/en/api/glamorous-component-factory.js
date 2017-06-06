@@ -1,3 +1,5 @@
-module.exports = `
-# ~glamorousComponentFactory~
-`.replace(/~/g, '`')
+module.exports = {
+  title: '`glamorousComponentFactory`',
+  subtitle: '',
+  description: ``.replace(/~/g, '`'),
+}
