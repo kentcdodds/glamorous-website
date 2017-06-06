@@ -49,10 +49,7 @@ module.exports = {
     deploy: {
       hiddenFromHelp,
       description: 'Runs the deploy script.',
-      script: series(
-        'nps build.info',
-        'NOW_ALIAS=rc.glamorous.rocks ./other/now-travis'
-      ),
+      script: series('nps build.info', './other/now-travis'),
     },
     validateAndDeploy: {
       hiddenFromHelp,

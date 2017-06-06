@@ -24,7 +24,6 @@ const client = github.client(githubToken)
 const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
 
 function deploy(context, sha) {
-  let alias
   let stdout = ''
   updateStatus({
     state: 'pending',
@@ -84,8 +83,14 @@ function deploy(context, sha) {
   }
 
   function updateStatus(options) {
-    const mergedOptions = Object.assign({context, target_url: alias}, options)
-    console.log(`${mergedOptions.description}: ${mergedOptions.target_url}`)
+    const {TRAVIS_REPO_SLUG, TRAVIS_BUILD_ID} = process.env
+    const travisUrl = `https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}`
+    const mergedOptions = Object.assign(
+      {context, target_url: travisUrl},
+      options
+    )
+    const {description, target_url} = mergedOptions
+    console.log(`${description}: ${target_url}`)
     ghRepo.status(sha, mergedOptions, logError('setting complete status'))
   }
 }
