@@ -39,8 +39,17 @@ export default () => `
     overflow-x: hidden;
   }
 
+  p {
+    margin-bottom: 0.5rem;
+  }
+
   a {
     text-decoration: none;
+    color: ${colors.primary}
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   h1,
@@ -65,5 +74,14 @@ export default () => `
   pre {
     overflow-x: scroll;
     max-width: 100%;
+    color: ${colors.white};
+    background-color: ${colors.blue};
+    padding: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 5px solid ${colors.primaryMed}
   }
 `

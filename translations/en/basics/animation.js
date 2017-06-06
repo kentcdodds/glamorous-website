@@ -1,3 +1,6 @@
-module.exports = `
-# Animation
-`.replace(/~/g, '`')
+module.exports = {
+  title: 'Animation',
+  subtitle: '',
+  description: ``.replace(/~/g, '`'),
+  editLink: '/translations/en/basics/animation.js',
+}

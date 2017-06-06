@@ -346,7 +346,7 @@ exports[`renders 1`] = `
           Object {
             "colors": Object {
               "black": "#000",
-              "blue": "#00c3db",
+              "blue": "#28384e",
               "code": "#4F4F4F",
               "darkGray": "#333",
               "faded": "#B2C1C0",
@@ -412,10 +412,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/"
                                       onClick={[Function]}
                                     >
                                       <LipstickIcon
@@ -486,10 +488,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/basics"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/basics"
                                       onClick={[Function]}
                                     >
                                       Basics
@@ -516,10 +520,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/advanced"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/advanced"
                                       onClick={[Function]}
                                     >
                                       Advanced
@@ -546,10 +552,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/examples"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/examples"
                                       onClick={[Function]}
                                     >
                                       Examples
@@ -576,10 +584,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/integrations"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/integrations"
                                       onClick={[Function]}
                                     >
                                       Integrations
@@ -606,10 +616,12 @@ exports[`renders 1`] = `
                                 >
                                   <glamorous(a)
                                     active={false}
+                                    href="/api"
                                     onClick={[Function]}
                                   >
                                     <a
                                       className="css-1xw95l9"
+                                      href="/api"
                                       onClick={[Function]}
                                     >
                                       API
@@ -1199,10 +1211,12 @@ exports[`renders 1`] = `
                       <glamorous(a)
                         active={false}
                         className="css-iew8aq"
+                        href="/basics"
                         onClick={[Function]}
                       >
                         <a
                           className="css-58pcct"
+                          href="/basics"
                           onClick={[Function]}
                         >
                           Click Here to get started

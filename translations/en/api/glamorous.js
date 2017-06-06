@@ -1,3 +1,6 @@
-module.exports = `
-# ~glamorous~
-`.replace(/~/g, '`')
+module.exports = {
+  title: '`glamorous`',
+  subtitle: '',
+  description: ``.replace(/~/g, '`'),
+  editLink: '/translations/en/api/glamorous.js',
+}

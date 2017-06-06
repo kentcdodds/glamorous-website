@@ -35,4 +35,5 @@ module.exports = {
     render(<MyComponent />)
     ~~~
   `.replace(/~/g, '`'),
+  editLink: '/translations/en/advanced/refs.js',
 }

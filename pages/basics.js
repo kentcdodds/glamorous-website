@@ -1,15 +1,17 @@
 import React from 'react'
+import {getInitialLocaleProps, getTranslations} from '../components/locale'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import PageSections from '../components/page-sections'
 
-function Basics(props) {
+function Basics({url, locale}) {
+  const advancedData = getTranslations(locale, 'basics/index')
   return (
-    <Layout pathname={props.url ? props.url.pathname : ''}>
-      <Hero>
-        edit in pages/basics.js
-      </Hero>
+    <Layout pathname={url ? url.pathname : ''}>
+      <PageSections data={advancedData} />
     </Layout>
   )
 }
+
+Basics.getInitialProps = getInitialLocaleProps
 
 export default Basics

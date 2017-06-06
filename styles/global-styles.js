@@ -23,7 +23,7 @@ export const colors = {
   secondary: '#BD3D90',
   faded: '#B2C1C0',
   white: '#fff',
-  blue: '#00c3db',
+  blue: '#28384e',
   purple: '#fe0072',
   lightGray: '#f7f7f7',
   gray: '#cccccc',

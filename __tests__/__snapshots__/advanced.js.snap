@@ -71,13 +71,6 @@ exports[`renders 1`] = `
   color: #BD3D90;
 }
 
-.css-2y5bqi,
-[data-css-2y5bqi] {
-  margin: 20px auto;
-  max-width: 700px;
-  text-align: center;
-}
-
 .css-2hbptg,
 [data-css-2hbptg] {
   margin: 20px;
@@ -102,6 +95,61 @@ exports[`renders 1`] = `
   font-weight: lighter;
 }
 
+.css-az4jop,
+[data-css-az4jop] {
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem;
+}
+
+.css-az4jop > h3,
+[data-css-az4jop] > h3 {
+  width: 100%;
+  margin: 20px auto;
+  max-width: 50rem;
+}
+
+.css-az4jop svg,
+[data-css-az4jop] svg {
+  fill: #ED5C70;
+  width: 1rem;
+}
+
+.css-1w1n09,
+[data-css-1w1n09] {
+  border-bottom: 1px solid #ED5C70;
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  max-width: 50rem;
+}
+
+.css-r3kerl,
+[data-css-r3kerl] {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.css-1sbv75w,
+[data-css-1sbv75w] {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ED5C70;
+}
+
+.css-1sbv75w:visited,
+[data-css-1sbv75w]:visited {
+  color: #BD3D90;
+}
+
 .css-1djfccv,
 [data-css-1djfccv] {
   height: 7px;
@@ -117,18 +165,6 @@ exports[`renders 1`] = `
   font-size: 0.6em;
   text-align: center;
   background: #fff;
-}
-
-.css-1sbv75w,
-[data-css-1sbv75w] {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #ED5C70;
-}
-
-.css-1sbv75w:visited,
-[data-css-1sbv75w]:visited {
-  color: #BD3D90;
 }
 
 @media only screen and (min-width: 481px) {
@@ -179,6 +215,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/"
             onClick={[Function]}
           >
             <svg
@@ -229,6 +266,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/basics"
             onClick={[Function]}
           >
             Basics
@@ -239,6 +277,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/advanced"
             onClick={[Function]}
           >
             Advanced
@@ -249,6 +288,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/examples"
             onClick={[Function]}
           >
             Examples
@@ -259,6 +299,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/integrations"
             onClick={[Function]}
           >
             Integrations
@@ -269,6 +310,7 @@ exports[`renders 1`] = `
         >
           <a
             className="css-1xw95l9"
+            href="/api"
             onClick={[Function]}
           >
             API
@@ -277,7 +319,7 @@ exports[`renders 1`] = `
       </ul>
     </nav>
     <div
-      className="css-2y5bqi"
+      className="css-nil"
     >
       <div
         className="css-2hbptg"
@@ -379,27 +421,234 @@ exports[`renders 1`] = `
         </div>
       </div>
       <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>This is some of the more advanced stuff you can do with glamorous
-          </p>
-          ",
-          }
-        }
-      />
-      <div>
-        <div>
+        className="css-az4jop"
+      >
+        <h3>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>This is some of the more advanced stuff you can do with glamorous
+              </p>
+              ",
+              }
+            }
+          />
+        </h3>
+        <section
+          className="css-1w1n09"
+        >
           <h2>
             \`innerRef\`
           </h2>
-          <details
-            onClick={[Function]}
+          <h4>
+            How to access the underlying \`ref\`
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>Sometimes you need access to the
+                <a href=\\"https://facebook.github.io/react/docs/refs-and-the-dom.html\\"><code>ref</code></a>
+                of the underlying component that's rendered. You can accomplish this with
+                the <code>innerRef</code> prop.</p>
+                <p>This is a function and if provided, will be called with the inner element's
+                reference.</p>
+                ",
+                }
+              }
+            />
+            <details
+              onClick={[Function]}
+            >
+              <summary>
+                An input in a form
+              </summary>
+            </details>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+                ",
+                }
+              }
+            />
+          </div>
+          <div
+            className="css-r3kerl"
           >
-            <summary>
-              How to access the underlying \`ref\`
-            </summary>
-          </details>
-        </div>
+            <a
+              className="css-1sbv75w"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/refs.js"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  fillRule="evenodd"
+                />
+              </svg>
+               Edit
+            </a>
+          </div>
+        </section>
+        <section
+          className="css-1w1n09"
+        >
+          <h2>
+            Working with existing CSS
+          </h2>
+          <h4>
+            
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>testing</p>
+                ",
+                }
+              }
+            />
+          </div>
+          <div
+            className="css-r3kerl"
+          >
+            <a
+              className="css-1sbv75w"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/existing-css.js"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  fillRule="evenodd"
+                />
+              </svg>
+               Edit
+            </a>
+          </div>
+        </section>
+        <section
+          className="css-1w1n09"
+        >
+          <h2>
+            Theming
+          </h2>
+          <h4>
+            
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>testing</p>
+                ",
+                }
+              }
+            />
+          </div>
+          <div
+            className="css-r3kerl"
+          >
+            <a
+              className="css-1sbv75w"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/theming.js"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  fillRule="evenodd"
+                />
+              </svg>
+               Edit
+            </a>
+          </div>
+        </section>
+        <section
+          className="css-1w1n09"
+        >
+          <h2>
+            Optimizing Bundle Size
+          </h2>
+          <h4>
+            
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>testing</p>
+                ",
+                }
+              }
+            />
+          </div>
+          <div
+            className="css-r3kerl"
+          >
+            <a
+              className="css-1sbv75w"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/size.js"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  fillRule="evenodd"
+                />
+              </svg>
+               Edit
+            </a>
+          </div>
+        </section>
+        <section
+          className="css-1w1n09"
+        >
+          <h2>
+            Server Side Rendering
+          </h2>
+          <h4>
+            
+          </h4>
+          <div>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>testing</p>
+                ",
+                }
+              }
+            />
+          </div>
+          <div
+            className="css-r3kerl"
+          >
+            <a
+              className="css-1sbv75w"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/ssr.js"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  fillRule="evenodd"
+                />
+              </svg>
+               Edit
+            </a>
+          </div>
+        </section>
       </div>
     </div>
     <div>

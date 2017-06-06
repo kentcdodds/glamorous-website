@@ -1,37 +1,74 @@
 import React from 'react'
-import {Div} from 'glamorous'
+import glamorous, {Div} from 'glamorous'
 import Hero from './hero'
 import interactiveMarkdown from './interactive-markdown'
-import ClickToRender from './click-to-render'
 import CodeSandboxEmbed from './code-sandbox-embed'
+import {Anchor} from './styled-links'
+import GitHubSVG from './svgs/github.svg'
+
+const repoEditRootURL =
+  'https://github.com/kentcdodds/glamorous-website/edit/master'
+
+const PageWrapper = glamorous.div((props, {colors}) => ({
+  backgroundColor: colors.white,
+  width: '100%',
+  padding: '1rem',
+  '& > h3': {
+    width: '100%',
+    margin: '20px auto',
+    maxWidth: '50rem',
+  },
+  '& svg': {
+    fill: `${colors.primary}`,
+    width: '1rem',
+  },
+}))
+
+const EditAnchorWrap = glamorous(Div)({
+  display: 'flex',
+  flexDirection: 'row-reverse',
+})
 
 export default PageSections
 
 function PageSections({data}) {
   return (
-    <Div margin="20px auto" maxWidth={700} textAlign="center">
+    <Div>
       <Hero>{data.title}</Hero>
-      {interactiveMarkdown(data.heading)}
-      <div>
+      <PageWrapper>
+        <h3>{interactiveMarkdown(data.heading)}</h3>
         {data.sections.map(section =>
           <DocSection key={section.title} {...section} />,
         )}
-      </div>
+      </PageWrapper>
     </Div>
   )
 }
 
 function DocSection(props) {
-  const {title, subtitle} = props
+  const {title, subtitle, editLink} = props
+
+  // eslint-disable-next-line no-shadow
+  const Section = glamorous.section((props, {colors}) => ({
+    borderBottom: `1px solid ${colors.primary}`,
+    width: '100%',
+    margin: '20px auto',
+    paddingBottom: 20,
+    maxWidth: '50rem',
+  }))
+
   return (
-    <div>
+    <Section>
       <h2>{title}</h2>
-      <ClickToRender
-        summary={subtitle}
-        component={DocSectionDetails}
-        props={props}
-      />
-    </div>
+      <h4>{subtitle}</h4>
+      <DocSectionDetails {...props} />
+      {editLink &&
+        <EditAnchorWrap>
+          <Anchor external href={`${repoEditRootURL}${editLink}`}>
+            <GitHubSVG /> Edit
+          </Anchor>
+        </EditAnchorWrap>}
+    </Section>
   )
 }
 
