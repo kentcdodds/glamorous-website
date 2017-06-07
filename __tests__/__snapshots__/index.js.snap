@@ -59,16 +59,11 @@ exports[`renders 1`] = `
   padding-bottom: 4px;
 }
 
-.css-1xw95l9,
-[data-css-1xw95l9] {
+.css-1qizi5m,
+[data-css-1qizi5m] {
   cursor: pointer;
   text-decoration: none;
   color: #F67982;
-}
-
-.css-1xw95l9:visited,
-[data-css-1xw95l9]:visited {
-  color: #BD3D90;
 }
 
 .css-2hbptg,
@@ -244,8 +239,8 @@ exports[`renders 1`] = `
   color: #ED5C70;
 }
 
-.css-58pcct,
-[data-css-58pcct] {
+.css-1442hox,
+[data-css-1442hox] {
   -webkit-transition: all .3s;
   cursor: pointer;
   color: #fff;
@@ -265,13 +260,8 @@ exports[`renders 1`] = `
   display: block;
 }
 
-.css-58pcct:visited,
-[data-css-58pcct]:visited {
-  color: #BD3D90;
-}
-
-.css-58pcct:hover,
-[data-css-58pcct]:hover {
+.css-1442hox:hover,
+[data-css-1442hox]:hover {
   background-color: rgba(255, 255, 255, 0.5);
   color: #ED5C70;
 }
@@ -293,16 +283,11 @@ exports[`renders 1`] = `
   background: #fff;
 }
 
-.css-1sbv75w,
-[data-css-1sbv75w] {
+.css-rgijo0,
+[data-css-rgijo0] {
   cursor: pointer;
   text-decoration: underline;
   color: #ED5C70;
-}
-
-.css-1sbv75w:visited,
-[data-css-1sbv75w]:visited {
-  color: #BD3D90;
 }
 
 @media only screen and (min-width: 481px) {
@@ -416,7 +401,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/"
                                       onClick={[Function]}
                                     >
@@ -492,7 +477,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/basics"
                                       onClick={[Function]}
                                     >
@@ -524,7 +509,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/advanced"
                                       onClick={[Function]}
                                     >
@@ -556,7 +541,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/examples"
                                       onClick={[Function]}
                                     >
@@ -588,7 +573,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/integrations"
                                       onClick={[Function]}
                                     >
@@ -620,7 +605,7 @@ exports[`renders 1`] = `
                                     onClick={[Function]}
                                   >
                                     <a
-                                      className="css-1xw95l9"
+                                      className="css-1qizi5m"
                                       href="/api"
                                       onClick={[Function]}
                                     >
@@ -1215,7 +1200,7 @@ exports[`renders 1`] = `
                         onClick={[Function]}
                       >
                         <a
-                          className="css-58pcct"
+                          className="css-1442hox"
                           href="/basics"
                           onClick={[Function]}
                         >
@@ -1254,7 +1239,7 @@ exports[`renders 1`] = `
                             href="https://github.com/paypal"
                           >
                             <a
-                              className="css-1sbv75w"
+                              className="css-rgijo0"
                               href="https://github.com/paypal"
                             >
                               PayPal

@@ -12,7 +12,6 @@ const basicLinkStyles = {cursor: 'pointer'}
 const anchorStyles = {
   textDecoration: 'underline',
   color: colors.primaryMed,
-  ':visited': {color: colors.secondary},
 }
 
 const activeLinkStyles = (props, theme) => ({
