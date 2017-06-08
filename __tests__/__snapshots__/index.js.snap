@@ -805,7 +805,8 @@ exports[`renders 1`] = `
                       className="css-1ghpb5"
                     >
                       <CodePreview
-                        code="const Button = glamorous.a({
+                        code="
+                          const Button = glamorous.a({
                             border: '1px solid #F67982',
                             width: '11em',
                             padding: '0.7em 0',
@@ -849,54 +850,55 @@ exports[`renders 1`] = `
                                 Try It
                               </Secondary>
                             </glamorous.Div>
-                          )"
+                          )
+                        "
                       >
                         <glamorous(LiveProvider)
                           code="const Button = glamorous.a({
-                              border: '1px solid #F67982',
-                              width: '11em',
-                              padding: '0.7em 0',
-                              textDecoration: 'none',
-                              borderRadius: 4,
-                              display: 'inline-block',
-                              margin: '.5em 1em',
-                              transition: 'all .3s',
-                            })
+                          border: '1px solid #F67982',
+                          width: '11em',
+                          padding: '0.7em 0',
+                          textDecoration: 'none',
+                          borderRadius: 4,
+                          display: 'inline-block',
+                          margin: '.5em 1em',
+                          transition: 'all .3s',
+                        })
                         
-                            const solidColors = {
-                              backgroundColor: '#ED5C70',
-                              color: '#fff',
-                            }
+                        const solidColors = {
+                          backgroundColor: '#ED5C70',
+                          color: '#fff',
+                        }
                         
-                            const transparentColors = {
-                              backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                              color: '#ED5C70',
-                            }
+                        const transparentColors = {
+                          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                          color: '#ED5C70',
+                        }
                         
-                            const Primary = glamorous(Button)(
-                              solidColors,
-                              {
-                                ':hover': transparentColors,
-                              }
-                            )
+                        const Primary = glamorous(Button)(
+                          solidColors,
+                          {
+                            ':hover': transparentColors,
+                          }
+                        )
                         
-                            const Secondary = glamorous(Button)(
-                              transparentColors,
-                              {
-                                ':hover': solidColors,
-                              }
-                            )
+                        const Secondary = glamorous(Button)(
+                          transparentColors,
+                          {
+                            ':hover': solidColors,
+                          }
+                        )
                         
-                            render(
-                              <glamorous.Div textAlign=\\"center\\">
-                                <Primary href=\\"https://github.com/paypal/glamorous\\">
-                                  GitHub
-                                </Primary>
-                                <Secondary href=\\"http://kcd.im/glamorous-help\\">
-                                  Try It
-                                </Secondary>
-                              </glamorous.Div>
-                            )"
+                        render(
+                          <glamorous.Div textAlign=\\"center\\">
+                            <Primary href=\\"https://github.com/paypal/glamorous\\">
+                              GitHub
+                            </Primary>
+                            <Secondary href=\\"http://kcd.im/glamorous-help\\">
+                              Try It
+                            </Secondary>
+                          </glamorous.Div>
+                        )"
                           noInline={true}
                           scope={
                             Object {
@@ -907,50 +909,50 @@ exports[`renders 1`] = `
                           <LiveProvider
                             className="css-85v3fw"
                             code="const Button = glamorous.a({
-                                border: '1px solid #F67982',
-                                width: '11em',
-                                padding: '0.7em 0',
-                                textDecoration: 'none',
-                                borderRadius: 4,
-                                display: 'inline-block',
-                                margin: '.5em 1em',
-                                transition: 'all .3s',
-                              })
+                            border: '1px solid #F67982',
+                            width: '11em',
+                            padding: '0.7em 0',
+                            textDecoration: 'none',
+                            borderRadius: 4,
+                            display: 'inline-block',
+                            margin: '.5em 1em',
+                            transition: 'all .3s',
+                          })
                           
-                              const solidColors = {
-                                backgroundColor: '#ED5C70',
-                                color: '#fff',
-                              }
+                          const solidColors = {
+                            backgroundColor: '#ED5C70',
+                            color: '#fff',
+                          }
                           
-                              const transparentColors = {
-                                backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                                color: '#ED5C70',
-                              }
+                          const transparentColors = {
+                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            color: '#ED5C70',
+                          }
                           
-                              const Primary = glamorous(Button)(
-                                solidColors,
-                                {
-                                  ':hover': transparentColors,
-                                }
-                              )
+                          const Primary = glamorous(Button)(
+                            solidColors,
+                            {
+                              ':hover': transparentColors,
+                            }
+                          )
                           
-                              const Secondary = glamorous(Button)(
-                                transparentColors,
-                                {
-                                  ':hover': solidColors,
-                                }
-                              )
+                          const Secondary = glamorous(Button)(
+                            transparentColors,
+                            {
+                              ':hover': solidColors,
+                            }
+                          )
                           
-                              render(
-                                <glamorous.Div textAlign=\\"center\\">
-                                  <Primary href=\\"https://github.com/paypal/glamorous\\">
-                                    GitHub
-                                  </Primary>
-                                  <Secondary href=\\"http://kcd.im/glamorous-help\\">
-                                    Try It
-                                  </Secondary>
-                                </glamorous.Div>
-                              )"
+                          render(
+                            <glamorous.Div textAlign=\\"center\\">
+                              <Primary href=\\"https://github.com/paypal/glamorous\\">
+                                GitHub
+                              </Primary>
+                              <Secondary href=\\"http://kcd.im/glamorous-help\\">
+                                Try It
+                              </Secondary>
+                            </glamorous.Div>
+                          )"
                             mountStylesheet={true}
                             noInline={true}
                             scope={
@@ -1121,50 +1123,50 @@ exports[`renders 1`] = `
                                   <Editor
                                     className="css-nil"
                                     code="const Button = glamorous.a({
-                                        border: '1px solid #F67982',
-                                        width: '11em',
-                                        padding: '0.7em 0',
-                                        textDecoration: 'none',
-                                        borderRadius: 4,
-                                        display: 'inline-block',
-                                        margin: '.5em 1em',
-                                        transition: 'all .3s',
-                                      })
+                                    border: '1px solid #F67982',
+                                    width: '11em',
+                                    padding: '0.7em 0',
+                                    textDecoration: 'none',
+                                    borderRadius: 4,
+                                    display: 'inline-block',
+                                    margin: '.5em 1em',
+                                    transition: 'all .3s',
+                                  })
                                   
-                                      const solidColors = {
-                                        backgroundColor: '#ED5C70',
-                                        color: '#fff',
-                                      }
+                                  const solidColors = {
+                                    backgroundColor: '#ED5C70',
+                                    color: '#fff',
+                                  }
                                   
-                                      const transparentColors = {
-                                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                                        color: '#ED5C70',
-                                      }
+                                  const transparentColors = {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                                    color: '#ED5C70',
+                                  }
                                   
-                                      const Primary = glamorous(Button)(
-                                        solidColors,
-                                        {
-                                          ':hover': transparentColors,
-                                        }
-                                      )
+                                  const Primary = glamorous(Button)(
+                                    solidColors,
+                                    {
+                                      ':hover': transparentColors,
+                                    }
+                                  )
                                   
-                                      const Secondary = glamorous(Button)(
-                                        transparentColors,
-                                        {
-                                          ':hover': solidColors,
-                                        }
-                                      )
+                                  const Secondary = glamorous(Button)(
+                                    transparentColors,
+                                    {
+                                      ':hover': solidColors,
+                                    }
+                                  )
                                   
-                                      render(
-                                        <glamorous.Div textAlign=\\"center\\">
-                                          <Primary href=\\"https://github.com/paypal/glamorous\\">
-                                            GitHub
-                                          </Primary>
-                                          <Secondary href=\\"http://kcd.im/glamorous-help\\">
-                                            Try It
-                                          </Secondary>
-                                        </glamorous.Div>
-                                      )"
+                                  render(
+                                    <glamorous.Div textAlign=\\"center\\">
+                                      <Primary href=\\"https://github.com/paypal/glamorous\\">
+                                        GitHub
+                                      </Primary>
+                                      <Secondary href=\\"http://kcd.im/glamorous-help\\">
+                                        Try It
+                                      </Secondary>
+                                    </glamorous.Div>
+                                  )"
                                     contentEditable={true}
                                     onChange={[Function]}
                                   >
@@ -1174,50 +1176,50 @@ exports[`renders 1`] = `
                                       dangerouslySetInnerHTML={
                                         Object {
                                           "__html": "<span class=\\"token keyword\\">const</span> Button <span class=\\"token operator\\">=</span> glamorous<span class=\\"token punctuation\\">.</span><span class=\\"token function\\">a</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">{</span>
-                                        			border<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'1px solid #F67982'</span><span class=\\"token punctuation\\">,</span>
-                                        			width<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'11em'</span><span class=\\"token punctuation\\">,</span>
-                                        			padding<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'0.7em 0'</span><span class=\\"token punctuation\\">,</span>
-                                        			textDecoration<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'none'</span><span class=\\"token punctuation\\">,</span>
-                                        			borderRadius<span class=\\"token punctuation\\">:</span> <span class=\\"token number\\">4</span><span class=\\"token punctuation\\">,</span>
-                                        			display<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'inline-block'</span><span class=\\"token punctuation\\">,</span>
-                                        			margin<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'.5em 1em'</span><span class=\\"token punctuation\\">,</span>
-                                        			transition<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'all .3s'</span><span class=\\"token punctuation\\">,</span>
-                                        		<span class=\\"token punctuation\\">}</span><span class=\\"token punctuation\\">)</span>
+                                        	border<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'1px solid #F67982'</span><span class=\\"token punctuation\\">,</span>
+                                        	width<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'11em'</span><span class=\\"token punctuation\\">,</span>
+                                        	padding<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'0.7em 0'</span><span class=\\"token punctuation\\">,</span>
+                                        	textDecoration<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'none'</span><span class=\\"token punctuation\\">,</span>
+                                        	borderRadius<span class=\\"token punctuation\\">:</span> <span class=\\"token number\\">4</span><span class=\\"token punctuation\\">,</span>
+                                        	display<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'inline-block'</span><span class=\\"token punctuation\\">,</span>
+                                        	margin<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'.5em 1em'</span><span class=\\"token punctuation\\">,</span>
+                                        	transition<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'all .3s'</span><span class=\\"token punctuation\\">,</span>
+                                        <span class=\\"token punctuation\\">}</span><span class=\\"token punctuation\\">)</span>
                                         
-                                        		<span class=\\"token keyword\\">const</span> solidColors <span class=\\"token operator\\">=</span> <span class=\\"token punctuation\\">{</span>
-                                        			backgroundColor<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#ED5C70'</span><span class=\\"token punctuation\\">,</span>
-                                        			color<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#fff'</span><span class=\\"token punctuation\\">,</span>
-                                        		<span class=\\"token punctuation\\">}</span>
+                                        <span class=\\"token keyword\\">const</span> solidColors <span class=\\"token operator\\">=</span> <span class=\\"token punctuation\\">{</span>
+                                        	backgroundColor<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#ED5C70'</span><span class=\\"token punctuation\\">,</span>
+                                        	color<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#fff'</span><span class=\\"token punctuation\\">,</span>
+                                        <span class=\\"token punctuation\\">}</span>
                                         
-                                        		<span class=\\"token keyword\\">const</span> transparentColors <span class=\\"token operator\\">=</span> <span class=\\"token punctuation\\">{</span>
-                                        			backgroundColor<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'rgba(255, 255, 255, 0.5)'</span><span class=\\"token punctuation\\">,</span>
-                                        			color<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#ED5C70'</span><span class=\\"token punctuation\\">,</span>
-                                        		<span class=\\"token punctuation\\">}</span>
+                                        <span class=\\"token keyword\\">const</span> transparentColors <span class=\\"token operator\\">=</span> <span class=\\"token punctuation\\">{</span>
+                                        	backgroundColor<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'rgba(255, 255, 255, 0.5)'</span><span class=\\"token punctuation\\">,</span>
+                                        	color<span class=\\"token punctuation\\">:</span> <span class=\\"token string\\">'#ED5C70'</span><span class=\\"token punctuation\\">,</span>
+                                        <span class=\\"token punctuation\\">}</span>
                                         
-                                        		<span class=\\"token keyword\\">const</span> Primary <span class=\\"token operator\\">=</span> <span class=\\"token function\\">glamorous</span><span class=\\"token punctuation\\">(</span>Button<span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">(</span>
-                                        			solidColors<span class=\\"token punctuation\\">,</span>
-                                        			<span class=\\"token punctuation\\">{</span>
-                                        				<span class=\\"token string\\">':hover'</span><span class=\\"token punctuation\\">:</span> transparentColors<span class=\\"token punctuation\\">,</span>
-                                        			<span class=\\"token punctuation\\">}</span>
-                                        		<span class=\\"token punctuation\\">)</span>
+                                        <span class=\\"token keyword\\">const</span> Primary <span class=\\"token operator\\">=</span> <span class=\\"token function\\">glamorous</span><span class=\\"token punctuation\\">(</span>Button<span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">(</span>
+                                        	solidColors<span class=\\"token punctuation\\">,</span>
+                                        	<span class=\\"token punctuation\\">{</span>
+                                        		<span class=\\"token string\\">':hover'</span><span class=\\"token punctuation\\">:</span> transparentColors<span class=\\"token punctuation\\">,</span>
+                                        	<span class=\\"token punctuation\\">}</span>
+                                        <span class=\\"token punctuation\\">)</span>
                                         
-                                        		<span class=\\"token keyword\\">const</span> Secondary <span class=\\"token operator\\">=</span> <span class=\\"token function\\">glamorous</span><span class=\\"token punctuation\\">(</span>Button<span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">(</span>
-                                        			transparentColors<span class=\\"token punctuation\\">,</span>
-                                        			<span class=\\"token punctuation\\">{</span>
-                                        				<span class=\\"token string\\">':hover'</span><span class=\\"token punctuation\\">:</span> solidColors<span class=\\"token punctuation\\">,</span>
-                                        			<span class=\\"token punctuation\\">}</span>
-                                        		<span class=\\"token punctuation\\">)</span>
+                                        <span class=\\"token keyword\\">const</span> Secondary <span class=\\"token operator\\">=</span> <span class=\\"token function\\">glamorous</span><span class=\\"token punctuation\\">(</span>Button<span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">(</span>
+                                        	transparentColors<span class=\\"token punctuation\\">,</span>
+                                        	<span class=\\"token punctuation\\">{</span>
+                                        		<span class=\\"token string\\">':hover'</span><span class=\\"token punctuation\\">:</span> solidColors<span class=\\"token punctuation\\">,</span>
+                                        	<span class=\\"token punctuation\\">}</span>
+                                        <span class=\\"token punctuation\\">)</span>
                                         
-                                        		<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span>
-                                        			<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>glamorous.Div</span> <span class=\\"token attr-name\\">textAlign</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>center<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
-                                        				<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>Primary</span> <span class=\\"token attr-name\\">href</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>https://github.com/paypal/glamorous<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
-                                        					GitHub
-                                        				<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>Primary</span><span class=\\"token punctuation\\">></span></span>
-                                        				<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>Secondary</span> <span class=\\"token attr-name\\">href</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>http://kcd.im/glamorous-help<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
-                                        					Try It
-                                        				<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>Secondary</span><span class=\\"token punctuation\\">></span></span>
-                                        			<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>glamorous.Div</span><span class=\\"token punctuation\\">></span></span>
-                                        		<span class=\\"token punctuation\\">)</span>",
+                                        <span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span>
+                                        	<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>glamorous.Div</span> <span class=\\"token attr-name\\">textAlign</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>center<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
+                                        		<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>Primary</span> <span class=\\"token attr-name\\">href</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>https://github.com/paypal/glamorous<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
+                                        			GitHub
+                                        		<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>Primary</span><span class=\\"token punctuation\\">></span></span>
+                                        		<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;</span>Secondary</span> <span class=\\"token attr-name\\">href</span><span class=\\"token attr-value\\"><span class=\\"token punctuation\\">=</span><span class=\\"token punctuation\\">\\"</span>http://kcd.im/glamorous-help<span class=\\"token punctuation\\">\\"</span></span><span class=\\"token punctuation\\">></span></span>
+                                        			Try It
+                                        		<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>Secondary</span><span class=\\"token punctuation\\">></span></span>
+                                        	<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>glamorous.Div</span><span class=\\"token punctuation\\">></span></span>
+                                        <span class=\\"token punctuation\\">)</span>",
                                         }
                                       }
                                       onChange={[Function]}

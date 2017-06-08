@@ -48,5 +48,5 @@ export default locale => {
         </Secondary>
       </glamorous.Div>
     )
-  `.trim()
+  `
 }
