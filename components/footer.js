@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import {Anchor} from '../components/styled-links'
 import Separator from '../components/separator'
+import {withContent} from './locale'
 
 const Footer = glamorous.footer((props, theme) => ({
   paddingTop: 10,
@@ -11,18 +11,13 @@ const Footer = glamorous.footer((props, theme) => ({
   background: theme.colors.white,
 }))
 
-export default PageFooter
+export default withContent({component: 'footer'}, PageFooter)
 
-function PageFooter() {
+function PageFooter({content}) {
   return (
     <div>
       <Separator />
-      <Footer>
-        Made with <span role="img" aria-label="love">💙</span> by
-        {' '}
-        <Anchor external href="https://github.com/paypal">PayPal</Anchor>
-        .
-      </Footer>
+      <Footer dangerouslySetInnerHTML={{__html: content.madeWith}} />
     </div>
   )
 }

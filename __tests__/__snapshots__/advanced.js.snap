@@ -29,6 +29,33 @@ exports[`renders 1`] = `
   z-index: 1;
 }
 
+.css-14yfuxk,
+[data-css-14yfuxk] {
+  -webkit-justify-content: flex-end;
+  -webkit-align-items: center;
+  -ms-flex-pack: end;
+  -webkit-box-pack: end;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.css-4y9d64,
+[data-css-4y9d64] {
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-size: 14px;
+  height: 28px;
+  background-color: #fff;
+  border-color: #ED5C70;
+}
+
 .css-dkzezy,
 [data-css-dkzezy] {
   -webkit-box-align: center;
@@ -194,120 +221,150 @@ exports[`renders 1`] = `
   <div
     className="css-4cv6bo"
   >
-    <nav
-      className="css-nil"
+    <div
+      className="css-14yfuxk"
     >
-      <ul
-        className="css-dkzezy"
+      <select
+        className="css-4y9d64"
+        onChange={[Function]}
+        value={undefined}
       >
-        <li
-          className="css-1oaxt76"
+        <option
+          value="en"
         >
-          <a
-            className="css-1qizi5m"
-            href="/"
-            onClick={[Function]}
+          en
+        </option>
+        <option
+          value="es"
+        >
+          es
+        </option>
+        <option
+          value="fr"
+        >
+          fr
+        </option>
+        <option
+          value="help"
+        >
+          Help Translate
+        </option>
+      </select>
+      <nav
+        className="css-nil"
+      >
+        <ul
+          className="css-dkzezy"
+        >
+          <li
+            className="css-1oaxt76"
           >
-            <svg
-              enableBackground="new 0 0 64 64"
-              viewBox="0 0 64 64"
-              width={20}
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+              className="css-1qizi5m"
+              href="/"
+              onClick={[Function]}
             >
-              <g
-                fill="#ED5C70"
+              <svg
+                enableBackground="new 0 0 64 64"
+                viewBox="0 0 64 64"
+                width={20}
+                xmlns="http://www.w3.org/2000/svg"
               >
+                <g
+                  fill="#ED5C70"
+                >
+                  <path
+                    d="M20.8 6.4 40.9 26.5 29.7 37.7 2.2 10.2z"
+                  />
+                  <path
+                    d="m10.6 5.8c-5.2.9-9 2.7-8.6 4.1.5 1.4 5.1 1.8 10.4.9 5.2-1 9.1-2.8 8.6-4.2-.5-1.4-5.2-1.7-10.4-.8"
+                  />
+                </g>
                 <path
-                  d="M20.8 6.4 40.9 26.5 29.7 37.7 2.2 10.2z"
+                  d="m10.8 5.8c-4.9.8-8.5 2.6-8 3.9.5 1.3 4.8 1.6 9.7.8 4.9-.8 8.5-2.6 8-3.8-.5-1.4-4.8-1.8-9.7-.9"
+                  fill="#ff8080"
                 />
                 <path
-                  d="m10.6 5.8c-5.2.9-9 2.7-8.6 4.1.5 1.4 5.1 1.8 10.4.9 5.2-1 9.1-2.8 8.6-4.2-.5-1.4-5.2-1.7-10.4-.8"
+                  d="m22.6 16.5h18.2v23.8h-18.2z"
+                  fill="#e8e8e8"
+                  transform="matrix(.7071-.7071.7071.7071-10.7928 30.6765)"
                 />
-              </g>
-              <path
-                d="m10.8 5.8c-4.9.8-8.5 2.6-8 3.9.5 1.3 4.8 1.6 9.7.8 4.9-.8 8.5-2.6 8-3.8-.5-1.4-4.8-1.8-9.7-.9"
-                fill="#ff8080"
-              />
-              <path
-                d="m22.6 16.5h18.2v23.8h-18.2z"
-                fill="#e8e8e8"
-                transform="matrix(.7071-.7071.7071.7071-10.7928 30.6765)"
-              />
-              <path
-                d="m43.7 47h19v5.9h-19z"
-                fill="#555b61"
-                transform="matrix(.707-.7072.7072.707-19.7271 52.2523)"
-              />
-              <path
-                d="m27.2 30.7h19v5.5h-19z"
-                fill="#b2c1c0"
-                transform="matrix(.7069-.7073.7073.7069-12.8952 35.7644)"
-              />
-              <path
-                d="m34.8 29.8h21v24.4h-21z"
-                fill="#3e4347"
-                transform="matrix(.7071-.7071.7071.7071-16.45 44.3334)"
-              />
-            </svg>
-          </a>
-        </li>
-        <li
-          className="css-1oaxt76"
-        >
-          <a
-            className="css-1qizi5m"
-            href="/basics"
-            onClick={[Function]}
+                <path
+                  d="m43.7 47h19v5.9h-19z"
+                  fill="#555b61"
+                  transform="matrix(.707-.7072.7072.707-19.7271 52.2523)"
+                />
+                <path
+                  d="m27.2 30.7h19v5.5h-19z"
+                  fill="#b2c1c0"
+                  transform="matrix(.7069-.7073.7073.7069-12.8952 35.7644)"
+                />
+                <path
+                  d="m34.8 29.8h21v24.4h-21z"
+                  fill="#3e4347"
+                  transform="matrix(.7071-.7071.7071.7071-16.45 44.3334)"
+                />
+              </svg>
+            </a>
+          </li>
+          <li
+            className="css-1oaxt76"
           >
-            Basics
-          </a>
-        </li>
-        <li
-          className="css-1oaxt76"
-        >
-          <a
-            className="css-1qizi5m"
-            href="/advanced"
-            onClick={[Function]}
+            <a
+              className="css-1qizi5m"
+              href="/basics"
+              onClick={[Function]}
+            >
+              Basics
+            </a>
+          </li>
+          <li
+            className="css-1oaxt76"
           >
-            Advanced
-          </a>
-        </li>
-        <li
-          className="css-1oaxt76"
-        >
-          <a
-            className="css-1qizi5m"
-            href="/examples"
-            onClick={[Function]}
+            <a
+              className="css-1qizi5m"
+              href="/advanced"
+              onClick={[Function]}
+            >
+              Advanced
+            </a>
+          </li>
+          <li
+            className="css-1oaxt76"
           >
-            Examples
-          </a>
-        </li>
-        <li
-          className="css-1oaxt76"
-        >
-          <a
-            className="css-1qizi5m"
-            href="/integrations"
-            onClick={[Function]}
+            <a
+              className="css-1qizi5m"
+              href="/examples"
+              onClick={[Function]}
+            >
+              Examples
+            </a>
+          </li>
+          <li
+            className="css-1oaxt76"
           >
-            Integrations
-          </a>
-        </li>
-        <li
-          className="css-1oaxt76"
-        >
-          <a
-            className="css-1qizi5m"
-            href="/api"
-            onClick={[Function]}
+            <a
+              className="css-1qizi5m"
+              href="/integrations"
+              onClick={[Function]}
+            >
+              Integrations
+            </a>
+          </li>
+          <li
+            className="css-1oaxt76"
           >
-            API
-          </a>
-        </li>
-      </ul>
-    </nav>
+            <a
+              className="css-1qizi5m"
+              href="/api"
+              onClick={[Function]}
+            >
+              API
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <div
       className="css-nil"
     >
@@ -405,9 +462,13 @@ exports[`renders 1`] = `
           </div>
           <h1
             className="css-wb6aqj"
-          >
-            Advanced Guides
-          </h1>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Advanced Guides</p>
+              ",
+              }
+            }
+          />
         </div>
       </div>
       <div
@@ -427,12 +488,22 @@ exports[`renders 1`] = `
         <section
           className="css-1w1n09"
         >
-          <h2>
-            \`innerRef\`
-          </h2>
-          <h4>
-            How to access the underlying \`ref\`
-          </h4>
+          <h2
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p><code>innerRef</code></p>
+              ",
+              }
+            }
+          />
+          <h4
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>How to access the underlying <code>ref</code></p>
+              ",
+              }
+            }
+          />
           <div>
             <div
               dangerouslySetInnerHTML={
@@ -468,7 +539,7 @@ exports[`renders 1`] = `
           >
             <a
               className="css-rgijo0"
-              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/refs.js"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master//pages/advanced/content/refs.js"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -479,19 +550,30 @@ exports[`renders 1`] = `
                   fillRule="evenodd"
                 />
               </svg>
-               Edit
+               
+              Edit
             </a>
           </div>
         </section>
         <section
           className="css-1w1n09"
         >
-          <h2>
-            Working with existing CSS
-          </h2>
-          <h4>
-            
-          </h4>
+          <h2
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Working with existing CSS</p>
+              ",
+              }
+            }
+          />
+          <h4
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+              ",
+              }
+            }
+          />
           <div>
             <div
               dangerouslySetInnerHTML={
@@ -507,7 +589,7 @@ exports[`renders 1`] = `
           >
             <a
               className="css-rgijo0"
-              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/existing-css.js"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master//pages/advanced/content/existing-css.js"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -518,19 +600,30 @@ exports[`renders 1`] = `
                   fillRule="evenodd"
                 />
               </svg>
-               Edit
+               
+              Edit
             </a>
           </div>
         </section>
         <section
           className="css-1w1n09"
         >
-          <h2>
-            Theming
-          </h2>
-          <h4>
-            
-          </h4>
+          <h2
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Theming</p>
+              ",
+              }
+            }
+          />
+          <h4
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+              ",
+              }
+            }
+          />
           <div>
             <div
               dangerouslySetInnerHTML={
@@ -546,7 +639,7 @@ exports[`renders 1`] = `
           >
             <a
               className="css-rgijo0"
-              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/theming.js"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master//pages/advanced/content/theming.js"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -557,19 +650,30 @@ exports[`renders 1`] = `
                   fillRule="evenodd"
                 />
               </svg>
-               Edit
+               
+              Edit
             </a>
           </div>
         </section>
         <section
           className="css-1w1n09"
         >
-          <h2>
-            Optimizing Bundle Size
-          </h2>
-          <h4>
-            
-          </h4>
+          <h2
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Optimizing Bundle Size</p>
+              ",
+              }
+            }
+          />
+          <h4
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+              ",
+              }
+            }
+          />
           <div>
             <div
               dangerouslySetInnerHTML={
@@ -585,7 +689,7 @@ exports[`renders 1`] = `
           >
             <a
               className="css-rgijo0"
-              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/size.js"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master//pages/advanced/content/size.js"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -596,19 +700,30 @@ exports[`renders 1`] = `
                   fillRule="evenodd"
                 />
               </svg>
-               Edit
+               
+              Edit
             </a>
           </div>
         </section>
         <section
           className="css-1w1n09"
         >
-          <h2>
-            Server Side Rendering
-          </h2>
-          <h4>
-            
-          </h4>
+          <h2
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>Server Side Rendering</p>
+              ",
+              }
+            }
+          />
+          <h4
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+              ",
+              }
+            }
+          />
           <div>
             <div
               dangerouslySetInnerHTML={
@@ -624,7 +739,7 @@ exports[`renders 1`] = `
           >
             <a
               className="css-rgijo0"
-              href="https://github.com/kentcdodds/glamorous-website/edit/master/translations/en/advanced/ssr.js"
+              href="https://github.com/kentcdodds/glamorous-website/edit/master//pages/advanced/content/ssr.js"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -635,7 +750,8 @@ exports[`renders 1`] = `
                   fillRule="evenodd"
                 />
               </svg>
-               Edit
+               
+              Edit
             </a>
           </div>
         </section>
@@ -647,24 +763,16 @@ exports[`renders 1`] = `
       />
       <footer
         className="css-qyz8mk"
-      >
-        Made with 
-        <span
-          aria-label="love"
-          role="img"
-        >
-          💙
-        </span>
-         by
-         
-        <a
-          className="css-rgijo0"
-          href="https://github.com/paypal"
-        >
-          PayPal
-        </a>
-        .
-      </footer>
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+              Made with <span role=\\"img\\" aria-label=\\"love\\">💙</span> by
+              <a href=\\"https://github.com/paypal\\">PayPal</a> and
+              <a href=\\"https://github.com/paypal/glamorous/blob/master/README.md#contributors\\">contributors</a>.
+            ",
+          }
+        }
+      />
     </div>
   </div>
 </div>
