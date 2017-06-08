@@ -53,6 +53,8 @@ function deploy(context, sha) {
         env: Object.assign({}, process.env, {
           NOW_TOKEN: nowToken,
           NOW_ID: target_url,
+          // TODO: remove the `rc.` when we're ready to release!
+          NOW_ALIAS: 'rc.glamorous.rocks',
         }),
       })
       aliasChild.stdout.on('data', data => safeLog(String(data)))

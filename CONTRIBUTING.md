@@ -67,9 +67,16 @@ any of the items in the want to do or might do list.
 
 Also, please watch the repo and respond to questions/bug reports/feature requests! Thanks!
 
+### Documentation
+
+This is a docs website after all! So we definitely need help with documentation!
+Please see the [CONTRIBUTING_DOCUMENTATION.md][docs-docs] file for more info
+about how to contribute documentation. Thank you :)
+
 [egghead]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [semantic-release]: https://npmjs.com/package/semantic-release
 [convention]: https://github.com/conventional-changelog/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [ROADMAP]: ./other/ROADMAP.md
 [nps]: https://npmjs.com/package/nps
+[docs-docs]: ./other/CONTRIBUTING_DOCUMENTATION.md

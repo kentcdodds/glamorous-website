@@ -27,7 +27,7 @@ const List = glamorous.ul((props, {mediaQueries}) => ({
 
 export default Nav
 
-function Nav(pathname) {
+function Nav({pathname}) {
   return (
     <glamorous.Nav>
       <List>

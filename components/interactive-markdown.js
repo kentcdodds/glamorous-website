@@ -4,6 +4,7 @@ import remarkHtml from 'remark-html'
 import visit from 'unist-util-visit'
 import CodePreview from './code-preview'
 import ClickToRender from './click-to-render'
+import stripIndent from './utils/strip-indent'
 
 export default interactiveMarkdown
 
@@ -90,20 +91,4 @@ function getOptions(string) {
   // eslint-disable-next-line no-eval
   eval(`options = ${string}`)
   return options
-}
-
-/*
- * This was copied from http://npm.im/strip-indent
- */
-function stripIndent(str) {
-  const match = str.match(/^[ \t]*(?=\S)/gm)
-
-  if (!match) {
-    return str
-  }
-
-  const indent = Math.min(...match.map(x => x.length))
-  const re = new RegExp(`^[ \\t]{${indent}}`, 'gm')
-
-  return indent > 0 ? str.replace(re, '') : str
 }

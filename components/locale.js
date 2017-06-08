@@ -33,23 +33,76 @@ function withLocale(Comp) {
   return LocaleComponent
 }
 
-function getInitialLocaleProps({req} = {}) {
-  const host = req ? req.headers.host : window.location.host
-  const [locale] = host.split('.')
-  return Promise.resolve({
-    locale: supportedLocales.includes(locale) ? locale : 'en',
-  })
+function withContent(options, Comp) {
+  class ContentComponent extends Component {
+    constructor(...args) {
+      super(...args)
+      this.state = {
+        content: getContent(this.props.locale, options),
+      }
+    }
+    render() {
+      return <Comp {...this.props} {...this.state} />
+    }
+  }
+
+  if (options.page) {
+    ContentComponent.getInitialProps = getInitialLocaleProps
+    return ContentComponent
+  } else {
+    const LocaledComponent = withLocale(ContentComponent)
+    // LocaledComponent.getInitialProps = getInitialLocaleProps
+    return LocaledComponent
+  }
 }
 
-function getTranslations(locale, path) {
+function getInitialLocaleProps({req} = {}) {
+  const {locale} = getLocaleAndHost(req)
+  return Promise.resolve({locale})
+}
+
+// eslint-disable-next-line complexity
+function getContent(locale, options) {
+  const {page, component, example} = options
   try {
-    return require(`../translations/${locale}/${path}`)
+    const localePath = locale === fallbackLocale ? '' : `${locale}/`
+    // because how webpack resolves these for the bundle, we need
+    // to use a statically relative path, otherwise this could
+    // be much simpler. Sigh...
+    if (page) {
+      return require(`../pages/${page}/content/${localePath}index.js`)
+    } else if (component) {
+      return require(`../components/content/${localePath}${component}`)
+    } else if (example) {
+      return require(`../examples/content/${localePath}${example}`)
+    } else {
+      throw new Error('page or component required to get content')
+    }
   } catch (error) {
     if (locale === fallbackLocale) {
       throw error
     }
-    return getTranslations(fallbackLocale, path)
+    return getContent(fallbackLocale, options)
   }
 }
 
-export {LocaleProvider, withLocale, getInitialLocaleProps, getTranslations}
+function getLocaleAndHost(req) {
+  const host = req ? req.headers.host : window.location.host
+  const [locale, ...rest] = host.split('.')
+  if (supportedLocales.includes(locale)) {
+    return {locale, host: rest.join('.')}
+  } else {
+    return {locale: 'en', host}
+  }
+}
+
+export {
+  LocaleProvider,
+  withLocale,
+  withContent,
+  getInitialLocaleProps,
+  getContent,
+  getLocaleAndHost,
+  supportedLocales,
+  fallbackLocale,
+}

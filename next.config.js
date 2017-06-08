@@ -28,6 +28,12 @@ module.exports = {
       ],
     })
 
+    config.node = config.node || {}
+    Object.assign(config.node, {
+      __dirname: true,
+      __filename: true,
+    })
+
     return config
   },
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import {css, rehydrate} from 'glamor'
-import glamorous, {ThemeProvider} from 'glamorous'
+import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
 import {LocaleProvider} from './locale'
+import LocaleChooser from './locale-chooser'
 import Nav from './nav'
 import Footer from './footer'
 
@@ -37,26 +38,24 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-const NavWrapper = glamorous.div({
-  position: 'relative',
-  zIndex: 1,
-})
-
-const layout = ({pathname, children, locale}) => {
+function Layout({pathname, children, locale}) {
   css.insert(baseStyles())
   return (
     <LocaleProvider locale={locale}>
       <ThemeProvider theme={GlobalStyles}>
         <Wrapper>
-          <NavWrapper>
-            <Nav pathname={pathname} />
+          <Div position="relative" zIndex={1}>
+            <Div display="flex" justifyContent="flex-end" alignItems="center">
+              <LocaleChooser locale={locale} />
+              <Nav pathname={pathname} />
+            </Div>
             {children}
             <Footer />
-          </NavWrapper>
+          </Div>
         </Wrapper>
       </ThemeProvider>
     </LocaleProvider>
   )
 }
 
-export default layout
+export default Layout
