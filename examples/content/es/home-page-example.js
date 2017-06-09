@@ -1,3 +1,3 @@
 module.exports = {
-  tryIt: 'Intentalo',
+  tryIt: 'Probar que',
 }
