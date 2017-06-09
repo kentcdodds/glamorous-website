@@ -1,3 +1,3 @@
 module.exports = {
-  help: 'Ayuda Traducir',
+  help: 'Ayudar a traducir',
 }
