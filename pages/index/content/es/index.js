@@ -1,4 +1,4 @@
 module.exports = {
-  tagline: 'Maintainable CSS with React',
+  tagline: 'CSS mantenible con reaccionar',
   callToAction: 'Click here to get started',
 }
