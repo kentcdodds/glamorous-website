@@ -65,22 +65,30 @@ const DocSection = withContent(
 
     return (
       <Section>
-        <h2 dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
-        <h4 dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}} />
-        <DocSectionDetails {...props} />
         {filename &&
           <EditAnchorWrap>
             <Anchor
               external
-              href={`${repoEditRootURL}/${filename.replace(projectRoot, '')}`}
+              href={getEditHrf(filename)}
+              css={{textDecoration: 'none', ':hover': {textDecoration: 'none'}}}
             >
               <GitHubSVG /> {content.edit}
             </Anchor>
           </EditAnchorWrap>}
+        <h2 dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
+        {subtitle ?
+          <h4 dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}} /> :
+          null}
+        <DocSectionDetails {...props} />
       </Section>
     )
   },
 )
+function getEditHrf(filename) {
+  // for some reason, __filename has a / on the server but not on the client...
+  const slash = filename.indexOf('/') === 0 ? '' : '/'
+  return `${repoEditRootURL}${slash}${filename.replace(projectRoot, '')}`
+}
 
 function DocSectionDetails({title, description, codeSandboxId}) {
   return (

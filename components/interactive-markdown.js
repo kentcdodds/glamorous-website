@@ -3,6 +3,7 @@ import remark from 'remark'
 import remarkHtml from 'remark-html'
 import visit from 'unist-util-visit'
 import CodePreview from './code-preview'
+import Callout from './callout'
 import ClickToRender from './click-to-render'
 import stripIndent from './utils/strip-indent'
 
@@ -31,13 +32,16 @@ function interactiveMarkdown(markdownString) {
         CodePreview
       return {component, code: value, ...options}
     },
+    callout(options, value) {
+      return {component: Callout, children: value, ...options}
+    },
   }
 
   function plugin() {
     return ast => {
       visit(ast, 'code', codeNode => {
         Object.keys(pragmaHandlers).some(pragma => {
-          if (codeNode.lang.indexOf(pragma) !== 0) {
+          if (!codeNode.lang || codeNode.lang.indexOf(pragma) !== 0) {
             return false
           }
           const space = 1

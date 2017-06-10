@@ -80,6 +80,20 @@ export default () => `
     margin-bottom: 0.5rem;
   }
 
+  pre code {
+    background-color: inherit;
+    padding: inherit;
+    border-radius: inherit;
+    font-size: inherit;
+  }
+
+  code {
+    background-color: #eee;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 0.9em;
+  }
+
   blockquote {
     padding-left: 1rem;
     border-left: 5px solid ${colors.primaryMed}

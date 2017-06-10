@@ -1,4 +1,5 @@
 // Inspired by http://foundation.zurb.com/sites/docs/media-queries.html
+import * as polished from 'polished'
 
 const smallBreakpoint = 480
 const mediumBreakpoint = 1024
@@ -15,6 +16,18 @@ const [lowerLargeRange, upperLargeRange] = [
 ]
 
 const screen = 'only screen'
+const statusColors = {
+  danger: '#d9534f',
+  info: '#5bc0de',
+  warning: '#f0ad4e',
+  success: '#50af51',
+}
+Object.assign(statusColors, {
+  dangerLight: polished.lighten(0.35, statusColors.danger),
+  infoLight: polished.lighten(0.31, statusColors.info),
+  warningLight: polished.lighten(0.31, statusColors.warning),
+  successLight: polished.lighten(0.37, statusColors.success),
+})
 
 export const colors = {
   primary: '#ED5C70',
@@ -31,6 +44,7 @@ export const colors = {
   darkGray: '#333',
   code: '#4F4F4F',
   black: '#000',
+  ...statusColors,
 }
 
 export const fonts = {
