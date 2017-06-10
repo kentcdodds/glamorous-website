@@ -1,7 +1,7 @@
 module.exports = {
-  title: 'Advanced Guides',
+  title: 'Guías de avanzada',
   heading: `
-    This is some of the more advanced stuff you can do with glamorous
+    Se trata de algunas de las cosas más avanzadas que se puede hacer con glamour
   `.replace(/~/g, '`'),
   sections: [
     require('./refs'),

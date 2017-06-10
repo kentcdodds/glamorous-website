@@ -1,14 +1,14 @@
 module.exports = {
   title: '`innerRef`',
-  subtitle: 'How to access the underlying `ref`',
+  subtítulo: 'Cómo accede el subyacente `ref`',
   description: `
-    Sometimes you need access to the
+    A veces usted necesita el acceso a la
     [~ref~](https://facebook.github.io/react/docs/refs-and-the-dom.html)
-    of the underlying component that's rendered. You can accomplish this with
-    the ~innerRef~ prop.
+    del componente subyacente se representa. Usted puede lograr esto con
+    la ~innerRef~ prop.
 
-    This is a function and if provided, will be called with the inner element's
-    reference.
+    Esta es una función y se llamará siempre que, con el elemento interno
+    referencia.
 
     ~~~interactive {clickToRender: true, summary: 'An input in a form'}
     const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
