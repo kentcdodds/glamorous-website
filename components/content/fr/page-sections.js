@@ -1,3 +1,3 @@
 module.exports = {
-  tryIt: 'Try It',
+  edit: 'Edit',
 }
