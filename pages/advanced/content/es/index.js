@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Advanced Guides',
+  title: 'Guías de avanzada',
   heading: `
     This is some of the more advanced stuff you can do with glamorous
   `.replace(/~/g, '`'),
