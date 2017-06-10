@@ -15,12 +15,14 @@ const Title = glamorous.div(({type}, theme) => ({
   fontWeight: 'bold',
 }))
 
-function Callout({type, title, children}) {
+function Callout({type = 'info', title, children}) {
   return (
     <Container type={type}>
-      <Title type={type}>
-        <div dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
-      </Title>
+      {title ?
+        <Title type={type}>
+          <div dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
+        </Title> :
+        null}
       <div>
         <div dangerouslySetInnerHTML={{__html: mdToHTML(children)}} />
       </div>
