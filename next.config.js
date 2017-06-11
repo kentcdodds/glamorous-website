@@ -4,29 +4,49 @@ const marked = require('marked')
 const renderer = new marked.Renderer()
 const USE_PREFETCH = process.env.NODE_ENV !== 'test'
 
+renderer.heading = (text, level) => {
+  const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
+
+  return `<h${level}><a name="${escapedText}" href="#${escapedText}">${text}</a></h${level}>`
+}
+
 module.exports = {
   webpack: config => {
     // Add in prefetch conditionally so we don't break jest snapshot testing
     config.plugins.push(
       new webpack.DefinePlugin({
-        'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH)
+        'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH),
       })
     )
 
     // Markdown loader so we can use docs as .md files
     config.module.rules.push({
       test: /\.md$/,
-      use: [{
-        loader: 'html-loader'
-      }, {
-        loader: 'markdown-loader',
-        options: {
-          pedantic: true,
-          renderer
-        }
-      }]
+      use: [
+        {loader: 'html-loader'},
+        {loader: 'markdown-loader', options: {pedantic: true, renderer}},
+      ],
+    })
+
+    config.node = config.node || {}
+    Object.assign(config.node, {
+      __dirname: true,
+      __filename: true,
     })
 
     return config
-  }
+  },
 }
+
+// This is not transpiled
+/*
+  eslint
+  comma-dangle: [
+    2,
+    {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      functions: 'never'
+    }
+  ]
+ */

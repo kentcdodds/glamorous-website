@@ -6,40 +6,86 @@ import LipstickIcon from './lipstick-icon'
 const ListItem = glamorous.li({
   paddingLeft: 10,
   paddingRight: 10,
-  borderBottom: '1px solid',
-  paddingBottom: 4
+  paddingBottom: 4,
 })
 
-export default () => {
+// Use withTheme with glamorous.Ul, or this ?
+const List = glamorous.ul((props, {mediaQueries}) => ({
+  listStyle: 'none',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '1.25em',
+  margin: '0 auto',
+  padding: 0,
+  maxWidth: '50rem',
+  height: '4rem',
+  [mediaQueries.mediumUp]: {
+    justifyContent: 'flex-end',
+  },
+}))
+
+export default Nav
+
+function Nav({pathname}) {
   return (
-    <glamorous.Nav width="100%">
-      <glamorous.Ul
-        listStyle="none"
-        display="flex"
-        justifyContent="flex-end"
-        fontSize=".9em"
-        marginTop={0}
-        marginBottom={0}
-        paddingLeft={0}
-        >
+    <glamorous.Nav>
+      <List>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/">
-            <LipstickIcon width={20}/>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/"
+            pathname={pathname}
+          >
+            <LipstickIcon width={20} />
           </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor external href="https://github.com/paypal/glamorous">GitHub</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/basics"
+            pathname={pathname}
+          >
+            Basics
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/guides">Guides</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/advanced"
+            pathname={pathname}
+          >
+            Advanced
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/examples">Examples</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/examples"
+            pathname={pathname}
+          >
+            Examples
+          </Anchor>
         </ListItem>
         <ListItem>
-          <Anchor prefetch={process.env.USE_PREFETCH} href="/docs">Docs</Anchor>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/integrations"
+            pathname={pathname}
+          >
+            Integrations
+          </Anchor>
         </ListItem>
-      </glamorous.Ul>
+        <ListItem>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/api"
+            pathname={pathname}
+          >
+            API
+          </Anchor>
+        </ListItem>
+      </List>
     </glamorous.Nav>
   )
 }

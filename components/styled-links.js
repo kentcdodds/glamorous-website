@@ -1,71 +1,72 @@
 import React from 'react'
 import Link from 'next/link'
 import glamorous from 'glamorous'
-import * as colors from '../styles/colors'
+import {colors} from '../styles/global-styles'
 
-const basicLinkStyles = {
-  cursor: 'pointer'
+const getPathname = pathname => {
+  return pathname === undefined ? '' : pathname.pathname
 }
+
+const basicLinkStyles = {cursor: 'pointer'}
 
 const anchorStyles = {
-  textDecoration: 'none',
-  color: colors.primary,
-  ':visited': {
-    color: colors.secondary
-  }
-}
-const solidColors = {
-  backgroundColor: colors.primary,
-  color: 'white'
+  textDecoration: 'underline',
+  color: colors.primaryMed,
 }
 
-const transparentColors = {
-  backgroundColor: 'white',
-  color: colors.primary
-}
-
-const sharedStyles = {
-  fontSize: '1em',
-  border: `2px solid ${colors.faded}`,
-  padding: '0.25em 1em',
-  textDecoration: 'none',
-  borderRadius: 4,
-  display: 'inline-block',
-  margin: 25,
-  transition: 'all .3s'
-}
-
-const StyledAnchor = glamorous('a')(basicLinkStyles, anchorStyles)
-
-const StyledButton = glamorous('a')(basicLinkStyles, sharedStyles, solidColors, {
-  ':hover': transparentColors
+const activeLinkStyles = (props, theme) => ({
+  color: props.active || props.external ?
+    theme.colors.primary :
+    theme.colors.primaryMed,
+  textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
-const StyledSecondaryButton = glamorous('a')(basicLinkStyles, sharedStyles, transparentColors, {
-  ':hover': solidColors
-})
+const StyledAnchor = glamorous.a(
+  basicLinkStyles,
+  anchorStyles,
+  (props, theme) => activeLinkStyles(props, theme),
+)
 
-export const Anchor = ({href, prefetch, external, children}) => { // eslint-disable-line no-unused-vars
+const Anchor = ({href, prefetch, external, pathname, ...rest}) => {
   if (external) {
-    return (
-      <StyledAnchor href={href}>{children}</StyledAnchor>
-    )
+    return <StyledAnchor href={href} external {...rest} />
   }
   return (
     <Link prefetch={prefetch} href={href}>
-      <StyledAnchor>{children}</StyledAnchor>
+      <StyledAnchor
+        href={href}
+        active={getPathname(pathname) === href}
+        {...rest}
+      />
     </Link>
   )
 }
 
-export const Button = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledButton href={href}>{children}</StyledButton>
-  )
+const solidColors = {backgroundColor: colors.primary, color: 'white'}
+
+const transparentColors = {
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  color: colors.primary,
 }
 
-export const SecondaryButton = ({href, children}) => { // eslint-disable-line no-unused-vars
-  return (
-    <StyledSecondaryButton href={href}>{children}</StyledSecondaryButton>
-  )
-}
+const secondaryButtonStyles = {...transparentColors, ':hover': solidColors}
+
+const Button = glamorous(Anchor)(
+  basicLinkStyles,
+  {
+    fontSize: '1em',
+    border: `1px solid ${colors.primaryMed}`,
+    width: '11em',
+    padding: '0.7em 0',
+    textDecoration: 'none',
+    borderRadius: 4,
+    display: 'inline-block',
+    margin: '.5em 1em',
+    transition: 'all .3s',
+    ...solidColors,
+    ':hover': transparentColors,
+  },
+  props => ({...(props.secondary ? secondaryButtonStyles : {})}),
+)
+
+export {Button, Anchor}

@@ -1,0 +1,174 @@
+#! /usr/bin/env node
+
+const github = require('octonode')
+const spawn = require('cross-spawn')
+const normalizeUrl = require('normalize-url')
+const urlRegex = require('url-regex')
+
+if (!process.env.CI || !process.env.TRAVIS) {
+  throw new Error('Could not detect Travis CI environment')
+}
+
+const githubToken = process.env.GH_TOKEN
+const nowToken = process.env.NOW_TOKEN
+
+if (!githubToken) {
+  throw new Error('Missing required environment variable GH_TOKEN')
+}
+
+if (!nowToken) {
+  throw new Error('Missing required environment variable NOW_TOKEN')
+}
+
+const client = github.client(githubToken)
+const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
+
+function deploy(context, sha) {
+  let stdout = ''
+  updateStatus({
+    state: 'pending',
+    description: `▲ Now ${context} deployment pending`,
+  })
+  const isProd = context === 'production'
+  const args = ['--token', nowToken, '--no-clipboard', '--public']
+  safeLog('spawning shell with command:', `now ${args.join(' ')}`)
+  const child = spawn('now', [
+    '--token',
+    nowToken,
+    '--no-clipboard',
+    '--public',
+  ])
+
+  child.stdout.on('data', data => {
+    stdout += data
+    safeLog(String(data))
+  })
+  child.stderr.on('data', data => safeError(String(data)))
+  child.on('error', onError)
+
+  child.on('close', () => {
+    const target_url = getUrl(stdout)
+    if (isProd) {
+      const aliasChild = spawn('sh', ['./other/alias.sh'], {
+        env: Object.assign({}, process.env, {
+          NOW_TOKEN: nowToken,
+          NOW_ID: target_url,
+          // TODO: remove the `rc.` when we're ready to release!
+          NOW_ALIAS: 'rc.glamorous.rocks',
+        }),
+      })
+      aliasChild.stdout.on('data', data => safeLog(String(data)))
+      aliasChild.stderr.on('data', data => safeError(String(data)))
+      aliasChild.on('error', onError)
+      aliasChild.on('close', () => {
+        updateStatus({
+          state: 'success',
+          target_url,
+          description: `▲ Now ${context} deployment complete`,
+        })
+      })
+    } else {
+      updateStatus({
+        state: 'success',
+        target_url,
+        description: `▲ Now ${context} deployment complete`,
+      })
+    }
+  })
+
+  function onError(err) {
+    safeError(err)
+    updateStatus({
+      state: 'error',
+      description: `▲ Now ${context} deployment failed. See Travis logs for details.`,
+    })
+  }
+
+  function updateStatus(options) {
+    const {TRAVIS_REPO_SLUG, TRAVIS_BUILD_ID} = process.env
+    const travisUrl = `https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}`
+    const mergedOptions = Object.assign(
+      {context, target_url: travisUrl},
+      options
+    )
+    const {description, target_url} = mergedOptions
+    console.log(`${description}: ${target_url}`)
+    ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+  }
+}
+
+const {TRAVIS_EVENT_TYPE, TRAVIS_PULL_REQUEST_SHA, TRAVIS_COMMIT} = process.env
+
+switch (TRAVIS_EVENT_TYPE) {
+  case 'pull_request': {
+    deploy('staging', TRAVIS_PULL_REQUEST_SHA)
+    break
+  }
+  case 'push': {
+    deploy('production', TRAVIS_COMMIT)
+    break
+  }
+  default: {
+    console.log(`${TRAVIS_EVENT_TYPE} is not supported by now-travis`)
+  }
+}
+
+function getUrl(content) {
+  const urls = content.match(urlRegex()) || []
+
+  return urls.map(url => normalizeUrl(url.trim().replace(/\.+$/, '')))[0]
+}
+
+function logError(message) {
+  return function onError(error) {
+    if (error) {
+      console.log(message, error)
+    }
+  }
+}
+
+function safeLog(...args) {
+  const safeArgs = args.map(s => safeify(s))
+  console.log(...safeArgs)
+}
+
+function safeError(...args) {
+  const safeArgs = args.map(s => safeify(s))
+  console.error(...safeArgs)
+}
+
+function safeify(s, safed = []) {
+  if (safed.indexOf(s) !== -1) {
+    return 'CIRCULAR'
+  }
+  safed.push(s)
+  if (typeof s === 'string') {
+    return s
+      .split(nowToken)
+      .join('NOW_TOKEN')
+      .split(githubToken)
+      .join('GITHUB_TOKEN')
+  } else if (typeof s === 'object' && s !== null) {
+    return Object.keys(s).reduce((acc, k) => {
+      acc[k] = safeify(s, safed)
+      return acc
+    }, {})
+  } else {
+    return s
+  }
+}
+
+// This is not transpiled
+/*
+  eslint
+  no-console: 0,
+  camelcase: 0,
+  comma-dangle: [
+    2,
+    {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      functions: 'never'
+    }
+  ]
+ */

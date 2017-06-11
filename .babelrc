@@ -9,5 +9,9 @@
     "next/babel",
     "es2015",
     "react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "inline-react-svg"
   ]
 }

@@ -1,25 +1,23 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import {Anchor} from '../components/styled-links'
-import * as colors from '../styles/colors'
+import Separator from '../components/separator'
+import {withContent} from './locale'
 
-const Footer = glamorous.footer({
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '5rem',
-  width: '100%',
-  maxWidth: 600,
+const Footer = glamorous.footer((props, theme) => ({
   paddingTop: 10,
   paddingBottom: 10,
   fontSize: '0.6em',
   textAlign: 'center',
-  borderTop: `1px solid ${colors.faded}`
-})
+  background: theme.colors.white,
+}))
 
-export default () => {
+export default withContent({component: 'footer'}, PageFooter)
+
+function PageFooter({content}) {
   return (
-    <Footer>
-      Made with 💙 by <Anchor external href="https://github.com/paypal">PayPal</Anchor>.
-    </Footer>
+    <div>
+      <Separator />
+      <Footer dangerouslySetInnerHTML={{__html: content.madeWith}} />
+    </div>
   )
 }

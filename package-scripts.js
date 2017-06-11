@@ -1,7 +1,9 @@
 const npsUtils = require('nps-utils')
 
-const series = npsUtils.series
 const concurrent = npsUtils.concurrent
+const series = npsUtils.series
+const rimraf = npsUtils.rimraf
+const hiddenFromHelp = true
 
 module.exports = {
   scripts: {
@@ -16,39 +18,47 @@ module.exports = {
       },
     },
     commit: {
-      description: 'This uses commitizen to help us generate well formatted commit messages',
+      description:
+        'This uses commitizen to help us generate well formatted commit messages',
       script: 'git-cz',
     },
     test: {
-      default: 'jest --coverage',
-      watch: 'jest --watch',
+      default: 'cross-env NODE_ENV=test jest --coverage',
+      update: 'cross-env NODE_ENV=test jest -u',
+      watch: 'cross-env NODE_ENV=test jest --watch',
     },
+    // default is run when you run `nps` or `npm start`
+    default: 'next start',
+    dev: 'next',
     build: {
-      description: 'delete the dist directory and run babel to build the files',
-      script: 'next build',
+      default: 'next build',
+      info: 'node other/get-build-info.js > static/build-info.json',
+      clean: rimraf('.next static/build-info.json'),
     },
-    lint: {
-      description: 'lint the entire project',
-      script: 'xo',
-    },
+    lint: {description: 'lint the entire project', script: 'eslint .'},
     reportCoverage: {
-      description: 'Report coverage stats to codecov. This should be run after the `test` script',
+      description:
+        'Report coverage stats to codecov. This should be run after the `test` script',
       script: 'codecov',
     },
-    release: {
-      description: 'We automate releases with semantic-release. This should only be run on travis',
-      script: series('semantic-release pre', 'npm publish', 'semantic-release post'),
-    },
     validate: {
-      description: 'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'test'),
+      description:
+        'This runs several scripts to make sure things look good before committing or on clean install',
+      script: concurrent.nps('lint', 'test', 'build'),
+    },
+    deploy: {
+      hiddenFromHelp,
+      description: 'Runs the deploy script.',
+      script: series('nps build.info', './other/now-travis'),
+    },
+    validateAndDeploy: {
+      hiddenFromHelp,
+      description: 'This runs the validation and deploy concurrently',
+      script: concurrent.nps('validate', 'deploy'),
     },
   },
-  options: {
-    silent: false,
-  },
+  options: {silent: false},
 }
-
 // This is not transpiled
 /*
   eslint

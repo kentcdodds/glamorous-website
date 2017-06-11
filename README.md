@@ -11,7 +11,7 @@ This is the website for [`glamorous`](https://github.com/paypal/glamorous/) and 
 [![downloads][downloads-badge]][npm-stat]
 [![MIT License][license-badge]][LICENSE]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Donate][donate-badge]][donate]
 [![Code of Conduct][coc-badge]][coc]
@@ -47,8 +47,8 @@ If you make changes that require updating the `jest` snapshots, run `npm test --
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Tests") | [<img src="https://avatars0.githubusercontent.com/u/737065?v=3" width="100px;"/><br /><sub>Paul Molluzzo</sub>](https://paul.molluzzo.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Documentation") [👀](#review-paulmolluzzo "Reviewed Pull Requests") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Tests") | [<img src="https://avatars0.githubusercontent.com/u/11924130?v=3" width="100px;"/><br /><sub>zhu haihao</sub>](http://liadbiz.github.io)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=liadbiz "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=liadbiz "Documentation") |
-| :---: | :---: | :---: |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=kentcdodds "Tests") | [<img src="https://avatars0.githubusercontent.com/u/737065?v=3" width="100px;"/><br /><sub>Paul Molluzzo</sub>](https://paul.molluzzo.com)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Documentation") [👀](#review-paulmolluzzo "Reviewed Pull Requests") [⚠️](https://github.com/kentcdodds/glamorous-website/commits?author=paulmolluzzo "Tests") | [<img src="https://avatars0.githubusercontent.com/u/11924130?v=3" width="100px;"/><br /><sub>zhu haihao</sub>](http://liadbiz.github.io)<br />[💻](https://github.com/kentcdodds/glamorous-website/commits?author=liadbiz "Code") [📖](https://github.com/kentcdodds/glamorous-website/commits?author=liadbiz "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/3509412?v=3" width="100px;"/><br /><sub>Montlouis-Calixte Stéphane</sub>](http://sbydesign.fr)<br /> |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -71,13 +71,13 @@ MIT
 [downloads-badge]: https://img.shields.io/npm/dm/glamorous-website.svg?style=flat-square
 [npm-stat]: http://npm-stat.com/charts.html?package=glamorous-website&from=2016-04-01
 [license-badge]: https://img.shields.io/npm/l/glamorous-website.svg?style=flat-square
-[license]: https://github.com/kentcdodds/glamorous-website/blob/master/other/LICENSE
+[license]: https://github.com/kentcdodds/glamorous-website/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
 [donate]: http://kcd.im/donate
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/glamorous-website/blob/master/other/CODE_OF_CONDUCT.md
+[coc]: https://github.com/kentcdodds/glamorous-website/blob/master/CODE_OF_CONDUCT.MD
 [roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square
 [roadmap]: https://github.com/kentcdodds/glamorous-website/blob/master/other/ROADMAP.md
 [examples-badge]: https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg?style=flat-square

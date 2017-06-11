@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "Website for glamorous",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "now-start": "next start",
+    "dev": "npm start dev",
+    "build": "npm start build",
     "start": "nps",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
-    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
-    "lint": "xo",
-    "pretest": "npm run lint",
-    "test": "NODE_ENV=test jest"
+    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
+    "test": "npm start test"
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
@@ -21,64 +18,62 @@
     "css-in-js"
   ],
   "dependencies": {
+    "common-tags": "^1.4.0",
     "glamor": "^2.20.25",
-    "glamorous": "^3.16.0",
+    "glamorous": "^3.19.1",
     "html-loader": "^0.4.5",
     "json-loader": "^0.5.4",
     "markdown-loader": "^2.0.0",
     "marked": "^0.3.6",
-    "next": "^2.4.0",
+    "next": "^2.4.1",
+    "polished": "^1.1.3",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-live": "^1.5.3",
     "react-markdown": "^2.5.0",
+    "remark": "^7.0.1",
+    "remark-html": "^6.0.0",
+    "unist-util-visit": "^1.1.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
     "all-contributors-cli": "^4.3.0",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "codecov": "^2.2.0",
     "commitizen": "^2.9.6",
+    "cross-env": "^5.0.0",
+    "cross-spawn": "^5.1.0",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint-config-xo-react": "^0.12.0",
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
+    "eslint": "^3.19.0",
+    "eslint-config-kentcdodds": "^12.4.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "husky": "^0.13.4",
     "jest": "^20.0.4",
-    "jest-cli": "^20.0.4",
     "jest-glamor-react": "^1.3.0",
-    "lint-staged": "^3.5.0",
+    "lint-staged": "^3.5.1",
+    "normalize-url": "^1.9.1",
     "nps": "^5.3.1",
     "nps-utils": "^1.2.0",
+    "octonode": "^0.7.13",
     "opt-cli": "^1.5.1",
+    "prettier-eslint-cli": "^4.0.2",
     "react-test-renderer": "^15.5.4",
-    "semantic-release": "^6.3.6",
-    "validate-commit-msg": "^2.12.1",
-    "xo": "^0.18.2"
-  },
-  "xo": {
-    "envs": [
-      "browser"
-    ],
-    "extends": "xo-react",
-    "space": true,
-    "ignores": [
-      "package-scripts.js"
-    ],
-    "rules": {
-      "no-dupe-keys": 0,
-      "react/no-danger": 1,
-      "react/prop-types": 0,
-      "import/no-named-as-default-member": 0,
-      "semi": [
-        2,
-        "never"
-      ]
-    }
+    "url-regex": "^4.1.0",
+    "validate-commit-msg": "^2.12.1"
   },
   "jest": {
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -94,8 +89,13 @@
     }
   },
   "lint-staged": {
+    ".all-contributorsrc": [
+      "npm start contributors.generate && echo ignore arg",
+      "git add README.md && echo ignore arg"
+    ],
     "*.js": [
-      "xo --fix",
+      "prettier-eslint --write",
+      "eslint",
       "git add"
     ]
   },

@@ -1,27 +1,30 @@
-import GlobalStyles from '../styles/global-styles'
+import {fonts, colors, mediaQueries} from '../styles/global-styles'
 
 export default () => `
   * {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    margin: 0:
-    padding: 0
+    margin: 0;
+    padding: 0;
   }
 
   html {
-    font-family: ${GlobalStyles.font.sansserif};
-    font-size: 18px;
+    font-family: ${fonts.sansserif};
+    font-size: 16px;
     line-height: 1.5;
-    color:  ${GlobalStyles.colors.darkGray};
+    color:  ${colors.darkGray};
     min-height: 100%;
     margin: 0;
     padding: 0;
     min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
-  ${GlobalStyles.mediaQueries.desktop} {
+  ${mediaQueries.largeUp} {
     html {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 
@@ -31,10 +34,22 @@ export default () => `
     margin: 0;
     padding: 0;
     min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
   }
 
   a {
     text-decoration: none;
+    color: ${colors.primary}
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   h1,
@@ -44,7 +59,7 @@ export default () => `
     line-height: 1.25;
     text-rendering: optimizeLegibility;
     font-size: 2rem;
-    margin: 0
+    margin: 0;
   }
 
   h2 {
@@ -54,5 +69,33 @@ export default () => `
   h3 {
     font-size: 1.2rem;
     line-height: 1.2rem;
+  }
+
+  pre {
+    overflow-x: scroll;
+    max-width: 100%;
+    color: ${colors.white};
+    background-color: ${colors.blue};
+    padding: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  pre code {
+    background-color: inherit;
+    padding: inherit;
+    border-radius: inherit;
+    font-size: inherit;
+  }
+
+  code {
+    background-color: #eee;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 0.9em;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 5px solid ${colors.primaryMed}
   }
 `
