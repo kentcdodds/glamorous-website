@@ -15,7 +15,7 @@ export default locale => {
     })
 
     const solidColors = {
-      backgroundColor: '#DA233C',
+      backgroundColor: '#CC3A4B',
       color: '#fff',
     }
 
