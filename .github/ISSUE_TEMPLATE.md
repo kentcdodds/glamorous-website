@@ -1,43 +1,17 @@
 <!--
-Thanks for your interest in the project. I appreciate bugs filed and PRs submitted!
+Thanks for your interest in the project. We appreciate bugs filed and PRs submitted!
 Please make sure that you are familiar with and follow the Code of Conduct for
 this project (found in the CODE_OF_CONDUCT.md file).
 
-Please fill out this template with all the relevant information so we can
-understand what's going on and fix the issue.
-
-I'll probably ask you to submit the fix (after giving some direction). If you've
-never done that before, that's great! Check this free short video tutorial to
-learn how: http://kcd.im/pull-request
+You'll probably be asked to make a pull request to implement/fix this yourself
+(after we've decided on what to do). If you've never done that before, that's
+great! Check this free short video tutorial to learn how: http://kcd.im/pull-request
 -->
 
-- `glamorous-website` version:
-- `node` version:
-- `npm` (or `yarn`) version:
+**Problem Description:**
 
-Relevant code or config
+<!-- screenshots are often really helpful here for bug reports if you can get them -->
 
-```javascript
-
-```
-
-What you did:
+**Suggested Solution:**
 
 
-
-What happened:
-
-<!-- Please provide the full error message/screenshots/anything -->
-
-Reproduction repository:
-
-<!--
-If possible, please create a repository that reproduces the issue with the
-minimal amount of code possible.
--->
-
-Problem description:
-
-
-
-Suggested solution:

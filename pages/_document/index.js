@@ -7,6 +7,7 @@ import {
   fallbackLocale,
 } from '../../components/locale'
 import GoogleAnalytics from '../../components/google-analytics'
+import ConsoleGreet from '../../components/console-greet'
 
 export default class MyDocument extends Document {
   static getInitialProps({req, renderPage}) {
@@ -64,6 +65,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
           <GoogleAnalytics />
+          <ConsoleGreet />
         </body>
       </html>
     )
