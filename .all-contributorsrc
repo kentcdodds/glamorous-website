@@ -63,6 +63,16 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/23551907?v=3",
       "profile": "http://william.ng/",
       "contributions": []
+    },
+    {
+      "login": "mjaltamirano",
+      "name": "Michael Altamirano",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13544620?v=3",
+      "profile": "http://www.michaelaltamirano.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ]
 }
