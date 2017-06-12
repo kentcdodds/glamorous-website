@@ -1,5 +1,4 @@
 module.exports = `
-
 title: '`with [~create-react-app~](https://github.com/facebookincubator/create-react-app)`', 
 subtitle: '', 
 description: `
