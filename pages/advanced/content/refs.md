@@ -10,6 +10,10 @@ the `innerRef` prop.
 This is a function and if provided, will be called with the inner element's
 reference.
 
+```javascript
+var x = 'normal code block...'
+```
+
 ```interactive {clickToRender: true, summary: 'An input in a form'}
 const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
