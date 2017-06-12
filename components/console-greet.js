@@ -8,6 +8,10 @@ function ConsoleGreet() {
 }
 
 function greet() {
+  const callToUsers =
+    '%c\n😎 If you are using glamorous already please add it here 😎'
+  const callForContributors = '%c\n👉 We want you to contribute 👈'
+
   const CONTRIBUTING =
     'https://github.com/paypal/glamorous/blob/master/CONTRIBUTING.md'
   const USERS = 'https://github.com/paypal/glamorous/blob/master/other/USERS.md'
@@ -32,13 +36,10 @@ function greet() {
 
   console.log(`%c${GLAMOROUS}`, "color: #ED5C70;")
 
-  console.log("%c\n👉 We want you to contribute 👈", gradientFont)
+  console.log(callForContributors, gradientFont)
   console.log(`%c${CONTRIBUTING}`, "font-size: 14px")
 
-  console.log(
-    "%c\n😎 If you are using glamorous already please add it here 😎",
-    gradientFont,
-  )
+  console.log(callToUsers, gradientFont)
   console.log(`%c${USERS}`, "font-size: 14px")
-  /* eslint-disable */
+  /* eslint-enable */
 }
