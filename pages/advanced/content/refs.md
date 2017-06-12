@@ -14,7 +14,8 @@ reference.
 var x = 'normal code block...'
 ```
 
-```interactive {clickToRender: true, summary: 'An input in a form'}
+```
+interactive {clickToRender: true, summary: 'An input in a form'}
 const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
 class MyComponent extends React.Component {
