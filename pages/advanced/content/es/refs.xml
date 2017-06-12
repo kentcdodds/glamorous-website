@@ -1,15 +1,11 @@
 <root>
   <title>`innerRef`</title>
-  <subtitle>How to access the underlying `ref`</subtitle>
+  <subtitle>Cómo accede al subyacente `ref`</subtitle>
   <description>
     <![CDATA[
-      Sometimes you need access to the
-      [`ref`](https://facebook.github.io/react/docs/refs-and-the-dom.html)
-      of the underlying component that's rendered. You can accomplish this with
-      the `innerRef` prop.
+      A veces usted necesita el acceso a la ['ref'] (https://facebook.github.io/react/docs/refs-and-the-dom.html) del componente subyacente que se representa. Puede lograr esto con el prop `innerRef`.
 
-      This is a function and if provided, will be called with the inner element's
-      reference.
+      Esta es una función y se llamará siempre que, con el elemento interno.
 
       ```interactive {clickToRender: true, summary: 'An input in a form'}
       const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
@@ -23,12 +19,7 @@
         }
         render() {
           return (
-            <form onSubmit={this.alertValue}>
-              <MyInput innerRef={r => (this._inputRef = r)} />
-              <glamorous.Button type="submit" marginTop={12} display="block">
-                Submit
-              </glamorous.Button>
-            </form>
+            
           );
         }
       }
