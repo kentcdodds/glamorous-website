@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Typescript Usage',
-  subtitle: '',
+  title: 'TypeScript',
+  subtitle: 'Using the `glamorous` TypeScript definitions',
   description: `
     The current bundled typescript definitions are incomplete and based around the needs of the developers who contributed them.
 
@@ -14,6 +14,7 @@ module.exports = {
     ### Dynamic styles
 
     To use dynamic styles with custom props use generics. Example:
+
     ~~~javascript
     const MyStyledDiv = glamorous.div<{noPadding?: boolean}>(
       {
