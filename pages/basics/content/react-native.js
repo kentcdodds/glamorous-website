@@ -4,7 +4,7 @@ module.exports = {
   description: `
     ~glamorous~ offers a version for React Native projects called ~glamorous-native~.
 
-    ~~~js
+    ~~~bash
     npm install glamorous-native --save
     ~~~
 

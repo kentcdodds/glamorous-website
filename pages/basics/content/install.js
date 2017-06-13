@@ -4,13 +4,13 @@ module.exports = {
   description: `
     This module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org) and should be installed as one of your project's ~dependencies~:
 
-    ~~~js
+    ~~~bash
     npm install --save glamorous
     ~~~
 
     This also depends on ~react~ and ~glamor~ so you'll need those in your project as well (if you don't already have them):
 
-    ~~~js
+    ~~~bash
     npm install --save react glamor
     ~~~
 
@@ -46,7 +46,7 @@ module.exports = {
 
     If you want to use the global:
 
-    ~~~js
+    ~~~html
     <!-- Load dependencies -->
     <script src="https://unpkg.com/react/dist/react.js"></script>
     <script src="https://unpkg.com/prop-types/prop-types.js"></script>

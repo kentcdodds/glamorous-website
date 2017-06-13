@@ -12,16 +12,10 @@ function flushAllPromises() {
 }
 
 test('parses interactive pragmas into CodePreviews', async () => {
-  const markdown = `
-    # hello world
-
-    I am some content
-    ~~~interactive {clickToRender: true, summary: 'I am the summary'}
-    render(<button onClick={() => alert('Hello World')}>Hello World</button>)
-    ~~~
-
-    I am some more content
-  `
+  const markdown = getMarkdownWithPragma('interactive', {
+    clickToRender: true,
+    summary: 'I am the summary',
+  })
   const elements = interactiveMarkdown(markdown)
   const wrapper = mount(<div>{elements}</div>)
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
@@ -30,3 +24,37 @@ test('parses interactive pragmas into CodePreviews', async () => {
   await flushAllPromises()
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
+
+test('parses JavaScript pragmas into syntax highlighted static code blocks', () => {
+  const markdown = getMarkdownWithPragma('js')
+  const elements = interactiveMarkdown(markdown)
+  const wrapper = mount(<div>{elements}</div>)
+  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
+})
+
+test('parses shell pragmas into syntax highlighted static code blocks', () => {
+  const markdown = getMarkdownWithPragma('sh')
+  const elements = interactiveMarkdown(markdown)
+  const wrapper = mount(<div>{elements}</div>)
+  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
+})
+
+test('parses HTML pragmas into syntax highlighted static code blocks', () => {
+  const markdown = getMarkdownWithPragma('sh')
+  const elements = interactiveMarkdown(markdown)
+  const wrapper = mount(<div>{elements}</div>)
+  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
+})
+
+function getMarkdownWithPragma(pragma, options) {
+  return `
+    # hello world
+
+    I am some content
+    ~~~${pragma} ${JSON.stringify(options)}
+    render(<button onClick={() => alert('Hello World')}>Hello World</button>)
+    ~~~
+
+    I am some more content
+  `
+}
