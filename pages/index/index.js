@@ -24,7 +24,7 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
 }))
 
 const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
-  background: colors.code,
+  background: colors.blue,
   borderRadius: 5,
   fontFamily: fonts.monospace,
   color: colors.lightGray,

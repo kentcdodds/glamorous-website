@@ -42,7 +42,7 @@ const Anchor = ({href, prefetch, external, pathname, ...rest}) => {
   )
 }
 
-const solidColors = {backgroundColor: colors.primary, color: 'white'}
+const solidColors = {backgroundColor: colors.primaryMed, color: 'white'}
 
 const transparentColors = {
   backgroundColor: 'rgba(255, 255, 255, 0.5)',

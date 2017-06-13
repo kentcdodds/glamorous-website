@@ -30,9 +30,9 @@ Object.assign(statusColors, {
 })
 
 export const colors = {
-  primary: '#ED5C70',
-  primaryMed: '#F67982',
-  primaryLight: '#FFEFEF',
+  primary: '#DA233C',
+  primaryMed: '#CC3A4B',
+  primaryLight: '#FFF2F2',
   secondary: '#BD3D90',
   faded: '#B2C1C0',
   white: '#fff',

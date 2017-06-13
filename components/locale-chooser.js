@@ -19,7 +19,12 @@ export default withContent({component: 'locale-chooser'}, LocaleChooser)
 
 function LocaleChooser({locale, content, ...rest}) {
   return (
-    <Select value={locale} onChange={changeLanguage} {...rest}>
+    <Select
+      value={locale}
+      onChange={changeLanguage}
+      {...rest}
+      aria-label="Locale selector"
+    >
       <option value="en">en</option>
       <option value="es">es</option>
       <option value="fr">fr</option>

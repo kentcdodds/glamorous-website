@@ -25,6 +25,16 @@ const List = glamorous.ul((props, {mediaQueries}) => ({
   },
 }))
 
+// Used to hide text for a11y - ie. Home in navigation
+const Hidden = glamorous.span({
+  position: 'absolute',
+  left: '-10000px',
+  top: 'auto',
+  width: '1px',
+  height: '1px',
+  overflow: 'hidden',
+})
+
 export default Nav
 
 function Nav({pathname}) {
@@ -38,6 +48,7 @@ function Nav({pathname}) {
             pathname={pathname}
           >
             <LipstickIcon width={20} />
+            <Hidden>Home</Hidden>
           </Anchor>
         </ListItem>
         <ListItem>
