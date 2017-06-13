@@ -76,17 +76,24 @@ function getContent(locale, options) {
 
 // eslint-disable-next-line complexity
 function content(localePath, options) {
-  const {page, component, example} = options
+  const {
+    page,
+    pagePath = (path, p) => `../pages/${p}/content/${path}index.js`,
+    component,
+    componentPath = (path, c) => `../components/content/${path}${c}`,
+    example,
+    examplePath = (path, e) => `../examples/content/${path}${e}`,
+  } = options
   // because how webpack resolves these for the bundle, we need
   // to use a statically relative path, otherwise this could
   // be much simpler. Sigh...
   try {
     if (page) {
-      return require(`../pages/${page}/content/${localePath}index.js`)
+      return require(pagePath(localePath, page))
     } else if (component) {
-      return require(`../components/content/${localePath}${component}`)
+      return require(componentPath(localePath, component))
     } else if (example) {
-      return require(`../examples/content/${localePath}${example}`)
+      return require(examplePath(localePath, example))
     } else {
       throw new Error('page or component required to get content')
     }

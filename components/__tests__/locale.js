@@ -2,7 +2,12 @@ import React from 'react'
 import {mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import {matcher, serializer} from 'jest-glamor-react'
-import {LocaleProvider, withLocale, getInitialLocaleProps} from '../locale'
+import {
+  LocaleProvider,
+  withLocale,
+  getInitialLocaleProps,
+  getContent,
+} from '../locale'
 
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
@@ -48,4 +53,40 @@ test('getInitialLocaleProps gets the host from window', async () => {
     writable: true,
     value: original,
   })
+})
+
+test('getContent translates the keys - default lang', () => {
+  // jest.mock('../locale', () => {
+  //   return {
+  //     getComponentContent: jest.fn((localePath, component) => `../components/__tests__/fixtures/content/${localePath}${component}`)
+  //   }
+  // })
+
+  const expected = {
+    foo: 'foo in english',
+    bar: 'bar in english',
+    baz: 'baz in english',
+    qux: 'qux in english',
+  }
+  const actual = getContent('en', {
+    component: 'foo.js',
+    componentPath: (path, comp) =>
+      `../components/__tests__/fixtures/content/${path}${comp}`,
+  })
+  expect(actual).toEqual(expected)
+})
+
+test('getContent translates the keys', () => {
+  const expected = {
+    foo: 'foo in español',
+    bar: 'bar in english',
+    baz: null,
+    qux: 'qux in english',
+  }
+  const actual = getContent('es', {
+    component: 'foo.js',
+    componentPath: (path, comp) =>
+      `../components/__tests__/fixtures/content/${path}${comp}`,
+  })
+  expect(actual).toEqual(expected)
 })
