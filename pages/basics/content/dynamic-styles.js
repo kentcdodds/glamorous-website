@@ -24,10 +24,7 @@ module.exports = {
 
   You can see a live preview of this example on [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
 
-  <details>
-  <summary>Note, you can also use arrays of styles if you need:</summary>
-
-  ~~~js
+  ~~~js {summary: 'Note, you can also use arrays of styles if you need:'}
   const MyDiv = glamorous.div(
     [
       {
@@ -81,7 +78,6 @@ module.exports = {
   // />
   ~~~
 
-  </details>
   `.replace(/~/g, '`'),
   filename: __filename,
 }
