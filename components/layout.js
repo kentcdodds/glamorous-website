@@ -4,7 +4,6 @@ import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
 import {LocaleProvider} from './locale'
-import LocaleChooser from './locale-chooser'
 import Nav from './nav'
 import Footer from './footer'
 
@@ -46,8 +45,7 @@ function Layout({pathname, children, locale}) {
         <Wrapper>
           <Div position="relative" zIndex={1}>
             <Div display="flex" justifyContent="flex-end" alignItems="center">
-              <LocaleChooser locale={locale} />
-              <Nav pathname={pathname} />
+              <Nav pathname={pathname} locale={locale} />
             </Div>
             {children}
             <Footer />
