@@ -4,7 +4,7 @@ const github = require('octonode')
 const spawn = require('cross-spawn')
 const normalizeUrl = require('normalize-url')
 const urlRegex = require('url-regex')
-const awaitUrl = require('./await-url')
+const awaitUrl = require('await-url')
 
 if (!process.env.CI || !process.env.TRAVIS) {
   throw new Error('Could not detect Travis CI environment')
@@ -55,8 +55,8 @@ async function deploy(context, sha) {
   })
 
   console.log('😴 sleeping for a bit to give the deployment some time to build...')
-  const fourMinutes = 1000 * 60 * 4
-  await sleep(fourMinutes)
+  const eightMinutes = 1000 * 60 * 8
+  await sleep(eightMinutes)
 
   console.log(`🤠 Alrighty, we're going to ping ${target_url} until it's ready!`)
 

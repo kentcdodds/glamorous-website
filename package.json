@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^4.3.0",
+    "await-url": "^0.3.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-plugin-inline-react-svg": "^0.4.0",
@@ -57,7 +58,6 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "glob": "^7.1.2",
-    "got": "^7.0.0",
     "husky": "^0.13.4",
     "jest": "^20.0.4",
     "jest-glamor-react": "^1.3.0",
