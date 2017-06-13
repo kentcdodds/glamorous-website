@@ -96,6 +96,15 @@ free tool. So we've got some tooling of our own to make your workflow as good
 as it can be. You will need to set up the project locally (see `CONTRIBUTING.md`
 for how to do this).
 
+Before you get started, try to coordinate efforts with others who may be
+translating the same language. Search
+[the issues](https://github.com/kentcdodds/glamorous-website/issues) to see if
+anyone else is working on the language you are. If no issue exists, then
+[file a new issue](https://github.com/kentcdodds/glamorous-website/issues/new)
+indicating you'd like to translate content to a new language and you can use
+that to keep track of what translations you're working on and to coordinate with
+others who want to help.
+
 First, run `node other/list-l10n.js {locale}` (if you were doing French,
 `{locale}` would be `fr`, for Spanish, it would be `es`). This will list the
 files which have up to date translations, outdated translations, and files
