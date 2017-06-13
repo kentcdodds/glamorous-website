@@ -9,20 +9,6 @@ if (!process.env.CI || !process.env.TRAVIS) {
   throw new Error('Could not detect Travis CI environment')
 }
 
-const githubToken = process.env.GH_TOKEN
-const nowToken = process.env.NOW_TOKEN
-
-if (!githubToken) {
-  throw new Error('Missing required environment variable GH_TOKEN')
-}
-
-if (!nowToken) {
-  throw new Error('Missing required environment variable NOW_TOKEN')
-}
-
-const client = github.client(githubToken)
-const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
-
 function deploy(context, sha) {
   if (isFork()) {
     updateStatus({
@@ -36,9 +22,24 @@ function deploy(context, sha) {
     state: 'pending',
     description: `▲ Now ${context} deployment pending`,
   })
+
+  const githubToken = process.env.GH_TOKEN
+  const nowToken = process.env.NOW_TOKEN
+
+  if (!githubToken) {
+    throw new Error('Missing required environment variable GH_TOKEN')
+  }
+
+  if (!nowToken) {
+    throw new Error('Missing required environment variable NOW_TOKEN')
+  }
+
+  const client = github.client(githubToken)
+  const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
+
   const isProd = context === 'production'
-  const args = ['--token', nowToken, '--no-clipboard', '--public']
-  safeLog('spawning shell with command:', `now ${args.join(' ')}`)
+  const cliArgs = ['--token', nowToken, '--no-clipboard', '--public']
+  safeLog('spawning shell with command:', `now ${cliArgs.join(' ')}`)
   const child = spawn('now', [
     '--token',
     nowToken,
@@ -102,6 +103,37 @@ function deploy(context, sha) {
     console.log(`${description}: ${target_url}`)
     ghRepo.status(sha, mergedOptions, logError('setting complete status'))
   }
+
+  function safeLog(...args) {
+    const safeArgs = args.map(s => safeify(s))
+    console.log(...safeArgs)
+  }
+
+  function safeError(...args) {
+    const safeArgs = args.map(s => safeify(s))
+    console.error(...safeArgs)
+  }
+
+  function safeify(s, safed = []) {
+    if (safed.indexOf(s) !== -1) {
+      return 'CIRCULAR'
+    }
+    safed.push(s)
+    if (typeof s === 'string') {
+      return s
+        .split(nowToken)
+        .join('NOW_TOKEN')
+        .split(githubToken)
+        .join('GITHUB_TOKEN')
+    } else if (typeof s === 'object' && s !== null) {
+      return Object.keys(s).reduce((acc, k) => {
+        acc[k] = safeify(s, safed)
+        return acc
+      }, {})
+    } else {
+      return s
+    }
+  }
 }
 
 const {TRAVIS_EVENT_TYPE, TRAVIS_PULL_REQUEST_SHA, TRAVIS_COMMIT} = process.env
@@ -141,37 +173,6 @@ function logError(message) {
     if (error) {
       console.log(message, error)
     }
-  }
-}
-
-function safeLog(...args) {
-  const safeArgs = args.map(s => safeify(s))
-  console.log(...safeArgs)
-}
-
-function safeError(...args) {
-  const safeArgs = args.map(s => safeify(s))
-  console.error(...safeArgs)
-}
-
-function safeify(s, safed = []) {
-  if (safed.indexOf(s) !== -1) {
-    return 'CIRCULAR'
-  }
-  safed.push(s)
-  if (typeof s === 'string') {
-    return s
-      .split(nowToken)
-      .join('NOW_TOKEN')
-      .split(githubToken)
-      .join('GITHUB_TOKEN')
-  } else if (typeof s === 'object' && s !== null) {
-    return Object.keys(s).reduce((acc, k) => {
-      acc[k] = safeify(s, safed)
-      return acc
-    }, {})
-  } else {
-    return s
   }
 }
 
