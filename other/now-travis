@@ -101,7 +101,9 @@ const {TRAVIS_EVENT_TYPE, TRAVIS_PULL_REQUEST_SHA, TRAVIS_COMMIT} = process.env
 
 switch (TRAVIS_EVENT_TYPE) {
   case 'pull_request': {
-    deploy('staging', TRAVIS_PULL_REQUEST_SHA)
+    if (!isFork()) {
+      deploy('staging', TRAVIS_PULL_REQUEST_SHA)
+    }
     break
   }
   case 'push': {
@@ -111,6 +113,13 @@ switch (TRAVIS_EVENT_TYPE) {
   default: {
     console.log(`${TRAVIS_EVENT_TYPE} is not supported by now-travis`)
   }
+}
+
+function isFork() {
+  const {TRAVIS_PULL_REQUEST_SLUG, TRAVIS_REPO_SLUG} = process.env
+  const [prOwner] = TRAVIS_PULL_REQUEST_SLUG.split('/')
+  const [owner] = TRAVIS_REPO_SLUG.split('/')
+  return owner !== prOwner
 }
 
 function getUrl(content) {
