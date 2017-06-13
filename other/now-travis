@@ -54,9 +54,9 @@ async function deploy(context, sha) {
     description: `▲ Now ${context} deployment build started...`,
   })
 
-  // wait for ten minutes before checking to see how the build's doing...
-  const tenMinutes = 1000 * 60 * 10
-  await sleep(tenMinutes)
+  // wait for a few minutes before checking to see how the build's doing...
+  const fourMinutes = 1000 * 60 * 4
+  await sleep(fourMinutes)
 
   // check on the site for ten minutes every 5 seconds
   await awaitUrl(target_url, {interval: 5000, tries: 120}).catch(err => {
