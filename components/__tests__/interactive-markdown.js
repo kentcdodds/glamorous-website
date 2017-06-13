@@ -26,21 +26,26 @@ test('parses interactive pragmas into CodePreviews', async () => {
 })
 
 test('parses JavaScript pragmas into syntax highlighted static code blocks', () => {
-  const markdown = getMarkdownWithPragma('js')
+  const markdown = getMarkdownWithPragma('javascript')
   const elements = interactiveMarkdown(markdown)
   const wrapper = mount(<div>{elements}</div>)
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
+
+  const markdownShortName = getMarkdownWithPragma('js')
+  const elementsShortName = interactiveMarkdown(markdownShortName)
+  const wrapperShortName = mount(<div>{elementsShortName}</div>)
+  expect(toJson(wrapperShortName)).toMatchSnapshotWithGlamor()
 })
 
 test('parses shell pragmas into syntax highlighted static code blocks', () => {
-  const markdown = getMarkdownWithPragma('sh')
+  const markdown = getMarkdownWithPragma('bash')
   const elements = interactiveMarkdown(markdown)
   const wrapper = mount(<div>{elements}</div>)
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 
 test('parses HTML pragmas into syntax highlighted static code blocks', () => {
-  const markdown = getMarkdownWithPragma('sh')
+  const markdown = getMarkdownWithPragma('html')
   const elements = interactiveMarkdown(markdown)
   const wrapper = mount(<div>{elements}</div>)
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()

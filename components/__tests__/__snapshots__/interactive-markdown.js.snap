@@ -7,8 +7,32 @@ exports[`parses HTML pragmas into syntax highlighted static code blocks 1`] = `
       Object {
         "__html": "<h1>hello world</h1>
       <p>I am some content</p>
-      <pre><code class=\\"language-sh\\">render(&#x3C;button onClick={() => alert('Hello World')}>Hello World&#x3C;/button>)
-      </code></pre>
+      ",
+      }
+    }
+  />
+  <StaticCodeBlock
+    code="render(&lt;button onClick={() => alert('Hello World')}>Hello World<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>)"
+    component={[Function]}
+    language="html"
+  >
+    <pre
+      className="language-html"
+    >
+      <code
+        className="language-html"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "render(&lt;button onClick={() => alert('Hello World')}>Hello World<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>)",
+          }
+        }
+      />
+    </pre>
+  </StaticCodeBlock>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
       <p>I am some more content
       </p>
       ",
@@ -19,6 +43,48 @@ exports[`parses HTML pragmas into syntax highlighted static code blocks 1`] = `
 `;
 
 exports[`parses JavaScript pragmas into syntax highlighted static code blocks 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h1>hello world</h1>
+      <p>I am some content</p>
+      ",
+      }
+    }
+  />
+  <StaticCodeBlock
+    code="<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>"
+    component={[Function]}
+    language="javascript"
+  >
+    <pre
+      className="language-javascript"
+    >
+      <code
+        className="language-javascript"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+          }
+        }
+      />
+    </pre>
+  </StaticCodeBlock>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+      <p>I am some more content
+      </p>
+      ",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`parses JavaScript pragmas into syntax highlighted static code blocks 2`] = `
 <div>
   <div
     dangerouslySetInnerHTML={
@@ -169,8 +235,32 @@ exports[`parses shell pragmas into syntax highlighted static code blocks 1`] = `
       Object {
         "__html": "<h1>hello world</h1>
       <p>I am some content</p>
-      <pre><code class=\\"language-sh\\">render(&#x3C;button onClick={() => alert('Hello World')}>Hello World&#x3C;/button>)
-      </code></pre>
+      ",
+      }
+    }
+  />
+  <StaticCodeBlock
+    code="render<span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> alert<span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span>/button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>"
+    component={[Function]}
+    language="bash"
+  >
+    <pre
+      className="language-bash"
+    >
+      <code
+        className="language-bash"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "render<span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> alert<span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span>/button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+          }
+        }
+      />
+    </pre>
+  </StaticCodeBlock>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
       <p>I am some more content
       </p>
       ",
