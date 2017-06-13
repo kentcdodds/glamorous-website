@@ -1,6 +1,5 @@
 module.exports = {
   title: 'Optimizing Bundle Size',
-  subtitle: '',
   description: `
     If your use case is really size constrained, then you might consider using the "tiny" version of glamorous for your application.
     It is a miniature version of ~glamorous~ with a few limitations:
@@ -36,24 +35,37 @@ module.exports = {
     }
 
     export default Root
-      ~~~
+    ~~~
 
-    It's recommended to use either [~babel- plugin - module - resolver~][babel-plugin-module-resolver]
-    or the [~resolve.alias~][resolve-alias] config with webpack so you don't have
-    to import from that full path. You have the following options available for this
-    import:
+    ~~~callout {title: 'Improved Experience', type: 'success'}
+    It's recommended to use either
+    [~babel-plugin-module-resolver~](https://github.com/tleunen/babel-plugin-module-resolver)
+    or the [~resolve.alias~](https://webpack.js.org/configuration/resolve/#resolve-alias)
+    config with webpack so you don't have
+    to import from that full path.
 
-    1. ~glamorous/ dist / glamorous.es.tiny.js~ - use if you're using Webpack@>=2 or Rollup
-    2. ~glamorous/ dist / glamorous.cjs.tiny~ - use if you're not transpiling ESModules
-    3. ~glamorous/ dist / glamorous.umd.tiny.js~ - use if you're including it as a script tag. (There's also a ~.min.js~ version).
+    You have the following options available for this import:
 
-    The current size of ~glamorous/ dist / glamorous.umd.tiny.min.js~ is: [![tiny size][tiny-size-badge]][unpkg-dist]
+    1. ~glamorous/dist/glamorous.es.tiny.js~ - use if you're using Webpack@>=2 or Rollup
+    2. ~glamorous/dist/glamorous.cjs.tiny~ - use if you're not transpiling ESModules
+    3. ~glamorous/dist/glamorous.umd.tiny.js~ - use if you're including it as a script tag. (There's also a ~.min.js~ version).
+
+    The current size of ~glamorous/dist/glamorous.umd.tiny.min.js~ is: [![tiny size][tiny-size-badge]][unpkg-dist]
     [![tiny gzip size][tiny-gzip-badge]][unpkg-dist]
 
-    > IMPORTANT NOTE ABOUT SIZE: Because ~glamorous~ depends on ~glamor~, you should consider the full size you'll be adding
-    > to your application if you don't already have ~glamor~.
-    > The current size of ~glamor/ umd / index.min.js~ is: [![glamor size][glamor-size-badge]][unpkg-glamor]
-    > [![glamor gzip size][glamor-gzip-badge]][unpkg-glamor]
+    ~~~callout {title: 'Important note', type: 'danger'}
+    Because ~glamorous~ depends on ~glamor~, you should consider the full size you'll be adding
+    to your application if you don't already have ~glamor~.
+    The current size of ~glamor/umd/index.min.js~ is: [![glamor size][glamor-size-badge]][unpkg-glamor]
+    [![glamor gzip size][glamor-gzip-badge]][unpkg-glamor]
+    ~~~
+
+    [tiny-gzip-badge]: http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?compression=gzip&label=gzip%20size&style=flat-square
+    [tiny-size-badge]: http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?label=size&style=flat-square
+    [unpkg-dist]: https://unpkg.com/glamorous/dist/
+    [glamor-gzip-badge]: http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?compression=gzip&label=gzip%20size&style=flat-square
+    [glamor-size-badge]: http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?label=size&style=flat-square
+    [unpkg-glamor]: https://unpkg.com/glamor/umd/
   `.replace(/~/g, '`'),
   filename: __filename,
 }
