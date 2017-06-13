@@ -24,6 +24,13 @@ const client = github.client(githubToken)
 const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
 
 function deploy(context, sha) {
+  if (isFork()) {
+    updateStatus({
+      state: 'success',
+      description: `▲ Now ${context} deployment is skipped for forks...`,
+    })
+    return
+  }
   let stdout = ''
   updateStatus({
     state: 'pending',
@@ -111,6 +118,16 @@ switch (TRAVIS_EVENT_TYPE) {
   default: {
     console.log(`${TRAVIS_EVENT_TYPE} is not supported by now-travis`)
   }
+}
+
+function isFork() {
+  const {TRAVIS_PULL_REQUEST_SLUG, TRAVIS_REPO_SLUG} = process.env
+  if (!TRAVIS_PULL_REQUEST_SLUG) {
+    return false
+  }
+  const [prOwner] = TRAVIS_PULL_REQUEST_SLUG.split('/')
+  const [owner] = TRAVIS_REPO_SLUG.split('/')
+  return owner !== prOwner
 }
 
 function getUrl(content) {

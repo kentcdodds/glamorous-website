@@ -39,17 +39,21 @@ module.exports = {
     validate: {
       description:
         'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'test', 'build'),
+      script: concurrent.nps('lint', 'test'),
     },
     deploy: {
       hiddenFromHelp,
       description: 'Runs the deploy script.',
       script: series('nps build.info', './other/now-travis'),
     },
+    validateAndBuild: {
+      hiddenFromHelp,
+      script: concurrent.nps('validate', 'build'),
+    },
     validateAndDeploy: {
       hiddenFromHelp,
       description: 'This runs the validation and deploy concurrently',
-      script: concurrent.nps('validate', 'deploy'),
+      script: concurrent.nps('validateAndBuild', 'deploy'),
     },
   },
   options: {silent: false},
