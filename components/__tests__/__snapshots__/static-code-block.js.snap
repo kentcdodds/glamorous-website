@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HTML code block string with the pragma language classname 1`] = `
+<div>
+  <pre
+    className="language-javascript"
+  >
+    <code
+      className="language-javascript"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<span>// some code</span>",
+        }
+      }
+    />
+  </pre>
+</div>
+`;
