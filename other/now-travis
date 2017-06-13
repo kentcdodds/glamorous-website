@@ -54,9 +54,11 @@ async function deploy(context, sha) {
     description: `▲ Now ${context} deployment build started...`,
   })
 
-  // wait for a few minutes before checking to see how the build's doing...
+  console.log('😴 sleeping for a bit to give the deployment some time to build...')
   const fourMinutes = 1000 * 60 * 4
   await sleep(fourMinutes)
+
+  console.log(`🤠 Alrighty, we're going to ping ${target_url} until it's ready!`)
 
   // check on the site for ten minutes every 5 seconds
   await awaitUrl(target_url, {interval: 5000, tries: 120}).catch(err => {
@@ -65,8 +67,11 @@ async function deploy(context, sha) {
     throw err
   })
 
+  console.log(`💪 it's up and ready!`)
+
   if (isProd) {
     // if we're production, then we need to alias things
+    console.log(`↪️ We're building for production, so let's alias this!`)
     await spawnPromise('sh', ['./other/alias.sh'], {
       env: Object.assign({}, process.env, {
         NOW_TOKEN: nowToken,
@@ -77,6 +82,7 @@ async function deploy(context, sha) {
     })
   }
 
+  console.log('🏁 all done!')
   updateStatus({
     state: 'success',
     description: `▲ Now ${context} deployment complete`,
