@@ -4,7 +4,7 @@ import glamorous from 'glamorous'
 import {colors} from '../styles/global-styles'
 
 const getPathname = pathname => {
-  return pathname === undefined ? '' : pathname.pathname
+  return pathname === undefined ? '' : pathname
 }
 
 const basicLinkStyles = {cursor: 'pointer'}
