@@ -67,7 +67,11 @@ function getContent(locale, options) {
     return fallbackContent
   }
   const localeContent = content(`${locale}/`, options)
-  return {...fallbackContent, ...localeContent}
+  return Object.keys(fallbackContent).reduce((cont, key) => {
+    const value = localeContent[key]
+    cont[key] = value === null ? null : value || fallbackContent[key]
+    return cont
+  }, {})
 }
 
 // eslint-disable-next-line complexity
