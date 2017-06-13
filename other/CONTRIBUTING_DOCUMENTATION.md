@@ -1,4 +1,4 @@
-# Locales
+# Content
 
 Hi! Thank you so much for your willingness to help out with
 translation/documentation! From the very beginning localization and
@@ -89,23 +89,53 @@ that should be translated (in strings) and that the end result is valid JS.
 Please don't translate code samples unless you're certain the code sample still
 works.
 
-### Crowdin
+### Workflow
 
-When translating, you will not be submitting PRs to this repo directly, instead
-we're using a service called Crowdin to do translations. It should hopefully
-make the process smooth and easy. Please sign up for a free account and join
-our efforts on the project page
-[here](https://crowdin.com/project/glamorous-website). You can find an intro
-for how to use Crowdin [here](https://youtu.be/LySRFuiKYLE).
+Unfortunately we've been unsuccessful in setting up a workflow with an existing
+free tool. So we've got some tooling of our own to make your workflow as good
+as it can be. You will need to set up the project locally (see `CONTRIBUTING.md`
+for how to do this).
 
-Thank you!
+Before you get started, try to coordinate efforts with others who may be
+translating the same language. Search
+[the issues](https://github.com/kentcdodds/glamorous-website/issues) to see if
+anyone else is working on the language you are. If no issue exists, then
+[file a new issue](https://github.com/kentcdodds/glamorous-website/issues/new)
+indicating you'd like to translate content to a new language and you can use
+that to keep track of what translations you're working on and to coordinate with
+others who want to help.
+
+First, run `node other/list-l10n.js {locale}` (if you were doing French,
+`{locale}` would be `fr`, for Spanish, it would be `es`). This will list the
+files which have up to date translations, outdated translations, and files
+missing translations for the locale you specified. Go ahead and work your way
+through these files one-by-one. You don't have to do them all at once, you can
+do some of them, [submit a pull request](http://makeapullrequest.com), and come
+back later to do more.
+
+To keep things up to date, you can update your local copy of the project, then
+run the above script again. If you see any files listed under `Outdated`, then
+you know that there have been modifications to source files since translations
+were last completed. To know what changed, go through each file one by one and
+run: `node other/what-changed.js {path/to/english/file.js} {locale}`. This will
+show you the changes to that particular file since translations were last
+completed and should give you the insight you need to update the existing
+translations.
+
+Another useful tip is to
+[`watch`](https://help.github.com/articles/watching-repositories/)
+[the GitHub repo](https://github.com/kentcdodds/glamorous-website)
+for changes. This way, GitHub will notify you when pull requests are made
+and you can keep up with any changes to content.
+
+Thank you so much for your help! Now, please read the notes below!
 
 ## Important Markdown notes:
 
-Because the markdown is written in a JavaScript file and uses template
-literals, we use `~` rather than backticks (\`) because we don't want to have
-to escape common things like codeblocks. We use `replace` to swap `~` to a
-backtick so hopefully this is pretty straightforward.
+Because the **content and markdown is written in a JavaScript file** and uses
+template literals, we use `~` rather than backticks (\`) because we don't want
+to have to escape common things like codeblocks. We use `replace` to swap `~` to
+a backtick so hopefully this is pretty straightforward.
 
 ### Special Syntax
 

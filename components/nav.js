@@ -23,6 +23,16 @@ const NavSeparator = glamorous(Separator)((props, {mediaQueries}) => ({
   },
 }))
 
+// Used to hide text for a11y - ie. Home in navigation
+const Hidden = glamorous.span({
+  position: 'absolute',
+  left: '-10000px',
+  top: 'auto',
+  width: '1px',
+  height: '1px',
+  overflow: 'hidden',
+})
+
 const ListItem = glamorous.li({
   paddingLeft: 10,
   paddingRight: 10,
@@ -81,6 +91,7 @@ export default class Nav extends React.Component {
               pathname={this.props.pathname}
             >
               <LipstickIcon width={20} />
+              <Hidden>Home</Hidden>
             </Anchor>
           </ListItem>
           <ListItem>

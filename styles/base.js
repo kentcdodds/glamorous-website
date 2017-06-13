@@ -81,10 +81,10 @@ export default () => `
   }
 
   pre code {
-    background-color: inherit;
-    padding: inherit;
-    border-radius: inherit;
-    font-size: inherit;
+    background-color: initial;
+    padding: initial;
+    border-radius: initial;
+    font-size: 1em;
   }
 
   code {

@@ -15,13 +15,13 @@ export default locale => {
     })
 
     const solidColors = {
-      backgroundColor: '#ED5C70',
+      backgroundColor: '#CC3A4B',
       color: '#fff',
     }
 
     const transparentColors = {
       backgroundColor: 'rgba(255, 255, 255, 0.5)',
-      color: '#ED5C70',
+      color: '#DA233C',
     }
 
     const Primary = glamorous(Button)(
