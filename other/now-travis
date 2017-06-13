@@ -24,6 +24,13 @@ const client = github.client(githubToken)
 const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
 
 function deploy(context, sha) {
+  if (isFork()) {
+    updateStatus({
+      state: 'success',
+      description: `▲ Now ${context} deployment is skipped for forks...`,
+    })
+    return
+  }
   let stdout = ''
   updateStatus({
     state: 'pending',
@@ -101,9 +108,7 @@ const {TRAVIS_EVENT_TYPE, TRAVIS_PULL_REQUEST_SHA, TRAVIS_COMMIT} = process.env
 
 switch (TRAVIS_EVENT_TYPE) {
   case 'pull_request': {
-    if (!isFork()) {
-      deploy('staging', TRAVIS_PULL_REQUEST_SHA)
-    }
+    deploy('staging', TRAVIS_PULL_REQUEST_SHA)
     break
   }
   case 'push': {
@@ -117,6 +122,9 @@ switch (TRAVIS_EVENT_TYPE) {
 
 function isFork() {
   const {TRAVIS_PULL_REQUEST_SLUG, TRAVIS_REPO_SLUG} = process.env
+  if (!TRAVIS_PULL_REQUEST_SLUG) {
+    return false
+  }
   const [prOwner] = TRAVIS_PULL_REQUEST_SLUG.split('/')
   const [owner] = TRAVIS_REPO_SLUG.split('/')
   return owner !== prOwner
