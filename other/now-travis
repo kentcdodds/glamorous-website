@@ -11,18 +11,10 @@ if (!process.env.CI || !process.env.TRAVIS) {
 
 function deploy(context, sha) {
   if (isFork()) {
-    updateStatus({
-      state: 'success',
-      description: `▲ Now ${context} deployment is skipped for forks...`,
-    })
+    console.log(`▲ Now ${context} deployment is skipped for forks...`)
     return
   }
   let stdout = ''
-  updateStatus({
-    state: 'pending',
-    description: `▲ Now ${context} deployment pending`,
-  })
-
   const githubToken = process.env.GH_TOKEN
   const nowToken = process.env.NOW_TOKEN
 
@@ -38,6 +30,11 @@ function deploy(context, sha) {
   const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
 
   const isProd = context === 'production'
+  updateStatus({
+    state: 'pending',
+    description: `▲ Now ${context} deployment pending`,
+  })
+
   const cliArgs = ['--token', nowToken, '--no-clipboard', '--public']
   safeLog('spawning shell with command:', `now ${cliArgs.join(' ')}`)
   const child = spawn('now', [
