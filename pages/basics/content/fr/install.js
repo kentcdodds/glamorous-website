@@ -14,14 +14,14 @@ module.exports = {
     npm install --save react glamor
     ~~~
 
-    > REMARQUE : Si vous utilisez React v15.5 ou supérieur, vous aurez également besoin de
+    > REMARQUE : Si vous utilisez React v15.5 ou une version supérieure, vous aurez également besoin de
     > ~prop-types~ : ~npm install --save prop-types~
 
     Vous pouvez ensuite utiliser l'un des formats du module :
 
     - ~main~: ~dist/glamorous.cjs.js~ - s'exporte en tant que module CommonJS
     - ~global~: ~dist/glamorous.umd.js~ et ~dist/glamorous.umd.min.js~ - s'exporte en tant que module umd qui est consommable dans plusieurs environnements, le plus significatif de manière globale.
-    - ~jsnext:main~ et le module : ~dist/glamorous.es.js~ - s'exporte en utilisant la spécification des modules ES, vous aurez besoin de configurer webpack pour faire usage de ce fichier,  faites-le en utilisant la propriété resolve.mainFields.
+    - ~jsnext:main~ et le module : ~dist/glamorous.es.js~ - s'exporte en utilisant la spécification des modules ES, vous aurez besoin de configurer webpack pour faire usage de ce fichier, faites-le en utilisant la propriété resolve.mainFields.
 
     Le cas d'utilisation le plus courant consomme ce module via CommonJS :
 
