@@ -17,11 +17,6 @@ module.exports = {
         script: 'all-contributors generate',
       },
     },
-    commit: {
-      description:
-        'This uses commitizen to help us generate well formatted commit messages',
-      script: 'git-cz',
-    },
     test: {
       default: 'cross-env NODE_ENV=test jest --coverage',
       update: 'cross-env NODE_ENV=test jest -u',
