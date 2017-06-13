@@ -61,14 +61,22 @@ function getInitialLocaleProps({req} = {}) {
   return Promise.resolve({locale})
 }
 
-// eslint-disable-next-line complexity
 function getContent(locale, options) {
+  const fallbackContent = content('', options)
+  if (locale === fallbackLocale) {
+    return fallbackContent
+  }
+  const localeContent = content(`${locale}/`, options)
+  return {...fallbackContent, ...localeContent}
+}
+
+// eslint-disable-next-line complexity
+function content(localePath, options) {
   const {page, component, example} = options
+  // because how webpack resolves these for the bundle, we need
+  // to use a statically relative path, otherwise this could
+  // be much simpler. Sigh...
   try {
-    const localePath = locale === fallbackLocale ? '' : `${locale}/`
-    // because how webpack resolves these for the bundle, we need
-    // to use a statically relative path, otherwise this could
-    // be much simpler. Sigh...
     if (page) {
       return require(`../pages/${page}/content/${localePath}index.js`)
     } else if (component) {
@@ -79,10 +87,10 @@ function getContent(locale, options) {
       throw new Error('page or component required to get content')
     }
   } catch (error) {
-    if (locale === fallbackLocale) {
+    if (localePath === '') {
       throw error
     }
-    return getContent(fallbackLocale, options)
+    return {}
   }
 }
 
