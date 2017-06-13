@@ -1,4 +1,4 @@
-# Locales
+# Content
 
 Hi! Thank you so much for your willingness to help out with
 translation/documentation! From the very beginning localization and
