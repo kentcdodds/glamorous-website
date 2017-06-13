@@ -12,41 +12,13 @@ export default locale => {
       display: 'inline-block',
       margin: '.5em 1em',
       transition: 'all .3s',
-    })
-
-    const solidColors = {
-      backgroundColor: '#CC3A4B',
-      color: '#fff',
-    }
-
-    const transparentColors = {
-      backgroundColor: 'rgba(255, 255, 255, 0.5)',
-      color: '#DA233C',
-    }
-
-    const Primary = glamorous(Button)(
-      solidColors,
-      {
-        ':hover': transparentColors,
-      }
-    )
-
-    const Secondary = glamorous(Button)(
-      transparentColors,
-      {
-        ':hover': solidColors,
-      }
-    )
-
-    render(
-      <glamorous.Div textAlign="center">
-        <Primary href="https://github.com/paypal/glamorous">
-          GitHub
-        </Primary>
-        <Secondary href="http://kcd.im/glamorous-help">
-          ${content.tryIt}
-        </Secondary>
-      </glamorous.Div>
-    )
+    }, ({primary}) => ({
+        backgroundColor: primary ? '#CC3A4B' : 'rgba(255, 255, 255, 0.5)',
+        color: primary ? '#fff' : '#DA233C',
+        ':hover': {
+          backgroundColor: primary ? 'rgba(255, 255, 255, 0.5)' : '#CC3A4B',
+          color: primary ? '#DA233C' : '#fff',
+        }
+    }))
   `
 }

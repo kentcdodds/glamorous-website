@@ -4,7 +4,7 @@ import {Div} from 'glamorous'
 const GlamorousLogo = props =>
   (<Div {...props}>
     <svg
-      width="100%"
+      width="70%"
       viewBox="0 0 2267 503"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

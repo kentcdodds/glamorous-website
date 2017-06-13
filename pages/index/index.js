@@ -10,6 +10,7 @@ import getHomePageExample from '../../examples/home-page-example'
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   position: 'relative',
   padding: '1em',
+  paddingTop: 0,
   background: 'transparent',
   '::after': {
     content: '""',

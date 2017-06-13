@@ -1,5 +1,6 @@
 import React from 'react'
 import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live'
+import { LiveContextTypes } from 'react-live/lib/components/Live/LiveProvider'
 import glamorous from 'glamorous'
 import stripIndent from './utils/strip-indent'
 
@@ -14,10 +15,6 @@ const StyledLiveProvider = glamorous(LiveProvider)({
 
 const StyledLiveEditor = glamorous(LiveEditor)({})
 
-const StyledLivePreview = glamorous(LivePreview)({
-  padding: '1rem',
-})
-
 const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
   color: colors.code,
   fontFamily: fonts.monospace,
@@ -28,10 +25,31 @@ const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
   padding: '1rem',
 }))
 
+
+const HomepageLivePreview = ({ className, ...rest }, { live: { element: Button }, live }) => {
+  return (
+    <glamorous.Div textAlign="center" marginBottom="30px">
+      <Button href="https://github.com/paypal/glamorous" primary>
+        GitHub
+      </Button>
+      <Button href="http://kcd.im/glamorous-help">
+        Try it
+      </Button>
+    </glamorous.Div>
+  )
+}
+
+HomepageLivePreview.contextTypes = LiveContextTypes
+
+
+const StyledLivePreview = glamorous(HomepageLivePreview)({
+  padding: '1rem',
+})
+
+
 function CodePreview({noInline = true, code, scope = {glamorous}}) {
   return (
     <StyledLiveProvider
-      noInline={noInline}
       code={stripIndent(code).trim()}
       scope={scope}
     >
