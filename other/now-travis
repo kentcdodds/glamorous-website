@@ -4,17 +4,18 @@ const github = require('octonode')
 const spawn = require('cross-spawn')
 const normalizeUrl = require('normalize-url')
 const urlRegex = require('url-regex')
+const awaitUrl = require('./await-url')
 
 if (!process.env.CI || !process.env.TRAVIS) {
   throw new Error('Could not detect Travis CI environment')
 }
 
-function deploy(context, sha) {
+// eslint-disable-next-line max-statements
+async function deploy(context, sha) {
   if (isFork()) {
     console.log(`▲ Now ${context} deployment is skipped for forks...`)
     return
   }
-  let stdout = ''
   const githubToken = process.env.GH_TOKEN
   const nowToken = process.env.NOW_TOKEN
 
@@ -25,6 +26,8 @@ function deploy(context, sha) {
   if (!nowToken) {
     throw new Error('Missing required environment variable NOW_TOKEN')
   }
+  const {TRAVIS_REPO_SLUG, TRAVIS_BUILD_ID} = process.env
+  let target_url = `https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}`
 
   const client = github.client(githubToken)
   const ghRepo = client.repo(process.env.TRAVIS_REPO_SLUG)
@@ -37,48 +40,46 @@ function deploy(context, sha) {
 
   const cliArgs = ['--token', nowToken, '--no-clipboard', '--public']
   safeLog('spawning shell with command:', `now ${cliArgs.join(' ')}`)
-  const child = spawn('now', [
+  const result = await spawnPromise('now', [
     '--token',
     nowToken,
     '--no-clipboard',
     '--public',
   ])
 
-  child.stdout.on('data', data => {
-    stdout += data
-    safeLog(String(data))
-  })
-  child.stderr.on('data', data => safeError(String(data)))
-  child.on('error', onError)
+  target_url = getUrl(result)
 
-  child.on('close', () => {
-    const target_url = getUrl(stdout)
-    if (isProd) {
-      const aliasChild = spawn('sh', ['./other/alias.sh'], {
-        env: Object.assign({}, process.env, {
-          NOW_TOKEN: nowToken,
-          NOW_ID: target_url,
-          // TODO: remove the `rc.` when we're ready to release!
-          NOW_ALIAS: 'rc.glamorous.rocks',
-        }),
-      })
-      aliasChild.stdout.on('data', data => safeLog(String(data)))
-      aliasChild.stderr.on('data', data => safeError(String(data)))
-      aliasChild.on('error', onError)
-      aliasChild.on('close', () => {
-        updateStatus({
-          state: 'success',
-          target_url,
-          description: `▲ Now ${context} deployment complete`,
-        })
-      })
-    } else {
-      updateStatus({
-        state: 'success',
-        target_url,
-        description: `▲ Now ${context} deployment complete`,
-      })
-    }
+  updateStatus({
+    state: 'pending',
+    description: `▲ Now ${context} deployment build started...`,
+  })
+
+  // wait for ten minutes before checking to see how the build's doing...
+  const tenMinutes = 1000 * 60 * 10
+  await sleep(tenMinutes)
+
+  // check on the site for ten minutes every 5 seconds
+  await awaitUrl(target_url, {interval: 5000, tries: 120}).catch(err => {
+    console.error('Error waiting for the deployment to be ready.')
+    onError(err)
+    throw err
+  })
+
+  if (isProd) {
+    // if we're production, then we need to alias things
+    await spawnPromise('sh', ['./other/alias.sh'], {
+      env: Object.assign({}, process.env, {
+        NOW_TOKEN: nowToken,
+        NOW_ID: target_url,
+        // TODO: remove the `rc.` when we're ready to release!
+        NOW_ALIAS: 'rc.glamorous.rocks',
+      }),
+    })
+  }
+
+  updateStatus({
+    state: 'success',
+    description: `▲ Now ${context} deployment complete`,
   })
 
   function onError(err) {
@@ -90,15 +91,42 @@ function deploy(context, sha) {
   }
 
   function updateStatus(options) {
-    const {TRAVIS_REPO_SLUG, TRAVIS_BUILD_ID} = process.env
-    const travisUrl = `https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}`
     const mergedOptions = Object.assign(
-      {context, target_url: travisUrl},
+      {context, target_url},
       options
     )
-    const {description, target_url} = mergedOptions
-    console.log(`${description}: ${target_url}`)
+    const {description, target_url: url} = mergedOptions
+    console.log(`${description}: ${url}`)
     ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+  }
+
+  function spawnPromise(...args) {
+    return new Promise((resolve, reject) => {
+      const child = spawn(...args)
+      let stdout = ''
+      let stderr = ''
+      child.stdout.on('data', data => {
+        stdout += data
+        safeLog(String(data))
+      })
+      child.stderr.on('data', data => {
+        safeError(String(data))
+        stderr += String(safeify(data))
+      })
+
+      child.on('error', error => {
+        onError(error)
+        reject(safeify(error))
+      })
+
+      child.on('close', () => {
+        if (stderr) {
+          reject(stderr)
+        } else {
+          resolve(stdout)
+        }
+      })
+    })
   }
 
   function safeLog(...args) {
@@ -171,6 +199,14 @@ function logError(message) {
       console.log(message, error)
     }
   }
+}
+
+function sleep(time) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, time)
+  })
 }
 
 // This is not transpiled
