@@ -6,11 +6,23 @@ import Separator from './separator'
 import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
 
+const Navbar = glamorous.nav((props, {mediaQueries}) => ({
+  width: '100%',
+  margin: 0,
+  [mediaQueries.mediumUp]: {
+    marginTop: '0.5rem',
+  },
+}))
+
 const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
   fill: colors.primaryMed,
   backgroundColor: colors.white,
-  display: 'block',
+  display: 'flex',
+  justifyContent: 'flex-end',
   width: '100%',
+  paddingTop: '0.25rem',
+  paddingBottom: '0.25rem',
+  paddingRight: '0.25rem',
   [mediaQueries.mediumUp]: {
     display: 'none',
   },
@@ -47,20 +59,23 @@ const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   alignItems: 'center',
   fontSize: '1.25em',
   margin: '0 auto',
-  padding: 0,
+
   maxWidth: '50rem',
   height: 'auto',
   width: '100%',
-  maxHeight: props.isOpen ? '100%' : '0',
+  padding: props.isOpen ? '1rem 0' : 0,
+  maxHeight: props.isOpen ? '100%' : 0,
+  opacity: props.isOpen ? 1 : 0,
   overflow: 'hidden',
   textAlign: 'center',
   backgroundColor: colors.white,
   [mediaQueries.mediumUp]: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     width: 'auto',
     maxHeight: '4rem',
     backgroundColor: 'inherit',
+    opacity: 1,
   },
 }))
 
@@ -77,13 +92,12 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-      <glamorous.Nav width="100%">
-        <NavToggle onClick={this.handleClick.bind(this)}><MenuSVG /></NavToggle>
+      <Navbar>
+        <NavToggle onClick={this.handleClick.bind(this)}>
+          <MenuSVG />
+        </NavToggle>
         <NavSeparator />
         <List isOpen={this.state.open}>
-          <ListItem>
-            <LocaleChooser locale={this.props.locale} />
-          </ListItem>
           <ListItem>
             <Anchor
               prefetch={process.env.USE_PREFETCH}
@@ -139,8 +153,11 @@ export default class Nav extends React.Component {
               API
             </Anchor>
           </ListItem>
+          <ListItem>
+            <LocaleChooser locale={this.props.locale} />
+          </ListItem>
         </List>
-      </glamorous.Nav>
+      </Navbar>
     )
   }
 }
