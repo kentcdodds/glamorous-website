@@ -2,7 +2,7 @@ module.exports = {
   title: 'glamorous-native',
   subtitle: 'React Native',
   description: `
-    ~glamorous~ offre une version pour les projets React Native appelé ~glamorous-native~.
+    ~glamorous~ offre une version pour les projets React Native appelée ~glamorous-native~.
 
     ~~~js
     npm install glamorous-native --save

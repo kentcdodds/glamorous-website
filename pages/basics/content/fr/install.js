@@ -2,7 +2,7 @@ module.exports = {
   title: 'Installation',
   subtitle: 'Quelque chose',
   description: `
-    Ce module est distribué via [npm](https://www.npmjs.com/) qui est empaqueté avec [node](https://nodejs.org) et doit être installé comme une dépendances (~dependencies~) de votre projet :
+    Ce module est distribué via [npm](https://www.npmjs.com/) qui est empaqueté avec [node](https://nodejs.org) et doit être installé comme une dépendance de votre projet :
 
     ~~~js
     npm install --save glamorous
@@ -23,7 +23,7 @@ module.exports = {
     - ~global~: ~dist/glamorous.umd.js~ et ~dist/glamorous.umd.min.js~ - s'exporte en tant que module umd qui est consommable dans plusieurs environnements, le plus significatif de manière globale.
     - ~jsnext:main~ et le module : ~dist/glamorous.es.js~ - s'exporte en utilisant la spécification des modules ES, vous aurez besoin de configurer webpack pour faire usage de ce fichier, faites-le en utilisant la propriété resolve.mainFields.
 
-    Le cas d'utilisation le plus courant consomme ce module via CommonJS :
+    Ce module est utilisé le plus souvent via CommonJS :
 
     ~~~js
     const glamorous = require('glamorous')
@@ -39,7 +39,7 @@ module.exports = {
     // vous pouvez aussi importer les composants spécifiques de Glamorous (Voir la section ci-dessous sur les composants "intégrés")
     import {Div, H2} from 'glamorous'
 
-    // les balises avec un nom identique à un objet JavaScript intégrés sont importable avec un suffixe Tag
+    // les balises avec un nom identique à un objet JavaScript intégrés sont importables avec un suffixe Tag
     // et les noms de balise qui contiennent des tirets sont transformés en CamelCase
     import {MapTag, ColorProfile} from 'glamorous'
     ~~~

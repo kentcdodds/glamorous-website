@@ -5,7 +5,7 @@ module.exports = {
     Parfois, vous avez besoin d'accéder au
     [~ref~](https://facebook.github.io/react/docs/refs-and-the-dom.html)
     du composant qui est rendu. Vous pouvez accomplir cela avec
-    le prop ~innerRef~.
+    la prop ~innerRef~.
 
     C'est une fonction, et si elle est fournie, elle sera appelée avec la référence de l'élément
     intérieur.
