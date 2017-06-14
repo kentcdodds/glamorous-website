@@ -83,7 +83,10 @@
         "lines": 50,
         "statements": 50
       }
-    }
+    },
+    "testPathIgnorePatterns": [
+      "/fixtures/"
+    ]
   },
   "lint-staged": {
     ".all-contributorsrc": [

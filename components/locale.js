@@ -1,3 +1,4 @@
+import path from 'path'
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
@@ -61,28 +62,65 @@ function getInitialLocaleProps({req} = {}) {
   return Promise.resolve({locale})
 }
 
-// eslint-disable-next-line complexity
 function getContent(locale, options) {
-  const {page, component, example} = options
-  try {
-    const localePath = locale === fallbackLocale ? '' : `${locale}/`
-    // because how webpack resolves these for the bundle, we need
-    // to use a statically relative path, otherwise this could
-    // be much simpler. Sigh...
-    if (page) {
-      return require(`../pages/${page}/content/${localePath}index.js`)
-    } else if (component) {
-      return require(`../components/content/${localePath}${component}`)
-    } else if (example) {
-      return require(`../examples/content/${localePath}${example}`)
-    } else {
-      throw new Error('page or component required to get content')
+  const fallbackContent = content('', options)
+  if (locale === fallbackLocale) {
+    return fallbackContent
+  }
+  const localeContent = content(`${locale}/`, options)
+  return mergeTranslations(fallbackContent, localeContent)
+}
+
+function mergeTranslations(fallbackContent, localeContent) {
+  if (!localeContent || Object.keys(localeContent).length === 0) {
+    return fallbackContent
+  }
+
+  return Object.keys(fallbackContent).reduce((cont, key) => {
+    const fallbackValue = fallbackContent[key]
+    const localeValue = localeContent[key]
+
+    if (key === 'sections' && fallbackValue instanceof Array) {
+      const filenames = fallbackValue.map(fbv => path.basename(fbv.filename))
+      cont[key] = filenames.map(filename =>
+        mergeTranslations(
+          findFile(fallbackValue, filename),
+          findFile(localeValue, filename),
+        ),
+      )
+      return cont
     }
+
+    cont[key] = localeValue === null ? null : localeValue || fallbackValue
+    return cont
+  }, {})
+}
+function content(localePath, options) {
+  const {contentFile = (p, opts) => requireContentFile(p, opts)} = options
+
+  try {
+    return contentFile(localePath, options)
   } catch (error) {
-    if (locale === fallbackLocale) {
+    if (localePath === '') {
       throw error
     }
-    return getContent(fallbackLocale, options)
+    return {}
+  }
+}
+
+function requireContentFile(localePath, options) {
+  const {page, component, example} = options
+  // because how webpack resolves these for the bundle, we need
+  // to use a statically relative path, otherwise this could
+  // be much simpler. Sigh...
+  if (page) {
+    return require(`../pages/${page}/content/${localePath}index.js`)
+  } else if (component) {
+    return require(`../components/content/${localePath}${component}`)
+  } else if (example) {
+    return require(`../examples/content/${localePath}${example}`)
+  } else {
+    throw new Error('page, component or example required to get content')
   }
 }
 
@@ -94,6 +132,13 @@ function getLocaleAndHost(req) {
   } else {
     return {locale: 'en', host}
   }
+}
+
+function findFile(sections, filename) {
+  return (
+    sections &&
+    sections.find(s => s.filename && path.basename(s.filename) === filename)
+  )
 }
 
 export {
