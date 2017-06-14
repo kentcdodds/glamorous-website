@@ -74,34 +74,34 @@ function getContent(locale, options) {
   }, {})
 }
 
-// eslint-disable-next-line complexity
 function content(localePath, options) {
   const {
-    page,
-    pagePath = (path, p) => `../pages/${p}/content/${path}index.js`,
-    component,
-    componentPath = (path, c) => `../components/content/${path}${c}`,
-    example,
-    examplePath = (path, e) => `../examples/content/${path}${e}`,
+    contentDictionary = (path, opts) => getContentDictionary(path, opts),
   } = options
-  // because how webpack resolves these for the bundle, we need
-  // to use a statically relative path, otherwise this could
-  // be much simpler. Sigh...
+
   try {
-    if (page) {
-      return require(pagePath(localePath, page))
-    } else if (component) {
-      return require(componentPath(localePath, component))
-    } else if (example) {
-      return require(examplePath(localePath, example))
-    } else {
-      throw new Error('page or component required to get content')
-    }
+    return contentDictionary(localePath, options)
   } catch (error) {
     if (localePath === '') {
       throw error
     }
     return {}
+  }
+}
+
+function getContentDictionary(localePath, options) {
+  const {page, component, example} = options
+  // because how webpack resolves these for the bundle, we need
+  // to use a statically relative path, otherwise this could
+  // be much simpler. Sigh...
+  if (page) {
+    return require(`../pages/${page}/content/${localePath}index.js`)
+  } else if (component) {
+    return require(`../components/content/${localePath}${component}`)
+  } else if (example) {
+    return require(`../examples/content/${localePath}${example}`)
+  } else {
+    throw new Error('page or component required to get content')
   }
 }
 

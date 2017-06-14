@@ -9,6 +9,24 @@ import {
   getContent,
 } from '../locale'
 
+function testTranslation(language, options) {
+  const expectedEn = {
+    foo: 'foo in english',
+    bar: 'bar in english',
+    baz: 'baz in english',
+    qux: 'qux in english',
+  }
+  const expectedEs = {
+    foo: 'foo in español',
+    bar: 'bar in english',
+    baz: null,
+    qux: 'qux in english',
+  }
+  const expected = language === 'es' ? expectedEs : expectedEn
+  const actual = getContent(language, options)
+  expect(actual).toEqual(expected)
+}
+
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
@@ -55,38 +73,38 @@ test('getInitialLocaleProps gets the host from window', async () => {
   })
 })
 
-test('getContent translates the keys - default lang', () => {
-  // jest.mock('../locale', () => {
-  //   return {
-  //     getComponentContent: jest.fn((localePath, component) => `../components/__tests__/fixtures/content/${localePath}${component}`)
-  //   }
-  // })
-
-  const expected = {
-    foo: 'foo in english',
-    bar: 'bar in english',
-    baz: 'baz in english',
-    qux: 'qux in english',
+test('getContent for pages translates the keys', () => {
+  const options = {
+    page: 'foo.js',
+    contentDictionary: (path, {page}) =>
+      require(`./fixtures/content/${path}${page}`),
   }
-  const actual = getContent('en', {
-    component: 'foo.js',
-    componentPath: (path, comp) =>
-      `../components/__tests__/fixtures/content/${path}${comp}`,
-  })
-  expect(actual).toEqual(expected)
+
+  testTranslation('en', options)
+  testTranslation('es', options)
+  testTranslation('fr', options)
 })
 
-test('getContent translates the keys', () => {
-  const expected = {
-    foo: 'foo in español',
-    bar: 'bar in english',
-    baz: null,
-    qux: 'qux in english',
-  }
-  const actual = getContent('es', {
+test('getContent for components translates the keys', () => {
+  const options = {
     component: 'foo.js',
-    componentPath: (path, comp) =>
-      `../components/__tests__/fixtures/content/${path}${comp}`,
-  })
-  expect(actual).toEqual(expected)
+    contentDictionary: (path, {component}) =>
+      require(`./fixtures/content/${path}${component}`),
+  }
+
+  testTranslation('en', options)
+  testTranslation('es', options)
+  testTranslation('fr', options)
+})
+
+test('getContent for examples translates the keys', () => {
+  const options = {
+    example: 'foo.js',
+    contentDictionary: (path, {example}) =>
+      require(`./fixtures/content/${path}${example}`),
+  }
+
+  testTranslation('en', options)
+  testTranslation('es', options)
+  testTranslation('fr', options)
 })
