@@ -49,21 +49,6 @@ npm start "contributors.add <YOUR_GITHUB_USERNAME>"
 Follow the prompt. If you've already added yourself to the list and are making a new type of contribution, you can run
 it again and select the added contribution type.
 
-## Committing and Pushing changes
-
-This project uses [`semantic-release`][semantic-release] to do automatic releases and generate a changelog based on the
-commit history. So we follow [a convention][convention] for commit messages. Please follow this convention for your
-commit messages.
-
-You can use `commitizen` to help you to follow [the convention][convention]
-
-Once you are ready to commit the changes, please use the below commands
-
-1. `git add <files to be comitted>`
-2. `$ npm start commit`
-
-... and follow the instruction of the interactive prompt.
-
 ### opt into git hooks
 
 There are git hooks set up with this project that are automatically installed when you install dependencies. They're
