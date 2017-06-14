@@ -72,7 +72,7 @@ function getContent(locale, options) {
 }
 
 function mergeTranslations(fallbackContent, localeContent) {
-  if (!localeContent || localeContent === {}) {
+  if (!localeContent || Object.keys(localeContent).length === 0) {
     return fallbackContent
   }
 
@@ -82,11 +82,6 @@ function mergeTranslations(fallbackContent, localeContent) {
 
     if (key === 'sections' && fallbackValue instanceof Array) {
       const filenames = fallbackValue.map(fbv => path.basename(fbv.filename))
-      const findFile = (sections, filename) =>
-        sections &&
-        sections.find(
-          s => s.filename && path.basename(s.filename) === filename,
-        )
       cont[key] = filenames.map(filename =>
         mergeTranslations(
           findFile(fallbackValue, filename),
@@ -101,12 +96,10 @@ function mergeTranslations(fallbackContent, localeContent) {
   }, {})
 }
 function content(localePath, options) {
-  const {
-    contentDictionary = (p, opts) => getContentDictionary(p, opts),
-  } = options
+  const {contentFile = (p, opts) => requireContentFile(p, opts)} = options
 
   try {
-    return contentDictionary(localePath, options)
+    return contentFile(localePath, options)
   } catch (error) {
     if (localePath === '') {
       throw error
@@ -115,7 +108,7 @@ function content(localePath, options) {
   }
 }
 
-function getContentDictionary(localePath, options) {
+function requireContentFile(localePath, options) {
   const {page, component, example} = options
   // because how webpack resolves these for the bundle, we need
   // to use a statically relative path, otherwise this could
@@ -139,6 +132,13 @@ function getLocaleAndHost(req) {
   } else {
     return {locale: 'en', host}
   }
+}
+
+function findFile(sections, filename) {
+  return (
+    sections &&
+    sections.find(s => s.filename && path.basename(s.filename) === filename)
+  )
 }
 
 export {

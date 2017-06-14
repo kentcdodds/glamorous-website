@@ -109,8 +109,7 @@ test('getInitialLocaleProps gets the host from window', async () => {
 test('getContent for pages translates the keys', () => {
   const options = {
     page: 'foo.js',
-    contentDictionary: (p, {page}) =>
-      require(`./fixtures/content/${p}${page}`),
+    contentFile: (p, {page}) => require(`./fixtures/content/${p}${page}`),
   }
 
   testTranslation('en', options)
@@ -121,7 +120,7 @@ test('getContent for pages translates the keys', () => {
 test('getContent for components translates the keys', () => {
   const options = {
     component: 'foo.js',
-    contentDictionary: (p, {component}) =>
+    contentFile: (p, {component}) =>
       require(`./fixtures/content/${p}${component}`),
   }
 
@@ -133,7 +132,7 @@ test('getContent for components translates the keys', () => {
 test('getContent for examples translates the keys', () => {
   const options = {
     example: 'foo.js',
-    contentDictionary: (p, {example}) =>
+    contentFile: (p, {example}) =>
       require(`./fixtures/content/${p}${example}`),
   }
 
