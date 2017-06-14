@@ -90,15 +90,20 @@ function getEditHrf(filename) {
   return `${repoEditRootURL}${slash}${filename.replace(projectRoot, '')}`
 }
 
-function DocSectionDetails({title, description, codeSandboxId}) {
+function DocSectionDetails({
+  title,
+  description,
+  codeSandboxId,
+  codeSandboxSummary = title,
+}) {
   return (
     <div>
       {interactiveMarkdown(description)}
       {codeSandboxId ?
         <ClickToRender
           component={CodeSandboxEmbed}
-          summary={title}
-          props={{title, id: codeSandboxId}}
+          summary={codeSandboxSummary}
+          props={{title: codeSandboxSummary, id: codeSandboxId}}
         /> :
         null}
     </div>

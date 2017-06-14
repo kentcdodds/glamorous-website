@@ -10,5 +10,6 @@ module.exports = {
     require('./next'),
     require('./polished'),
     require('./recompose'),
+    require('./pseudo'),
   ].filter(mod => Boolean(mod.title)),
 }
