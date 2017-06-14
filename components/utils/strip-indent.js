@@ -1,5 +1,4 @@
-//@flow
-
+// @flow
 export default stripIndent
 
 /*

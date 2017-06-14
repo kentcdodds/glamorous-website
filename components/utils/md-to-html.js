@@ -1,3 +1,5 @@
+// @flow
+
 import remark from 'remark'
 import remarkHtml from 'remark-html'
 import stripIndent from './strip-indent'
