@@ -6,6 +6,7 @@
     "dev": "npm start dev",
     "build": "npm start build",
     "start": "nps",
+    "flow" : "flow",
     "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
     "test": "npm start test"
   },
