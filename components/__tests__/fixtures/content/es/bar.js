@@ -2,5 +2,5 @@ module.exports = {
   foo: 'foo in español',
   bar: '',
   baz: null,
-  sections: [require('./bar')],
+  filename: __filename,
 }

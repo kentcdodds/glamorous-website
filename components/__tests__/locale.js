@@ -1,3 +1,4 @@
+import path from 'path'
 import React from 'react'
 import {mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
@@ -15,12 +16,44 @@ function testTranslation(language, options) {
     bar: 'bar in english',
     baz: 'baz in english',
     qux: 'qux in english',
+    sections: [
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'bar.js'),
+      },
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'baz.js'),
+      },
+    ],
   }
   const expectedEs = {
     foo: 'foo in español',
     bar: 'bar in english',
     baz: null,
     qux: 'qux in english',
+    sections: [
+      {
+        foo: 'foo in español',
+        bar: 'bar in english',
+        baz: null,
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'es', 'bar.js'),
+      },
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'baz.js'),
+      },
+    ],
   }
   const expected = language === 'es' ? expectedEs : expectedEn
   const actual = getContent(language, options)
@@ -76,8 +109,8 @@ test('getInitialLocaleProps gets the host from window', async () => {
 test('getContent for pages translates the keys', () => {
   const options = {
     page: 'foo.js',
-    contentDictionary: (path, {page}) =>
-      require(`./fixtures/content/${path}${page}`),
+    contentDictionary: (p, {page}) =>
+      require(`./fixtures/content/${p}${page}`),
   }
 
   testTranslation('en', options)
@@ -88,8 +121,8 @@ test('getContent for pages translates the keys', () => {
 test('getContent for components translates the keys', () => {
   const options = {
     component: 'foo.js',
-    contentDictionary: (path, {component}) =>
-      require(`./fixtures/content/${path}${component}`),
+    contentDictionary: (p, {component}) =>
+      require(`./fixtures/content/${p}${component}`),
   }
 
   testTranslation('en', options)
@@ -100,8 +133,8 @@ test('getContent for components translates the keys', () => {
 test('getContent for examples translates the keys', () => {
   const options = {
     example: 'foo.js',
-    contentDictionary: (path, {example}) =>
-      require(`./fixtures/content/${path}${example}`),
+    contentDictionary: (p, {example}) =>
+      require(`./fixtures/content/${p}${example}`),
   }
 
   testTranslation('en', options)

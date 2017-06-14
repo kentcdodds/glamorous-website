@@ -1,3 +1,4 @@
+import path from 'path'
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
@@ -67,16 +68,41 @@ function getContent(locale, options) {
     return fallbackContent
   }
   const localeContent = content(`${locale}/`, options)
+  return mergeTranslations(fallbackContent, localeContent)
+}
+
+function mergeTranslations(fallbackContent, localeContent) {
+  if (!localeContent || localeContent === {}) {
+    return fallbackContent
+  }
+
   return Object.keys(fallbackContent).reduce((cont, key) => {
-    const value = localeContent[key]
-    cont[key] = value === null ? null : value || fallbackContent[key]
+    const fallbackValue = fallbackContent[key]
+    const localeValue = localeContent[key]
+
+    if (key === 'sections' && fallbackValue instanceof Array) {
+      const filenames = fallbackValue.map(fbv => path.basename(fbv.filename))
+      const findFile = (sections, filename) =>
+        sections &&
+        sections.find(
+          s => s.filename && path.basename(s.filename) === filename,
+        )
+      cont[key] = filenames.map(filename =>
+        mergeTranslations(
+          findFile(fallbackValue, filename),
+          findFile(localeValue, filename),
+        ),
+      )
+      return cont
+    }
+
+    cont[key] = localeValue === null ? null : localeValue || fallbackValue
     return cont
   }, {})
 }
-
 function content(localePath, options) {
   const {
-    contentDictionary = (path, opts) => getContentDictionary(path, opts),
+    contentDictionary = (p, opts) => getContentDictionary(p, opts),
   } = options
 
   try {
