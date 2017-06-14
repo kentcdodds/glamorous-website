@@ -6,7 +6,6 @@
     "dev": "npm start dev",
     "build": "npm start build",
     "start": "nps",
-    "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
     "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
     "test": "npm start test"
   },
@@ -39,6 +38,7 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^4.3.0",
+    "await-url": "^0.3.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-plugin-inline-react-svg": "^0.4.0",
@@ -70,8 +70,7 @@
     "path-exists": "^3.0.0",
     "prettier-eslint-cli": "^4.0.2",
     "react-test-renderer": "^15.5.4",
-    "url-regex": "^4.1.0",
-    "validate-commit-msg": "^2.12.1"
+    "url-regex": "^4.1.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
