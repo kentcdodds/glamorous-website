@@ -10,56 +10,6 @@ import {
   getContent,
 } from '../locale'
 
-function testTranslation(language, options) {
-  const expectedEn = {
-    foo: 'foo in english',
-    bar: 'bar in english',
-    baz: 'baz in english',
-    qux: 'qux in english',
-    sections: [
-      {
-        foo: 'foo in english',
-        bar: 'bar in english',
-        baz: 'baz in english',
-        qux: 'qux in english',
-        filename: path.join(__dirname, 'fixtures', 'content', 'bar.js'),
-      },
-      {
-        foo: 'foo in english',
-        bar: 'bar in english',
-        baz: 'baz in english',
-        qux: 'qux in english',
-        filename: path.join(__dirname, 'fixtures', 'content', 'baz.js'),
-      },
-    ],
-  }
-  const expectedEs = {
-    foo: 'foo in español',
-    bar: 'bar in english',
-    baz: null,
-    qux: 'qux in english',
-    sections: [
-      {
-        foo: 'foo in español',
-        bar: 'bar in english',
-        baz: null,
-        qux: 'qux in english',
-        filename: path.join(__dirname, 'fixtures', 'content', 'es', 'bar.js'),
-      },
-      {
-        foo: 'foo in english',
-        bar: 'bar in english',
-        baz: 'baz in english',
-        qux: 'qux in english',
-        filename: path.join(__dirname, 'fixtures', 'content', 'baz.js'),
-      },
-    ],
-  }
-  const expected = language === 'es' ? expectedEs : expectedEn
-  const actual = getContent(language, options)
-  expect(actual).toEqual(expected)
-}
-
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
@@ -140,3 +90,53 @@ test('getContent for examples translates the keys', () => {
   testTranslation('es', options)
   testTranslation('fr', options)
 })
+
+function testTranslation(language, options) {
+  const expectedEn = {
+    foo: 'foo in english',
+    bar: 'bar in english',
+    baz: 'baz in english',
+    qux: 'qux in english',
+    sections: [
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'bar.js'),
+      },
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'baz.js'),
+      },
+    ],
+  }
+  const expectedEs = {
+    foo: 'foo in español',
+    bar: 'bar in english',
+    baz: null,
+    qux: 'qux in english',
+    sections: [
+      {
+        foo: 'foo in english',
+        bar: 'bar in english',
+        baz: 'baz in english',
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'bar.js'),
+      },
+      {
+        foo: 'foo in español',
+        bar: 'bar in english',
+        baz: null,
+        qux: 'qux in english',
+        filename: path.join(__dirname, 'fixtures', 'content', 'es', 'baz.js'),
+      },
+    ],
+  }
+  const expected = language === 'es' ? expectedEs : expectedEn
+  const actual = getContent(language, options)
+  expect(actual).toEqual(expected)
+}
