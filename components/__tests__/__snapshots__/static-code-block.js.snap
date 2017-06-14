@@ -2,17 +2,22 @@
 
 exports[`renders HTML code block string with the pragma language classname 1`] = `
 <div>
-  <pre
-    className="language-javascript"
+  <CodeBlock
+    code="<span>// some code</span>"
+    language="javascript"
   >
-    <code
+    <pre
       className="language-javascript"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<span>// some code</span>",
+    >
+      <code
+        className="language-javascript"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<span>// some code</span>",
+          }
         }
-      }
-    />
-  </pre>
+      />
+    </pre>
+  </CodeBlock>
 </div>
 `;

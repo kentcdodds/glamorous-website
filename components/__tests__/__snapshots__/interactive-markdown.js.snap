@@ -16,18 +16,23 @@ exports[`parses HTML pragmas into syntax highlighted static code blocks 1`] = `
     component={[Function]}
     language="html"
   >
-    <pre
-      className="language-html"
+    <CodeBlock
+      code="render(&lt;button onClick={() => alert('Hello World')}>Hello World<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>)"
+      language="html"
     >
-      <code
+      <pre
         className="language-html"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "render(&lt;button onClick={() => alert('Hello World')}>Hello World<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>)",
+      >
+        <code
+          className="language-html"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "render(&lt;button onClick={() => alert('Hello World')}>Hello World<span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&lt;/</span>button</span><span class=\\"token punctuation\\">></span></span>)",
+            }
           }
-        }
-      />
-    </pre>
+        />
+      </pre>
+    </CodeBlock>
   </StaticCodeBlock>
   <div
     dangerouslySetInnerHTML={
@@ -58,18 +63,23 @@ exports[`parses JavaScript pragmas into syntax highlighted static code blocks 1`
     component={[Function]}
     language="javascript"
   >
-    <pre
-      className="language-javascript"
+    <CodeBlock
+      code="<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>"
+      language="javascript"
     >
-      <code
+      <pre
         className="language-javascript"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+      >
+        <code
+          className="language-javascript"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+            }
           }
-        }
-      />
-    </pre>
+        />
+      </pre>
+    </CodeBlock>
   </StaticCodeBlock>
   <div
     dangerouslySetInnerHTML={
@@ -100,18 +110,23 @@ exports[`parses JavaScript pragmas into syntax highlighted static code blocks 2`
     component={[Function]}
     language="javascript"
   >
-    <pre
-      className="language-javascript"
+    <CodeBlock
+      code="<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>"
+      language="javascript"
     >
-      <code
+      <pre
         className="language-javascript"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+      >
+        <code
+          className="language-javascript"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<span class=\\"token function\\">render</span><span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> <span class=\\"token function\\">alert</span><span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span><span class=\\"token operator\\">/</span>button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+            }
           }
-        }
-      />
-    </pre>
+        />
+      </pre>
+    </CodeBlock>
   </StaticCodeBlock>
   <div
     dangerouslySetInnerHTML={
@@ -244,18 +259,23 @@ exports[`parses shell pragmas into syntax highlighted static code blocks 1`] = `
     component={[Function]}
     language="bash"
   >
-    <pre
-      className="language-bash"
+    <CodeBlock
+      code="render<span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> alert<span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span>/button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>"
+      language="bash"
     >
-      <code
+      <pre
         className="language-bash"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "render<span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> alert<span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span>/button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+      >
+        <code
+          className="language-bash"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "render<span class=\\"token punctuation\\">(</span><span class=\\"token operator\\">&lt;</span>button onClick<span class=\\"token operator\\">=</span><span class=\\"token punctuation\\">{</span><span class=\\"token punctuation\\">(</span><span class=\\"token punctuation\\">)</span> <span class=\\"token operator\\">=</span><span class=\\"token operator\\">></span> alert<span class=\\"token punctuation\\">(</span><span class=\\"token string\\">'Hello World'</span><span class=\\"token punctuation\\">)</span><span class=\\"token punctuation\\">}</span><span class=\\"token operator\\">></span>Hello World<span class=\\"token operator\\">&lt;</span>/button<span class=\\"token operator\\">></span><span class=\\"token punctuation\\">)</span>",
+            }
           }
-        }
-      />
-    </pre>
+        />
+      </pre>
+    </CodeBlock>
   </StaticCodeBlock>
   <div
     dangerouslySetInnerHTML={
