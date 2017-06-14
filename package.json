@@ -6,10 +6,8 @@
     "dev": "npm start dev",
     "build": "npm start build",
     "start": "nps",
-    "flow" : "flow",
     "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
-    "test": "npm start test",
-    "lint": "npm start lint"
+    "test": "npm start test"
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
