@@ -88,10 +88,10 @@ export default () => `
   }
 
   code {
-    background-color: #eee;
+    background-color: #f6f6f6;
     padding: 2px 6px;
     border-radius: 2px;
-    font-size: 0.9em;
+    font-size: 0.91em;
   }
 
   blockquote {
