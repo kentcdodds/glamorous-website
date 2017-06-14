@@ -101,7 +101,7 @@ function getContentDictionary(localePath, options) {
   } else if (example) {
     return require(`../examples/content/${localePath}${example}`)
   } else {
-    throw new Error('page or component required to get content')
+    throw new Error('page, component or example required to get content')
   }
 }
 
