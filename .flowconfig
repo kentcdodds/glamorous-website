@@ -1,0 +1,12 @@
+[ignore]
+<PROJECT_ROOT>/.*/__tests__/.*
+<PROJECT_ROOT>/docs/.*
+.*/node_modules/.*
+# Ignore Docs
+
+[include]
+
+[options]
+
+[version]
+^0.47.0

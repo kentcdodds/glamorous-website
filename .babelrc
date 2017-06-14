@@ -8,7 +8,8 @@
     "stage-2",
     "next/babel",
     "es2015",
-    "react"
+    "react",
+    "flow"
   ],
   "plugins": [
     "transform-class-properties",
