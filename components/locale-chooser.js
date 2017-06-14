@@ -10,7 +10,7 @@ import {
 const Select = glamorous.select((props, {colors}) => ({
   textAlignLast: 'center',
   fontSize: 14,
-  height: 28,
+  height: 40,
   backgroundColor: colors.white,
   borderColor: colors.primary,
 }))
