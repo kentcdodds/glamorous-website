@@ -38,12 +38,7 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-function Layout({
-  pathname,
-  children,
-  locale,
-  content: {contributorsTitle, contributors},
-}) {
+function Layout({pathname, children, locale, content: {contributors}}) {
   css.insert(baseStyles())
   return (
     <LocaleProvider locale={locale}>
@@ -54,10 +49,7 @@ function Layout({
               <Nav pathname={pathname} locale={locale} />
             </Div>
             {children}
-            <Contributors
-              contributorsTitle={contributorsTitle || ''}
-              contributors={contributors || []}
-            />
+            <Contributors contributors={contributors || []} />
             <Footer />
           </Div>
         </Wrapper>

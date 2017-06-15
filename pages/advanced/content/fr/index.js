@@ -10,6 +10,5 @@ module.exports = {
     require('./size'),
     require('./ssr'),
   ].filter(mod => Boolean(mod.title)),
-  contributorsTitle: 'Contributeurs:',
   contributors: ['forresst', 'Macxim'],
 }

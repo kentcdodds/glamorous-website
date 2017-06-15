@@ -11,5 +11,4 @@ module.exports = {
     require('./animation'),
     require('./react-native'),
   ].filter(mod => Boolean(mod.title)),
-  contributorsTitle: 'Contributors:',
 }

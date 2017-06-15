@@ -1,6 +1,7 @@
 import React from 'react'
 import glamorous, {Div} from 'glamorous'
 import {Anchor} from '../components/styled-links'
+import {withContent} from './locale'
 
 const Container = glamorous.div({
   display: 'flex',
@@ -18,7 +19,7 @@ const Img = glamorous.img({
   borderRadius: '100%',
   margin: '0 5px',
   transition: 'transform .3s',
-  ':hover': {
+  '&:focus, &:hover, &:active': {
     transform: 'scale(1.2)',
   },
 })
@@ -28,14 +29,15 @@ const contributor = username =>
     <Img src={`https://github.com/${username}.png?size=90`} />
   </Anchor>)
 
-export default function Contributors({contributorsTitle, contributors = []}) {
+export default withContent({component: 'contributors'}, Contributors)
+function Contributors({content, contributors = []}) {
   if (contributors.length === 0) {
     return <noscript />
   }
 
   return (
     <Container>
-      <h3>{contributorsTitle}</h3>
+      <h3>{content.header}</h3>
       <Div>
         {contributors.map(contributor)}
       </Div>
