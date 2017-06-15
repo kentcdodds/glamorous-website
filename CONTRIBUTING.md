@@ -60,13 +60,18 @@ commit-msg
 pre-commit
 ```
 
-### Working with Locales
+### Working with locales
 
-To test this out locally, you need to set up this in your hosts file:
+To test locales out, you need to put this in your `hosts` file:
 
+```
 127.0.0.1 en.localhost.dev
 127.0.0.1 es.localhost.dev
-Then navigate to es.localhost.dev:3000 and you should see the Spanish content.
+```
+
+Then navigate to `es.localhost.dev:3000` and you should see the Spanish content.
+
+You can replace `es` with any other locale (eg. `127.0.0.1 fr.localhost.dev`)
 
 See more documentation about localization in the
 `other/CONTRIBUTING_DOCUMENTATION.md` file.
