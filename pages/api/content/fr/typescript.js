@@ -4,7 +4,7 @@ module.exports = {
   description: `
     Les définitions TypeScript actuelles sont incomplètes et reposent sur les besoins des développeurs qui ont contribué. 
     
-    Les pull requests pour les améliorer sont les bienvenues et appréciées. Si vous n'avez jamais contribué à l'open source, vous pouvez trouver cette [vidéo gratuite](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) qui est très utile.
+    Les pull requests pour les améliorer sont les bienvenues et appréciées. Si vous n'avez jamais contribué à l'open source, vous pouvez consulter cette [vidéo gratuite](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) qui est très utile.
     
     ## Support complet
 
@@ -38,7 +38,7 @@ module.exports = {
     * les sélecteurs de CSS relationnels
     * Les Media Queries
 
-    Tous ceux-là fonctionnent, cependant, vous obtenez seulement une sûreté du typage et intellisense sur les simples clés ccs des props (voir le [typage css](https://github.com/paypal/glamorous/blob/master/typings/css-properties.d.ts)).
+    Toutes celles-là fonctionnent, cependant, vous obtenez seulement une sûreté du typage et la capacité d'utiliser intelliSense sur les simples clés CSS des props (voir le [typage css](https://github.com/paypal/glamorous/blob/master/typings/css-properties.d.ts)).
 
     Dans l'avenir cela pourra devenir possible avec [Microsoft/TypeScript#6579](https://github.com/Microsoft/TypeScript/issues/6579)
 
