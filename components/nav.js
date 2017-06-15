@@ -5,6 +5,7 @@ import LipstickIcon from './lipstick-icon'
 import Separator from './separator'
 import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
+import {withContent} from './locale'
 
 const Navbar = glamorous.nav((props, {mediaQueries}) => ({
   width: '100%',
@@ -79,7 +80,7 @@ const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   },
 }))
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   state = {
     open: false,
   }
@@ -105,7 +106,7 @@ export default class Nav extends React.Component {
               pathname={this.props.pathname}
             >
               <LipstickIcon width={20} />
-              <Hidden>Home</Hidden>
+              <Hidden>{this.props.content.home}</Hidden>
             </Anchor>
           </ListItem>
           <ListItem>
@@ -114,7 +115,7 @@ export default class Nav extends React.Component {
               href="/basics"
               pathname={this.props.pathname}
             >
-              Basics
+              {this.props.content.basics}
             </Anchor>
           </ListItem>
           <ListItem>
@@ -123,7 +124,7 @@ export default class Nav extends React.Component {
               href="/advanced"
               pathname={this.props.pathname}
             >
-              Advanced
+              {this.props.content.advanced}
             </Anchor>
           </ListItem>
           <ListItem>
@@ -132,7 +133,7 @@ export default class Nav extends React.Component {
               href="/examples"
               pathname={this.props.pathname}
             >
-              Examples
+              {this.props.content.examples}
             </Anchor>
           </ListItem>
           <ListItem>
@@ -141,7 +142,7 @@ export default class Nav extends React.Component {
               href="/integrations"
               pathname={this.props.pathname}
             >
-              Integrations
+              {this.props.content.integrations}
             </Anchor>
           </ListItem>
           <ListItem>
@@ -150,7 +151,7 @@ export default class Nav extends React.Component {
               href="/api"
               pathname={this.props.pathname}
             >
-              API
+              {this.props.content.api}
             </Anchor>
           </ListItem>
           <ListItem>
@@ -161,3 +162,5 @@ export default class Nav extends React.Component {
     )
   }
 }
+
+export default withContent({component: 'nav'}, Nav)
