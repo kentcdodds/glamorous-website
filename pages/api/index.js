@@ -8,7 +8,7 @@ function API({url, content, locale}) {
     <Layout
       pathname={url ? url.pathname : ''}
       locale={locale}
-      content={content}
+      contributors={content.contributors}
     >
       <PageSections data={content} />
     </Layout>

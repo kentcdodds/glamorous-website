@@ -38,7 +38,7 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-function Layout({pathname, children, locale, content: {contributors}}) {
+function Layout({pathname, children, locale, contributors}) {
   css.insert(baseStyles())
   return (
     <LocaleProvider locale={locale}>

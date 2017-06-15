@@ -113,7 +113,7 @@ function Home({url, content, locale}) {
     <Layout
       pathname={url ? url.pathname : ''}
       locale={locale}
-      content={content}
+      contributors={content.contributors}
     >
       <Hero>
         {content.tagline}
