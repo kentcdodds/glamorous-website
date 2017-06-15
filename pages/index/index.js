@@ -110,11 +110,7 @@ function CodePreview({code, tryIt, scope = {glamorous}}) {
 
 function Home({url, content, locale}) {
   return (
-    <Layout
-      pathname={url ? url.pathname : ''}
-      locale={locale}
-      contributors={content.contributors}
-    >
+    <Layout pathname={url ? url.pathname : ''} locale={locale}>
       <Hero>
         {content.tagline}
       </Hero>
