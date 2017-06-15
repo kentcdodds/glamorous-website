@@ -6,6 +6,7 @@ import GlobalStyles from '../styles/global-styles'
 import {LocaleProvider} from './locale'
 import Nav from './nav'
 import Footer from './footer'
+import Contributors from './contributors'
 
 // when we can use babel-plugin-glamorous-displayname then this will be handy
 // glamorous.config.useDisplayNameInClassName = true
@@ -37,7 +38,7 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-function Layout({pathname, children, locale}) {
+function Layout({pathname, children, locale, contributors}) {
   css.insert(baseStyles())
   return (
     <LocaleProvider locale={locale}>
@@ -48,6 +49,7 @@ function Layout({pathname, children, locale}) {
               <Nav pathname={pathname} locale={locale} />
             </Div>
             {children}
+            <Contributors contributors={contributors} />
             <Footer />
           </Div>
         </Wrapper>
