@@ -19,7 +19,7 @@ installed to clone the repo.
 3. Run `npm start validate` to validate you've got it working
 4. Create a branch for your PR
 
-This project uses [`nps`][nps] and you can run `npm start` to see what scripts are available.
+This project uses [`nps`][nps] and you can run `npm start help` to see what scripts are available.
 
 > Tip: Keep your `master` branch pointing at the original repository and make
 > pull requests from branches on your fork. To do this, run:
