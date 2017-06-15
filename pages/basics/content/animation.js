@@ -2,7 +2,10 @@ module.exports = {
   title: 'Animation',
   subtitle: '',
   description: `
-    Try this in [your browser](https://codesandbox.io/s/31VMyP7XO)
+    To do animation with glamorous, you can use regular CSS transitions for simple things,
+    and for more advanced stuff, you can use ~keyframes~ via ~glamor~'s ~css.keyframes~
+    API.
+
     ~~~js
     // import css from glamor
     import { css } from 'glamor'
@@ -25,5 +28,7 @@ module.exports = {
     </AnimatedDiv>
     ~~~
   `.replace(/~/g, '`'),
+  codeSandboxId: '31VMyP7XO',
+  codeSandboxSummary: 'animation example',
   filename: __filename,
 }
