@@ -6,4 +6,5 @@ module.exports = {
     require('./glamorous-component-factory'),
     require('./typescript'),
   ].filter(mod => Boolean(mod.title)),
+  contributorsTitle: 'Contributors:',
 }

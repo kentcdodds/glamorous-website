@@ -11,4 +11,5 @@ module.exports = {
     require('./ssr'),
   ].filter(mod => Boolean(mod.title)),
   contributors: ['kentcdodds', 'paulmolluzzo', 'tdeschryver'],
+  contributorsTitle: 'Contributors:',
 }

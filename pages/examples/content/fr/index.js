@@ -6,4 +6,5 @@ module.exports = {
     ouvrir un pull request sur cette page !
   `.replace(/~/g, '`'),
   sections: [require('./css-grid')],
+  contributorsTitle: 'Contributeurs:',
 }

@@ -24,14 +24,14 @@ const contributor = username =>
     <Img src={`https://github.com/${username}.png?size=90`} />
   </Anchor>)
 
-export default function Contributors({contributors = []}) {
+export default function Contributors({contributorsTitle, contributors = []}) {
   if (contributors.length === 0) {
     return <noscript />
   }
 
   return (
     <Container>
-      <h3>Contributors:</h3>
+      <h3>{contributorsTitle}</h3>
       <Div>
         {contributors.map(contributor)}
       </Div>

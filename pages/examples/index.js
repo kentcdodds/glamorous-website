@@ -8,7 +8,7 @@ function Examples({url, content, locale}) {
     <Layout
       pathname={url ? url.pathname : ''}
       locale={locale}
-      contributors={content ? content.contributors : []}
+      content={content}
     >
       <PageSections data={content} />
     </Layout>

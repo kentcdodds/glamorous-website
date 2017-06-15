@@ -12,4 +12,5 @@ module.exports = {
     require('./recompose'),
     require('./pseudo'),
   ].filter(mod => Boolean(mod.title)),
+  contributorsTitle: 'Contributors:',
 }
