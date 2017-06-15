@@ -3,13 +3,16 @@ module.exports = {
   subtitle: '',
   description: `
     ~glamorous~ works with ~✨ polished~ mixins, helpers, and shorthands:
+
     ~~~js
     const MyStyledParagraph = glamorous.p({
       fontSize: 20,
       color: lighten(0.5, '#000'),
     })
     ~~~
+
     You can also use object spread properties to apply more complex ✨ polished mixins directly onto glamorous components:
+
     ~~~js
     function GlamorousLogo() {
       return (
@@ -24,7 +27,8 @@ module.exports = {
       );
     }
     ~~~
-     You can play more with ~✨ polished~ and ~glamorous~ [here](https://codesandbox.io/s/9Qo9kMgRZ).
   `.replace(/~/g, '`'),
+  codeSandboxId: '9Qo9kMgRZ',
+  codeSandboxSummary: 'polished + glamorous demo',
   filename: __filename,
 }
