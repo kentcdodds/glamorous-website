@@ -5,7 +5,11 @@ import PageSections from '../../components/page-sections'
 
 function Examples({url, content, locale}) {
   return (
-    <Layout pathname={url ? url.pathname : ''} locale={locale}>
+    <Layout
+      pathname={url ? url.pathname : ''}
+      locale={locale}
+      contributors={content.contributors}
+    >
       <PageSections data={content} />
     </Layout>
   )
