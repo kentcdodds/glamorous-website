@@ -17,6 +17,10 @@ const Img = glamorous.img({
   width: 45,
   borderRadius: '100%',
   margin: '0 5px',
+  transition: 'transform .3s',
+  ':hover': {
+    transform: 'scale(1.2)',
+  },
 })
 
 const contributor = username =>
