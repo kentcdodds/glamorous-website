@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'glamour - estilo de React componente solucionado 💄',
+  title: 'glamorous - El estilo de los componentes en React solucionado 💄',
   tagline: 'CSS mantenible con reaccionar',
   twitterDescription:
-    'Estilo componente solucionado con un API elegante, tamaño reducido y gran rendimiento de reaccionar',
+    'El estilo de los componentes en React solucionado con un API elegante, tamaño reducido y gran rendimiento',
 }
