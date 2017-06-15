@@ -19,7 +19,7 @@ installed to clone the repo.
 3. Run `npm start validate` to validate you've got it working
 4. Create a branch for your PR
 
-This project uses [`nps`][nps] and you can run `npm start` to see what scripts are available.
+This project uses [`nps`][nps] and you can run `npm start help` to see what scripts are available.
 
 > Tip: Keep your `master` branch pointing at the original repository and make
 > pull requests from branches on your fork. To do this, run:
@@ -60,13 +60,18 @@ commit-msg
 pre-commit
 ```
 
-### Working with Locales
+### Working with locales
 
-To test this out locally, you need to set up this in your hosts file:
+To test locales out, you need to put this in your `hosts` file:
 
+```
 127.0.0.1 en.localhost.dev
 127.0.0.1 es.localhost.dev
-Then navigate to es.localhost.dev:3000 and you should see the Spanish content.
+```
+
+Then navigate to `es.localhost.dev:3000` and you should see the Spanish content.
+
+You can replace `es` with any other locale (eg. `127.0.0.1 fr.localhost.dev`)
 
 See more documentation about localization in the
 `other/CONTRIBUTING_DOCUMENTATION.md` file.
