@@ -8,7 +8,7 @@ module.exports = {
     npm install glamorous-native --save
     ~~~
 
-    Usted puede aprender más acerca del [proyecto glamorous-native](https://github.com/robinpowered/glamorous-native).
+    Puedes aprender más acerca del [proyecto glamorous-native](https://github.com/robinpowered/glamorous-native).
   `.replace(/~/g, '`'),
   filename: __filename,
 }

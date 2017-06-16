@@ -16,7 +16,7 @@ module.exports = {
     ({size = 'small'}) => ({
       fontSize: size === 'big' ? 24 : 16,
     }),
-    // puede seguir proporcionando cualquier número de argumentos
+    // puedes seguir proporcionando cualquier número de argumentos
     // y ~glamor~ los fusionará. En el caso de un
     // conflicto de estilos, el último gana.
   )
@@ -25,7 +25,7 @@ module.exports = {
   Puedes ver una vista previa en vivo de este ejemplo en [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
 
   <details>
-  <summary>Tenga en cuenta, que también puede utilizar arrays de estilos si los necesita:</summary>
+  <summary>Ten en cuenta, que también se pueden utilizar arrays de estilos si los necesitas:</summary>
 
   ~~~js
   const MyDiv = glamorous.div(
@@ -61,7 +61,7 @@ module.exports = {
           borderRadius: '50%',
         },
       }
-      // Tenga en cuenta que estoy devolviendo un array aquí
+      // Ten en cuenta que estamos devolviendo un array aquí
       return [bigStyles, squareStyles]
     },
   )
