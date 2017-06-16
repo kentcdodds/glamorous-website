@@ -5,5 +5,5 @@ module.exports = {
     doesn't really work on one of the other pages, then please feel free to
     open a pull request on this page!
   `.replace(/~/g, '`'),
-  sections: [require('./css-grid')],
+  sections: [require('./css-grid'), require('./style-overrides')],
 }
