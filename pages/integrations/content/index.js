@@ -9,6 +9,7 @@ module.exports = {
     require('./jest'),
     require('./next'),
     require('./polished'),
+    require('./styled-system'),
     require('./recompose'),
     require('./pseudo'),
   ].filter(mod => Boolean(mod.title)),
