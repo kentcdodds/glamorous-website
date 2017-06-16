@@ -29,6 +29,6 @@ module.exports = {
     ~~~
   `.replace(/~/g, '`'),
   codeSandboxId: '31VMyP7XO',
-  codeSandboxSummary: 'animation example',
+  codeSandboxSummary: "exemple d'animation",
   filename: __filename,
 }
