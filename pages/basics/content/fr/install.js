@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Installation',
-  subtitle: 'Quelque chose',
+  subtitle: '',
   description: `
     Ce module est distribué via [npm](https://www.npmjs.com/) qui est empaqueté avec [node](https://nodejs.org) et doit être installé comme une dépendance de votre projet :
 
