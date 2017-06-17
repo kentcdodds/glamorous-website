@@ -8,13 +8,13 @@ module.exports = {
     npm install --save glamorous
     ~~~
 
-    También depende de ~react~ y ~glamor~ por lo que también los necesitarás en tu proyecto (si no los tienes ya):
+    También depende de ~React~ y ~glamor~ por lo que también los necesitarás en tu proyecto (si no los tienes ya):
 
     ~~~js
     npm install --save react glamor
     ~~~
 
-    > NOTE: Si estás utilizando React v15.5 o superior, también necesitarás tener
+    > NOTA: Si estás utilizando React v15.5 o superior, también necesitarás tener
     > ~prop-types~ instalado: ~npm install --save prop-types~
 
     Puedes utilizar uno de los siguientes formatos de módulos:
@@ -50,7 +50,7 @@ module.exports = {
     <script src="https://unpkg.com/react/dist/react.js"></script>
     <script src="https://unpkg.com/prop-types/prop-types.js"></script>
     <script src="https://unpkg.com/glamor/umd/index.js"></script>
-    <!-- Agrega la libreria -->
+    <!-- Agrega la librería -->
     <script src="https://unpkg.com/glamorous/dist/glamorous.umd.js"></script>
     <script>
     // Y usa window.glamorous aquí...
