@@ -3,8 +3,7 @@ module.exports = {
   subtitle: '',
   description: `
     Para hacer animaciones con glamorous, puedes usar las transiciones regulares de CSS para cosas sencillas,
-    y para cosas más avanzadas, puedes usar ~keyframes~ vía ~glamor~'s ~css.keyframes~
-    API.
+    y para cosas más avanzadas, puedes usar ~keyframes~ a través de la API ~css.keyframes~ de ~glamor~.
 
     ~~~js
     // importamos css desde glamor
@@ -22,7 +21,7 @@ module.exports = {
     // Definimos el elemento
     const AnimatedDiv = glamorous.div(animationStyles)
 
-    // Y lo Utilizamos en una función render
+    // Y lo utilizamos en una función render
     <AnimatedDiv>
       Bounce.
     </AnimatedDiv>
