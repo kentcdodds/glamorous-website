@@ -1,5 +1,5 @@
 module.exports = {
-  tagline: 'CSS Mantenible con React',
+  tagline: 'CSS mantenible con React',
   callToAction: 'Haz clic para comenzar',
   tryIt: 'Pruébalo',
 }
