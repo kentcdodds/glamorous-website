@@ -98,4 +98,14 @@ export default () => `
     padding-left: 1rem;
     border-left: 5px solid ${colors.primaryMed}
   }
+
+  ul, 
+  ol {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  li {
+    padding-left: 0;
+  }
 `
