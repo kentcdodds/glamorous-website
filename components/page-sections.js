@@ -12,6 +12,9 @@ import mdToHTML from './utils/md-to-html'
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
 
+const sectionTitleAsID = title =>
+  `${title.toLowerCase().replace(/ /g, '-').replace(/`/g, '')}`
+
 const projectRoot = __dirname.slice(0, -'/components'.length)
 
 const PageWrapper = glamorous.div((props, {colors}) => ({
@@ -75,7 +78,12 @@ const DocSection = withContent(
               <GitHubSVG /> {content.edit}
             </Anchor>
           </EditAnchorWrap>}
-        <h2 dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
+        <a href={`#${sectionTitleAsID(title)}`}>
+          <h2
+            id={sectionTitleAsID(title)}
+            dangerouslySetInnerHTML={{__html: mdToHTML(title)}}
+          />
+        </a>
         {subtitle ?
           <h4 dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}} /> :
           null}
