@@ -6,7 +6,7 @@ module.exports = {
     <img src="https://github.com/paypal/glamorous/raw/master/other/glamorous-walkthrough.png" alt="Video Screenshot" title="Video Screenshot" width="700" />
   </a>
 
-  Here are a basic example that show you how to get started making component with ~css-in-js~ magic
+  Here is a basic example that shows you how to get started making component with ~css-in-js~ magic.
 
   ~~~interactive
   const { Div } = glamorous
