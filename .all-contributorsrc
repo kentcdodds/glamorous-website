@@ -109,7 +109,7 @@
       "profile": "https://twitter.com/aranajhonny",
       "contributions": [
         "doc"
-      ],
+      ]
     },
     {
       "login": "anthony2025",
@@ -119,6 +119,16 @@
       "contributions": [
         "doc",
         "translation"
+      ]
+    },
+    {
+      "login": "tdeschryver",
+      "name": "tdeschryver",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/28659384?v=3",
+      "profile": "https://github.com/tdeschryver",
+      "contributions": [
+        "code",
+        "review"
       ]
     }
   ]
