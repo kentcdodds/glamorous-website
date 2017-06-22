@@ -130,6 +130,16 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "mwickett",
+      "name": "Mike Wickett",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/845983?v=3",
+      "profile": "http://www.wickett.ca",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ]
 }
