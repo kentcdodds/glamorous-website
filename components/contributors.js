@@ -26,7 +26,10 @@ const Img = glamorous.img({
 
 const contributor = username =>
   (<Anchor key={username} href={`https://github.com/${username}`}>
-    <Img src={`https://github.com/${username}.png?size=90`} />
+    <Img
+      src={`https://github.com/${username}.png?size=90`}
+      alt={`${username}'s GitHub avatar`}
+    />
   </Anchor>)
 
 export default withContent({component: 'contributors'}, Contributors)
