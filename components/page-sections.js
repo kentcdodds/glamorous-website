@@ -1,5 +1,6 @@
 import React from 'react'
 import glamorous, {Div} from 'glamorous'
+import slugify from 'slugify'
 import Hero from './hero'
 import {withContent} from './locale'
 import interactiveMarkdown from './interactive-markdown'
@@ -11,9 +12,6 @@ import mdToHTML from './utils/md-to-html'
 
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
-
-const sectionTitleAsID = title =>
-  `${title.toLowerCase().replace(/ /g, '-').replace(/`/g, '')}`
 
 const projectRoot = __dirname.slice(0, -'/components'.length)
 
@@ -78,9 +76,9 @@ const DocSection = withContent(
               <GitHubSVG /> {content.edit}
             </Anchor>
           </EditAnchorWrap>}
-        <a href={`#${sectionTitleAsID(title)}`}>
+        <a href={`#${slugify(title)}`}>
           <h2
-            id={sectionTitleAsID(title)}
+            id={slugify(title)}
             dangerouslySetInnerHTML={{__html: mdToHTML(title)}}
           />
         </a>
