@@ -33,6 +33,7 @@
     "react-markdown": "^2.5.0",
     "remark": "^7.0.1",
     "remark-html": "^6.0.0",
+    "slugify": "^1.1.0",
     "styled-system": "^1.0.0-2",
     "unist-util-visit": "^1.1.1",
     "webpack": "^2.6.1"
