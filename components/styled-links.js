@@ -30,7 +30,7 @@ const slugStyles = {
     position: 'absolute',
     top: 0,
     left: '-2.5rem',
-    width: '2em',
+    width: '1.75em',
     height: '2.827em',
   },
 
