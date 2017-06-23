@@ -29,8 +29,8 @@ const slugStyles = {
     display: 'none',
     position: 'absolute',
     top: 0,
-    left: '-3.25rem',
-    width: '2.827em',
+    left: '-2.5rem',
+    width: '2em',
     height: '2.827em',
   },
 
