@@ -8,6 +8,7 @@ import ClickToRender from './click-to-render'
 import CodeSandboxEmbed from './code-sandbox-embed'
 import {Anchor} from './styled-links'
 import GitHubSVG from './svgs/github.svg'
+import LinkSVG from './svgs/link.svg'
 import mdToHTML from './utils/md-to-html'
 
 const repoEditRootURL =
@@ -76,12 +77,13 @@ const DocSection = withContent(
               <GitHubSVG /> {content.edit}
             </Anchor>
           </EditAnchorWrap>}
-        <a href={`#${slugify(title)}`}>
+        <Anchor href={`#${slugify(title)}`} isSlug={true}>
+          <LinkSVG />
           <h2
             id={slugify(title)}
             dangerouslySetInnerHTML={{__html: mdToHTML(title)}}
           />
-        </a>
+        </Anchor>
         {subtitle ?
           <h4 dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}} /> :
           null}
