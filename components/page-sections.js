@@ -1,5 +1,6 @@
 import React from 'react'
 import glamorous, {Div} from 'glamorous'
+import slugify from 'slugify'
 import Hero from './hero'
 import {withContent} from './locale'
 import interactiveMarkdown from './interactive-markdown'
@@ -7,6 +8,7 @@ import ClickToRender from './click-to-render'
 import CodeSandboxEmbed from './code-sandbox-embed'
 import {Anchor} from './styled-links'
 import GitHubSVG from './svgs/github.svg'
+import LinkSVG from './svgs/link.svg'
 import mdToHTML from './utils/md-to-html'
 
 const repoEditRootURL =
@@ -75,7 +77,13 @@ const DocSection = withContent(
               <GitHubSVG /> {content.edit}
             </Anchor>
           </EditAnchorWrap>}
-        <h2 dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
+        <Anchor href={`#${slugify(title)}`} isSlug={true}>
+          <LinkSVG />
+          <h2
+            id={slugify(title)}
+            dangerouslySetInnerHTML={{__html: mdToHTML(title)}}
+          />
+        </Anchor>
         {subtitle ?
           <h4 dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}} /> :
           null}
