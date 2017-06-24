@@ -47,17 +47,17 @@ const locales = [
   {
     key: 'en',
     display: 'en',
-    flag: <EnSvg width="1em" height="auto" />,
+    flag: <EnSvg width="1em" height="100%" />,
   },
   {
     key: 'es',
     display: 'es',
-    flag: <EsSvg width="1em" height="auto" />,
+    flag: <EsSvg width="1em" height="100%" />,
   },
   {
     key: 'fr',
     display: 'fr',
-    flag: <FrSvg width="1em" height="auto" />,
+    flag: <FrSvg width="1em" height="100%" />,
   },
 ]
 
