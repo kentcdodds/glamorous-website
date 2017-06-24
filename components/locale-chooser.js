@@ -4,46 +4,123 @@ import content from './content/locale-chooser'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
-const Select = glamorous.select((props, {colors}) => ({
+import EnSvg from './svgs/en.svg'
+import EsSvg from './svgs/es.svg'
+import FrSvg from './svgs/fr.svg'
+
+const Wrapper = glamorous.div({
+  minWidth: '120px',
+  cursor: 'pointer',
+})
+
+const Toggle = glamorous.div((props, {colors}) => ({
   textAlignLast: 'center',
-  fontSize: 14,
-  height: 40,
   backgroundColor: colors.white,
-  borderColor: colors.primary,
+  color: colors.primaryMed,
+  border: `1px solid ${colors.primary}`,
 }))
 
-export default LocaleChooser
+const List = glamorous.ul({
+  display: 'flex',
+  position: 'absolute',
+  flexDirection: 'column',
+  padding: 0,
+  margin: '0 -25px',
+  opacity: '.9',
+})
 
-function LocaleChooser(props) {
-  return (
-    <Select
-      value={process.env.LOCALE}
-      onChange={changeLanguage}
-      {...props}
-      aria-label="Locale selector"
-    >
-      <option value="en">en</option>
-      <option value="es">es</option>
-      <option value="fr">fr</option>
-      <option value="help">
-        {content.help}
-      </option>
-    </Select>
-  )
+const Item = glamorous.li((props, {colors}) => ({
+  display: 'flex',
+  flex: 1,
+  textAlign: 'center',
+  margin: 0,
+  backgroundColor: colors.white,
+  lineHeight: 1,
+}))
+
+const Link = glamorous.a({
+  width: '100%',
+  padding: '6px 10px',
+})
+
+const locales = [
+  {
+    key: 'en',
+    display: 'en',
+    flag: <EnSvg width="1em" height="auto" />,
+  },
+  {
+    key: 'es',
+    display: 'es',
+    flag: <EsSvg width="1em" height="auto" />,
+  },
+  {
+    key: 'fr',
+    display: 'fr',
+    flag: <FrSvg width="1em" height="auto" />,
+  },
+]
+
+const localeContent = ({display, flag}) =>
+  (<div>
+    {flag} <span>{display}</span>
+  </div>)
+
+const localeItem = ({key, display, flag}) =>
+  (<Item key={key}>
+    <Link href={localeToHref(key)}>
+      {localeContent({display, flag})}
+    </Link>
+  </Item>)
+
+class LocaleChooser extends React.Component {
+  state = {
+    open: false,
+  }
+
+  handleClick() {
+    this.setState(prevState => {
+      return {open: !prevState.open}
+    })
+  }
+
+  render() {
+    if (!this.state.open) {
+      return (
+        <Wrapper>
+          <Toggle onClick={this.handleClick.bind(this)}>
+            {localeContent(
+              locales.find(({key}) => key === this.props.locale),
+            )}
+          </Toggle>
+        </Wrapper>
+      )
+    }
+
+    return (
+      <Wrapper>
+        <Toggle onClick={this.handleClick.bind(this)}>
+          {localeContent(locales.find(({key}) => key === this.props.locale))}
+        </Toggle>
+        <List aria-label="Locale selector">
+          {locales.map(localeItem)}
+          {localeItem({key: 'help', display: this.props.content.help})}
+        </List>
+      </Wrapper>
+    )
+  }
 }
+export default withContent({component: 'locale-chooser'}, LocaleChooser)
 
-function changeLanguage({target: {value}}) {
-  let url
-  if (supportedLocales.includes(value)) {
+function localeToHref(locale) {
+  if (supportedLocales.includes(locale)) {
     const {host} = getLocaleAndHost()
     const {protocol, pathname, hash, search} = window.location
-    const prefix = fallbackLocale === value ? '' : `${value}.`
-    url = `${protocol}//${prefix}${host}${pathname}${search}${hash}`
-  } else {
-    url =
-      'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
+    const prefix = fallbackLocale === locale ? '' : `${locale}.`
+    return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
   }
-  window.location.assign(url)
+
+  return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
 function getLocaleAndHost() {
