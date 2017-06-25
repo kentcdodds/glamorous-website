@@ -9,9 +9,7 @@ function TwitterCard({
   locale,
 }) {
   const urlPrefix = fallbackLocale === locale ? '' : `${locale}.`
-  const image = card === 'summary_large_image' ?
-    `https://${urlPrefix}glamorous.rocks/static/images/banner.png` :
-    `https://${urlPrefix}glamorous.rocks/static/images/banner-small.png`
+  const image = `https://${urlPrefix}glamorous.rocks/static/images/banner.png`
 
   // Since the `site` and `creator` always be the same, it will remain as it is
   const contents = {
