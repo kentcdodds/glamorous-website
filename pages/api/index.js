@@ -16,7 +16,6 @@ function API({url, content, locale}) {
         {twitterCard({
           card: 'summary',
           title: content.title,
-          description: content.heading,
           pathname: url ? url.pathname : '',
           locale,
         })}
