@@ -15,7 +15,7 @@ function API({url, content, locale}) {
       <Head>
         {twitterCard({
           card: 'summary',
-          title: content.title,
+          title: `glamorous - ${content.title}`,
           pathname: url ? url.pathname : '',
           locale,
         })}

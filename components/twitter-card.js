@@ -5,11 +5,11 @@ function TwitterCard({
   card = 'summary_large_image',
   title = 'Maintainable CSS with React',
   description = 'React component styling solved with an elegant API, small footprint, and great performance',
-  image = 'https://cloud.githubusercontent.com/assets/7799266/26611099/74c2a45c-4571-11e7-8290-dbdc822339be.png',
   pathname,
   locale,
 }) {
   const urlPrefix = fallbackLocale === locale ? '' : `${locale}.`
+  const image = '/static/images/banner.png'
 
   // Since the `site` and `creator` always be the same, it will remain as it is
   const contents = {

@@ -15,7 +15,7 @@ function Advanced({url, content, locale}) {
       <Head>
         {twitterCard({
           card: 'summary',
-          title: content.title,
+          title: `glamorous - ${content.title}`,
           description: content.heading,
           pathname: url ? url.pathname : '',
           locale,
