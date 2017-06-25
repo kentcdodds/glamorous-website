@@ -2,12 +2,14 @@ import React from 'react'
 import glamorous from 'glamorous'
 import {LiveProvider, LiveEditor, LiveError} from 'react-live'
 import {LiveContextTypes} from 'react-live/lib/components/Live/LiveProvider'
+import Head from 'next/head'
 import stripIndent from '../../components/utils/strip-indent'
 import {withContent} from '../../components/locale'
 import Layout from '../../components/layout'
 import {Button} from '../../components/styled-links'
 import Hero from '../../components/hero'
 import homePageExample from '../../examples/home-page-example'
+import twitterCard from '../../components/twitter-card'
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   position: 'relative',
@@ -111,6 +113,15 @@ function CodePreview({code, tryIt, scope = {glamorous}}) {
 function Home({url, content, locale}) {
   return (
     <Layout pathname={url ? url.pathname : ''} locale={locale}>
+      <Head>
+        {twitterCard({
+          card: 'summary_large_image',
+          title: content.tagline,
+          description: content.twitterDescription,
+          pathname: url ? url.pathname : '',
+          locale,
+        })}
+      </Head>
       <Hero>
         {content.tagline}
       </Hero>
