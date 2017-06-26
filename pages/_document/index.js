@@ -38,6 +38,11 @@ export default class MyDocument extends Document {
             type="image/x-icon"
             href="/static/images/icon.png"
           />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/static/vendor/prism.css"
+          />
         </Head>
         <body>
           <Main />

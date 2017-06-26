@@ -111,7 +111,7 @@ export default () => `
 
   pre code {
     background-color: initial;
-    padding: initial;
+    padding: 0;
     border-radius: initial;
     font-size: 1em;
   }
