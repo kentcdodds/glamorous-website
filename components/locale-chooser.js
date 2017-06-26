@@ -1,75 +1,89 @@
 import React from 'react'
 import glamorous from 'glamorous'
+<<<<<<< HEAD
 import content from './content/locale-chooser'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
+=======
+import {
+  fallbackLocale,
+  locales,
+  supportedLocales,
+  getLocaleAndHost,
+  withContent,
+} from './locale'
+>>>>>>> cleanup
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'
 
 const Wrapper = glamorous.div({
+  fontSize: '.8em',
   minWidth: '120px',
   cursor: 'pointer',
 })
 
-const Toggle = glamorous.div((props, {colors}) => ({
-  textAlignLast: 'center',
+const Toggle = glamorous.div((props, {colors, mediaQueries}) => ({
   backgroundColor: colors.white,
   color: colors.primaryMed,
-  border: `1px solid ${colors.primary}`,
+  border: `1px solid ${colors.primaryMed}`,
+  textAlign: 'left',
+  paddingLeft: '10px',
+  borderBottom: props.isOpen ? 'none' : '',
+  [mediaQueries.smallOnly]: {
+    textAlign: 'center',
+  },
 }))
 
-const List = glamorous.ul({
+const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   display: 'flex',
   position: 'absolute',
   flexDirection: 'column',
   padding: 0,
-  margin: '0 -25px',
+  margin: 0,
   opacity: '.9',
-})
+  border: `1px solid ${colors.primaryMed}`,
+  [mediaQueries.smallOnly]: {
+    width: '100%',
+  },
+}))
 
-const Item = glamorous.li((props, {colors}) => ({
+const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   display: 'flex',
   flex: 1,
-  textAlign: 'center',
+  textAlign: 'left',
   margin: 0,
   backgroundColor: colors.white,
   lineHeight: 1,
+  transition: 'all .3s',
+  '&:focus, &:hover, &:active': {
+    backgroundColor: colors.primaryMed,
+  },
+  [mediaQueries.smallOnly]: {
+    textAlign: 'center',
+  },
 }))
 
-const Link = glamorous.a({
+const Link = glamorous.a((props, {colors}) => ({
   width: '100%',
   padding: '6px 10px',
-})
+  transition: 'all .3s',
+  '&:focus, &:hover, &:active': {
+    textDecoration: 'none',
+    color: colors.white,
+  },
+}))
 
-const locales = [
-  {
-    key: 'en',
-    display: 'en',
-    flag: <EnSvg width="1em" height="100%" />,
-  },
-  {
-    key: 'es',
-    display: 'es',
-    flag: <EsSvg width="1em" height="100%" />,
-  },
-  {
-    key: 'fr',
-    display: 'fr',
-    flag: <FrSvg width="1em" height="100%" />,
-  },
-]
-
-const localeContent = ({display, flag}) =>
+const localeContent = ({key, display}) =>
   (<div>
-    {flag} <span>{display}</span>
+    {getFlag(key, {width: '1em', height: '100%'})} <span>{display}</span>
   </div>)
 
-const localeItem = ({key, display, flag}) =>
+const localeItem = ({key, display}) =>
   (<Item key={key}>
     <Link href={localeToHref(key)}>
-      {localeContent({display, flag})}
+      {localeContent({key, display})}
     </Link>
   </Item>)
 
@@ -85,27 +99,16 @@ class LocaleChooser extends React.Component {
   }
 
   render() {
-    if (!this.state.open) {
-      return (
-        <Wrapper>
-          <Toggle onClick={this.handleClick.bind(this)}>
-            {localeContent(
-              locales.find(({key}) => key === this.props.locale),
-            )}
-          </Toggle>
-        </Wrapper>
-      )
-    }
-
     return (
       <Wrapper>
-        <Toggle onClick={this.handleClick.bind(this)}>
+        <Toggle onClick={this.handleClick.bind(this)} isOpen={this.state.open}>
           {localeContent(locales.find(({key}) => key === this.props.locale))}
         </Toggle>
-        <List aria-label="Locale selector">
-          {locales.map(localeItem)}
-          {localeItem({key: 'help', display: this.props.content.help})}
-        </List>
+        {this.state.open &&
+          <List aria-label="Locale selector">
+            {locales.map(localeItem)}
+            {localeItem({key: 'help', display: this.props.content.help})}
+          </List>}
       </Wrapper>
     )
   }
@@ -123,6 +126,7 @@ function localeToHref(locale) {
   return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
+<<<<<<< HEAD
 function getLocaleAndHost() {
   const locale = process.env.LOCALE
   const {host} = window.location
@@ -132,5 +136,17 @@ function getLocaleAndHost() {
     return {locale, host: rest.join('.')}
   } else {
     return {locale: fallbackLocale, host}
+=======
+function getFlag(locale, styles) {
+  switch (locale) {
+    case 'en':
+      return <EnSvg {...styles} />
+    case 'es':
+      return <EsSvg {...styles} />
+    case 'fr':
+      return <FrSvg {...styles} />
+    default:
+      return null
+>>>>>>> cleanup
   }
 }
