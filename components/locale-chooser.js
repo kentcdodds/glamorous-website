@@ -32,6 +32,7 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   outline: 'none',
   display: 'block',
   fontSize: '1em',
+  width: '100%',
   borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
   [mediaQueries.smallOnly]: {
     textAlign: 'center',
@@ -47,6 +48,7 @@ const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   opacity: '.9',
   border: `1px solid ${colors.primaryMed}`,
   [mediaQueries.smallOnly]: {
+    position: 'relative',
     width: '100%',
   },
 }))
