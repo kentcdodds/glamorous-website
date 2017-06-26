@@ -20,17 +20,19 @@ import FrSvg from './svgs/fr.svg'
 
 const Wrapper = glamorous.div({
   fontSize: '.8em',
-  minWidth: '120px',
   cursor: 'pointer',
 })
 
-const Toggle = glamorous.div((props, {colors, mediaQueries}) => ({
+const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   backgroundColor: colors.white,
   color: colors.primaryMed,
   border: `1px solid ${colors.primaryMed}`,
   textAlign: 'left',
-  paddingLeft: '10px',
-  borderBottom: props.isOpen ? 'none' : '',
+  padding: '3px 10px',
+  outline: 'none',
+  display: 'block',
+  fontSize: '1em',
+  borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
   [mediaQueries.smallOnly]: {
     textAlign: 'center',
   },
