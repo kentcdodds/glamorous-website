@@ -157,7 +157,7 @@ class Nav extends React.Component {
             </Anchor>
           </ListItem>
           <ListItem>
-            <LocaleChooser locale={this.props.locale} />
+            <LocaleChooser />
           </ListItem>
         </List>
       </Navbar>

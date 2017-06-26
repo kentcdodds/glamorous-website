@@ -1,45 +1,52 @@
 import React from 'react'
 import {mount} from 'enzyme'
+import toJson from 'enzyme-to-json'
 import {ThemeProvider} from 'glamorous'
+import {matcher, serializer} from 'jest-glamor-react'
+import GlobalStyles from '../../styles/global-styles'
+import {LocaleProvider} from '../locale'
 import LocaleChooser from '../locale-chooser'
 
-let assignSpy
+expect.addSnapshotSerializer(serializer)
+expect.extend(matcher)
 
-beforeEach(() => {
-  assignSpy = jest.spyOn(window.location, 'assign')
-})
-
-afterEach(() => {
-  assignSpy.mockRestore()
-})
-
-test('redirects to the right URL when the locale is changed', () => {
+test('closed state', () => {
   const wrapper = mountLocaleChooser({locale: 'en'})
-  wrapper.find('select').simulate('change', {target: {value: 'fr'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).toHaveBeenCalledWith(expect.stringContaining('fr.'))
+
+  const links = wrapper.find('a')
+  expect(links.length).toBe(0)
+
+  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 
-test('redirects to the root of the site when changed to english', () => {
-  const wrapper = mountLocaleChooser({locale: 'es'})
-  wrapper.find('select').simulate('change', {target: {value: 'en'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).not.toHaveBeenCalledWith(expect.stringContaining('en.'))
-})
+test('opened state', () => {
+  const wrapper = mountLocaleChooser({locale: 'en'})
+  wrapper.find('button').simulate('click')
 
-test('redirects to the docs about docs on github', () => {
-  const wrapper = mountLocaleChooser({locale: 'fr'})
-  wrapper.find('select').simulate('change', {target: {value: 'another'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).toHaveBeenCalledWith(
+  const links = wrapper.find('a')
+  expect(links.length).toBe(4)
+  expect(links.at(0).getDOMNode().getAttribute('href')).not.toEqual(
+    expect.stringContaining('en.'),
+  )
+  expect(links.at(1).getDOMNode().getAttribute('href')).toEqual(
+    expect.stringContaining('es.'),
+  )
+  expect(links.at(2).getDOMNode().getAttribute('href')).toEqual(
+    expect.stringContaining('fr.'),
+  )
+  expect(links.at(3).getDOMNode().getAttribute('href')).toEqual(
     expect.stringContaining('CONTRIBUTING_DOCUMENTATION.md'),
   )
+
+  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 
 function mountLocaleChooser(props = {}) {
   return mount(
-    <ThemeProvider theme={{colors: {}}}>
-      <LocaleChooser {...props} />
-    </ThemeProvider>,
+    <LocaleProvider {...props}>
+      <ThemeProvider theme={GlobalStyles}>
+        <LocaleChooser />
+      </ThemeProvider>
+    </LocaleProvider>,
   )
 }
