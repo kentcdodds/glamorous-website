@@ -1,29 +1,34 @@
 import React from 'react'
 import Head from 'next/head'
-import {withContent} from '../../components/locale'
 import Layout from '../../components/layout'
 import PageSections from '../../components/page-sections'
 import twitterCard from '../../components/twitter-card'
+import pageContent from './content'
+import cssGrid from './content/css-grid.md'
+import styleOverrides from './content/style-overrides.md'
 
-function Examples({url, content, locale}) {
+const sections = [cssGrid, styleOverrides]
+
+function Examples({url}) {
   return (
-    <Layout
-      pathname={url ? url.pathname : ''}
-      locale={locale}
-      contributors={content.contributors}
-    >
+    <Layout pathname={url ? url.pathname : ''} contributors={getContributors()}>
       <Head>
         {twitterCard({
           card: 'summary',
-          title: `glamorous - ${content.title}`,
-          description: content.heading,
+          title: `glamorous - ${pageContent.title}`,
+          description: pageContent.heading,
           pathname: url ? url.pathname : '',
-          locale,
         })}
       </Head>
-      <PageSections data={content} />
+      <PageSections {...pageContent} sections={sections} />
     </Layout>
   )
 }
 
-export default withContent({page: 'examples'}, Examples)
+export default Examples
+
+function getContributors() {
+  return sections
+    .reduce((contrib, sec) => contrib.concat(sec.meta.contributors), [])
+    .filter((x, i, a) => a.indexOf(x) === i)
+}

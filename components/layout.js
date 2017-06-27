@@ -38,15 +38,15 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-function Layout({pathname, children, locale, contributors}) {
+function Layout({pathname, children, contributors}) {
   css.insert(baseStyles())
   return (
-    <LocaleProvider locale={locale}>
+    <LocaleProvider locale={process.env.LOCALE}>
       <ThemeProvider theme={GlobalStyles}>
         <Wrapper>
           <Div position="relative" zIndex={1}>
             <Div display="flex" justifyContent="flex-end" alignItems="center">
-              <Nav pathname={pathname} locale={locale} />
+              <Nav pathname={pathname} />
             </Div>
             {children}
             <Contributors contributors={contributors || []} />

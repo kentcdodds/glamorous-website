@@ -14,8 +14,6 @@ import mdToHTML from './utils/md-to-html'
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
 
-const projectRoot = __dirname.slice(0, -'/components'.length)
-
 const PageWrapper = glamorous.div((props, {colors}) => ({
   backgroundColor: colors.white,
   width: '100%',
@@ -38,14 +36,15 @@ const EditAnchorWrap = glamorous(Div)({
 
 export default PageSections
 
-function PageSections({data}) {
+function PageSections({title, note, heading, sections}) {
   return (
     <Div>
-      <Hero dangerouslySetInnerHTML={{__html: mdToHTML(data.title)}} />
+      <Hero dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
       <PageWrapper>
-        <h3>{interactiveMarkdown(data.heading)}</h3>
-        {data.sections.map(section =>
-          <DocSection key={section.title} {...section} />,
+        <h3>{interactiveMarkdown(heading)}</h3>
+        <Div maxWidth="50rem" margin="auto">{interactiveMarkdown(note)}</Div>
+        {sections.map(section =>
+          <DocSection key={section.meta.filename} {...section} />,
         )}
       </PageWrapper>
     </Div>
@@ -55,7 +54,7 @@ function PageSections({data}) {
 const DocSection = withContent(
   {component: 'page-sections'},
   function DocSection(props) {
-    const {title, subtitle, filename, content} = props
+    const {meta: {title, subtitle, filename}, content} = props
 
     const Section = glamorous.section((p, {colors}) => ({
       borderBottom: `1px solid ${colors.primary}`,
@@ -71,7 +70,7 @@ const DocSection = withContent(
           <EditAnchorWrap>
             <Anchor
               external
-              href={getEditHrf(filename)}
+              href={`${repoEditRootURL}${filename}`}
               css={{textDecoration: 'none', ':hover': {textDecoration: 'none'}}}
             >
               <GitHubSVG /> {content.edit}
@@ -92,21 +91,17 @@ const DocSection = withContent(
     )
   },
 )
-function getEditHrf(filename) {
-  // for some reason, __filename has a / on the server but not on the client...
-  const slash = filename.indexOf('/') === 0 ? '' : '/'
-  return `${repoEditRootURL}${slash}${filename.replace(projectRoot, '')}`
-}
-
 function DocSectionDetails({
-  title,
-  description,
-  codeSandboxId,
-  codeSandboxSummary = title,
+  meta: {
+    title,
+    codeSandboxId,
+    codeSandboxSummary = title,
+  },
+  markdown,
 }) {
   return (
     <div>
-      {interactiveMarkdown(description)}
+      {interactiveMarkdown(markdown)}
       {codeSandboxId ?
         <ClickToRender
           component={CodeSandboxEmbed}

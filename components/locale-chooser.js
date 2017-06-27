@@ -4,8 +4,8 @@ import {
   fallbackLocale,
   supportedLocales,
   getLocaleAndHost,
-  withContent,
 } from './locale'
+import content from './content/locale-chooser'
 
 const Select = glamorous.select((props, {colors}) => ({
   textAlignLast: 'center',
@@ -15,14 +15,14 @@ const Select = glamorous.select((props, {colors}) => ({
   borderColor: colors.primary,
 }))
 
-export default withContent({component: 'locale-chooser'}, LocaleChooser)
+export default LocaleChooser
 
-function LocaleChooser({locale, content, ...rest}) {
+function LocaleChooser(props) {
   return (
     <Select
-      value={locale}
+      value={process.env.LOCALE}
       onChange={changeLanguage}
-      {...rest}
+      {...props}
       aria-label="Locale selector"
     >
       <option value="en">en</option>

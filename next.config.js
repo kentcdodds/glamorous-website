@@ -2,7 +2,8 @@ const webpack = require('webpack')
 const marked = require('marked')
 
 const renderer = new marked.Renderer()
-const USE_PREFETCH = process.env.NODE_ENV !== 'test'
+const {LOCALE, NODE_ENV} = process.env
+const USE_PREFETCH = NODE_ENV !== 'test'
 
 renderer.heading = (text, level) => {
   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
@@ -16,6 +17,7 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH),
+        'process.env.LOCALE': JSON.stringify(LOCALE),
       })
     )
 
