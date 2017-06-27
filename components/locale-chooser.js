@@ -106,7 +106,11 @@ class LocaleChooser extends React.Component {
     return (
       <Wrapper>
         <Toggle onClick={this.handleClick.bind(this)} isOpen={this.state.open}>
-          {localeContent(locales.find(({key}) => key === this.props.locale))}
+          {localeContent(
+            locales.find(
+              ({key}) => key === this.props.locale || fallbackLocale,
+            ),
+          )}
         </Toggle>
         {this.state.open &&
           <List aria-label="Locale selector">
