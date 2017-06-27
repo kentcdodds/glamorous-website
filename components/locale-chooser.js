@@ -81,7 +81,7 @@ const Link = glamorous.a((props, {colors}) => ({
 
 const localeContent = ({key, display}) =>
   (<div>
-    {getFlag(key, {width: '1em', height: '100%'})} <span>{display}</span>
+    {getFlag(key)} <span>{display}</span>
   </div>)
 
 const localeItem = ({key, display}) =>
@@ -131,6 +131,7 @@ function localeToHref(locale) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function getLocaleAndHost() {
   const locale = process.env.LOCALE
   const {host} = window.location
@@ -142,13 +143,17 @@ function getLocaleAndHost() {
     return {locale: fallbackLocale, host}
 =======
 function getFlag(locale, styles) {
+=======
+function getFlag(locale) {
+  const style = {width: '1em', height: '100%'}
+>>>>>>> cleanup
   switch (locale) {
     case 'en':
-      return <EnSvg {...styles} />
+      return <EnSvg {...style} />
     case 'es':
-      return <EsSvg {...styles} />
+      return <EsSvg {...style} />
     case 'fr':
-      return <FrSvg {...styles} />
+      return <FrSvg {...style} />
     default:
       return null
 >>>>>>> cleanup
