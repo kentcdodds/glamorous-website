@@ -1,5 +1,5 @@
 import React from 'react'
-import Document, {Head, Main} from 'next/document'
+import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
 import GoogleAnalytics from '../../components/google-analytics'
 import ConsoleGreet from '../../components/console-greet'
@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <NextScript />
           <GoogleAnalytics />
           <ConsoleGreet />
         </body>
