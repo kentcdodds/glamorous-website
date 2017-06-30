@@ -49,6 +49,7 @@ async function deploy(context, sha) {
     nowToken,
     '--no-clipboard',
     '--public',
+    '--static',
   ])
 
   target_url = getUrl(result)
