@@ -10,5 +10,9 @@ function mdToHTML(md: string | null): string {
   if (!md) {
     return ''
   }
-  return remark().use(remarkHtml).processSync(stripIndent(md)).toString()
+  return remark()
+    .use(remarkHtml)
+    .processSync(stripIndent(md))
+    .toString()
+    .slice(3, -5)
 }

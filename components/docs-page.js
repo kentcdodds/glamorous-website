@@ -64,9 +64,7 @@ function PageSections({title, note, heading, sections}) {
     <Div>
       <Hero dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
       <PageWrapper>
-        <h3>
-          {interactiveMarkdown(heading)}
-        </h3>
+        <h3 dangerouslySetInnerHTML={{__html: mdToHTML(heading)}} />
         <Div maxWidth="50rem" margin="auto">
           {interactiveMarkdown(note)}
         </Div>
@@ -96,7 +94,10 @@ function DocSection(props) {
           <Anchor
             external
             href={`${repoEditRootURL}${filename}`}
-            css={{textDecoration: 'none', ':hover': {textDecoration: 'none'}}}
+            css={{
+              textDecoration: 'none',
+              ':hover': {textDecoration: 'none'},
+            }}
           >
             <GitHubSVG /> {content.edit}
           </Anchor>
