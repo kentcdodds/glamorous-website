@@ -1,5 +1,5 @@
 import React from 'react'
-import Document, {Head, Main, NextScript} from 'next/document'
+import Document, {Head, Main} from 'next/document'
 import {renderStatic} from 'glamor/server'
 import GoogleAnalytics from '../../components/google-analytics'
 import ConsoleGreet from '../../components/console-greet'
@@ -25,10 +25,11 @@ export default class MyDocument extends Document {
     return (
       <html lang={this.props.locale}>
         <Head>
-          <title>{content.title}</title>
+          <title>
+            {content.title}
+          </title>
           <style dangerouslySetInnerHTML={{__html: this.props.css}} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/*  */}
           <link
             rel="shortcut icon"
             type="image/x-icon"
@@ -37,7 +38,6 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <NextScript />
           <GoogleAnalytics />
           <ConsoleGreet />
         </body>
