@@ -44,14 +44,14 @@ function someFn() {
 `;
 
 exports[`console error calls 1`] = `
-"Using fallback for: <pathToTests>/fixtures/content/es because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es/index.md because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es/index.md because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es/index.md because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es/index.md because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es because that file does not exist
-Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es/index.md because that file does not exist"
+"Using fallback for: /fixtures/content/es because that file does not exist
+Using fallback for: /fixtures/content/es/index.md because that file does not exist
+Using fallback for: /fixtures/content/es because that file does not exist
+Using fallback for: /fixtures/content/es/index.md because that file does not exist
+Using fallback for: /fixtures/content/es because that file does not exist
+Using fallback for: /fixtures/content/es/index.md because that file does not exist
+Using fallback for: /fixtures/content/es because that file does not exist
+Using fallback for: /fixtures/content/es/index.md because that file does not exist
+Using fallback for: /fixtures/content/es because that file does not exist
+Using fallback for: /fixtures/content/es/index.md because that file does not exist"
 `;

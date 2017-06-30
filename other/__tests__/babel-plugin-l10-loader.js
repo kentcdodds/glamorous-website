@@ -15,7 +15,8 @@ pluginTester({
           const allCalls = errorSpy.mock.calls
             .reduce((a, c) => a.concat(c), [])
             .join('\n')
-            .replace(__dirname, '<pathToTests>')
+            .split(__dirname)
+            .join('')
 
           expect(allCalls).toMatchSnapshot('console error calls')
           errorSpy.mockRestore()
