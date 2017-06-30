@@ -4,14 +4,13 @@ import toJson from 'enzyme-to-json'
 import {ThemeProvider} from 'glamorous'
 import {matcher, serializer} from 'jest-glamor-react'
 import GlobalStyles from '../../styles/global-styles'
-import {LocaleProvider} from '../locale'
 import LocaleChooser from '../locale-chooser'
 
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
 test('closed state', () => {
-  const wrapper = mountLocaleChooser({locale: 'en'})
+  const wrapper = localeChooser()
 
   const links = wrapper.find('a')
   expect(links.length).toBe(0)
@@ -20,7 +19,7 @@ test('closed state', () => {
 })
 
 test('opened state', () => {
-  const wrapper = mountLocaleChooser({locale: 'en'})
+  const wrapper = localeChooser()
   wrapper.find('button').simulate('click')
 
   const links = wrapper.find('a')
@@ -41,12 +40,10 @@ test('opened state', () => {
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 
-function mountLocaleChooser(props = {}) {
+function localeChooser() {
   return mount(
-    <LocaleProvider {...props}>
-      <ThemeProvider theme={GlobalStyles}>
-        <LocaleChooser />
-      </ThemeProvider>
-    </LocaleProvider>,
+    <ThemeProvider theme={GlobalStyles}>
+      <LocaleChooser />
+    </ThemeProvider>,
   )
 }

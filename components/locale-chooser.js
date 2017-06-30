@@ -1,22 +1,11 @@
 import React from 'react'
 import glamorous from 'glamorous'
-<<<<<<< HEAD
 import content from './content/locale-chooser'
-
-const {supportedLocales, fallbackLocale} = require('../config.json')
-
-=======
-import {
-  fallbackLocale,
-  locales,
-  supportedLocales,
-  getLocaleAndHost,
-  withContent,
-} from './locale'
->>>>>>> cleanup
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'
+
+const {supportedLocales, fallbackLocale} = require('../config.json')
 
 const Wrapper = glamorous.div({
   fontSize: '.8em',
@@ -79,15 +68,15 @@ const Link = glamorous.a((props, {colors}) => ({
   },
 }))
 
-const localeContent = ({key, display}) =>
+const localeContent = ({display, flag}) =>
   (<div>
-    {getFlag(key)} <span>{display}</span>
+    {flag} <span>{display}</span>
   </div>)
 
-const localeItem = ({key, display}) =>
+const localeItem = ({key, display, flag}) =>
   (<Item key={key}>
     <Link href={localeToHref(key)}>
-      {localeContent({key, display})}
+      {localeContent({flag, display})}
     </Link>
   </Item>)
 
@@ -106,22 +95,18 @@ class LocaleChooser extends React.Component {
     return (
       <Wrapper>
         <Toggle onClick={this.handleClick.bind(this)} isOpen={this.state.open}>
-          {localeContent(
-            locales.find(
-              ({key}) => key === (this.props.locale || fallbackLocale),
-            ),
-          )}
+          {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
         {this.state.open &&
           <List aria-label="Locale selector">
-            {locales.map(localeItem)}
-            {localeItem({key: 'help', display: this.props.content.help})}
+            {supportedLocales.map(l => localeItem(mapLocale(l)))}
+            {localeItem(mapLocale('help'))}
           </List>}
       </Wrapper>
     )
   }
 }
-export default withContent({component: 'locale-chooser'}, LocaleChooser)
+export default LocaleChooser
 
 function localeToHref(locale) {
   if (supportedLocales.includes(locale)) {
@@ -134,8 +119,6 @@ function localeToHref(locale) {
   return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 function getLocaleAndHost() {
   const locale = process.env.LOCALE
   const {host} = window.location
@@ -145,21 +128,42 @@ function getLocaleAndHost() {
     return {locale, host: rest.join('.')}
   } else {
     return {locale: fallbackLocale, host}
-=======
-function getFlag(locale, styles) {
-=======
-function getFlag(locale) {
-  const style = {width: '1em', height: '100%'}
->>>>>>> cleanup
-  switch (locale) {
+  }
+}
+
+function mapLocale(key) {
+  const svgStyle = {width: '1em', height: '100%'}
+  switch (key) {
     case 'en':
-      return <EnSvg {...style} />
+      return {
+        key,
+        display: 'English',
+        flag: <EnSvg {...svgStyle} />,
+      }
     case 'es':
-      return <EsSvg {...style} />
-    case 'fr':
-      return <FrSvg {...style} />
-    default:
-      return null
->>>>>>> cleanup
+      return {
+        key,
+        display: 'Español',
+        flag: <EsSvg {...svgStyle} />,
+      }
+    case 'fr': {
+      return {
+        key,
+        display: 'Français',
+        flag: <FrSvg {...svgStyle} />,
+      }
+    }
+    case 'help': {
+      return {
+        key,
+        display: content.help,
+      }
+    }
+    default: {
+      return {
+        key,
+        display: key,
+      }
+    }
   }
 }
