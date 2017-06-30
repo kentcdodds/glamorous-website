@@ -124,7 +124,7 @@ function getLocaleAndHost() {
   const {host} = window.location
   // eslint-disable-next-line no-unused-vars
   const [localePart, ...rest] = host.split('.')
-  if (supportedLocales.includes(locale)) {
+  if (supportedLocales.includes(locale) || localePart !== locale) {
     return {locale, host: rest.join('.')}
   } else {
     return {locale: fallbackLocale, host}
