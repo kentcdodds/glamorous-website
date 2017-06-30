@@ -1,5 +1,6 @@
 module.exports = {
   home: 'Home',
+  gettingStarted: 'Getting Started',
   basics: 'Basics',
   advanced: 'Advanced',
   examples: 'Examples',

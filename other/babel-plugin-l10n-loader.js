@@ -2,7 +2,6 @@ const p = require('path')
 const fs = require('fs')
 const remark = require('remark')
 const visit = require('unist-util-visit')
-const pathExists = require('path-exists')
 const yaml = require('js-yaml')
 const babylon = require('babylon')
 
@@ -33,10 +32,16 @@ module.exports = function l10nLoader({template, types: t}) {
         }
         const {node: {specifiers: [specifier]}, node: {source}} = path
         const data = getContentData({filename, source: source.value})
+        let DATA
+        if (data.raw) {
+          DATA = t.stringLiteral(data.string)
+        } else {
+          DATA = toObjectExpression(data)
+        }
         path.replaceWith(
           buildDataAssignment({
             NAME: t.identifier(specifier.local.name),
-            DATA: toObjectExpression(data),
+            DATA,
           }),
         )
       },
@@ -57,33 +62,44 @@ module.exports = function l10nLoader({template, types: t}) {
           source,
           filename,
         })
-        const objExpression = toObjectExpression(data)
-        path.replaceWith(objExpression)
+        if (data.raw) {
+          path.replaceWith(t.stringLiteral(data.string))
+        } else {
+          path.replaceWith(toObjectExpression(data))
+        }
       },
     },
   }
 
   function getContentData({source, filename}) {
-    const absolutePath = getAbsolutePathOfContent({source, filename})
-    const projectRelativePath = absolutePath.replace(
-      p.join(__dirname, '..'),
-      '',
-    )
+    const {localePath, fallbackPath} = getAbsolutePathOfContent({
+      source,
+      filename,
+    })
+    const projectRelativePath = localePath.replace(p.join(__dirname, '..'), '')
     const isMarkdown = source.endsWith('.md')
-    const addJs = !isMarkdown && !source.endsWith('.js')
-    const ext = addJs ? '.js' : ''
+    const isRaw = source.includes('.raw')
     const data = {
       meta: {
-        filename: `${projectRelativePath}${ext}`,
+        filename: projectRelativePath,
         // TODO: let's try to determine whether the translation is outdated and add
         // some metadata to the content which the website could use to show readers
         // that the translation may be outdated or missing content.
       },
     }
-    if (isMarkdown) {
-      Object.assign(data, getMarkdownData(absolutePath))
+    if (isRaw) {
+      Object.assign(data, {
+        raw: true,
+        string: fs.readFileSync(localePath, 'utf8'),
+      })
+    } else if (isMarkdown) {
+      Object.assign(
+        data,
+        getMarkdownData(fallbackPath),
+        getMarkdownData(localePath),
+      )
     } else {
-      Object.assign(data, require(absolutePath))
+      Object.assign(data, require(fallbackPath), require(localePath))
     }
     return data
   }
@@ -91,17 +107,18 @@ module.exports = function l10nLoader({template, types: t}) {
   function getAbsolutePathOfContent({source, filename}) {
     const dir = p.dirname(p.resolve(filename))
     let absolutePath = p.resolve(dir, source)
+    const fallbackPath = absolutePath
     if (lang !== fallbackLocale) {
       const localePath = absolutePath.replace('content', `content/${lang}`)
-      if (pathExists.sync(localePath)) {
-        absolutePath = localePath
-      } else {
+      try {
+        absolutePath = require.resolve(localePath)
+      } catch (error) {
         console.error(
           `Using fallback for: ${localePath} because that file does not exist`,
         )
       }
     }
-    return absolutePath
+    return {localePath: require.resolve(absolutePath), fallbackPath}
   }
 
   function toObjectExpression(object) {
@@ -162,7 +179,7 @@ function looksLike(a, b) {
 
 function isPrimitive(val) {
   // eslint-disable-next-line
-  return val == null || /^[sbn]/.test(typeof val);
+  return val == null || /^[sbn]/.test(typeof val)
 }
 
 /* eslint no-console:0 */
