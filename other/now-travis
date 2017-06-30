@@ -93,7 +93,10 @@ async function deploy(context, sha) {
     const mergedOptions = Object.assign({context, target_url}, options)
     const {description, target_url: url} = mergedOptions
     console.log(`${description}: ${url}`)
-    ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+    if (locale === fallbackLocale) {
+      // we can't report status for more than one locale.
+      ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+    }
   }
 
   function aliasDeploy() {
@@ -200,10 +203,6 @@ function isFork() {
   return owner !== prOwner
 }
 
-function isLocal() {
-  return !process.env.CI
-}
-
 function getUrl(content) {
   const urls = content.match(urlRegex()) || []
 
@@ -216,14 +215,6 @@ function logError(message) {
       console.log(message, error)
     }
   }
-}
-
-function sleep(time) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve()
-    }, time)
-  })
 }
 
 // This is not transpiled
