@@ -1,5 +1,5 @@
 ---
-title: `innerRef`
+title: '`innerRef`'
 subtitle: Comment accéder au `ref`
 ---
 

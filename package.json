@@ -6,7 +6,7 @@
     "dev": "npm start dev",
     "build": "npm start build",
     "start": "nps",
-    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate && npm start build.clean\"",
+    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
     "test": "npm start test"
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
@@ -52,7 +52,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "babylon": "^6.17.4",
     "chalk": "^1.1.3",
-    "cross-env": "^5.0.0",
     "cross-spawn": "^5.1.0",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",

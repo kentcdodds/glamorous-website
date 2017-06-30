@@ -14,5 +14,18 @@ afterAll(() => {
 pluginTester({
   plugin,
   snapshot: true,
-  tests: [{fixture: require.resolve('./fixtures/some-component')}],
+  tests: [
+    {
+      fixture: require.resolve('./fixtures/some-component'),
+      setup() {
+        const errorSpy = jest
+          .spyOn(console, 'error')
+          .mockImplementation(() => {})
+        return function teardown() {
+          expect(errorSpy.mock.calls).toMatchSnapshot('console error calls')
+          errorSpy.mockRestore()
+        }
+      },
+    },
+  ],
 })

@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies:0 */
+const fs = require('fs')
 const webpack = require('webpack')
 const marked = require('marked')
 
@@ -11,7 +13,16 @@ renderer.heading = (text, level) => {
   return `<h${level}><a name="${escapedText}" href="#${escapedText}">${text}</a></h${level}>`
 }
 
+const cacheIdentifier = JSON.stringify({
+  'babel-loader': require('babel-loader/package.json').version,
+  'babel-core': require('babel-core/package.json').version,
+  babelrc: fs.readFileSync('./.babelrc', 'utf8'),
+  env: process.env.BABEL_ENV || process.env.NODE_ENV || 'development',
+  locale: process.env.LOCALE,
+})
+
 module.exports = {
+  distDir: `dist/${LOCALE || 'dev'}`,
   webpack: config => {
     // Add in prefetch conditionally so we don't break jest snapshot testing
     config.plugins.push(
@@ -20,6 +31,16 @@ module.exports = {
         'process.env.LOCALE': JSON.stringify(LOCALE),
       })
     )
+
+    config.module.rules.forEach(rule => {
+      if (rule.loader === 'babel-loader') {
+        if (process.env.DISABLE_CACHE) {
+          rule.options.cacheDirectory = false
+        } else {
+          rule.options.cacheIdentifier = cacheIdentifier
+        }
+      }
+    })
 
     // Markdown loader so we can use docs as .md files
     config.module.rules.push({
@@ -46,11 +67,11 @@ module.exports = {
   exportPathMap() {
     return {
       '/': {page: '/'},
-      // '/advanced': {page: '/advanced'},
-      // '/api': {page: '/api'},
-      // '/basics': {page: '/basics'},
+      '/advanced': {page: '/advanced'},
+      '/api': {page: '/api'},
+      '/basics': {page: '/basics'},
       '/examples': {page: '/examples'},
-      // '/integrations': {page: '/integrations'},
+      '/integrations': {page: '/integrations'},
     }
   },
 }

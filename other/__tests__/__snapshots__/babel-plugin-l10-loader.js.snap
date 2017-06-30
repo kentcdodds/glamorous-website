@@ -42,3 +42,5 @@ function someFn() {
 }
 "
 `;
+
+exports[`console error calls 1`] = `Array []`;

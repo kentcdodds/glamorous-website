@@ -1,5 +1,6 @@
 import React from 'react'
-import {fallbackLocale} from './locale'
+
+const {fallbackLocale} = require('../config.json')
 
 const {LOCALE: locale} = process.env
 

@@ -43,7 +43,7 @@ function someFn() {
 "
 `;
 
-exports[`babel-plugin-l10n-loader 1. babel-plugin-l10n-loader 1`] = `
+exports[`console error calls 1`] = `
 Array [
   Array [
     "Using fallback for: /Users/kdodds/Developer/glamorous-website/other/__tests__/fixtures/content/es because that file does not exist",

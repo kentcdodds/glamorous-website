@@ -6,13 +6,12 @@ const pathExists = require('path-exists')
 const yaml = require('js-yaml')
 const babylon = require('babylon')
 
-const fallbackLang = 'en'
-const supportedLocales = ['en', 'fr', 'es']
+const {fallbackLocale, supportedLocales} = require('../config.json')
 
 module.exports = function l10nLoader({template, types: t}) {
   let {LOCALE: lang} = process.env
   if (!supportedLocales.includes(lang)) {
-    lang = fallbackLang
+    lang = fallbackLocale
   }
   const buildDataAssignment = template(`
     const NAME = DATA
@@ -92,7 +91,7 @@ module.exports = function l10nLoader({template, types: t}) {
   function getAbsolutePathOfContent({source, filename}) {
     const dir = p.dirname(p.resolve(filename))
     let absolutePath = p.resolve(dir, source)
-    if (lang !== fallbackLang) {
+    if (lang !== fallbackLocale) {
       const localePath = absolutePath.replace('content', `content/${lang}`)
       if (pathExists.sync(localePath)) {
         absolutePath = localePath

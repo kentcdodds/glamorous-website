@@ -22,7 +22,7 @@ pluginTester({
           .spyOn(console, 'error')
           .mockImplementation(() => {})
         return function teardown() {
-          expect(errorSpy.mock.calls).toMatchSnapshot()
+          expect(errorSpy.mock.calls).toMatchSnapshot('console error calls')
           errorSpy.mockRestore()
         }
       },

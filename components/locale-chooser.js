@@ -1,11 +1,8 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import {
-  fallbackLocale,
-  supportedLocales,
-  getLocaleAndHost,
-} from './locale'
 import content from './content/locale-chooser'
+
+const {supportedLocales, fallbackLocale} = require('../config.json')
 
 const Select = glamorous.select((props, {colors}) => ({
   textAlignLast: 'center',
@@ -28,7 +25,9 @@ function LocaleChooser(props) {
       <option value="en">en</option>
       <option value="es">es</option>
       <option value="fr">fr</option>
-      <option value="help">{content.help}</option>
+      <option value="help">
+        {content.help}
+      </option>
     </Select>
   )
 }
@@ -45,4 +44,16 @@ function changeLanguage({target: {value}}) {
       'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
   }
   window.location.assign(url)
+}
+
+function getLocaleAndHost() {
+  const locale = process.env.LOCALE
+  const {host} = window.location
+  // eslint-disable-next-line no-unused-vars
+  const [localePart, ...rest] = host.split('.')
+  if (supportedLocales.includes(locale)) {
+    return {locale, host: rest.join('.')}
+  } else {
+    return {locale: fallbackLocale, host}
+  }
 }
