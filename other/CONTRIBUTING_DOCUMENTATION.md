@@ -12,69 +12,46 @@ documentation to the project and/or translating it.
 
 We try to keep things organized by page. So in the `pages` directory, you'll
 find a directory for each of the pages. In each of these you'll find a
-`content` directory where the localization files are. These are JavaScript
-modules that export data with the content for that page. See the `README.md`
-in each of the `content` folders to get an idea of how that folder is supposed
-to work.
+`content` directory where the localization files are. These are markdown files
+and are `import`ed or `require`ed into the file that's using them. We have a
+special babel plugin (`other/babel-plugin-l10n-loader.js`) that inlines the
+right markdown file for the locale at compile-time.
 
-### Docs Pages structure
+For the `pages` content, you'll find that they have an `index.md` which starts
+with some `YAML` at the top and has no other content. It's normally pretty
+minimal just for the basic outline of the page. For example:
 
-Many of the pages have the same structure, so we'll just document them here:
-
-<details>
-<summary>Docs pages structure</summary>
-
-Here's an example of a docs page:
-
-```javascript
-import React from 'react'
-import {withContent} from '../../components/locale'
-import Layout from '../../components/layout'
-import PageSections from '../../components/page-sections'
-
-function Advanced({url, content, locale}) {
-  return (
-    <Layout pathname={url ? url.pathname : ''} locale={locale}>
-      <PageSections data={content} />
-    </Layout>
-  )
-}
-
-// the `page` here should be the name of the folder in which this file resides
-export default withContent({page: 'advanced'}, Advanced)
+```md
+---
+title: The awesome title
+heading: Some heading
+note: >
+  This is an optional note.
+  Notice that I can do multiline
+  by adding the `>` and indenting the lines.
+---
 ```
 
-With this, you'll need a `content/index.js` file with this structure:
+> `note` and `heading` are optional.
 
-```javascript
-module.exports = {
-  title: 'The title',
-  heading: `Some heading thing`,
-  sections: [
-    // these are local files that you require in
-    // see the structure of those next
-    require('./doc-section-1'),
-    require('./doc-section-2'),
-  ],
-}
+For the sections of the page, that looks like this:
+
+```md
+---
+title: The section title
+subtitle: A subtitle for the section
+codeSandboxId: 2k8yll8qj
+contributors:
+  - kentcdodds
+  - santaclaus
+---
+
+The markdown content that will be rendered for the section goes here.
+See below for some of the nifty things you can do with the markdown!
 ```
 
-Here's an example of what `./doc-section-1` would look like:
-
-```javascript
-module.exports = {
-  title: 'Title of the section (supports markdown)',
-  subtitle: 'The subtitle of the section (also supports markdown)',
-  description: `
-    # this is markdown parseable
-    with support for the special syntax mentioned below
-  `.replace(/~/g, '`'), // so you avoid having to escape backticks (read more below)
-  codesandboxId: '2k8yll8qj', // optional, will show a codesandbox embed below your docs
-  filename: __filename, // required
-}
-```
-
-</details>
+`codeSandboxId` is optional, but it can be nice to have a codeSandboxId for
+people to play around with if you can't use an interactive example (see below).
 
 ## Translation
 
@@ -91,8 +68,8 @@ works.
 
 ### Workflow
 
-Unfortunately we've been unsuccessful in setting up a workflow with an existing
-free tool. So we've got some tooling of our own to make your workflow as good
+We don't yet have things set up to work with a tool (hopefully soon!).
+So we've got some tooling of our own to make your workflow as good
 as it can be. You will need to set up the project locally (see `CONTRIBUTING.md`
 for how to do this).
 
@@ -117,7 +94,7 @@ To keep things up to date, you can update your local copy of the project, then
 run the above script again. If you see any files listed under `Outdated`, then
 you know that there have been modifications to source files since translations
 were last completed. To know what changed, go through each file one by one and
-run: `node other/what-changed.js {path/to/english/file.js} {locale}`. This will
+run: `node other/what-changed.js {path/to/english/file.md} {locale}`. This will
 show you the changes to that particular file since translations were last
 completed and should give you the insight you need to update the existing
 translations.
@@ -131,11 +108,6 @@ and you can keep up with any changes to content.
 Thank you so much for your help! Now, please read the notes below!
 
 ## Important Markdown notes:
-
-Because the **content and markdown is written in a JavaScript file** and uses
-template literals, we use `~` rather than backticks (\`) because we don't want
-to have to escape common things like codeblocks. We use `replace` to swap `~` to
-a backtick so hopefully this is pretty straightforward.
 
 ### Special Syntax
 
@@ -156,11 +128,11 @@ code block. Here are some examples of what's possible:
 
 > options and defaults: {clickToRender: false, summary: ''}
 
-```md
-~~~interactive
+````md
+```interactive
 render(<button onClick={() => alert('Hello World')}>Hello World</button>)
-~~~
 ```
+````
 
 This will render an interactive bit of code using the `CodePreview` component.
 
@@ -168,13 +140,13 @@ This will render an interactive bit of code using the `CodePreview` component.
 
 > options and defaults: {type: 'info', title: undefined}
 
-```md
-~~~callout {type: 'danger', title: 'Footgun'}
+````md
+```callout {type: 'danger', title: 'Footgun'}
 You might be tempted to do x, but *don't*!
 
 _markdown works in here_
-~~~
 ```
+````
 
 This will render a highlighted note.
 
@@ -183,10 +155,10 @@ This will render a highlighted note.
 With these pragmas you can also specify options. These come in the form of an
 object literal immediately after the pragma like so:
 
-```md
-~~~interactive {clickToRender: true, summary: 'Alert hello world'}
+````md
+```interactive {clickToRender: true, summary: 'Alert hello world'}
 render(<button onClick={() => alert('Hello World')}>Hello World</button>)
-~~~
 ```
+````
 
 There may be more forms in the future, but right now this is all we have.
