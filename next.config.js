@@ -67,6 +67,7 @@ module.exports = {
   exportPathMap() {
     return {
       '/': {page: '/'},
+      '/getting-started': {page: '/getting-started'},
       '/advanced': {page: '/advanced'},
       '/api': {page: '/api'},
       '/basics': {page: '/basics'},

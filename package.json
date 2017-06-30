@@ -98,7 +98,7 @@
       "git add README.md && echo ignore arg"
     ],
     "*.js": [
-      "prettier-eslint --write",
+      "prettier-eslint --write --no-semi --single-quote --trailing-comma=es5",
       "eslint",
       "git add"
     ]

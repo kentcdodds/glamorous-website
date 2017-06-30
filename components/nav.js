@@ -61,7 +61,6 @@ const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   fontSize: '1.25em',
   margin: '0 auto',
 
-  maxWidth: '50rem',
   height: 'auto',
   width: '100%',
   padding: props.isOpen ? '1rem 0' : 0,
@@ -109,6 +108,15 @@ class Nav extends React.Component {
               <Hidden>
                 {content.home}
               </Hidden>
+            </Anchor>
+          </ListItem>
+          <ListItem>
+            <Anchor
+              prefetch={process.env.USE_PREFETCH}
+              href="/getting-started"
+              pathname={this.props.pathname}
+            >
+              {content.gettingStarted}
             </Anchor>
           </ListItem>
           <ListItem>

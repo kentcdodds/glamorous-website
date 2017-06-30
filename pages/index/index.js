@@ -7,8 +7,8 @@ import stripIndent from '../../components/utils/strip-indent'
 import Layout from '../../components/layout'
 import {Button} from '../../components/styled-links'
 import Hero from '../../components/hero'
-import homePageExample from '../../examples/home-page-example'
 import twitterCard from '../../components/twitter-card'
+import homePageExample from './content/home-page-example.raw'
 import content from './content'
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
@@ -131,7 +131,10 @@ function Home({url, locale}) {
           npm install --save glamorous react glamor prop-types
         </CodeBlock>
       </CodePreviewWrapper>
-      <GettingStarted prefetch={process.env.USE_PREFETCH} href="/basics">
+      <GettingStarted
+        prefetch={process.env.USE_PREFETCH}
+        href="/getting-started"
+      >
         {content.callToAction}
       </GettingStarted>
     </Layout>
