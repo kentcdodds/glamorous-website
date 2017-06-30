@@ -110,12 +110,7 @@ async function deploy(context, sha) {
     const alias = `${prefix}${domain}`
     const aliasArgs = ['alias', 'set', target_url, alias, '--token', nowToken]
     safeLog('spawning shell with command:', `now ${aliasArgs.join(' ')}`)
-    return spawnPromise('now', [
-      '--token',
-      nowToken,
-      '--no-clipboard',
-      '--public',
-    ])
+    return spawnPromise('now', aliasArgs)
   }
 
   function spawnPromise(...args) {
