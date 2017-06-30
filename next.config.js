@@ -36,7 +36,22 @@ module.exports = {
       __filename: true,
     })
 
+    // this is useful if you want to see the transpiled
+    // version of the code (like if you're working on the
+    // babel plugin or something).
+    // config.devtool = 'eval'
+
     return config
+  },
+  exportPathMap() {
+    return {
+      '/': {page: '/'},
+      // '/advanced': {page: '/advanced'},
+      // '/api': {page: '/api'},
+      // '/basics': {page: '/basics'},
+      '/examples': {page: '/examples'},
+      // '/integrations': {page: '/integrations'},
+    }
   },
 }
 

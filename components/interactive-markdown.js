@@ -24,6 +24,9 @@ function ClickToRenderCodePreview(props) {
 }
 
 function interactiveMarkdown(markdownString) {
+  if (!markdownString) {
+    return ''
+  }
   const componentBlocks = []
   const pragmaHandlers = {
     interactive(options, value) {

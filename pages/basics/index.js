@@ -1,29 +1,21 @@
 import React from 'react'
-import Head from 'next/head'
-import {withContent} from '../../components/locale'
-import Layout from '../../components/layout'
-import PageSections from '../../components/page-sections'
-import twitterCard from '../../components/twitter-card'
+import DocsPage from '../../components/docs-page'
 
-function Basics({url, content, locale}) {
+function Page({url}) {
   return (
-    <Layout
-      pathname={url ? url.pathname : ''}
-      locale={locale}
-      contributors={content.contributors}
-    >
-      <Head>
-        {twitterCard({
-          card: 'summary',
-          title: `glamorous - ${content.title}`,
-          description: content.heading,
-          pathname: url ? url.pathname : '',
-          locale,
-        })}
-      </Head>
-      <PageSections data={content} />
-    </Layout>
+    <DocsPage
+      url={url}
+      sections={[
+        require('./content/install.md'),
+        require('./content/getting-started.md'),
+        require('./content/core-concepts.md'),
+        require('./content/dynamic-styles.md'),
+        require('./content/animation.md'),
+        require('./content/react-native.md'),
+      ]}
+      pageContent={require('./content/index.md')}
+    />
   )
 }
 
-export default withContent({page: 'basics'}, Basics)
+export default Page

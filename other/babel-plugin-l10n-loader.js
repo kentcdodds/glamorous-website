@@ -7,18 +7,17 @@ const yaml = require('js-yaml')
 const babylon = require('babylon')
 
 const fallbackLang = 'en'
-const {LOCALE: lang = fallbackLang} = process.env
-
+const supportedLocales = ['en', 'fr', 'es']
 
 module.exports = function l10nLoader({template, types: t}) {
-  const buildMarkdownDeclaration = template(`
-    const NAME = {
-      markdown: MARKDOWN
-    }
+  let {LOCALE: lang} = process.env
+  if (!supportedLocales.includes(lang)) {
+    lang = fallbackLang
+  }
+  const buildDataAssignment = template(`
+    const NAME = DATA
   `)
-  const buildJSMonkeyPatch = template(`
-    NAME.meta = META
-  `)
+
   return {
     name: 'babel-plugin-l10n-loader',
     visitor: {
@@ -34,52 +33,76 @@ module.exports = function l10nLoader({template, types: t}) {
           return
         }
         const {node: {specifiers: [specifier]}, node: {source}} = path
-        if (lang !== fallbackLang) {
-          const localePath = source.value.replace('content', `content/${lang}`)
-          if (pathExists.sync(localePath)) {
-            source.value = localePath
-          } else {
-            console.error(
-              `Using fallback for: ${localePath} because that file does not exist`,
-            )
-          }
-        }
-        const dir = p.dirname(p.resolve(filename))
-        const absolutePath = p.resolve(dir, source.value)
-        const projectRelativePath = absolutePath.replace(
-          p.join(__dirname, '..'),
-          '',
-        )
-        const meta = {}
-        let markdownData
-        const isMarkdown = source.value.endsWith('.md')
-        if (isMarkdown) {
-          // replace it with the string value of the markdown file
-          markdownData = getMarkdownData(absolutePath)
-          Object.assign(meta, markdownData.meta)
-        }
-
-        path.insertAfter(
-          buildJSMonkeyPatch({
+        const data = getContentData({filename, source: source.value})
+        path.replaceWith(
+          buildDataAssignment({
             NAME: t.identifier(specifier.local.name),
-            META: toObjectExpression(Object.assign({
-              filename: projectRelativePath,
-              // TODO: let's try to determine whether the translation is outdated and add
-              // some metadata to the content which the website could use to show readers
-              // that the translation may be outdated or missing content.
-            }, meta)),
+            DATA: toObjectExpression(data),
           }),
         )
-        if (isMarkdown) {
-          path.replaceWith(
-            buildMarkdownDeclaration({
-              NAME: t.identifier(specifier.local.name),
-              MARKDOWN: t.stringLiteral(markdownData.markdown),
-            }),
-          )
+      },
+      CallExpression(path, {file: {opts: {filename}}}) {
+        const isContentRequire = looksLike(path.node, {
+          callee: {name: 'require'},
+          arguments: args =>
+            args &&
+            args.length === 1 &&
+            args[0].value &&
+            args[0].value.includes('content'),
+        })
+        if (!isContentRequire) {
+          return
         }
+        const source = path.node.arguments[0].value
+        const data = getContentData({
+          source,
+          filename,
+        })
+        const objExpression = toObjectExpression(data)
+        path.replaceWith(objExpression)
       },
     },
+  }
+
+  function getContentData({source, filename}) {
+    const absolutePath = getAbsolutePathOfContent({source, filename})
+    const projectRelativePath = absolutePath.replace(
+      p.join(__dirname, '..'),
+      '',
+    )
+    const isMarkdown = source.endsWith('.md')
+    const addJs = !isMarkdown && !source.endsWith('.js')
+    const ext = addJs ? '.js' : ''
+    const data = {
+      meta: {
+        filename: `${projectRelativePath}${ext}`,
+        // TODO: let's try to determine whether the translation is outdated and add
+        // some metadata to the content which the website could use to show readers
+        // that the translation may be outdated or missing content.
+      },
+    }
+    if (isMarkdown) {
+      Object.assign(data, getMarkdownData(absolutePath))
+    } else {
+      Object.assign(data, require(absolutePath))
+    }
+    return data
+  }
+
+  function getAbsolutePathOfContent({source, filename}) {
+    const dir = p.dirname(p.resolve(filename))
+    let absolutePath = p.resolve(dir, source)
+    if (lang !== fallbackLang) {
+      const localePath = absolutePath.replace('content', `content/${lang}`)
+      if (pathExists.sync(localePath)) {
+        absolutePath = localePath
+      } else {
+        console.error(
+          `Using fallback for: ${localePath} because that file does not exist`,
+        )
+      }
+    }
+    return absolutePath
   }
 
   function toObjectExpression(object) {
@@ -90,31 +113,30 @@ module.exports = function l10nLoader({template, types: t}) {
 
 function getMarkdownData(absolutePath) {
   const markdownString = fs.readFileSync(absolutePath, 'utf8')
-  let meta = null
+  let data = null
 
-  const result = remark()
-    .use(metadataPlugin)
-    .processSync(markdownString)
+  const result = remark().use(dataPlugin).processSync(markdownString)
 
-  return {
-    markdown: String(result),
-    meta,
-  }
+  return Object.assign(
+    {
+      markdown: String(result),
+    },
+    data,
+  )
 
-  function metadataPlugin() {
+  function dataPlugin() {
     return ast => {
       visit(ast, 'yaml', yamlNode => {
-        if (meta) {
+        if (data) {
           return
         }
-        meta = yaml.load(yamlNode.value)
+        data = yaml.load(yamlNode.value)
         // switch it to an html comment so it doesn't show up when rendered
-        yamlNode.value = `<!-- ${yamlNode.value} -->`
+        yamlNode.value = `<!-- removed yaml -->`
         yamlNode.type = 'html'
       })
     }
   }
-
 }
 
 function looksLike(a, b) {

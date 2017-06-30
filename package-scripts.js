@@ -2,8 +2,19 @@ const npsUtils = require('nps-utils')
 
 const concurrent = npsUtils.concurrent
 const series = npsUtils.series
-const rimraf = npsUtils.rimraf
+// const rimraf = npsUtils.rimraf
 const hiddenFromHelp = true
+
+const supportedLocales = ['en', 'es', 'fr']
+
+const localeBuilds = supportedLocales.reduce((obj, locale) => {
+  const env = `cross-env LOCALE=${locale}`
+  obj[locale] = series(
+    `${env} next build`,
+    `${env} next export -o out/${locale}`
+  )
+  return obj
+}, {})
 
 module.exports = {
   scripts: {
@@ -26,9 +37,12 @@ module.exports = {
     default: 'next start',
     dev: 'next',
     build: {
-      default: 'next build',
-      info: 'node other/get-build-info.js > static/build-info.json',
-      clean: rimraf('.next static/build-info.json'),
+      default: concurrent.nps(
+        ...supportedLocales.map(s => `build.locales.${s}`)
+      ),
+      // info: 'node other/get-build-info.js > static/build-info.json',
+      // clean: rimraf('.next static/build-info.json'),
+      locales: localeBuilds,
     },
     lint: {description: 'lint the entire project', script: 'eslint .'},
     flow: {description: 'flow type-check the entire project', script: 'flow'},

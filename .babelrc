@@ -2,12 +2,12 @@
   "presets": [
     ["env", {
       "targets": {
-        "node": 4.5
+        "node": "8",
+        "browsers": ["last 2 versions"]
       }
     }],
     "stage-2",
     "next/babel",
-    "es2015",
     "react",
     "flow"
   ],

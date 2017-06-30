@@ -6,16 +6,6 @@ const CONTEXT_NAME = '__locale__'
 const supportedLocales = ['en', 'es', 'fr']
 const fallbackLocale = 'en'
 
-class LocaleProvider extends Component {
-  static childContextTypes = {[CONTEXT_NAME]: PropTypes.string}
-  getChildContext() {
-    return {[CONTEXT_NAME]: this.props.locale}
-  }
-  render() {
-    return this.props.children
-  }
-}
-
 function withLocale(Comp) {
   class LocaleComponent extends Component {
     state = {locale: 'en'}
@@ -52,13 +42,12 @@ function withContent(options, Comp) {
     return ContentComponent
   } else {
     const LocaledComponent = withLocale(ContentComponent)
-    // LocaledComponent.getInitialProps = getInitialLocaleProps
     return LocaledComponent
   }
 }
 
-function getInitialLocaleProps({req} = {}) {
-  const {locale} = getLocaleAndHost(req)
+function getInitialLocaleProps() {
+  const {locale} = getLocaleAndHost()
   return Promise.resolve({locale})
 }
 
@@ -124,14 +113,10 @@ function requireContentFile(localePath, options) {
   }
 }
 
-function getLocaleAndHost(req) {
-  const host = req ? req.headers.host : window.location.host
-  const [locale, ...rest] = host.split('.')
-  if (supportedLocales.includes(locale)) {
-    return {locale, host: rest.join('.')}
-  } else {
-    return {locale: 'en', host}
-  }
+function getLocaleAndHost() {
+  const locale = process.env.LOCALE
+  const host = 'rc.glamorous.rocks'
+  return {locale, host}
 }
 
 function findFile(sections, filename) {
@@ -142,7 +127,6 @@ function findFile(sections, filename) {
 }
 
 export {
-  LocaleProvider,
   withLocale,
   withContent,
   getInitialLocaleProps,

@@ -3,7 +3,6 @@ import {css, rehydrate} from 'glamor'
 import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
-import {LocaleProvider} from './locale'
 import Nav from './nav'
 import Footer from './footer'
 import Contributors from './contributors'
@@ -41,20 +40,18 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
 function Layout({pathname, children, contributors}) {
   css.insert(baseStyles())
   return (
-    <LocaleProvider locale={process.env.LOCALE}>
-      <ThemeProvider theme={GlobalStyles}>
-        <Wrapper>
-          <Div position="relative" zIndex={1}>
-            <Div display="flex" justifyContent="flex-end" alignItems="center">
-              <Nav pathname={pathname} />
-            </Div>
-            {children}
-            <Contributors contributors={contributors || []} />
-            <Footer />
+    <ThemeProvider theme={GlobalStyles}>
+      <Wrapper>
+        <Div position="relative" zIndex={1}>
+          <Div display="flex" justifyContent="flex-end" alignItems="center">
+            <Nav pathname={pathname} />
           </Div>
-        </Wrapper>
-      </ThemeProvider>
-    </LocaleProvider>
+          {children}
+          <Contributors contributors={contributors || []} />
+          <Footer />
+        </Div>
+      </Wrapper>
+    </ThemeProvider>
   )
 }
 

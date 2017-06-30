@@ -1,20 +1,8 @@
 ---
 title: Community Examples
-subtitle: Examples by you
+heading: Examples from people just like you!
+note: >
+  If you've got an example of something that you've done with glamorous that
+  doesn't really work on one of the other pages, then please feel free to
+  open a pull request on this page!
 ---
-
-## CSS Grid
-
-The best solution for CSS layout
-
-This demonstrates one way that you could take a reusable component and expose
-a mechanism for overriding styles for components within the component using
-a prop called `styleOverrides`.
-
-The key bit here is passing `styleOverrides` to the `theme` prop of the
-glamorous `ThemeProvider`. Because you may still need to use the `theme`
-for other things, it's nice to namespace these (like this example does).
-
-Then you can write a little helper function (`getStyleOverrides`) to make
-adding this overrides capability to each of your glamorous components.
-It even works with the `css` prop!
