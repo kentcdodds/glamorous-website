@@ -1,3 +1,3 @@
 ---
-title: `glamorous`
+title: '`glamorous`'
 ---

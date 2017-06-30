@@ -1,5 +1,5 @@
 ---
-title: `glamorousComponentFactory`
+title: '`glamorousComponentFactory`'
 ---
 
 Si vous en créez un vous-même ou utilisez l'un des éléments intégrés mentionnés ci-dessus, chaque `glamorousComponentFactory` vous permet de l'appeler avec des styles et vous renvoie un nouveau composant qui aura ces styles appliqués lors de son rendu. Ceci est réalisé par la génération d'un `className` pour les styles donnés et par le transfert du `className` sur l'élément rendu. Donc, si vous enveloppez un composant que vous avez l'intention de styliser, vous devez vous assurer que vous acceptez le `className` comme une prop et que vous l'appliquez à l'endroit où vous voulez que les styles soient appliqués dans votre composant personnalisé (normalement l'élément racine).
