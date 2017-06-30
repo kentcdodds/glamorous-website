@@ -50,6 +50,7 @@ async function deploy(context, sha) {
     '--no-clipboard',
     '--public',
     '--static',
+    `out/${locale}`,
   ])
 
   target_url = getUrl(result)
