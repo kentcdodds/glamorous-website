@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous, {Div} from 'glamorous'
 import {Anchor} from '../components/styled-links'
-import {withContent} from './locale'
+import content from './content/contributors'
 
 const Container = glamorous.div({
   display: 'flex',
@@ -32,15 +32,18 @@ const contributor = username =>
     />
   </Anchor>)
 
-export default withContent({component: 'contributors'}, Contributors)
-function Contributors({content, contributors = []}) {
+export default Contributors
+
+function Contributors({contributors = []}) {
   if (contributors.length === 0) {
     return <noscript />
   }
 
   return (
     <Container>
-      <h3>{content.header}</h3>
+      <h3>
+        {content.header}
+      </h3>
       <Div>
         {contributors.map(contributor)}
       </Div>

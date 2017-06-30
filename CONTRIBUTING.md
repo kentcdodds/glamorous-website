@@ -62,16 +62,9 @@ pre-commit
 
 ### Working with locales
 
-To test locales out, you need to put this in your `hosts` file:
-
-```
-127.0.0.1 en.localhost.dev
-127.0.0.1 es.localhost.dev
-```
-
-Then navigate to `es.localhost.dev:3000` and you should see the Spanish content.
-
-You can replace `es` with any other locale (eg. `127.0.0.1 fr.localhost.dev`)
+To test locales out, start the server with the `LOCALE` environment variable
+set. (For example `LOCALE=fr npm start dev` on Mac or
+`set LOCALE=fr; npm start dev` on windows)
 
 See more documentation about localization in the
 `other/CONTRIBUTING_DOCUMENTATION.md` file.

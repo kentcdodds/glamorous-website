@@ -1,12 +1,14 @@
 import React from 'react'
-import {fallbackLocale} from './locale'
+
+const {fallbackLocale} = require('../config.json')
+
+const {LOCALE: locale} = process.env
 
 function TwitterCard({
   card = 'summary_large_image',
   title = 'Maintainable CSS with React',
   description = 'React component styling solved with an elegant API, small footprint, and great performance',
   pathname,
-  locale,
 }) {
   const urlPrefix = fallbackLocale === locale ? '' : `${locale}.`
   const image = `https://${urlPrefix}glamorous.rocks/static/images/banner.png`

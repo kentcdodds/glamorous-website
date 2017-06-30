@@ -11,7 +11,7 @@ node_js:
 before_install:
   - npm install -g now@^6 await-url@^0.2
 script:
-  - npm start validateAndDeploy
+  - npm start validateAndBuild
 after_success:
   # report code coverage
   - npm install codecov

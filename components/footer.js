@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import Separator from '../components/separator'
-import {withContent} from './locale'
+import content from './content/footer'
 
 const Footer = glamorous.footer((props, theme) => ({
   paddingTop: 10,
@@ -11,9 +11,9 @@ const Footer = glamorous.footer((props, theme) => ({
   background: theme.colors.white,
 }))
 
-export default withContent({component: 'footer'}, PageFooter)
+export default PageFooter
 
-function PageFooter({content}) {
+function PageFooter() {
   return (
     <div>
       <Separator />

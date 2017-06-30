@@ -5,6 +5,7 @@ const spawn = require('cross-spawn')
 const normalizeUrl = require('normalize-url')
 const urlRegex = require('url-regex')
 const awaitUrl = require('await-url')
+const {fallbackLocale} = require('../config.json')
 
 if (!process.env.CI || !process.env.TRAVIS) {
   throw new Error('Could not detect Travis CI environment')
@@ -16,8 +17,11 @@ async function deploy(context, sha) {
     console.log(`▲ Now ${context} deployment is skipped for forks...`)
     return
   }
-  const githubToken = process.env.GH_TOKEN
-  const nowToken = process.env.NOW_TOKEN
+  const {
+    LOCALE: locale,
+    NOW_TOKEN: nowToken,
+    GH_TOKEN: githubToken,
+  } = process.env
 
   if (!githubToken) {
     throw new Error('Missing required environment variable GH_TOKEN')
@@ -45,6 +49,8 @@ async function deploy(context, sha) {
     nowToken,
     '--no-clipboard',
     '--public',
+    '--static',
+    `out/${locale}`,
   ])
 
   target_url = getUrl(result)
@@ -54,11 +60,9 @@ async function deploy(context, sha) {
     description: `▲ Now ${context} deployment build started...`,
   })
 
-  console.log('😴 sleeping for a bit to give the deployment some time to build...')
-  const eightMinutes = 1000 * 60 * 8
-  await sleep(eightMinutes)
-
-  console.log(`🤠 Alrighty, we're going to ping ${target_url} until it's ready!`)
+  console.log(
+    `🤠 Alrighty, deploy started. Now we're going to ping ${target_url} until it's ready!`
+  )
 
   // check on the site for ten minutes every 5 seconds
   await awaitUrl(target_url, {interval: 5000, tries: 120}).catch(err => {
@@ -70,16 +74,7 @@ async function deploy(context, sha) {
   console.log(`💪 it's up and ready!`)
 
   if (isProd) {
-    // if we're production, then we need to alias things
-    console.log(`↪️ We're building for production, so let's alias this!`)
-    await spawnPromise('sh', ['./other/alias.sh'], {
-      env: Object.assign({}, process.env, {
-        NOW_TOKEN: nowToken,
-        NOW_ID: target_url,
-        // TODO: remove the `rc.` when we're ready to release!
-        NOW_ALIAS: 'rc.glamorous.rocks',
-      }),
-    })
+    await aliasDeploy()
   }
 
   console.log('🏁 all done!')
@@ -97,13 +92,30 @@ async function deploy(context, sha) {
   }
 
   function updateStatus(options) {
-    const mergedOptions = Object.assign(
-      {context, target_url},
-      options
-    )
+    const mergedOptions = Object.assign({context, target_url}, options)
     const {description, target_url: url} = mergedOptions
     console.log(`${description}: ${url}`)
-    ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+    if (locale === fallbackLocale) {
+      // we can't report status for more than one locale.
+      ghRepo.status(sha, mergedOptions, logError('setting complete status'))
+    }
+  }
+
+  function aliasDeploy() {
+    // if we're production, then we need to alias things
+    console.log(`↪️ We're building for production, so let's alias this!`)
+    const prefix = locale === fallbackLocale ? '' : `${locale}.`
+    // TODO: remove the `rc` when we're ready to go live
+    const domain = 'rc.glamorous.rocks'
+    const alias = `${prefix}${domain}`
+    const aliasArgs = ['alias', 'set', target_url, alias, '--token', nowToken]
+    safeLog('spawning shell with command:', `now ${aliasArgs.join(' ')}`)
+    return spawnPromise('now', [
+      '--token',
+      nowToken,
+      '--no-clipboard',
+      '--public',
+    ])
   }
 
   function spawnPromise(...args) {
@@ -205,14 +217,6 @@ function logError(message) {
       console.log(message, error)
     }
   }
-}
-
-function sleep(time) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve()
-    }, time)
-  })
 }
 
 // This is not transpiled

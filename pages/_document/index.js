@@ -1,15 +1,15 @@
 import React from 'react'
 import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
-import {getLocaleAndHost, getContent} from '../../components/locale'
 import GoogleAnalytics from '../../components/google-analytics'
 import ConsoleGreet from '../../components/console-greet'
+import content from './content'
 
 export default class MyDocument extends Document {
-  static getInitialProps({req, renderPage}) {
+  static getInitialProps({renderPage}) {
     const page = renderPage()
     const styles = renderStatic(() => page.html)
-    const {locale} = getLocaleAndHost(req)
+    const locale = process.env.LOCALE
     return Promise.resolve({...page, ...styles, locale})
   }
 
@@ -19,13 +19,9 @@ export default class MyDocument extends Document {
     if (ids) {
       __NEXT_DATA__.ids = this.props.ids
     }
-    this.state = {
-      content: getContent(this.props.locale, {page: '_document'}),
-    }
   }
 
   render() {
-    const {content} = this.state
     return (
       <html lang={this.props.locale}>
         <Head>

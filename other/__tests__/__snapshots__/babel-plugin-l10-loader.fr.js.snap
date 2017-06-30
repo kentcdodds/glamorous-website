@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1. babel-plugin-l10n-loader 1`] = `
+"
+/* eslint no-unused-vars:0 */
+import fs from 'fs'
+import content1 from './content'
+import content2 from './content/index.md'
+
+const path = require('path') // no change here
+
+const content3 = require('./content')
+const content4 = require('./content/index.md')
+
+const array = [require('./content'), require('./content/index.md')]
+
+function someFn() {
+  const content5 = require('./content')
+  const content6 = require('./content/index.md')
+  const array2 = [require('./content'), require('./content/index.md')]
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* eslint no-unused-vars:0 */
+import fs from 'fs';
+const content1 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr.js\\" }, \\"title\\": \\"French title\\" };
+const content2 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# french markdown\\\\n\\", \\"title\\": \\"French title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+
+
+const path = require('path'); // no change here
+
+const content3 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr.js\\" }, \\"title\\": \\"French title\\" };
+const content4 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# french markdown\\\\n\\", \\"title\\": \\"French title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+
+const array = [{ \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr.js\\" }, \\"title\\": \\"French title\\" }, { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# french markdown\\\\n\\", \\"title\\": \\"French title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] }];
+
+function someFn() {
+  const content5 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr.js\\" }, \\"title\\": \\"French title\\" };
+  const content6 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# french markdown\\\\n\\", \\"title\\": \\"French title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+  const array2 = [{ \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr.js\\" }, \\"title\\": \\"French title\\" }, { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/fr/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# french markdown\\\\n\\", \\"title\\": \\"French title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] }];
+}
+"
+`;
+
+exports[`console error calls 1`] = `""`;

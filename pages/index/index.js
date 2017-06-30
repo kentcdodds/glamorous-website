@@ -4,12 +4,12 @@ import {LiveProvider, LiveEditor, LiveError} from 'react-live'
 import {LiveContextTypes} from 'react-live/lib/components/Live/LiveProvider'
 import Head from 'next/head'
 import stripIndent from '../../components/utils/strip-indent'
-import {withContent} from '../../components/locale'
 import Layout from '../../components/layout'
 import {Button} from '../../components/styled-links'
 import Hero from '../../components/hero'
 import homePageExample from '../../examples/home-page-example'
 import twitterCard from '../../components/twitter-card'
+import content from './content'
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   position: 'relative',
@@ -110,7 +110,7 @@ function CodePreview({code, tryIt, scope = {glamorous}}) {
   )
 }
 
-function Home({url, content, locale}) {
+function Home({url, locale}) {
   return (
     <Layout pathname={url ? url.pathname : ''} locale={locale}>
       <Head>
@@ -138,4 +138,4 @@ function Home({url, content, locale}) {
   )
 }
 
-export default withContent({page: 'index'}, Home)
+export default Home

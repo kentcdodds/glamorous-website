@@ -1,29 +1,23 @@
 import React from 'react'
-import Head from 'next/head'
-import {withContent} from '../../components/locale'
-import Layout from '../../components/layout'
-import PageSections from '../../components/page-sections'
-import twitterCard from '../../components/twitter-card'
+import DocsPage from '../../components/docs-page'
 
-function Integrations({url, content, locale}) {
+function Page({url}) {
   return (
-    <Layout
-      pathname={url ? url.pathname : ''}
-      locale={locale}
-      contributors={content.contributors}
-    >
-      <Head>
-        {twitterCard({
-          card: 'summary',
-          title: `glamorous - ${content.title}`,
-          description: content.heading,
-          pathname: url ? url.pathname : '',
-          locale,
-        })}
-      </Head>
-      <PageSections data={content} />
-    </Layout>
+    <DocsPage
+      url={url}
+      sections={[
+        require('./content/create-react-app.md'),
+        require('./content/next.md'),
+        require('./content/jest.md'),
+        require('./content/polished.md'),
+        require('./content/styled-system.md'),
+        require('./content/pseudo.md'),
+        require('./content/glamor.md'),
+        require('./content/recompose.md'),
+      ]}
+      pageContent={require('./content/index.md')}
+    />
   )
 }
 
-export default withContent({page: 'integrations'}, Integrations)
+export default Page
