@@ -130,7 +130,14 @@ function getMarkdownData(absolutePath) {
         if (data) {
           return
         }
-        data = yaml.load(yamlNode.value)
+        try {
+          data = yaml.load(yamlNode.value)
+        } catch (error) {
+          console.error(
+            `There was an error parsing the yaml in ${absolutePath}`,
+          )
+          throw error
+        }
         // switch it to an html comment so it doesn't show up when rendered
         yamlNode.value = `<!-- removed yaml -->`
         yamlNode.type = 'html'
