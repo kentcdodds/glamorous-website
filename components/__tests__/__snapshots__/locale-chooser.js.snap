@@ -79,6 +79,7 @@ exports[`closed state 1`] = `
       >
         <glamorous(button)
           aria-label="Change language localization"
+          innerRef={[Function]}
           isOpen={false}
           onClick={[Function]}
         >
@@ -261,6 +262,7 @@ exports[`opened state 1`] = `
 =======
         <glamorous(button)
           aria-label="Change language localization"
+          innerRef={[Function]}
           isOpen={true}
           onClick={[Function]}
 >>>>>>> aria and lang after review

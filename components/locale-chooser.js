@@ -91,10 +91,12 @@ class LocaleChooser extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.clickOutside, true)
+    document.addEventListener('keydown', this.keyDown, true)
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.clickOutside, true)
+    document.removeEventListener('keydown', this.keyDown, true)
   }
 
   toggleOpen = () => {
@@ -110,6 +112,14 @@ class LocaleChooser extends React.Component {
     }
   }
 
+  keyDown = event => {
+    // Close on escape
+    if (this.state.open && event.keyCode === 27) {
+      this.toggleOpen()
+      this.toggle.focus()
+    }
+  }
+
   render() {
     return (
       <Wrapper>
@@ -117,6 +127,9 @@ class LocaleChooser extends React.Component {
           onClick={this.toggleOpen}
           isOpen={this.state.open}
           aria-label={content.ariaLabelButton}
+          innerRef={button => {
+            this.toggle = button
+          }}
         >
           {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
