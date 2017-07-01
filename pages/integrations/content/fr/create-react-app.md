@@ -3,7 +3,4 @@ title: '[`create-react-app`](https://github.com/facebookincubator/create-react-a
 contributors:
   - patitonar
 ---
-
-
-[`Voici`](https://github.com/patitonar/create-react-app-glamorous) un exemple
-d'utilisation de `glamorous` avec `create-react-app`.
+[`Here`](https://github.com/patitonar/create-react-app-glamorous) is an example of using `glamorous` with `create-react-app`.
