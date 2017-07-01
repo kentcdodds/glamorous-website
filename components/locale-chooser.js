@@ -91,20 +91,20 @@ class LocaleChooser extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.clickOutside.bind(this), true)
+    document.addEventListener('click', this.clickOutside, true)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.clickOutside.bind(this), true)
+    document.removeEventListener('click', this.clickOutside, true)
   }
 
-  toggleOpen() {
+  toggleOpen = () => {
     this.setState(prevState => {
       return {open: !prevState.open}
     })
   }
 
-  clickOutside(event) {
+  clickOutside = event => {
     if (this.state.open) {
       event.stopPropagation()
       this.toggleOpen()
@@ -114,7 +114,7 @@ class LocaleChooser extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Toggle onClick={this.toggleOpen.bind(this)} isOpen={this.state.open}>
+        <Toggle onClick={this.toggleOpen} isOpen={this.state.open}>
           {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
         {this.state.open &&
