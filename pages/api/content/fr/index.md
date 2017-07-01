@@ -1,3 +1,3 @@
 ---
-title: API de `glamorous`
+title: '`glamorous` API'
 ---
