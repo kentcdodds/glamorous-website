@@ -1,15 +1,13 @@
 ---
-title: Animación
+title: Animation
 codeSandboxId: 31VMyP7XO
 ---
-
-Para hacer animaciones con glamorous, puedes usar las transiciones regulares de CSS para cosas sencillas,
-y para cosas más avanzadas, puedes usar `keyframes` a través de la API `css.keyframes` de `glamor`.
+To do animation with glamorous, you can use regular CSS transitions for simple things, and for more advanced stuff, you can use `keyframes` via `glamor`'s `css.keyframes` API.
 
 ```interactive
 // import * as glamor from 'glamor'
 
-// Definimos los estilos de animación
+// Define the animation styles
 const animationStyles = props => {
   const bounce = glamor.css.keyframes({
     '0%': { transform: `scale(1.01)` },
@@ -18,7 +16,7 @@ const animationStyles = props => {
   return {animation: `${bounce} 0.2s infinite ease-in-out alternate`}
 }
 
-// Definimos el elemento
+// Define the element
 const AnimatedDiv = glamorous.div(animationStyles)
 
 render(
