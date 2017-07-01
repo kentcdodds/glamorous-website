@@ -1,3 +1,3 @@
 ---
-title: Conceptos básicos
+title: Core Concepts
 ---
