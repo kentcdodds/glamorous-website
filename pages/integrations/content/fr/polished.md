@@ -4,8 +4,7 @@ codeSandboxId: 9Qo9kMgRZ
 contributors:
   - bhough
 ---
-
-`glamorous` fonctionne avec les mixins, les helpers et les raccourcis de `✨ polished` :
+`glamorous` works with `✨ polished` mixins, helpers, and shorthands:
 
 ```js
 const MyStyledParagraph = glamorous.p({
@@ -14,7 +13,7 @@ const MyStyledParagraph = glamorous.p({
 })
 ```
 
-Vous pouvez aussi utiliser l'[opérateur de décomposition](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition) sur les propriétés d'un objet pour appliquer des mixins de ✨ polished plus complexes directement sur des composants glamorous :
+You can also use object spread properties to apply more complex ✨ polished mixins directly onto glamorous components:
 
 ```js
 function GlamorousLogo() {
