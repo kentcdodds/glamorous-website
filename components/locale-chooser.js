@@ -75,7 +75,12 @@ const localeContent = ({display, Flag}) =>
 
 const localeItem = ({key, display, Flag}) =>
   (<Item key={key}>
-    <Link href={localeToHref(key)}>
+    <Link
+      href={localeToHref(key)}
+      aria-label={
+        key === 'help' ? display : `Change localization to ${display}`
+      }
+    >
       {localeContent({Flag, display})}
     </Link>
   </Item>)
@@ -137,19 +142,19 @@ function mapLocale(key) {
       return {
         key,
         display: 'English',
-        Flag: <EnSvg {...svgStyle} />,
+        Flag: <EnSvg alt="English" {...svgStyle} />,
       }
     case 'es':
       return {
         key,
         display: 'Español',
-        Flag: <EsSvg {...svgStyle} />,
+        Flag: <EsSvg alt="Español" {...svgStyle} />,
       }
     case 'fr': {
       return {
         key,
         display: 'Français',
-        Flag: <FrSvg {...svgStyle} />,
+        Flag: <FrSvg alt="Français" {...svgStyle} />,
       }
     }
     case 'de': {

@@ -299,18 +299,22 @@ exports[`opened state 1`] = `
                 className="css-1uz022"
               >
                 <glamorous(a)
+                  aria-label="Change localization to English"
                   href="about://undefinedblank"
                 >
                   <a
+                    aria-label="Change localization to English"
                     className="css-1c1bzyg"
                     href="about://undefinedblank"
                   >
                     <div>
                       <EnSvg
+                        alt="English"
                         height="100%"
                         width="1em"
                       >
                         <svg
+                          alt="English"
                           height="100%"
                           viewBox="0 0 640 480"
                           width="1em"
@@ -359,18 +363,22 @@ exports[`opened state 1`] = `
                 className="css-1uz022"
               >
                 <glamorous(a)
+                  aria-label="Change localization to Español"
                   href="about://es.undefinedblank"
                 >
                   <a
+                    aria-label="Change localization to Español"
                     className="css-1c1bzyg"
                     href="about://es.undefinedblank"
                   >
                     <div>
                       <EsSvg
+                        alt="Español"
                         height="100%"
                         width="1em"
                       >
                         <svg
+                          alt="Español"
                           height="100%"
                           viewBox="0 0 640 480"
                           width="1em"
@@ -3390,18 +3398,22 @@ exports[`opened state 1`] = `
                 className="css-1uz022"
               >
                 <glamorous(a)
+                  aria-label="Change localization to Français"
                   href="about://fr.undefinedblank"
                 >
                   <a
+                    aria-label="Change localization to Français"
                     className="css-1c1bzyg"
                     href="about://fr.undefinedblank"
                   >
                     <div>
                       <FrSvg
+                        alt="Français"
                         height="100%"
                         width="1em"
                       >
                         <svg
+                          alt="Français"
                           height="100%"
                           viewBox="0 0 640 480"
                           width="1em"
@@ -3440,9 +3452,11 @@ exports[`opened state 1`] = `
                 className="css-1uz022"
               >
                 <glamorous(a)
+                  aria-label="Help Translate"
                   href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                 >
                   <a
+                    aria-label="Help Translate"
                     className="css-1c1bzyg"
                     href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                   >
