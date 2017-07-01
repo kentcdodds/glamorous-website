@@ -1,13 +1,9 @@
 ---
-title: Styles dynamiques + Styles statiques
+title: Dynamic Styles + Static Styles
 ---
+One of the nice bits of glamorous is that it allows you to make a clear separation between your dynamic and static styles by forcing you to choose between an object literal and a function. Here's an example of having both dynamic and static styles:
 
-Un des points agréables de glamorous, c'est qu'il vous permet de faire une séparation
-claire entre vos styles dynamiques et statiques en vous forçant à choisir
-entre un objet littéral et une fonction. Voici un exemple ayant à la fois
-des styles dynamiques et statiques :
-
-~~~js
+```js
 const MyLink = glamorous.a(
   {
     color: 'blue',
@@ -16,18 +12,17 @@ const MyLink = glamorous.a(
   ({size = 'small'}) => ({
     fontSize: size === 'big' ? 24 : 16,
   }),
-  // vous pouvez continuer de fournir un nombre quelconque d'arguments
-  // et ~glamor~ les fusionnera. En cas de conflit de
-  // style, le dernier gagne.
+  // you can continue to provide any number of arguments
+  // and `glamor` will merge them. In the event of a
+  // style conflict, the last one wins.
 )
-~~~
+```
 
-Vous pouvez voir un aperçu en direct de cet exemple sur [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
+You can see a live preview of this example on [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
 
-<details>
-<summary>Remarquez que vous pouvez également utiliser des tableaux de styles si vous en avez besoin :</summary>
+<details> <summary>Note, you can also use arrays of styles if you need:</summary>
 
-~~~js
+```js
 const MyDiv = glamorous.div(
   [
     {
@@ -37,7 +32,7 @@ const MyDiv = glamorous.div(
     },
     {
       [phoneMediaQuery]: {
-        lineHeight: 1.3, // celui-ci gagnera car il vient après
+        lineHeight: 1.3, // this will win because it comes later
       },
     },
   ],
@@ -61,12 +56,12 @@ const MyDiv = glamorous.div(
         borderRadius: '50%',
       },
     }
-    // remarquez que je retourne ici un tableau
+    // note that I'm returning an array here
     return [bigStyles, squareStyles]
   },
 )
 
-// le résultat de <MyDiv big={true} square={false} /> sera :
+// result of <MyDiv big={true} square={false} /> will be:
 // @media (max-width: 640px) {
 //   .css-1bzhvkr,
 //   [data-css-1bzhvkr] {
@@ -79,6 +74,6 @@ const MyDiv = glamorous.div(
 // <div
 //   class="css-1bzhvkr"
 // />
-~~~
+```
 
 </details>
