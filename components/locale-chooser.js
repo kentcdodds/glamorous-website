@@ -20,7 +20,6 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   border: `1px solid ${colors.primaryMed}`,
   textAlign: 'left',
   padding: '3px 10px',
-  outline: 'none',
   display: 'block',
   fontSize: '1em',
   width: '100%',
@@ -52,9 +51,6 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   backgroundColor: colors.white,
   lineHeight: 1,
   transition: 'all .3s',
-  '&:focus, &:hover, &:active': {
-    backgroundColor: colors.primaryMed,
-  },
   [mediaQueries.smallOnly]: {
     textAlign: 'center',
   },
@@ -64,15 +60,17 @@ const Link = glamorous.a((props, {colors}) => ({
   width: '100%',
   padding: '6px 10px',
   transition: 'all .3s',
+  outline: 'none',
   '&:focus, &:hover, &:active': {
     textDecoration: 'none',
     color: colors.white,
+    backgroundColor: colors.primaryMed,
   },
 }))
 
-const localeContent = ({display, Flag = () => null}) =>
+const localeContent = ({display, Flag}) =>
   (<div>
-    <Flag {...svgStyle} /> <span>{display}</span>
+    {Flag} <span>{display}</span>
   </div>)
 
 const localeItem = ({key, display, Flag}) =>
@@ -112,7 +110,7 @@ export default LocaleChooser
 
 function localeToHref(locale) {
   if (supportedLocales.includes(locale)) {
-    const {host} = getLocaleAndHost()
+    const {host} = getHost()
     const {protocol, pathname, hash, search} = window.location
     const prefix = fallbackLocale === locale ? '' : `${locale}.`
     return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
@@ -121,48 +119,57 @@ function localeToHref(locale) {
   return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
-function getLocaleAndHost() {
+function getHost() {
   const locale = process.env.LOCALE
   const {host} = window.location
-  // eslint-disable-next-line no-unused-vars
   const [localePart, ...rest] = host.split('.')
   if (supportedLocales.includes(locale) || localePart !== locale) {
-    return {locale, host: rest.join('.')}
+    return rest.join('.')
   } else {
-    return {locale: fallbackLocale, host}
+    return host
   }
 }
 
-function mapLocale(key = fallbackLocale) {
-  const localeMap = {
-    en: {
-      key,
-      display: 'English',
-      Flag: EnSvg,
-    },
-    es: {
-      key,
-      display: 'Español',
-      Flag: EsSvg,
-    },
-    fr: {
-      key,
-      display: 'Français',
-      Flag: FrSvg,
-    },
-    de: {
-      key,
-      display: 'Deutsche',
-      Flag: DeSvg,
-    },
-    help: {
-      key,
-      display: content.help,
-    },
+function mapLocale(key) {
+  const svgStyle = {width: '1em', height: '100%'}
+  switch (key) {
+    case 'en':
+      return {
+        key,
+        display: 'English',
+        Flag: <EnSvg {...svgStyle} />,
+      }
+    case 'es':
+      return {
+        key,
+        display: 'Español',
+        Flag: <EsSvg {...svgStyle} />,
+      }
+    case 'fr': {
+      return {
+        key,
+        display: 'Français',
+        Flag: <FrSvg {...svgStyle} />,
+      }
+    }
+    case 'de': {
+      return {
+        key,
+        display: 'Deutsche',
+        Flag: <DeSvg {...svgStyle} />,
+      }
+    }
+    case 'help': {
+      return {
+        key,
+        display: content.help,
+      }
+    }
     default: {
-      key,
-      display: key,
-    },
+      return {
+        key,
+        display: key,
+      }
+    }
   }
-  return localeMap[key] || localeMap.default
 }
