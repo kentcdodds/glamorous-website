@@ -57,7 +57,7 @@ function CodePreview() {
 
 function Page({url}) {
   return (
-    <Layout pathname={url ? url.pathname : ''}>
+    <Layout pathname={url ? url.pathname : ''} topNav={true}>
       <Head>
         {twitterCard({
           card: 'summary',
