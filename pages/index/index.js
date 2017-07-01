@@ -110,16 +110,15 @@ function CodePreview({code, tryIt, scope = {glamorous}}) {
   )
 }
 
-function Home({url, locale}) {
+function Home({url}) {
   return (
-    <Layout pathname={url ? url.pathname : ''} locale={locale}>
+    <Layout pathname={url ? url.pathname : ''} topNav={true}>
       <Head>
         {twitterCard({
           card: 'summary_large_image',
           title: content.tagline,
           description: content.twitterDescription,
           pathname: url ? url.pathname : '',
-          locale,
         })}
       </Head>
       <Hero>

@@ -3,7 +3,7 @@ import React from 'react'
 import Head from 'next/head'
 import glamorous, {Div} from 'glamorous'
 import slugify from 'slugify'
-import Hero from './hero'
+import {Title} from './hero'
 import Layout from './layout'
 import twitterCard from './twitter-card'
 import interactiveMarkdown from './interactive-markdown'
@@ -25,7 +25,7 @@ const PageWrapper = glamorous.div((props, {colors}) => ({
   '& > h3': {
     width: '100%',
     margin: '20px auto',
-    maxWidth: '50rem',
+    maxWidth: '70rem',
   },
   '& svg': {
     fill: `${colors.primary}`,
@@ -62,10 +62,20 @@ function DocsPage({url, pageContent = {}, sections = []}) {
 function PageSections({title, note, heading, sections}) {
   return (
     <Div>
-      <Hero dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
       <PageWrapper>
-        <h3 dangerouslySetInnerHTML={{__html: mdToHTML(heading)}} />
-        <Div maxWidth="50rem" margin="auto">
+        <Title dangerouslySetInnerHTML={{__html: mdToHTML(title)}} />
+        <Div
+          maxWidth="70rem"
+          margin="auto"
+          dangerouslySetInnerHTML={{__html: mdToHTML(heading)}}
+        />
+        <Div
+          maxWidth="70rem"
+          margin="20px auto"
+          borderLeft="3px solid"
+          paddingLeft={20}
+          opacity={0.8}
+        >
           {interactiveMarkdown(note)}
         </Div>
         {sections.map(section =>
@@ -84,7 +94,7 @@ function DocSection(props) {
     width: '100%',
     margin: '20px auto',
     paddingBottom: 20,
-    maxWidth: '50rem',
+    maxWidth: '70rem',
   }))
 
   return (

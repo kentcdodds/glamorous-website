@@ -63,6 +63,7 @@ exports[`closed state 1`] = `
       "mediaQueries": Object {
         "largeOnly": "@media only screen and (min-width: 1025px and (min-width: 1224px)",
         "largeUp": "@media only screen and (min-width: 1025px)",
+        "mediumDown": "@media only screen and (max-width: 480px)",
         "mediumOnly": "@media only screen and (min-width: 481px and (min-width: 1024px)",
         "mediumUp": "@media only screen and (min-width: 481px)",
         "smallOnly": "@media only screen and (max-width: 480px)",
@@ -238,6 +239,7 @@ exports[`opened state 1`] = `
       "mediaQueries": Object {
         "largeOnly": "@media only screen and (min-width: 1025px and (min-width: 1224px)",
         "largeUp": "@media only screen and (min-width: 1025px)",
+        "mediumDown": "@media only screen and (max-width: 480px)",
         "mediumOnly": "@media only screen and (min-width: 481px and (min-width: 1024px)",
         "mediumUp": "@media only screen and (min-width: 481px)",
         "smallOnly": "@media only screen and (max-width: 480px)",

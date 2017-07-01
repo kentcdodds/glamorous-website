@@ -56,6 +56,7 @@ export const fonts = {
 export const mediaQueries = {
   smallUp: `@media ${screen}`,
   smallOnly: `@media ${screen} and (max-width: ${upperSmallRange}px)`,
+  mediumDown: `@media ${screen} and (max-width: ${lowerMediumRange - 1}px)`,
   mediumUp: `@media ${screen} and (min-width: ${lowerMediumRange}px)`,
   mediumOnly: `@media ${screen} and (min-width: ${lowerMediumRange}px and (min-width: ${upperMediumRange}px)`,
   largeUp: `@media ${screen} and (min-width: ${lowerLargeRange}px)`,

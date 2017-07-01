@@ -37,18 +37,25 @@ const Wrapper = glamorous.div((props, {fonts, colors}) => ({
   },
 }))
 
-function Layout({pathname, children, contributors}) {
+function Layout({pathname, children, contributors, topNav = false}) {
   css.insert(baseStyles())
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper>
-        <Div position="relative" zIndex={1}>
-          <Div display="flex" justifyContent="flex-end" alignItems="center">
-            <Nav pathname={pathname} />
+        <Div position="relative" zIndex={1} display={topNav ? null : 'flex'}>
+          <Div
+            display="flex"
+            justifyContent={topNav ? 'flex-end' : 'flex-start'}
+            alignItems="center"
+            flexDirection={topNav ? 'row' : 'column'}
+          >
+            <Nav pathname={pathname} top={topNav} />
           </Div>
-          {children}
-          <Contributors contributors={contributors || []} />
-          <Footer />
+          <Div flex="1">
+            {children}
+            <Contributors contributors={contributors || []} />
+            <Footer />
+          </Div>
         </Div>
       </Wrapper>
     </ThemeProvider>
