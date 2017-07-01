@@ -1,19 +1,14 @@
 ---
-title: Optimisation de la taille du paquet
+title: Optimizing Bundle Size
 ---
+If your use case is really size constrained, then you might consider using the "tiny" version of glamorous for your application. It is a miniature version of `glamorous` with a few limitations:
 
-Si pour votre cas d'utilisation, la taille est vraiment une contrainte, alors vous pourriez envisager d'utiliser la "minuscule" version de glamorous pour votre application.
-C'est une version miniature de `glamorous` avec quelques restrictions :
+  1. No built-in component factories (`glamorous.article({/* styles */ })`) So you have to create your own (`glamorous('article')({/* styles */ })`)
+  2. No built-in glamorous components (`glamorous.Span`)
+  3. No props filtering for dynamic styles, instead, you place them on a special `glam` prop (see the example below).
+  4. If you need `ThemeProvider` or `withTheme`, you must import those manually. They are not exported as part of `glamorous/ tiny` like they are with `glamorous`.
 
-1. Aucune fabrique de composant intégrée (`glamorous.article({/* styles */ }) `)
-  Donc, vous devez créer les votres (`glamorous('article')({/* styles */ }) `)
-2. Aucun composant intégré de glamorous (`glamorous.Span`)
-3. Aucune prop de filtrage pour les styles dynamiques, au lieu de cela, vous les placerez sur une
-  prop `glam` (voir l'exemple ci-dessous).
-4. Si vous avez besoin de `ThemeProvider` ou de `withTheme`, vous devrez les importer manuellement.
-  Ils ne sont pas exportés comme faisant partie de `glamorous/ tiny` à l'inverse de `glamorous`.
-
-Voici un exemple de ce que vous pouvez faire avec lui.
+Here's an example of what you're able to do with it.
 
 ```jsx
 import React from 'react'
@@ -38,27 +33,19 @@ function Root() {
 export default Root
 ```
 
-```callout {title: 'Expérience améliorée', type: 'success'}
-Il est recommandé d'utiliser soit
-[`babel-plugin-module-resolver`](https://github.com/tleunen/babel-plugin-module-resolver)
-ou le [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolve-alias)
-de config avec webpack afin de ne pas
-importer depuis ce chemin complet.
+```callout {title: 'Improved Experience', type: 'success'} It's recommended to use either [`babel-plugin-module-resolver`](https://github.com/tleunen/babel-plugin-module-resolver) or the [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolve-alias) config with webpack so you don't have to import from that full path.
 
-Vous disposez des options disponibles suivantes pour cette importation :
+You have the following options available for this import:
 
-1. `glamorous/dist/glamorous.es.tiny.js` - à utiliser si vous utilisez Webpack@>=2 ou Rollup
-2. `glamorous/dist/glamorous.cjs.tiny.js` - à utiliser si vous n'utilisez pas la transpilation ESModules
-3. `glamorous/dist/glamorous.umd.tiny.js` - à utiliser si vous l'incluez dans un balise script. (Il y a aussi une version `.min.js`).
+  1. `glamorous/dist/glamorous.es.tiny.js` - use if you're using Webpack@>=2 or Rollup
+  2. `glamorous/dist/glamorous.cjs.tiny.js` - use if you're not transpiling ESModules
+  3. `glamorous/dist/glamorous.umd.tiny.js` - use if you're including it as a script tag. (There's also a `.min.js` version).
 
-```
-
-La taille actuelle de `glamorous/dist/glamorous.umd.tiny.min.js` est : [![tiny size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?label=size&style=flat-square)](https://unpkg.com/glamorous/dist/)
-[![tiny gzip size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?compression=gzip&label=gzip%20size&style=flat-square)](https://unpkg.com/glamorous/dist/)
-
-```callout {title: 'Remarque importante', type: 'warning'}
-Comme `glamorous` dépend de `glamor`, si vous n'avez pas encore `glamor`, vous devrez tenir compte
-de la taille globale en l'ajoutant à votre application.
-La taille actuelle de `glamor/umd/index.min.js` est : [![glamor size](http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?label=size&style=flat-square)](https://unpkg.com/glamor/umd/)
-[![glamor gzip size](http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?compression=gzip&label=gzip%20size&style=flat-square)][unpkg-glamor]
-```
+    <br />The current size of `glamorous/dist/glamorous.umd.tiny.min.js` is: [![tiny size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?label=size&style=flat-square)](https://unpkg.com/glamorous/dist/)
+    [![tiny gzip size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?compression=gzip&label=gzip%20size&style=flat-square)](https://unpkg.com/glamorous/dist/)
+    
+    ```callout {title: 'Important note', type: 'warning'}
+    Because `glamorous` depends on `glamor`, you should consider the full size you'll be adding
+    to your application if you don't already have `glamor`.
+    The current size of `glamor/umd/index.min.js` is: [![glamor size](http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?label=size&style=flat-square)](https://unpkg.com/glamor/umd/)
+    [![glamor gzip size](http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?compression=gzip&label=gzip%20size&style=flat-square)][unpkg-glamor]
