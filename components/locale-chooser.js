@@ -104,19 +104,16 @@ class LocaleChooser extends React.Component {
     })
   }
 
-  clickOutside() {
+  clickOutside(event) {
     if (this.state.open) {
+      event.stopPropagation()
       this.toggleOpen()
     }
   }
 
   render() {
     return (
-      <Wrapper
-        ref={node => {
-          this.node = node
-        }}
-      >
+      <Wrapper>
         <Toggle onClick={this.toggleOpen.bind(this)} isOpen={this.state.open}>
           {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
