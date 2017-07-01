@@ -1,6 +1,6 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import content from './content/locale-chooser'
+import content from './content/locale-chooser.md'
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'

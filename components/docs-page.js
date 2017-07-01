@@ -13,7 +13,7 @@ import {Anchor} from './styled-links'
 import GitHubSVG from './svgs/github.svg'
 import LinkSVG from './svgs/link.svg'
 import mdToHTML from './utils/md-to-html'
-import content from './content/page-sections'
+import content from './content/page-sections.md'
 
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'

@@ -5,7 +5,7 @@ import LipstickIcon from './lipstick-icon'
 import Separator from './separator'
 import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
-import content from './content/nav'
+import content from './content/nav.md'
 
 const Navbar = glamorous.nav((props, {mediaQueries}) => ({
   width: '100%',

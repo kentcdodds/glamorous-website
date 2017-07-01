@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import Separator from '../components/separator'
-import content from './content/footer'
+import content from './content/footer.md'
 
 const Footer = glamorous.footer((props, theme) => ({
   paddingTop: 10,

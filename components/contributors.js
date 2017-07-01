@@ -1,7 +1,7 @@
 import React from 'react'
 import glamorous, {Div} from 'glamorous'
 import {Anchor} from '../components/styled-links'
-import content from './content/contributors'
+import content from './content/contributors.md'
 
 const Container = glamorous.div({
   display: 'flex',
