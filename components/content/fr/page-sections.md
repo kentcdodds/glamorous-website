@@ -1,3 +1,3 @@
 ---
-edit: 'Modifier'
+edit: Edit
 ---
