@@ -1,20 +1,20 @@
 ---
 title: TypeScript
-subtitle: Utilisation des définitions TypeScript de `glamorous`
+subtitle: Using the `glamorous` TypeScript definitions
 ---
+The current bundled typescript definitions are incomplete and based around the needs of the developers who contributed them.
 
-Les définitions TypeScript actuelles sont incomplètes et reposent sur les besoins des développeurs qui ont contribué.
+Pull requests to improve them are welcome and appreciated. If you've never contributed to open source before, then you may find this [free video course](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) helpful.
 
-Les pull requests pour les améliorer sont les bienvenues et appréciées. Si vous n'avez jamais contribué à l'open source, vous pouvez consulter cette [vidéo gratuite](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) qui est très utile.
-
-## Support complet
+## Complete support
 
 ### Config
-- [x] useDisplayNameInClassName
 
-### Styles dynamiques
+* [x] useDisplayNameInClassName
 
-Pour utiliser des styles dynamiques avec des props personnalisées, utilisez des génériques. Exemple:
+### Dynamic styles
+
+To use dynamic styles with custom props use generics. Example:
 
 ```javascript
 const MyStyledDiv = glamorous.div<{noPadding?: boolean}>(
@@ -26,44 +26,44 @@ const MyStyledDiv = glamorous.div<{noPadding?: boolean}>(
   })
 )
 
-<MyStyledDiv /> // styles appliqués : {margin: 1, padding: 4}
-<MyStyledDiv noPadding /> // styles appliqués : {margin: 1, padding: 0}
+<MyStyledDiv /> // styles applied: {margin: 1, padding: 4}
+<MyStyledDiv noPadding /> // styles applied: {margin: 1, padding: 0}
 ```
 
-## Support incomplet
+## Incomplete support
 
-### Sécurité de propriété CSS
+### CSS property safety
 
-* les pseudo-classes
-* les pseudo-éléments
-* les sélecteurs de CSS relationnels
-* Les Media Queries
+* pseudo-class
+* pseudo-element
+* Relational CSS Selectors
+* Media Queries
 
-Toutes celles-là fonctionnent, cependant, vous obtenez seulement une sûreté du typage et la capacité d'utiliser intelliSense sur les simples clés CSS des props (voir le [typage css](https://github.com/paypal/glamorous/blob/master/typings/css-properties.d.ts)).
+All of these work, however you only get typesafety and intellisense on simple css key props (see the [css typings](https://github.com/paypal/glamorous/blob/master/typings/css-properties.d.ts)).
 
-Dans l'avenir cela pourra devenir possible avec [Microsoft/TypeScript#6579](https://github.com/Microsoft/TypeScript/issues/6579)
+In the future this may become possible with [Microsoft/TypeScript#6579](https://github.com/Microsoft/TypeScript/issues/6579)
 
-Alternativement le support complet pour la sûreté du typage serait possible à l'aide de patterns qui suivent les grandes lignes décrites par http://typestyle.io/.
+Alternatively support for full typesafety would be possible using patterns along the lines of http://typestyle.io/.
 
-### Fabrique de composant du DOM
+### Built-in DOM component factories
 
-Le support actuel est limité à `div` et `svg`.
+Currently support is limited to `div` and `svg`.
 
-## Support inconnu
+## Unknown Support
 
 ### Animations
 
-Support possible via [les typages de glamors](https://github.com/threepointone/glamor/blob/master/index.d.ts)
+Possible support via [glamors typings](https://github.com/threepointone/glamor/blob/master/index.d.ts)
 
-## Aucun support
+## No Support
 
-* GlamorousComponents
+* built-in GlamorousComponents
 
-## Problèmes connus
+## Known Issues
 
-### Generation des fichiers de définition
+### Generating Definition files
 
-Lorsque vous utilisez glamorous dans une bibliothèque qui vous génére des fichiers de définition vous devrez inclure l'import et l'export suivants pour contourner un problème de typescript [Microsoft/TypeScript/issues/5938](https://github.com/Microsoft/TypeScript/issues/5938).
+When using glamorous in a library that you are generating definition files for you will need to include the following import and export to get around a typescript issue [Microsoft/TypeScript/issues/5938](https://github.com/Microsoft/TypeScript/issues/5938).
 
 ```javascript
 import glamorous, { ExtraGlamorousProps as Unused } from "glamorous"
