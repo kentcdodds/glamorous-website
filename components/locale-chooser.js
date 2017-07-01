@@ -89,12 +89,16 @@ const localeItem = (parent, {key, display, Flag}) =>
 class LocaleChooser extends React.Component {
   state = {
     open: false,
-    locales: [...supportedLocales, 'help'].map(mapLocale),
+    locales: [],
   }
 
   componentDidMount() {
     document.addEventListener('click', this.click, true)
     document.addEventListener('keydown', this.keyDown, true)
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState(() => {
+      return {locales: [...supportedLocales, 'help'].map(mapLocale)}
+    })
   }
 
   componentWillUnmount() {
