@@ -69,7 +69,7 @@ const Link = glamorous.a((props, {colors}) => ({
 }))
 
 const localeContent = ({display, Flag}) =>
-  (<div>
+  (<div aria-hidden="true">
     {Flag} <span>{display}</span>
   </div>)
 
@@ -77,9 +77,8 @@ const localeItem = ({key, display, Flag}) =>
   (<Item key={key}>
     <Link
       href={localeToHref(key)}
-      aria-label={
-        key === 'help' ? display : `Change localization to ${display}`
-      }
+      lang={key === 'help' ? null : key}
+      aria-label={display}
     >
       {localeContent({Flag, display})}
     </Link>
@@ -114,11 +113,15 @@ class LocaleChooser extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Toggle onClick={this.toggleOpen} isOpen={this.state.open}>
+        <Toggle
+          onClick={this.toggleOpen}
+          isOpen={this.state.open}
+          aria-label={content.ariaLabelButton}
+        >
           {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
         {this.state.open &&
-          <List aria-label="Locale selector">
+          <List aria-label={content.ariaLabelList}>
             {supportedLocales.map(l => localeItem(mapLocale(l)))}
             {localeItem(mapLocale('help'))}
           </List>}
@@ -151,25 +154,25 @@ function getHost() {
 }
 
 function mapLocale(key) {
-  const svgStyle = {width: '1em', height: '100%'}
+  const options = {width: '1em', height: '100%'}
   switch (key) {
     case 'en':
       return {
         key,
         display: 'English',
-        Flag: <EnSvg alt="English" {...svgStyle} />,
+        Flag: <EnSvg {...options} />,
       }
     case 'es':
       return {
         key,
         display: 'Español',
-        Flag: <EsSvg alt="Español" {...svgStyle} />,
+        Flag: <EsSvg {...options} />,
       }
     case 'fr': {
       return {
         key,
         display: 'Français',
-        Flag: <FrSvg alt="Français" {...svgStyle} />,
+        Flag: <FrSvg {...options} />,
       }
     }
     case 'de': {
