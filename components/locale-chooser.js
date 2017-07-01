@@ -50,7 +50,6 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   margin: 0,
   backgroundColor: colors.white,
   lineHeight: 1,
-  transition: 'all .3s',
   [mediaQueries.smallOnly]: {
     textAlign: 'center',
   },
@@ -59,7 +58,7 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
 const Link = glamorous.a((props, {colors}) => ({
   width: '100%',
   padding: '6px 10px',
-  transition: 'all .3s',
+  transition: 'color .3s, background-color .3s',
   outline: 'none',
   '&:focus, &:hover, &:active': {
     textDecoration: 'none',
@@ -73,12 +72,15 @@ const localeContent = ({display, Flag}) =>
     {Flag} <span>{display}</span>
   </div>)
 
-const localeItem = ({key, display, Flag}) =>
+const localeItem = (parent, {key, display, Flag}) =>
   (<Item key={key}>
     <Link
       href={localeToHref(key)}
       lang={key === 'help' ? null : key}
       aria-label={display}
+      innerRef={a => {
+        parent[`link-${key}`] = a
+      }}
     >
       {localeContent({Flag, display})}
     </Link>
@@ -87,6 +89,7 @@ const localeItem = ({key, display, Flag}) =>
 class LocaleChooser extends React.Component {
   state = {
     open: false,
+    locales: [...supportedLocales, 'help'].map(mapLocale),
   }
 
   componentDidMount() {
@@ -97,6 +100,12 @@ class LocaleChooser extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('click', this.click, true)
     document.removeEventListener('keydown', this.keyDown, true)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.open && !prevState.open) {
+      this['link-en'].focus()
+    }
   }
 
   toggleOpen = () => {
@@ -132,11 +141,12 @@ class LocaleChooser extends React.Component {
         >
           {localeContent(mapLocale(process.env.LOCALE))}
         </Toggle>
-        {this.state.open &&
-          <List aria-label={content.ariaLabelList}>
-            {supportedLocales.map(l => localeItem(mapLocale(l)))}
-            {localeItem(mapLocale('help'))}
-          </List>}
+        <List
+          aria-label={content.ariaLabelList}
+          css={{visibility: this.state.open ? 'visible' : 'collapse'}}
+        >
+          {this.state.locales.map(l => localeItem(this, l))}
+        </List>
       </Wrapper>
     )
   }
