@@ -90,12 +90,12 @@ class LocaleChooser extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.clickOutside, true)
+    document.addEventListener('click', this.click, true)
     document.addEventListener('keydown', this.keyDown, true)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.clickOutside, true)
+    document.removeEventListener('click', this.click, true)
     document.removeEventListener('keydown', this.keyDown, true)
   }
 
@@ -105,9 +105,8 @@ class LocaleChooser extends React.Component {
     })
   }
 
-  clickOutside = event => {
-    if (this.state.open) {
-      event.stopPropagation()
+  click = event => {
+    if (!this.toggle.contains(event.target) && this.state.open) {
       this.toggleOpen()
     }
   }
