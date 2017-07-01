@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`1. babel-plugin-l10n-loader 1`] = `
+exports[`1. l10n-loader 1`] = `
 "
 /* eslint no-unused-vars:0 */
 import fs from 'fs'

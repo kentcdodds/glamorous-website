@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1. val-loader 1`] = `
+"
+/* eslint no-unused-vars:0 */
+import val1 from './load-data.val'
+
+const val2 = require('./load-data.val')
+
+const array = [require('./load-data.val')]
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* eslint no-unused-vars:0 */
+const val1 = 'Hello world!';
+
+
+const val2 = 'Hello world!';
+
+const array = ['Hello world!'];
+"
+`;
