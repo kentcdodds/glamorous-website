@@ -1,4 +1,4 @@
 ---
-title: Intégrations
-heading: Intégrer des choses avec `glamorous`
+title: Integrations
+heading: Integrating things with `glamorous`
 ---
