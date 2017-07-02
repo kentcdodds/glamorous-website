@@ -32,12 +32,14 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
 
 const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   display: 'flex',
-  position: 'absolute',
   flexDirection: 'column',
   padding: 0,
   margin: 0,
   opacity: '.9',
   border: `1px solid ${colors.primaryMed}`,
+  visibility: props.open ? 'visible' : 'collapse',
+  position: props.top ? 'absolute' : 'relative',
+  width: props.top ? '' : '100%',
   [mediaQueries.smallOnly]: {
     position: 'relative',
     width: '100%',
@@ -72,20 +74,6 @@ const localeContent = ({display, Flag}) =>
   (<div aria-hidden="true">
     {Flag} <span>{display}</span>
   </div>)
-
-const localeItem = (parent, {key, display, Flag}) =>
-  (<Item key={key}>
-    <Link
-      href={localeToHref(key)}
-      lang={key === 'help' ? null : key}
-      aria-label={display}
-      innerRef={a => {
-        parent[`link-${key}`] = a
-      }}
-    >
-      {localeContent({Flag, display})}
-    </Link>
-  </Item>)
 
 class LocaleChooser extends React.Component {
   state = {
@@ -133,6 +121,14 @@ class LocaleChooser extends React.Component {
     }
   }
 
+  itemHover = event => {
+    event.target.focus()
+  }
+
+  itemBlur = event => {
+    event.target.blur()
+  }
+
   render() {
     return (
       <Wrapper>
@@ -152,9 +148,25 @@ class LocaleChooser extends React.Component {
         <List
           id="locale-selector"
           aria-label={content.ariaLabelList}
-          css={{visibility: this.state.open ? 'visible' : 'collapse'}}
+          open={this.state.open}
+          top={this.props.top}
         >
-          {this.state.locales.map(l => localeItem(this, l))}
+          {this.state.locales.map(({key, display, Flag}) =>
+            (<Item key={key}>
+              <Link
+                href={localeToHref(key)}
+                lang={key === 'help' ? null : key}
+                aria-label={display}
+                onMouseEnter={this.itemHover}
+                onMouseLeave={this.itemBlur}
+                innerRef={a => {
+                  this[`link-${key}`] = a
+                }}
+              >
+                {localeContent({Flag, display})}
+              </Link>
+            </Item>),
+          )}
         </List>
       </Wrapper>
     )

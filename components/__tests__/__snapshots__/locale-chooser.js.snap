@@ -20,24 +20,25 @@ exports[`closed state 1`] = `
   border-bottom-color: #CC3A4B;
 }
 
-.css-1lggn6x,
-[data-css-1lggn6x] {
+.css-14gaxw4,
+[data-css-14gaxw4] {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   -webkit-box-orient: vertical;
-  margin: 0;
   opacity: .9;
-  position: absolute;
-  visibility: collapse;
+  border: 1px solid #CC3A4B;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-direction: column;
   padding: 0;
-  border: 1px solid #CC3A4B;
+  margin: 0;
+  visibility: collapse;
 }
 
 .css-1yqa12c,
@@ -84,8 +85,8 @@ exports[`closed state 1`] = `
 }
 
 @media only screen and (max-width: 480px) {
-  .css-1lggn6x,
-  [data-css-1lggn6x] {
+  .css-14gaxw4,
+  [data-css-14gaxw4] {
     position: relative;
     width: 100%;
   }
@@ -216,16 +217,12 @@ exports[`closed state 1`] = `
         </glamorous(button)>
         <glamorous(ul)
           aria-label="Locale selector"
-          css={
-            Object {
-              "visibility": "collapse",
-            }
-          }
           id="locale-selector"
+          open={false}
         >
           <ul
             aria-label="Locale selector"
-            className="css-1lggn6x"
+            className="css-14gaxw4"
             id="locale-selector"
           >
             <glamorous(li)>
@@ -237,12 +234,16 @@ exports[`closed state 1`] = `
                   href="https://glamorous.rocks/"
                   innerRef={[Function]}
                   lang="en"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="English"
                     className="css-1mszq7m"
                     href="https://glamorous.rocks/"
                     lang="en"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -304,12 +305,16 @@ exports[`closed state 1`] = `
                   href="https://es.glamorous.rocks/"
                   innerRef={[Function]}
                   lang="es"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Español"
                     className="css-1mszq7m"
                     href="https://es.glamorous.rocks/"
                     lang="es"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -3342,12 +3347,16 @@ exports[`closed state 1`] = `
                   href="https://fr.glamorous.rocks/"
                   innerRef={[Function]}
                   lang="fr"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Français"
                     className="css-1mszq7m"
                     href="https://fr.glamorous.rocks/"
                     lang="fr"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -3399,12 +3408,16 @@ exports[`closed state 1`] = `
                   href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                   innerRef={[Function]}
                   lang={null}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Help Translate"
                     className="css-1mszq7m"
                     href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                     lang={null}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -3482,24 +3495,25 @@ exports[`opened state 1`] = `
   border-bottom-color: transparent;
 }
 
-.css-b3vdf8,
-[data-css-b3vdf8] {
+.css-1vnf8uw,
+[data-css-1vnf8uw] {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   -webkit-box-orient: vertical;
-  margin: 0;
   opacity: .9;
-  position: absolute;
-  visibility: visible;
+  border: 1px solid #CC3A4B;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-direction: column;
   padding: 0;
-  border: 1px solid #CC3A4B;
+  margin: 0;
+  visibility: visible;
 }
 
 @media only screen and (max-width: 480px) {
@@ -3517,8 +3531,8 @@ exports[`opened state 1`] = `
 }
 
 @media only screen and (max-width: 480px) {
-  .css-b3vdf8,
-  [data-css-b3vdf8] {
+  .css-1vnf8uw,
+  [data-css-1vnf8uw] {
     position: relative;
     width: 100%;
   }
@@ -3674,15 +3688,12 @@ exports[`opened state 1`] = `
         </glamorous(button)>
         <glamorous(ul)
           aria-label="Locale selector"
-          css={
-            Object {
-              "visibility": "visible",
-            }
-          }
           id="locale-selector"
+          open={true}
         >
           <ul
             aria-label="Locale selector"
+<<<<<<< HEAD
 <<<<<<< HEAD
             className="css-vuw0yb"
 >>>>>>> aria and lang after review
@@ -3691,6 +3702,9 @@ exports[`opened state 1`] = `
 <<<<<<< HEAD
 >>>>>>> select english locale on open
 =======
+=======
+            className="css-1vnf8uw"
+>>>>>>> moved picker to bottom, also added hover/blur
             id="locale-selector"
 >>>>>>> improved aria tags
           >
@@ -3718,12 +3732,16 @@ exports[`opened state 1`] = `
                   href="https://glamorous.rocks/"
                   innerRef={[Function]}
                   lang="en"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="English"
                     className="css-1mszq7m"
                     href="https://glamorous.rocks/"
                     lang="en"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -3785,12 +3803,16 @@ exports[`opened state 1`] = `
                   href="https://es.glamorous.rocks/"
                   innerRef={[Function]}
                   lang="es"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Español"
                     className="css-1mszq7m"
                     href="https://es.glamorous.rocks/"
                     lang="es"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -6823,12 +6845,16 @@ exports[`opened state 1`] = `
                   href="https://fr.glamorous.rocks/"
                   innerRef={[Function]}
                   lang="fr"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Français"
                     className="css-1mszq7m"
                     href="https://fr.glamorous.rocks/"
                     lang="fr"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"
@@ -6880,12 +6906,16 @@ exports[`opened state 1`] = `
                   href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                   innerRef={[Function]}
                   lang={null}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <a
                     aria-label="Help Translate"
                     className="css-1mszq7m"
                     href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                     lang={null}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                   >
                     <div
                       aria-hidden="true"

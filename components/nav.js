@@ -130,11 +130,6 @@ class Nav extends React.Component {
               {content.home}
             </Hidden>
           </ListItemAnchor>
-          {top ?
-            null :
-            <ListItem>
-              <LocaleChooser />
-            </ListItem>}
           <ListItemAnchor href="/getting-started">
             {content.gettingStarted}
           </ListItemAnchor>
@@ -153,11 +148,9 @@ class Nav extends React.Component {
           <ListItemAnchor href="/api">
             {content.api}
           </ListItemAnchor>
-          {top ?
-            <ListItem>
-              <LocaleChooser />
-            </ListItem> :
-            null}
+          <ListItem>
+            <LocaleChooser top={top} />
+          </ListItem>
         </List>
       </Navbar>
     )
