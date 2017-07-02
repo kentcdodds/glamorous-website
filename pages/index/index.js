@@ -114,6 +114,9 @@ function Home({url}) {
   return (
     <Layout pathname={url ? url.pathname : ''} topNav={true}>
       <Head>
+        <title>
+          {content.title}
+        </title>
         {twitterCard({
           card: 'summary_large_image',
           title: content.tagline,

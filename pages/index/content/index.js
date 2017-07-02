@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'glamorous - React component styling solved 💄',
   tagline: 'Maintainable CSS with React',
   callToAction: 'Click here to get started',
   tryIt: 'Try It',

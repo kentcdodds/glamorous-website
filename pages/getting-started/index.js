@@ -59,6 +59,9 @@ function Page({url}) {
   return (
     <Layout pathname={url ? url.pathname : ''} topNav={true}>
       <Head>
+        <title>
+          {pageContent.title}
+        </title>
         {twitterCard({
           card: 'summary',
           title: `glamorous - ${pageContent.title}`,
