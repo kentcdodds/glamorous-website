@@ -47,6 +47,9 @@ function DocsPage({url, pageContent = {}, sections = []}) {
       contributors={getContributors(sections)}
     >
       <Head>
+        <title>
+          {pageContent.title}
+        </title>
         {twitterCard({
           card: 'summary',
           title: `glamorous - ${pageContent.title}`,
