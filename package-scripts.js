@@ -49,9 +49,7 @@ module.exports = {
     dev: 'next',
     build: Object.assign(
       {
-        default: concurrent.nps(
-          ...supportedLocales.map(s => `build.locales.${s}`)
-        ),
+        default: concurrent.nps(...supportedLocales.map(s => `build.${s}`)),
       },
       localeBuilds
     ),
