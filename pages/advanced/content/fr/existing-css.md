@@ -3,10 +3,10 @@ title: Travailler avec un CSS existant
 ---
 Souvent, vous allez ajouter `glamorous` dans un projet existant qui utilise déjà un CSS global. Pour ce cas, beaucoup d'API de `glamorous` facilitent le plus possible ce travail.
 
-```callout {title: 'Remember this', type: 'warning'} With CSS in JS, the goal is to style components and reuse those components. With this in mind, if you need to style your entire application (like `html`/`body` or add some `reset` styles), you wont do this with `glamorous`. Instead you can use regular CSS or use glamor's API for injecting global styles.
+```callout {title: 'Rappelez-vous de ceci', type: 'warning'} Le but est de styliser les composants et réutiliser ces composants en ayant du CSS dans du JS. Avec cela en tête, si vous avez besoin de styliser l'ensemble de votre application (comme `html`/`body` ou ajouter des styles `reset`), vous ne le ferez pas avec `glamorous`. Au lieu de cela, vous pouvez utiliser un CSS ordinaire ou l'API de glamor pour injecter des styles globaux.
 
-In addition, rather than using CSS to style an `a` tag with global CSS, you should create a `Link` component with all the styles you need and reuse that.
+En plus, plutôt que d'utiliser du CSS pour styliser une balise ~a~ avec un CSS global, vous devriez créer un composant ~Link~ avec tous les styles dont vous avez besoin et le réutiliser.
 
     <br />
 
-// TODO ```
+// A FAIRE ```
