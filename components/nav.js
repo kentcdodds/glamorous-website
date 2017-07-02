@@ -7,13 +7,26 @@ import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
 import content from './content/nav.md'
 
+// eslint-disable-next-line complexity
 const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
   width: '100%',
   margin: 0,
   [mediaQueries.mediumUp]: {
-    flex: top ? null : 1,
+    display: top ? 'flex' : null,
+    justifyContent: top ? 'flex-end' : 'flex-start',
+    flexDirection: top ? 'row' : 'column',
+    flex: top ? null : 'none',
     width: top ? null : 300,
-    marginTop: '0.5rem',
+    alignItems: 'center',
+    paddingTop: '0.5rem',
+  },
+  [mediaQueries.mediumDown]: {
+    display: null,
+    flex: null,
+    width: null,
+    marginTop: 0,
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
   },
 }))
 
@@ -62,17 +75,10 @@ const List = glamorous.ul(
     fontSize: '1.25em',
     margin: '0 auto',
     paddingLeft: top ? null : 0,
-
     height: 'auto',
     overflow: 'hidden',
     backgroundColor: colors.white,
-    [mediaQueries.mediumDown]: {
-      textAlign: 'center',
-      width: '100%',
-      padding: isOpen ? '1rem 0' : 0,
-      maxHeight: isOpen ? '100%' : 0,
-      opacity: isOpen ? 1 : 0,
-    },
+    padding: 0,
     [mediaQueries.mediumUp]: {
       display: 'flex',
       justifyContent: top ? 'center' : 'flex-start',
@@ -81,6 +87,16 @@ const List = glamorous.ul(
       maxHeight: top ? '4rem' : null,
       backgroundColor: 'inherit',
       opacity: 1,
+    },
+    [mediaQueries.mediumDown]: {
+      display: 'block',
+      textAlign: 'center',
+      width: '100%',
+      padding: isOpen ? '1rem 0' : 0,
+      maxHeight: isOpen ? '100%' : 0,
+      opacity: isOpen ? 1 : 0,
+      justifyContent: 'center',
+      flexDirection: 'row',
     },
   }),
 )
