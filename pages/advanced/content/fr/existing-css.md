@@ -1,7 +1,7 @@
 ---
-title: Working with existing CSS
+title: Travailler avec un CSS existant
 ---
-Often you'll bring `glamorous` into an existing project which is already using global CSS. Many of the `glamorous` APIs make working with this as easy as possible.
+Souvent, vous allez ajouter `glamorous` dans un projet existant qui utilise déjà un CSS global. Pour ce cas, beaucoup d'API de `glamorous` facilitent le plus possible ce travail.
 
 ```callout {title: 'Remember this', type: 'warning'} With CSS in JS, the goal is to style components and reuse those components. With this in mind, if you need to style your entire application (like `html`/`body` or add some `reset` styles), you wont do this with `glamorous`. Instead you can use regular CSS or use glamor's API for injecting global styles.
 
