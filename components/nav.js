@@ -7,11 +7,26 @@ import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
 import content from './content/nav.md'
 
-const Navbar = glamorous.nav((props, {mediaQueries}) => ({
+// eslint-disable-next-line complexity
+const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
   width: '100%',
   margin: 0,
-  [mediaQueries.mediumUp]: {
-    marginTop: '0.5rem',
+  [mediaQueries.largeUp]: {
+    display: top ? 'flex' : null,
+    justifyContent: top ? 'flex-end' : 'flex-start',
+    flexDirection: top ? 'row' : 'column',
+    flex: top ? null : 'none',
+    width: top ? null : 300,
+    alignItems: 'center',
+    paddingTop: '0.5rem',
+  },
+  [mediaQueries.largeDown]: {
+    display: null,
+    flex: null,
+    width: null,
+    marginTop: 0,
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
   },
 }))
 
@@ -24,14 +39,14 @@ const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
   paddingTop: '0.25rem',
   paddingBottom: '0.25rem',
   paddingRight: '0.25rem',
-  [mediaQueries.mediumUp]: {
+  [mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
 
 const NavSeparator = glamorous(Separator)((props, {mediaQueries}) => ({
   height: 1,
-  [mediaQueries.mediumUp]: {
+  [mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
@@ -52,124 +67,112 @@ const ListItem = glamorous.li({
   paddingBottom: 4,
 })
 
-// Use withTheme with glamorous.Ul, or this ?
-const List = glamorous.ul((props, {colors, mediaQueries}) => ({
-  listStyle: 'none',
-  display: 'block',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: '1.25em',
-  margin: '0 auto',
-
-  height: 'auto',
-  width: '100%',
-  padding: props.isOpen ? '1rem 0' : 0,
-  maxHeight: props.isOpen ? '100%' : 0,
-  opacity: props.isOpen ? 1 : 0,
-  overflow: 'hidden',
-  textAlign: 'center',
-  backgroundColor: colors.white,
-  [mediaQueries.mediumUp]: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: 'auto',
-    maxHeight: '4rem',
-    backgroundColor: 'inherit',
-    opacity: 1,
-  },
-}))
+const List = glamorous.ul(
+  // eslint-disable-next-line complexity
+  ({top, isOpen, theme: {colors, mediaQueries}}) => ({
+    listStyle: 'none',
+    display: 'block',
+    fontSize: '1.25em',
+    margin: '0 auto',
+    paddingLeft: top ? null : 0,
+    height: 'auto',
+    overflow: 'hidden',
+    backgroundColor: colors.white,
+    padding: 0,
+    [mediaQueries.largeUp]: {
+      display: 'flex',
+      justifyContent: top ? 'center' : 'flex-start',
+      flexDirection: top ? 'row' : 'column',
+      width: top ? 'auto' : null,
+      maxHeight: top ? '4rem' : null,
+      backgroundColor: 'inherit',
+      opacity: 1,
+    },
+    [mediaQueries.largeDown]: {
+      display: 'block',
+      textAlign: 'center',
+      width: '100%',
+      padding: isOpen ? '1rem 0' : 0,
+      maxHeight: isOpen ? '100%' : 0,
+      opacity: isOpen ? 1 : 0,
+      justifyContent: 'center',
+      flexDirection: 'row',
+    },
+  }),
+)
 
 class Nav extends React.Component {
   state = {
     open: false,
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState(prevState => {
       return {open: !prevState.open}
     })
   }
 
   render() {
+    const {pathname, top} = this.props
     return (
-      <Navbar>
-        <NavToggle onClick={this.handleClick.bind(this)}>
+      <Navbar className="Navbar" top={top}>
+        <NavToggle onClick={this.handleClick}>
           <MenuSVG />
         </NavToggle>
         <NavSeparator />
-        <List isOpen={this.state.open}>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/"
-              pathname={this.props.pathname}
-            >
-              <LipstickIcon width={20} />
-              <Hidden>
-                {content.home}
-              </Hidden>
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/getting-started"
-              pathname={this.props.pathname}
-            >
-              {content.gettingStarted}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/basics"
-              pathname={this.props.pathname}
-            >
-              {content.basics}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/advanced"
-              pathname={this.props.pathname}
-            >
-              {content.advanced}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/examples"
-              pathname={this.props.pathname}
-            >
-              {content.examples}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/integrations"
-              pathname={this.props.pathname}
-            >
-              {content.integrations}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <Anchor
-              prefetch={process.env.USE_PREFETCH}
-              href="/api"
-              pathname={this.props.pathname}
-            >
-              {content.api}
-            </Anchor>
-          </ListItem>
-          <ListItem>
-            <LocaleChooser />
-          </ListItem>
+        <List isOpen={this.state.open} top={top}>
+          <ListItemAnchor href="/" css={{textAlign: 'center'}}>
+            <LipstickIcon width={top ? 20 : 40} />
+            <Hidden>
+              {content.home}
+            </Hidden>
+          </ListItemAnchor>
+          {top ?
+            null :
+            <ListItem>
+              <LocaleChooser />
+            </ListItem>}
+          <ListItemAnchor href="/getting-started">
+            {content.gettingStarted}
+          </ListItemAnchor>
+          <ListItemAnchor href="/basics">
+            {content.basics}
+          </ListItemAnchor>
+          <ListItemAnchor href="/advanced">
+            {content.advanced}
+          </ListItemAnchor>
+          <ListItemAnchor href="/examples">
+            {content.examples}
+          </ListItemAnchor>
+          <ListItemAnchor href="/integrations">
+            {content.integrations}
+          </ListItemAnchor>
+          <ListItemAnchor href="/api">
+            {content.api}
+          </ListItemAnchor>
+          {top ?
+            <ListItem>
+              <LocaleChooser />
+            </ListItem> :
+            null}
         </List>
       </Navbar>
     )
+
+    function ListItemAnchor({children, css, ...rest}) {
+      return (
+        <ListItem css={css}>
+          <Anchor
+            prefetch={process.env.USE_PREFETCH}
+            href="/getting-started"
+            pathname={pathname}
+            {...rest}
+          >
+            {children}
+          </Anchor>
+        </ListItem>
+      )
+    }
   }
 }
 
