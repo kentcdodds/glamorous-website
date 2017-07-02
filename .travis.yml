@@ -9,7 +9,7 @@ notifications:
 node_js:
   - '8'
 before_install:
-  - npm install -g now@^6 await-url@^0.2
+  - npm install -g await-url@^0.2
 script:
   - npm start validateAndBuild
 after_success:

@@ -37,6 +37,30 @@ This project uses [`nps`][nps] and you can run `npm start help` to see what scri
 > branch. Whenever you want to update your version of `master`, do a regular
 > `git pull`.
 
+## Making a Pull Request
+
+It's often really nice to be able to see and interact with the changes you have
+made. If this applies to your pull request, screenshots and
+[gifs](http://www.cockos.com/licecap/) are a great way to do that.
+
+Even better is if you can run the build and deploy an instance of what you have
+for us to actually interact with. To do this, you'll first need to sign up for a
+free account with [`now`](https://zeit.co/now) and have the CLI set up and
+logged in on your machine.
+
+Then run this:
+
+```sh
+npm start build.en && npm start deploy.en
+```
+
+> NOTE: if what you're doing is specific to another locale, then you can specify
+> that locale, like: `npm start build.fr && npm start deploy.fr`
+
+This will build the English version of the site and deploy it for you via `now`
+(for free). The URL will be copied to your clipboard and you can share it with
+us in the pull request. Thanks!
+
 ## Add yourself as a contributor
 
 This project follows the [all contributors][all-contributors] specification. To add yourself to the table of
