@@ -1,5 +1,5 @@
 ---
-title: Optimizing Bundle Size
+title: Optimisation de la taille du paquet
 ---
 If your use case is really size constrained, then you might consider using the "tiny" version of glamorous for your application. It is a miniature version of `glamorous` with a few limitations:
 
