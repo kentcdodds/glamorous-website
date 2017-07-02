@@ -1,3 +1,3 @@
 ---
-help: Help Translate
+help: Aidez-nous à traduire
 ---
