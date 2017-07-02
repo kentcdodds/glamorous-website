@@ -23,7 +23,7 @@ const localeBuilds = supportedLocales.reduce((obj, locale) => {
 
 const localeDeploys = supportedLocales.reduce((obj, locale) => {
   const target = `out/${locale}`
-  obj[locale] = `now --public --static ${target}`
+  obj[locale] = `now --public --static --name ${locale}-glamorous ${target}`
   return obj
 }, {})
 
