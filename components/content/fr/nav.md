@@ -1,9 +1,9 @@
 ---
-home: Home
-gettingStarted: Getting Started
-basics: Basics
-advanced: Advanced
-examples: Examples
-integrations: Integrations
+home: Accueil
+gettingStarted: Premiers pas
+basics: Bases
+advanced: Avancés
+examples: Exemples
+integrations: Intégrations
 api: API
 ---
