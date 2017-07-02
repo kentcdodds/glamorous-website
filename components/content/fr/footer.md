@@ -1,3 +1,3 @@
 ---
-madeWith: ''' Made with <span role="img" aria-label="love">'
+madeWith: ''' Fait avec <span role="img" aria-label="love">'
 ---
