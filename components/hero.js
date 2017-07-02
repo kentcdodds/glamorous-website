@@ -8,10 +8,7 @@ const Title = glamorous.h1((props, {colors, mediaQueries}) => ({
   fontWeight: 'lighter',
   textAlign: 'center',
   [mediaQueries.smallUp]: {
-    fontSize: '4vw',
-  },
-  [mediaQueries.mediumUp]: {
-    fontSize: '3vw',
+    fontSize: '5vw',
   },
   [mediaQueries.largeUp]: {
     fontSize: 40,
