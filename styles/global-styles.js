@@ -59,6 +59,7 @@ export const mediaQueries = {
   mediumDown: `@media ${screen} and (max-width: ${lowerMediumRange - 1}px)`,
   mediumUp: `@media ${screen} and (min-width: ${lowerMediumRange}px)`,
   mediumOnly: `@media ${screen} and (min-width: ${lowerMediumRange}px and (min-width: ${upperMediumRange}px)`,
+  largeDown: `@media ${screen} and (max-width: ${lowerLargeRange - 1}px)`,
   largeUp: `@media ${screen} and (min-width: ${lowerLargeRange}px)`,
   largeOnly: `@media ${screen} and (min-width: ${lowerLargeRange}px and (min-width: ${upperLargeRange}px)`,
 }

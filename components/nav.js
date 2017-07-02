@@ -11,7 +11,7 @@ import content from './content/nav.md'
 const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
   width: '100%',
   margin: 0,
-  [mediaQueries.mediumUp]: {
+  [mediaQueries.largeUp]: {
     display: top ? 'flex' : null,
     justifyContent: top ? 'flex-end' : 'flex-start',
     flexDirection: top ? 'row' : 'column',
@@ -20,7 +20,7 @@ const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
     alignItems: 'center',
     paddingTop: '0.5rem',
   },
-  [mediaQueries.mediumDown]: {
+  [mediaQueries.largeDown]: {
     display: null,
     flex: null,
     width: null,
@@ -39,14 +39,14 @@ const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
   paddingTop: '0.25rem',
   paddingBottom: '0.25rem',
   paddingRight: '0.25rem',
-  [mediaQueries.mediumUp]: {
+  [mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
 
 const NavSeparator = glamorous(Separator)((props, {mediaQueries}) => ({
   height: 1,
-  [mediaQueries.mediumUp]: {
+  [mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
@@ -79,7 +79,7 @@ const List = glamorous.ul(
     overflow: 'hidden',
     backgroundColor: colors.white,
     padding: 0,
-    [mediaQueries.mediumUp]: {
+    [mediaQueries.largeUp]: {
       display: 'flex',
       justifyContent: top ? 'center' : 'flex-start',
       flexDirection: top ? 'row' : 'column',
@@ -88,7 +88,7 @@ const List = glamorous.ul(
       backgroundColor: 'inherit',
       opacity: 1,
     },
-    [mediaQueries.mediumDown]: {
+    [mediaQueries.largeDown]: {
       display: 'block',
       textAlign: 'center',
       width: '100%',

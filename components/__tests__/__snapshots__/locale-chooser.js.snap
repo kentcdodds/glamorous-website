@@ -61,6 +61,7 @@ exports[`closed state 1`] = `
         "sansserif": "\\"Montserrat\\", sans-serif",
       },
       "mediaQueries": Object {
+        "largeDown": "@media only screen and (max-width: 1024px)",
         "largeOnly": "@media only screen and (min-width: 1025px and (min-width: 1224px)",
         "largeUp": "@media only screen and (min-width: 1025px)",
         "mediumDown": "@media only screen and (max-width: 480px)",
@@ -237,6 +238,7 @@ exports[`opened state 1`] = `
         "sansserif": "\\"Montserrat\\", sans-serif",
       },
       "mediaQueries": Object {
+        "largeDown": "@media only screen and (max-width: 1024px)",
         "largeOnly": "@media only screen and (min-width: 1025px and (min-width: 1224px)",
         "largeUp": "@media only screen and (min-width: 1025px)",
         "mediumDown": "@media only screen and (max-width: 480px)",

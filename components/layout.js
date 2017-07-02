@@ -28,7 +28,7 @@ const Wrapper = glamorous.div(
     flexDirection: top ? 'column' : 'row',
     zIndex: 1,
 
-    [mediaQueries.mediumDown]: {
+    [mediaQueries.largeDown]: {
       display: 'block',
       justifyContent: null,
       flexDirection: null,
