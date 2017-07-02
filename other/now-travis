@@ -50,6 +50,8 @@ async function deploy(context, sha) {
     '--no-clipboard',
     '--public',
     '--static',
+    '--name',
+    `${locale}-glamorous`,
     `out/${locale}`,
   ])
 
