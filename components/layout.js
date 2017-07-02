@@ -1,6 +1,6 @@
 import React from 'react'
 import {css, rehydrate} from 'glamor'
-import glamorous, {ThemeProvider} from 'glamorous'
+import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
 import Nav from './nav'
@@ -57,11 +57,11 @@ function Layout({pathname, children, contributors, topNav = false}) {
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper top={topNav}>
         <Nav pathname={pathname} top={topNav} />
-        <div>
+        <Div overflow="auto">
           {children}
           <Contributors contributors={contributors || []} />
           <Footer />
-        </div>
+        </Div>
       </Wrapper>
     </ThemeProvider>
   )
