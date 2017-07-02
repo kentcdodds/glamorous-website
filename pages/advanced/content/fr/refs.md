@@ -1,12 +1,12 @@
 ---
 title: '`innerRef`'
-subtitle: How to access the underlying `ref`
+subtitle: Comment accéder au `ref`
 ---
-Sometimes you need access to the [`ref`](https://facebook.github.io/react/docs/refs-and-the-dom.html) of the underlying component that's rendered. You can accomplish this with the `innerRef` prop.
+Parfois, vous avez besoin d'accéder au [`ref`](https://facebook.github.io/react/docs/refs-and-the-dom.html) du composant qui est rendu. Vous pouvez accomplir cela avec la prop `innerRef`.
 
-This is a function and if provided, will be called with the inner element's reference.
+C'est une fonction, et si elle est fournie, elle sera appelée avec la référence de l'élément intérieur.
 
-```interactive {clickToRender: true, summary: 'An input in a form'} const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
+```interactive {clickToRender: true, summary: 'Un input dans un form'} const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
 class MyComponent extends React.Component { constructor() { this.alertValue = e => { e.preventDefault(); alert(this._inputRef.value); }; } render() { return ( ); } }
 
