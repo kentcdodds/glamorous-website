@@ -57,7 +57,7 @@ function Layout({pathname, children, contributors, topNav = false}) {
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper top={topNav}>
         <Nav pathname={pathname} top={topNav} />
-        <Div overflow="auto">
+        <Div overflow="auto" width="100%">
           {children}
           <Contributors contributors={contributors || []} />
           <Footer />
