@@ -8,7 +8,8 @@ import DeSvg from './svgs/de.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
-const svgStyle = {width: '1em', height: '100%'}
+const currentLocale = process.env.LOCALE || fallbackLocale
+
 const Wrapper = glamorous.div({
   fontSize: '.8em',
   cursor: 'pointer',
@@ -143,7 +144,7 @@ class LocaleChooser extends React.Component {
             this.toggle = button
           }}
         >
-          {localeContent(mapLocale(process.env.LOCALE))}
+          {localeContent(mapLocale(currentLocale))}
         </Toggle>
         <List
           aria-label={content.ariaLabelList}
@@ -159,7 +160,7 @@ export default LocaleChooser
 
 function localeToHref(locale) {
   if (supportedLocales.includes(locale)) {
-    const {host} = getHost()
+    const host = getHost()
     const {protocol, pathname, hash, search} = window.location
     const prefix = fallbackLocale === locale ? '' : `${locale}.`
     return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
@@ -169,14 +170,13 @@ function localeToHref(locale) {
 }
 
 function getHost() {
-  const locale = process.env.LOCALE
   const {host} = window.location
   const [localePart, ...rest] = host.split('.')
-  if (supportedLocales.includes(locale) || localePart !== locale) {
+  if (localePart === currentLocale) {
     return rest.join('.')
-  } else {
-    return host
   }
+
+  return host
 }
 
 function mapLocale(key) {
@@ -205,7 +205,7 @@ function mapLocale(key) {
       return {
         key,
         display: 'Deutsche',
-        Flag: <DeSvg {...svgStyle} />,
+        Flag: <DeSvg {...options} />,
       }
     }
     case 'help': {
