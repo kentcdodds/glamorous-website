@@ -1,11 +1,7 @@
 ---
-title: Estilos dinámicos + Estilos estáticos
+title: Dynamic Styles + Static Styles
 ---
-
-Una de las partes agradables de glamorous es que te permite hacer una clara
-separación entre sus estilos dinámicos y estáticos, forzándolo a elegir
-entre un objeto literal y una función. He aquí un ejemplo de tener ambos estilos
-dinámicos y estáticos:
+One of the nice bits of glamorous is that it allows you to make a clear separation between your dynamic and static styles by forcing you to choose between an object literal and a function. Here's an example of having both dynamic and static styles:
 
 ```js
 const MyLink = glamorous.a(
@@ -16,16 +12,15 @@ const MyLink = glamorous.a(
   ({size = 'small'}) => ({
     fontSize: size === 'big' ? 24 : 16,
   }),
-  // puedes seguir proporcionando cualquier número de argumentos
-  // y `glamor` los fusionará. En el caso de un
-  // conflicto de estilos, el último gana.
+  // you can continue to provide any number of arguments
+  // and `glamor` will merge them. In the event of a
+  // style conflict, the last one wins.
 )
 ```
 
-Puedes ver una vista previa en vivo de este ejemplo en [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
+You can see a live preview of this example on [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
 
-<details>
-<summary>Ten en cuenta, que también se pueden utilizar arrays de estilos si los necesitas:</summary>
+<details> <summary>Note, you can also use arrays of styles if you need:</summary>
 
 ```js
 const MyDiv = glamorous.div(
@@ -37,7 +32,7 @@ const MyDiv = glamorous.div(
     },
     {
       [phoneMediaQuery]: {
-        lineHeight: 1.3, // esto ganará porque viene de último
+        lineHeight: 1.3, // this will win because it comes later
       },
     },
   ],
@@ -61,12 +56,12 @@ const MyDiv = glamorous.div(
         borderRadius: '50%',
       },
     }
-    // Ten en cuenta que estamos devolviendo un array aquí
+    // note that I'm returning an array here
     return [bigStyles, squareStyles]
   },
 )
 
-// el resultado de <MyDiv big={true} square={false} /> será:
+// result of <MyDiv big={true} square={false} /> will be:
 // @media (max-width: 640px) {
 //   .css-1bzhvkr,
 //   [data-css-1bzhvkr] {

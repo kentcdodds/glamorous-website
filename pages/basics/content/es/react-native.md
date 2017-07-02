@@ -2,11 +2,10 @@
 title: glamorous-native
 subtitle: React Native
 ---
-
-`glamorous` ofrece una versión para proyectos con React Native llamada `glamorous-native`.
+`glamorous` offers a version for React Native projects called `glamorous-native`.
 
 ```js
 npm install glamorous-native --save
 ```
 
-Puedes aprender más acerca del [proyecto glamorous-native](https://github.com/robinpowered/glamorous-native).
+You can learn more at the [glamorous-native project](https://github.com/robinpowered/glamorous-native).

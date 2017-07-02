@@ -1,3 +1,3 @@
 ---
-title: Temas
+title: Theming
 ---

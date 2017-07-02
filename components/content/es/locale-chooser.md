@@ -1,3 +1,3 @@
 ---
-help: 'Ayudar a traducir'
+help: Help Translate
 ---

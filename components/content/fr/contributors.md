@@ -1,3 +1,3 @@
 ---
-header: 'Contributeurs:'
+header: 'Contributeurs :'
 ---

@@ -1,4 +1,4 @@
 ---
-title: Concepts de base
-heading: Une brève introduction à `glamorous`
+title: Basic Concepts
+heading: A brief introduction to `glamorous`
 ---

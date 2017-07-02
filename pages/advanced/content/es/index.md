@@ -1,4 +1,4 @@
 ---
-title: Guías avanzadas
-heading: Esta sección expone algunas ideas más avanzadas que puedes lograr con glamorous
+title: Advanced Guides
+heading: This is some of the more advanced stuff you can do with glamorous
 ---
