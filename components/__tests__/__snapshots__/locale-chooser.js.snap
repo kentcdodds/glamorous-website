@@ -149,13 +149,19 @@ exports[`closed state 1`] = `
         className="css-us5ocl"
       >
         <glamorous(button)
+          aria-expanded="false"
+          aria-haspopup="true"
           aria-label="Change language localization"
+          aria-owns="locale-selector"
           innerRef={[Function]}
           isOpen={false}
           onClick={[Function]}
         >
           <button
+            aria-expanded="false"
+            aria-haspopup="true"
             aria-label="Change language localization"
+            aria-owns="locale-selector"
             className="css-whjbea"
             onClick={[Function]}
           >
@@ -215,10 +221,12 @@ exports[`closed state 1`] = `
               "visibility": "collapse",
             }
           }
+          id="locale-selector"
         >
           <ul
             aria-label="Locale selector"
             className="css-1lggn6x"
+            id="locale-selector"
           >
             <glamorous(li)>
               <li
@@ -3576,7 +3584,10 @@ exports[`opened state 1`] = `
           fill-rule="evenodd"
 =======
         <glamorous(button)
+          aria-expanded="true"
+          aria-haspopup="true"
           aria-label="Change language localization"
+          aria-owns="locale-selector"
           innerRef={[Function]}
           isOpen={true}
           onClick={[Function]}
@@ -3587,7 +3598,10 @@ exports[`opened state 1`] = `
             stroke-width="1pt"
 =======
           <button
+            aria-expanded="true"
+            aria-haspopup="true"
             aria-label="Change language localization"
+            aria-owns="locale-selector"
             className="css-caxzko"
             onClick={[Function]}
 >>>>>>> highlighting
@@ -3665,6 +3679,7 @@ exports[`opened state 1`] = `
               "visibility": "visible",
             }
           }
+          id="locale-selector"
         >
           <ul
             aria-label="Locale selector"
@@ -3673,7 +3688,11 @@ exports[`opened state 1`] = `
 >>>>>>> aria and lang after review
 =======
             className="css-b3vdf8"
+<<<<<<< HEAD
 >>>>>>> select english locale on open
+=======
+            id="locale-selector"
+>>>>>>> improved aria tags
           >
 <<<<<<< HEAD
             <path

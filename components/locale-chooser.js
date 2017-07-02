@@ -140,6 +140,9 @@ class LocaleChooser extends React.Component {
           onClick={this.toggleOpen}
           isOpen={this.state.open}
           aria-label={content.ariaLabelButton}
+          aria-haspopup="true"
+          aria-owns="locale-selector"
+          aria-expanded={this.state.open ? 'true' : 'false'}
           innerRef={button => {
             this.toggle = button
           }}
@@ -147,6 +150,7 @@ class LocaleChooser extends React.Component {
           {localeContent(mapLocale(currentLocale))}
         </Toggle>
         <List
+          id="locale-selector"
           aria-label={content.ariaLabelList}
           css={{visibility: this.state.open ? 'visible' : 'collapse'}}
         >
