@@ -6,6 +6,13 @@ import stripIndent from './strip-indent'
 
 export default mdToHTML
 
-function mdToHTML(md: string): string {
-  return remark().use(remarkHtml).processSync(stripIndent(md)).toString()
+function mdToHTML(md: string | null): string {
+  if (!md) {
+    return ''
+  }
+  return remark()
+    .use(remarkHtml)
+    .processSync(stripIndent(md))
+    .toString()
+    .slice(3, -5)
 }

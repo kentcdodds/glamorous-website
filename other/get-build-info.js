@@ -16,6 +16,7 @@ const commitDate = exec(`git show -s --format=%ci ${sha}`)
 const committer = exec(`git --no-pager show -s --format='%an' HEAD`)
 const buildInfo = {
   branch,
+  locale: process.env.LOCALE || 'en',
   buildNumber: process.env.TRAVIS_BUILD_NUMBER,
   buildDate: new Date().toString(),
   commit: {sha, commitDate, committer},

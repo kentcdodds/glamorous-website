@@ -17,7 +17,7 @@ const cwd = path.join(__dirname, '..')
 
 const dirs = ['components', 'examples', 'pages/**']
 const results = dirs
-  .map(shortPath => glob.sync(`${shortPath}/content/*.js`, {cwd}))
+  .map(shortPath => glob.sync(`${shortPath}/content/*.md`, {cwd}))
   .reduce((acc, files) => acc.concat(files))
   .reduce(
     (acc, file) => {

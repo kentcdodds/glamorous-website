@@ -9,11 +9,9 @@ export default () => `
     padding: 0;
   }
 
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
   html {
-    font-family: ${fonts.sansserif};
-    font-size: 16px;
-    line-height: 1.5;
-    color:  ${colors.darkGray};
     min-height: 100%;
     margin: 0;
     padding: 0;
@@ -22,13 +20,13 @@ export default () => `
     max-width: 100%;
     overflow-x: hidden;
   }
-  ${mediaQueries.largeUp} {
-    html {
-      font-size: 18px;
-    }
-  }
 
   body {
+    font-family: ${fonts.sansserif};
+    font-weight: 100;
+    font-size: 16px;
+    color:  ${colors.darkGray};
+    line-height: 1.5em;
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
     margin: 0;
@@ -38,9 +36,14 @@ export default () => `
     max-width: 100%;
     overflow-x: hidden;
   }
+  ${mediaQueries.largeUp} {
+    body {
+      font-size: 18px;
+    }
+  }
 
   p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 24px;
   }
 
   a {
@@ -52,23 +55,50 @@ export default () => `
     text-decoration: underline;
   }
 
+  h1 { font-size: 3.998em; }
+  h2 { font-size: 2.827em; }
+  h3 { font-size: 1.999em; }
+  h4 { font-size: 1.414em; }
+  h5 { font-size: 1em; }
+  h6 { font-size: 1em; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    line-height: 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  pre,
+  code,
+  ul,
+  ol {
+    margin: 0 0 1.5rem 0;
+  }
+
   h1,
   h2,
   h3 {
-    font-weight: bold;
-    line-height: 1.25;
     text-rendering: optimizeLegibility;
-    font-size: 2rem;
-    margin: 0;
   }
 
-  h2 {
-    font-size: 1.5rem;
+  ul,
+  ol {
+    padding-left: 2em;
   }
 
-  h3 {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
+  li {
+    margin-bottom: 10px;
   }
 
   pre {
@@ -77,7 +107,6 @@ export default () => `
     color: ${colors.white};
     background-color: ${colors.blue};
     padding: 10px;
-    margin-bottom: 0.5rem;
   }
 
   pre code {
@@ -99,13 +128,7 @@ export default () => `
     border-left: 5px solid ${colors.primaryMed}
   }
 
-  ul, 
-  ol {
-    list-style-position: inside;
-    padding-left: 0;
-  }
-
-  li {
-    padding-left: 0;
+  button {
+    font-family: ${fonts.sansserif}
   }
 `
