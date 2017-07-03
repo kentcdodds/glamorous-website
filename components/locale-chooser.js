@@ -8,8 +8,6 @@ import DeSvg from './svgs/de.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
-const currentLocale = process.env.LOCALE || fallbackLocale
-
 const Wrapper = glamorous.div({
   fontSize: '.8em',
   cursor: 'pointer',
@@ -79,6 +77,7 @@ class LocaleChooser extends React.Component {
   state = {
     open: false,
     locales: [],
+    currentLocale: process.env.LOCALE || fallbackLocale,
   }
 
   componentDidMount() {
@@ -143,7 +142,7 @@ class LocaleChooser extends React.Component {
             this.toggle = button
           }}
         >
-          {localeContent(mapLocale(currentLocale))}
+          {localeContent(mapLocale(this.state.currentLocale))}
         </Toggle>
         <List
           id="locale-selector"
@@ -154,7 +153,7 @@ class LocaleChooser extends React.Component {
           {this.state.locales.map(({key, display, Flag}) =>
             (<Item key={key}>
               <Link
-                href={localeToHref(key)}
+                href={localeToHref(key, this.state.currentLocale)}
                 lang={key === 'help' ? null : key}
                 aria-label={display}
                 onMouseEnter={this.itemHover}
@@ -174,9 +173,9 @@ class LocaleChooser extends React.Component {
 }
 export default LocaleChooser
 
-function localeToHref(locale) {
+function localeToHref(locale, currentLocale) {
   if (supportedLocales.includes(locale)) {
-    const host = getHost()
+    const host = getHost(currentLocale)
     const {protocol, pathname, hash, search} = window.location
     const prefix = fallbackLocale === locale ? '' : `${locale}.`
     return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
@@ -185,7 +184,7 @@ function localeToHref(locale) {
   return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
-function getHost() {
+function getHost(currentLocale) {
   const {host} = window.location
   const [localePart, ...rest] = host.split('.')
   if (localePart === currentLocale) {
