@@ -147,6 +147,7 @@ class LocaleChooser extends React.Component {
         <List
           id="locale-selector"
           aria-label={content.ariaLabelList}
+          aria-hidden={!this.state.open}
           open={this.state.open}
           top={this.props.top}
         >
