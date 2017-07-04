@@ -11,7 +11,11 @@
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
-  "keywords": ["glamorous", "react", "css-in-js"],
+  "keywords": [
+    "glamorous",
+    "react",
+    "css-in-js"
+  ],
   "dependencies": {
     "common-tags": "^1.4.0",
     "glamor": "^2.20.25",
@@ -22,6 +26,7 @@
     "marked": "^0.3.6",
     "next": "3.0.1-beta.5",
     "polished": "^1.1.3",
+    "prismjs": "^1.6.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -85,7 +90,9 @@
         "statements": 50
       }
     },
-    "testPathIgnorePatterns": ["/fixtures/"]
+    "testPathIgnorePatterns": [
+      "/fixtures/"
+    ]
   },
   "lint-staged": {
     "*.js": [

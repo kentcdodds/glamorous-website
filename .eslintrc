@@ -12,6 +12,7 @@
     "max-len": "off",
     "import/no-dynamic-require": "off",
     "import/no-unresolved": "off",
+    "import/no-unassigned-import": "off",
     "eol-last": "off", // the crowdin stuff doesn't include a line ending 🙄
   }
 }
