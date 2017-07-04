@@ -3422,6 +3422,27 @@ exports[`opened state 1`] = `
                 className="css-l0f4u7"
               >
                 <glamorous(a)
+                  href="about://de.blank"
+                >
+                  <a
+                    className="css-m4ei6j"
+                    href="about://de.blank"
+                  >
+                    <div>
+                       
+                      <span>
+                        de
+                      </span>
+                    </div>
+                  </a>
+                </glamorous(a)>
+              </li>
+            </glamorous(li)>
+            <glamorous(li)>
+              <li
+                className="css-l0f4u7"
+              >
+                <glamorous(a)
                   href="https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md"
                 >
                   <a

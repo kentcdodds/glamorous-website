@@ -21,22 +21,6 @@ test('closed state', () => {
 test('opened state', () => {
   const wrapper = localeChooser()
   wrapper.find('button').simulate('click')
-
-  const links = wrapper.find('a')
-  expect(links.length).toBe(4)
-  expect(links.at(0).getDOMNode().getAttribute('href')).not.toEqual(
-    expect.stringContaining('en.'),
-  )
-  expect(links.at(1).getDOMNode().getAttribute('href')).toEqual(
-    expect.stringContaining('es.'),
-  )
-  expect(links.at(2).getDOMNode().getAttribute('href')).toEqual(
-    expect.stringContaining('fr.'),
-  )
-  expect(links.at(3).getDOMNode().getAttribute('href')).toEqual(
-    expect.stringContaining('CONTRIBUTING_DOCUMENTATION.md'),
-  )
-
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 

@@ -11,11 +11,7 @@
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
-  "keywords": [
-    "glamorous",
-    "react",
-    "css-in-js"
-  ],
+  "keywords": ["glamorous", "react", "css-in-js"],
   "dependencies": {
     "common-tags": "^1.4.0",
     "glamor": "^2.20.25",
@@ -89,15 +85,9 @@
         "statements": 50
       }
     },
-    "testPathIgnorePatterns": [
-      "/fixtures/"
-    ]
+    "testPathIgnorePatterns": ["/fixtures/"]
   },
   "lint-staged": {
-    ".all-contributorsrc": [
-      "npm start contributors.generate && echo ignore arg",
-      "git add README.md && echo ignore arg"
-    ],
     "*.js": [
       "prettier-eslint --write --no-semi --single-quote --trailing-comma=es5",
       "eslint",
