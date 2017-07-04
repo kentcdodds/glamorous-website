@@ -47,12 +47,9 @@ module.exports = {
     // default is run when you run `nps` or `npm start`
     default: 'next start',
     dev: 'next',
-    build: Object.assign(
-      {
-        default: concurrent.nps(...supportedLocales.map(s => `build.${s}`)),
-      },
-      localeBuilds
-    ),
+    build: Object.assign(localeBuilds, {
+      default: concurrent.nps(...supportedLocales.map(s => `build.${s}`)),
+    }),
     deploy: localeDeploys,
     lint: {description: 'lint the entire project', script: 'eslint .'},
     flow: {description: 'flow type-check the entire project', script: 'flow'},

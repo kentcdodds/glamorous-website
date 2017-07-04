@@ -7,7 +7,7 @@ Thanks for being willing to contribute!
 
 ## Requirements
 
-You must have [`node`](https://nodejs.org/) (v6 or greater) and
+You must have [`node`](https://nodejs.org/) (v8 or greater) and
 [`npm`](https://www.npmjs.com/) (or [`yarn`](https://yarnpkg.com/en/))
 installed to run the project. You'll need [`git`](https://git-scm.com/)
 installed to clone the repo.
@@ -45,8 +45,8 @@ made. If this applies to your pull request, screenshots and
 
 Even better is if you can run the build and deploy an instance of what you have
 for us to actually interact with. To do this, you'll first need to sign up for a
-free account with [`now`](https://zeit.co/now) and have the CLI set up and
-logged in on your machine.
+free account with [`now`](https://zeit.co/now) and have the
+[CLI](https://npmjs.com/package/now) set up and logged in on your machine.
 
 Then run this:
 
