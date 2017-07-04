@@ -54,6 +54,9 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   [mediaQueries.smallOnly]: {
     textAlign: 'center',
   },
+  '&::before': {
+    content: 'initial',
+  },
 }))
 
 const Link = glamorous.a((props, {colors}) => ({
@@ -195,6 +198,7 @@ function getHost(currentLocale) {
   return host
 }
 
+// eslint-disable-next-line complexity
 function mapLocale(key) {
   const options = {width: '1em', height: '100%'}
   switch (key) {

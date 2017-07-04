@@ -1,5 +1,5 @@
 import React from 'react'
-import {render, mount} from 'enzyme'
+import {mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import {ThemeProvider} from 'glamorous'
 import {matcher, serializer} from 'jest-glamor-react'
@@ -13,7 +13,7 @@ expect.extend(matcher)
 
 test('it renders', () => {
   setHost()
-  const wrapper = renderLocaleChooser()
+  const wrapper = mountLocaleChooser()
   expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
 })
 
@@ -64,19 +64,11 @@ test('creates localization links', () => {
   })
 })
 
-function renderLocaleChooser() {
-  return render(localeChooser())
-}
-
 function mountLocaleChooser() {
-  return mount(localeChooser())
-}
-
-function localeChooser() {
-  return (
+  return mount(
     <ThemeProvider theme={GlobalStyles}>
       <LocaleChooser />
-    </ThemeProvider>
+    </ThemeProvider>,
   )
 }
 
