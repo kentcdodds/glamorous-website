@@ -9,7 +9,7 @@ import {Button} from '../../components/styled-links'
 import Hero from '../../components/hero'
 import twitterCard from '../../components/twitter-card'
 import homePageExample from './content/home-page-example.raw'
-import content from './content'
+import content from './content/index.md'
 
 const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
   position: 'relative',
