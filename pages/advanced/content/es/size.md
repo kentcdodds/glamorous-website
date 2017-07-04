@@ -51,17 +51,10 @@ Tienes las siguientes opciones disponibles:
 2. `glamorous/dist/glamorous.cjs.tiny` - elige esta si no estás transpilando ESModules
 3. `glamorous/dist/glamorous.umd.tiny.js` - elige esta si estás incluyéndola como un script (también hay una versión `.min.js`)
 
-El tamaño actual de `glamorous/dist/glamorous.umd.tiny.min.js` es: [![tiny size][tiny-size-badge]][unpkg-dist]
-[![tiny gzip size][tiny-gzip-badge]][unpkg-dist]
+El tamaño actual de `glamorous/dist/glamorous.umd.tiny.min.js` es: [![tiny size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?label=size&style=flat-square)](https://unpkg.com/glamorous/dist/)
+[![tiny gzip size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?compression=gzip&label=gzip%20size&style=flat-square)](https://unpkg.com/glamorous/dist/)
 
 ```callout {title: 'Aviso importante', type: 'danger'}
 Ten en cuenta que `glamorous` depende de `glamor`. A la hora de añadir `glamorous`
 considera el tamaño total de las dos librerias, si aún no usas `glamor`.
 ```
-
-[tiny-gzip-badge]: http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?compression=gzip&label=gzip%20size&style=flat-square
-[tiny-size-badge]: http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.tiny.min.js?label=size&style=flat-square
-[unpkg-dist]: https://unpkg.com/glamorous/dist/
-[glamor-gzip-badge]: http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?compression=gzip&label=gzip%20size&style=flat-square
-[glamor-size-badge]: http://img.badgesize.io/https://unpkg.com/glamor/umd/index.min.js?label=size&style=flat-square
-[unpkg-glamor]: https://unpkg.com/glamor/umd/
