@@ -65,6 +65,9 @@ const ListItem = glamorous.li({
   paddingLeft: 10,
   paddingRight: 10,
   paddingBottom: 4,
+  '&::before': {
+    content: 'initial',
+  },
 })
 
 const List = glamorous.ul(

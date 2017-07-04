@@ -94,11 +94,18 @@ export default () => `
 
   ul,
   ol {
+    list-style: none;
     padding-left: 2em;
   }
 
   li {
     margin-bottom: 10px;
+  }
+
+  li:before {
+    content: "💋";
+    margin-right: 10px;
+    color: ${colors.primaryMed};
   }
 
   pre {
