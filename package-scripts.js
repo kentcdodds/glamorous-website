@@ -40,9 +40,9 @@ module.exports = {
       },
     },
     test: {
-      default: crossEnv('NODE_ENV=test jest --coverage'),
-      update: crossEnv('NODE_ENV=test jest -u'),
-      watch: crossEnv('NODE_ENV=test jest --watch'),
+      default: crossEnv('NODE_ENV=test LOCALE=en jest --coverage'),
+      update: crossEnv('NODE_ENV=test LOCALE=en jest -u'),
+      watch: crossEnv('NODE_ENV=test LOCALE=en jest --watch'),
     },
     // default is run when you run `nps` or `npm start`
     default: 'next start',

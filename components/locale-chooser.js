@@ -4,9 +4,11 @@ import content from './content/locale-chooser.md'
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'
+import DeSvg from './svgs/de.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
+const svgStyle = {width: '1em', height: '100%'}
 const Wrapper = glamorous.div({
   fontSize: '.8em',
   cursor: 'pointer',
@@ -68,15 +70,15 @@ const Link = glamorous.a((props, {colors}) => ({
   },
 }))
 
-const localeContent = ({display, flag}) =>
+const localeContent = ({display, Flag = () => null}) =>
   (<div>
-    {flag} <span>{display}</span>
+    <Flag {...svgStyle} /> <span>{display}</span>
   </div>)
 
-const localeItem = ({key, display, flag}) =>
+const localeItem = ({key, display, Flag}) =>
   (<Item key={key}>
     <Link href={localeToHref(key)}>
-      {localeContent({flag, display})}
+      {localeContent({Flag, display})}
     </Link>
   </Item>)
 
@@ -131,39 +133,36 @@ function getLocaleAndHost() {
   }
 }
 
-function mapLocale(key) {
-  const svgStyle = {width: '1em', height: '100%'}
-  switch (key) {
-    case 'en':
-      return {
-        key,
-        display: 'English',
-        flag: <EnSvg {...svgStyle} />,
-      }
-    case 'es':
-      return {
-        key,
-        display: 'Español',
-        flag: <EsSvg {...svgStyle} />,
-      }
-    case 'fr': {
-      return {
-        key,
-        display: 'Français',
-        flag: <FrSvg {...svgStyle} />,
-      }
-    }
-    case 'help': {
-      return {
-        key,
-        display: content.help,
-      }
-    }
+function mapLocale(key = fallbackLocale) {
+  const localeMap = {
+    en: {
+      key,
+      display: 'English',
+      Flag: EnSvg,
+    },
+    es: {
+      key,
+      display: 'Español',
+      Flag: EsSvg,
+    },
+    fr: {
+      key,
+      display: 'Français',
+      Flag: FrSvg,
+    },
+    de: {
+      key,
+      display: 'Deutsche',
+      Flag: DeSvg,
+    },
+    help: {
+      key,
+      display: content.help,
+    },
     default: {
-      return {
-        key,
-        display: key,
-      }
-    }
+      key,
+      display: key,
+    },
   }
+  return localeMap[key] || localeMap.default
 }
