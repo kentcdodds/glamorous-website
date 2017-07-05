@@ -8,6 +8,7 @@ function Examples({url}) {
       sections={[
         require('./content/css-grid.md'),
         require('./content/style-overrides.md'),
+        require('./content/button.md'),
       ]}
       pageContent={require('./content/index.md')}
     />

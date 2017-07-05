@@ -140,6 +140,15 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "danseethaler",
+      "name": "Dan Seethaler",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11202705?v=3",
+      "profile": "https://github.com/danseethaler",
+      "contributions": [
+        "example"
+      ]
     }
   ]
 }
