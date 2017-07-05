@@ -8,6 +8,7 @@ import DeSvg from './svgs/de.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
+const svgStyle = {width: '1em', height: '100%'}
 const Wrapper = glamorous.div({
   fontSize: '.8em',
   cursor: 'pointer',
@@ -23,22 +24,22 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   fontSize: '1em',
   width: '100%',
   borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
-  [mediaQueries.smallOnly]: {
+  [mediaQueries.largeDown]: {
     textAlign: 'center',
   },
 }))
 
 const List = glamorous.ul((props, {colors, mediaQueries}) => ({
-  display: 'flex',
   flexDirection: 'column',
   padding: 0,
   margin: 0,
   opacity: '.9',
   border: `1px solid ${colors.primaryMed}`,
+  display: props.open ? 'flex' : 'hidden',
   visibility: props.open ? 'visible' : 'collapse',
   position: props.top ? 'absolute' : 'relative',
   width: props.top ? '' : '100%',
-  [mediaQueries.smallOnly]: {
+  [mediaQueries.largeDown]: {
     position: 'relative',
     width: '100%',
   },
@@ -51,7 +52,7 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   margin: 0,
   backgroundColor: colors.white,
   lineHeight: 1,
-  [mediaQueries.smallOnly]: {
+  [mediaQueries.largeDown]: {
     textAlign: 'center',
   },
   '&::before': {
@@ -71,9 +72,9 @@ const Link = glamorous.a((props, {colors}) => ({
   },
 }))
 
-const localeContent = ({display, Flag}) =>
+const localeContent = ({display, Flag = () => null}) =>
   (<div aria-hidden="true">
-    {Flag} <span>{display}</span>
+    <Flag {...svgStyle} /> <span>{display}</span>
   </div>)
 
 class LocaleChooser extends React.Component {
@@ -198,47 +199,36 @@ function getHost(currentLocale) {
   return host
 }
 
-// eslint-disable-next-line complexity
-function mapLocale(key) {
-  const options = {width: '1em', height: '100%'}
-  switch (key) {
-    case 'en':
-      return {
-        key,
-        display: 'English',
-        Flag: <EnSvg {...options} />,
-      }
-    case 'es':
-      return {
-        key,
-        display: 'Español',
-        Flag: <EsSvg {...options} />,
-      }
-    case 'fr': {
-      return {
-        key,
-        display: 'Français',
-        Flag: <FrSvg {...options} />,
-      }
-    }
-    case 'de': {
-      return {
-        key,
-        display: 'Deutsche',
-        Flag: <DeSvg {...options} />,
-      }
-    }
-    case 'help': {
-      return {
-        key,
-        display: content.help,
-      }
-    }
+function mapLocale(key = fallbackLocale) {
+  const localeMap = {
+    en: {
+      key,
+      display: 'English',
+      Flag: EnSvg,
+    },
+    es: {
+      key,
+      display: 'Español',
+      Flag: EsSvg,
+    },
+    fr: {
+      key,
+      display: 'Français',
+      Flag: FrSvg,
+    },
+    de: {
+      key,
+      display: 'Deutsche',
+      Flag: DeSvg,
+    },
+    help: {
+      key,
+      display: content.help,
+    },
     default: {
-      return {
-        key,
-        display: key,
-      }
-    }
+      key,
+      display: key,
+    },
   }
+  return localeMap[key] || localeMap.default
 }

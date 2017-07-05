@@ -1,21 +1,10 @@
 import React from 'react'
 import {mount} from 'enzyme'
-import toJson from 'enzyme-to-json'
 import {ThemeProvider} from 'glamorous'
-import {matcher, serializer} from 'jest-glamor-react'
 import GlobalStyles from '../../styles/global-styles'
 import LocaleChooser from '../locale-chooser'
 
 const {supportedLocales, fallbackLocale} = require('../../config.json')
-
-expect.addSnapshotSerializer(serializer)
-expect.extend(matcher)
-
-test('it renders', () => {
-  setHost()
-  const wrapper = mountLocaleChooser()
-  expect(toJson(wrapper)).toMatchSnapshotWithGlamor()
-})
 
 test('a closed locale-chooser', () => {
   setHost()
