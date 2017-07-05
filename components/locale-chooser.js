@@ -20,25 +20,26 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   border: `1px solid ${colors.primaryMed}`,
   textAlign: 'left',
   padding: '3px 10px',
-  outline: 'none',
   display: 'block',
   fontSize: '1em',
   width: '100%',
   borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
-  [mediaQueries.smallOnly]: {
+  [mediaQueries.largeDown]: {
     textAlign: 'center',
   },
 }))
 
 const List = glamorous.ul((props, {colors, mediaQueries}) => ({
-  display: 'flex',
-  position: 'absolute',
   flexDirection: 'column',
   padding: 0,
   margin: 0,
   opacity: '.9',
   border: `1px solid ${colors.primaryMed}`,
-  [mediaQueries.smallOnly]: {
+  display: props.open ? 'flex' : 'hidden',
+  visibility: props.open ? 'visible' : 'collapse',
+  position: props.top ? 'absolute' : 'relative',
+  width: props.top ? '' : '100%',
+  [mediaQueries.largeDown]: {
     position: 'relative',
     width: '100%',
   },
@@ -51,68 +52,135 @@ const Item = glamorous.li((props, {colors, mediaQueries}) => ({
   margin: 0,
   backgroundColor: colors.white,
   lineHeight: 1,
-  transition: 'all .3s',
-  '&:focus, &:hover, &:active': {
-    backgroundColor: colors.primaryMed,
-  },
-  [mediaQueries.smallOnly]: {
+  [mediaQueries.largeDown]: {
     textAlign: 'center',
+  },
+  '&::before': {
+    content: 'initial',
   },
 }))
 
 const Link = glamorous.a((props, {colors}) => ({
   width: '100%',
   padding: '6px 10px',
-  transition: 'all .3s',
+  transition: 'color .3s, background-color .3s',
+  outline: 'none',
   '&:focus, &:hover, &:active': {
     textDecoration: 'none',
     color: colors.white,
+    backgroundColor: colors.primaryMed,
   },
 }))
 
 const localeContent = ({display, Flag = () => null}) =>
-  (<div>
+  (<div aria-hidden="true">
     <Flag {...svgStyle} /> <span>{display}</span>
   </div>)
-
-const localeItem = ({key, display, Flag}) =>
-  (<Item key={key}>
-    <Link href={localeToHref(key)}>
-      {localeContent({Flag, display})}
-    </Link>
-  </Item>)
 
 class LocaleChooser extends React.Component {
   state = {
     open: false,
+    locales: [],
+    currentLocale: process.env.LOCALE || fallbackLocale,
   }
 
-  handleClick() {
+  componentDidMount() {
+    document.addEventListener('click', this.click, true)
+    document.addEventListener('keydown', this.keyDown, true)
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState(() => {
+      return {locales: [...supportedLocales, 'help'].map(mapLocale)}
+    })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.click, true)
+    document.removeEventListener('keydown', this.keyDown, true)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.open && !prevState.open) {
+      this['link-en'].focus()
+    }
+  }
+
+  toggleOpen = () => {
     this.setState(prevState => {
       return {open: !prevState.open}
     })
   }
 
+  click = event => {
+    if (!this.toggle.contains(event.target) && this.state.open) {
+      this.toggleOpen()
+    }
+  }
+
+  keyDown = event => {
+    // Close on escape
+    if (this.state.open && event.keyCode === 27) {
+      this.toggleOpen()
+      this.toggle.focus()
+    }
+  }
+
+  itemHover = event => {
+    event.target.focus()
+  }
+
+  itemBlur = event => {
+    event.target.blur()
+  }
+
   render() {
     return (
       <Wrapper>
-        <Toggle onClick={this.handleClick.bind(this)} isOpen={this.state.open}>
-          {localeContent(mapLocale(process.env.LOCALE))}
+        <Toggle
+          onClick={this.toggleOpen}
+          isOpen={this.state.open}
+          aria-label={content.ariaLabelButton}
+          aria-haspopup="true"
+          aria-owns="locale-selector"
+          aria-expanded={this.state.open ? 'true' : 'false'}
+          innerRef={button => {
+            this.toggle = button
+          }}
+        >
+          {localeContent(mapLocale(this.state.currentLocale))}
         </Toggle>
-        {this.state.open &&
-          <List aria-label="Locale selector">
-            {supportedLocales.map(l => localeItem(mapLocale(l)))}
-            {localeItem(mapLocale('help'))}
-          </List>}
+        <List
+          id="locale-selector"
+          aria-label={content.ariaLabelList}
+          aria-hidden={!this.state.open}
+          open={this.state.open}
+          top={this.props.top}
+        >
+          {this.state.locales.map(({key, display, Flag}) =>
+            (<Item key={key}>
+              <Link
+                href={localeToHref(key, this.state.currentLocale)}
+                lang={key === 'help' ? null : key}
+                aria-label={display}
+                onMouseEnter={this.itemHover}
+                onMouseLeave={this.itemBlur}
+                innerRef={a => {
+                  this[`link-${key}`] = a
+                }}
+              >
+                {localeContent({Flag, display})}
+              </Link>
+            </Item>),
+          )}
+        </List>
       </Wrapper>
     )
   }
 }
 export default LocaleChooser
 
-function localeToHref(locale) {
+function localeToHref(locale, currentLocale) {
   if (supportedLocales.includes(locale)) {
-    const {host} = getLocaleAndHost()
+    const host = getHost(currentLocale)
     const {protocol, pathname, hash, search} = window.location
     const prefix = fallbackLocale === locale ? '' : `${locale}.`
     return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
@@ -121,16 +189,14 @@ function localeToHref(locale) {
   return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
-function getLocaleAndHost() {
-  const locale = process.env.LOCALE
+function getHost(currentLocale) {
   const {host} = window.location
-  // eslint-disable-next-line no-unused-vars
   const [localePart, ...rest] = host.split('.')
-  if (supportedLocales.includes(locale) || localePart !== locale) {
-    return {locale, host: rest.join('.')}
-  } else {
-    return {locale: fallbackLocale, host}
+  if (localePart === currentLocale) {
+    return rest.join('.')
   }
+
+  return host
 }
 
 function mapLocale(key = fallbackLocale) {
