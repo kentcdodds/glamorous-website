@@ -5,13 +5,13 @@ subtitle: Cualquier cosa
 
 Este módulo se distribuye a través de [npm](https://www.npmjs.com/) que viene incluido con [node](https://nodejs.org) y debe ser instalado como una de las `dependencias` de tu proyecto:
 
-```js
+```bash
 npm install --save glamorous
 ```
 
 También depende de `React` y `glamor` por lo que también los necesitarás en tu proyecto (si no los tienes ya):
 
-```js
+```bash
 npm install --save react glamor
 ```
 
@@ -46,7 +46,7 @@ import {MapTag, ColorProfile} from 'glamorous'
 
 Si deseas utilizar la opción global:
 
-```js
+```html
 <!-- Agrega las dependencias -->
 <script src="https://unpkg.com/react/dist/react.js"></script>
 <script src="https://unpkg.com/prop-types/prop-types.js"></script>
