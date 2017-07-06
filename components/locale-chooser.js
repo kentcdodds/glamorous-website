@@ -1,10 +1,12 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import content from './content/locale-chooser.md'
+// get flags from https://github.com/lipis/flag-icon-css/tree/master/flags/4x3
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'
 import DeSvg from './svgs/de.svg'
+import CnSvg from './svgs/cn.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
@@ -220,6 +222,11 @@ function mapLocale(key = fallbackLocale) {
       key,
       display: 'Deutsche',
       Flag: DeSvg,
+    },
+    zh: {
+      key,
+      display: '中文',
+      Flag: CnSvg,
     },
     help: {
       key,
