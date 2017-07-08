@@ -4,7 +4,7 @@ title: Core Concepts
 
 ### glamorous
 
-The `glamorous` function is the main (only) export. It allows you to create
+The `glamorous` function is the default export. It allows you to create
 glamorous components that render the styles to the component you give it. This
 is done by forwarding a `className` prop to the component you tell it to render.
 But before we get into how you wrap custom components, let's talk about the
