@@ -48,7 +48,7 @@ module.exports = {
     default: 'next start',
     dev: 'next',
     build: Object.assign(localeBuilds, {
-      default: concurrent.nps(...supportedLocales.map(s => `build.${s}`)),
+      default: series.nps(...supportedLocales.map(s => `build.${s}`)),
     }),
     deploy: localeDeploys,
     lint: {description: 'lint the entire project', script: 'eslint .'},
