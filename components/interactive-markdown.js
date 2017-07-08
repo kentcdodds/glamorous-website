@@ -2,10 +2,12 @@ import React from 'react'
 import remark from 'remark'
 import remarkHtml from 'remark-html'
 import visit from 'unist-util-visit'
+import Prism from 'prismjs'
 import CodePreview from './code-preview'
 import Callout from './callout'
 import ClickToRender from './click-to-render'
 import stripIndent from './utils/strip-indent'
+import StaticCodeBlock from './static-code-block'
 
 export default interactiveMarkdown
 
@@ -24,7 +26,27 @@ function ClickToRenderCodePreview(props) {
 }
 
 function interactiveMarkdown(markdownString) {
+  if (!markdownString) {
+    return ''
+  }
   const componentBlocks = []
+  function highlight({options, value, language, highlighter}) {
+    const code = Prism.highlight(value, highlighter)
+    return {
+      component: StaticCodeBlock,
+      language,
+      code,
+      ...options,
+    }
+  }
+  function jsHighlighter(options, value) {
+    return highlight({
+      options,
+      value,
+      language: 'javascript',
+      highlighter: Prism.languages.js,
+    })
+  }
   const pragmaHandlers = {
     interactive(options, value) {
       const component = options.clickToRender ?
@@ -34,6 +56,32 @@ function interactiveMarkdown(markdownString) {
     },
     callout(options, value) {
       return {component: Callout, children: value, ...options}
+    },
+    jsx(options, value) {
+      return highlight({
+        options,
+        value,
+        language: 'jsx',
+        highlighter: require('prismjs/components/prism-jsx'),
+      })
+    },
+    javascript: jsHighlighter,
+    js: jsHighlighter,
+    html(options, value) {
+      return highlight({
+        options,
+        value,
+        language: 'html',
+        highlighter: Prism.languages.html,
+      })
+    },
+    bash(options, value) {
+      return highlight({
+        options,
+        value,
+        language: 'bash',
+        highlighter: require('prismjs/components/prism-bash'),
+      })
     },
   }
 

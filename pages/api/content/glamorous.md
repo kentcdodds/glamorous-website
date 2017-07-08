@@ -74,7 +74,7 @@ const MyGlamorousComponent = myGlamorousComponentFactory(props => ({
 There are some cases where you're making a `glamorousComponentFactory` out of a custom component that spreads 
 some of the properties across an underlying DOM element, but not all of them. In this case you should use 
 `rootEl` to forward only the right props to be spread on the DOM element, but you can also use `forwardProps` 
-to specify extra props that should be forwarded. For [example](https://codesandbox.io/s/GZEo8jOyy)
+to specify extra props that should be forwarded. For [example](https://codesandbox.io/s/GZEo8jOyy):
 
 ```js
 const MyComponent = ({shouldRender, ...rest}) => (

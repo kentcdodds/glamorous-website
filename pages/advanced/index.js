@@ -1,18 +1,20 @@
 import React from 'react'
-import {withContent} from '../../components/locale'
-import Layout from '../../components/layout'
-import PageSections from '../../components/page-sections'
+import DocsPage from '../../components/docs-page'
 
-function Advanced({url, content, locale}) {
+function Page({url}) {
   return (
-    <Layout
-      pathname={url ? url.pathname : ''}
-      locale={locale}
-      contributors={content.contributors}
-    >
-      <PageSections data={content} />
-    </Layout>
+    <DocsPage
+      url={url}
+      sections={[
+        require('./content/refs.md'),
+        require('./content/existing-css.md'),
+        require('./content/theming.md'),
+        require('./content/size.md'),
+        require('./content/ssr.md'),
+      ]}
+      pageContent={require('./content/index.md')}
+    />
   )
 }
 
-export default withContent({page: 'advanced'}, Advanced)
+export default Page

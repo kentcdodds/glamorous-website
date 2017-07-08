@@ -1,45 +1,110 @@
 import React from 'react'
 import {mount} from 'enzyme'
 import {ThemeProvider} from 'glamorous'
+import GlobalStyles from '../../styles/global-styles'
 import LocaleChooser from '../locale-chooser'
 
-let assignSpy
+const {supportedLocales, fallbackLocale} = require('../../config.json')
 
-beforeEach(() => {
-  assignSpy = jest.spyOn(window.location, 'assign')
+test('a closed locale-chooser', () => {
+  setHost()
+  const wrapper = mountLocaleChooser()
+  testClosedState(wrapper)
 })
 
-afterEach(() => {
-  assignSpy.mockRestore()
+test('an open locale-chooser', () => {
+  setHost()
+  const wrapper = mountLocaleChooser()
+  const toggle = wrapper.find('button')
+  const selector = wrapper.find('ul')
+  toggle.simulate('click')
+
+  expect(toggle.getDOMNode().getAttribute('aria-expanded')).toEqual('true')
+  expect(selector.getDOMNode().getAttribute('aria-hidden')).toEqual('false')
+  expect(
+    selector.childAt(0).find('a').getDOMNode() === document.activeElement,
+  ).toBe(true)
 })
 
-test('redirects to the right URL when the locale is changed', () => {
-  const wrapper = mountLocaleChooser({locale: 'en'})
-  wrapper.find('select').simulate('change', {target: {value: 'fr'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).toHaveBeenCalledWith(expect.stringContaining('fr.'))
+test('pressing the escape key closes the locale-selector', () => {
+  setHost()
+  const wrapper = mountLocaleChooser()
+  const toggle = wrapper.find('button')
+  toggle.simulate('click')
+  document.dispatchEvent(new KeyboardEvent('keydown', {keyCode: 27}))
+
+  testClosedState(wrapper)
 })
 
-test('redirects to the root of the site when changed to english', () => {
-  const wrapper = mountLocaleChooser({locale: 'es'})
-  wrapper.find('select').simulate('change', {target: {value: 'en'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).not.toHaveBeenCalledWith(expect.stringContaining('en.'))
+test('an outside click closes the locale-selector', () => {
+  setHost()
+  const wrapper = mountLocaleChooser()
+  const toggle = wrapper.find('button')
+  toggle.simulate('click')
+  document.dispatchEvent(new Event('click'))
+
+  testClosedState(wrapper)
 })
 
-test('redirects to the docs about docs on github', () => {
-  const wrapper = mountLocaleChooser({locale: 'fr'})
-  wrapper.find('select').simulate('change', {target: {value: 'another'}})
-  expect(assignSpy).toHaveBeenCalledTimes(1)
-  expect(assignSpy).toHaveBeenCalledWith(
-    expect.stringContaining('CONTRIBUTING_DOCUMENTATION.md'),
-  )
+test('creates localization links', () => {
+  supportedLocales.forEach(l => {
+    setHost(l)
+    testLocalizationLinks()
+  })
 })
 
-function mountLocaleChooser(props = {}) {
+function mountLocaleChooser() {
   return mount(
-    <ThemeProvider theme={{colors: {}}}>
-      <LocaleChooser {...props} />
+    <ThemeProvider theme={GlobalStyles}>
+      <LocaleChooser />
     </ThemeProvider>,
+  )
+}
+
+const host = 'glamorous.rocks'
+function setHost(lang = fallbackLocale) {
+  process.env.LOCALE = lang
+
+  // why can't we just do window.location.host = 'foo'?
+  // https://github.com/facebook/jest/issues/890
+  Object.defineProperty(window.location, 'host', {
+    writable: true,
+    value: `${lang === fallbackLocale ? '' : `${lang}.`}${host}`,
+  })
+
+  Object.defineProperty(window.location, 'protocol', {
+    writable: true,
+    value: 'https:',
+  })
+
+  Object.defineProperty(window.location, 'pathname', {
+    writable: true,
+    value: '/',
+  })
+}
+
+function testClosedState(wrapper) {
+  const toggle = wrapper.find('button')
+  const selector = wrapper.find('ul')
+
+  expect(toggle.getDOMNode().getAttribute('aria-expanded')).toEqual('false')
+  expect(selector.getDOMNode().getAttribute('aria-hidden')).toEqual('true')
+}
+
+function testLocalizationLinks() {
+  const wrapper = mountLocaleChooser()
+  const links = wrapper.find('a')
+
+  expect(links.length).toBe(supportedLocales.length + 1)
+  supportedLocales.forEach((l, i) => {
+    const prefix = l === fallbackLocale ? '' : `${l}.`
+    expect(links.at(i).getDOMNode().getAttribute('href')).toEqual(
+      `https://${prefix}${host}/`,
+    )
+  })
+  expect(
+    links.at(supportedLocales.length).getDOMNode().getAttribute('href'),
+  ).toEqual(
+    'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md',
   )
 }

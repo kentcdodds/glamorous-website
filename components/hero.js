@@ -6,14 +6,9 @@ const Title = glamorous.h1((props, {colors, mediaQueries}) => ({
   margin: '1em 0',
   color: colors.primaryMed,
   fontWeight: 'lighter',
-  [mediaQueries.smallUp]: {
-    fontSize: '4vw',
-  },
-  [mediaQueries.mediumUp]: {
-    fontSize: '3vw',
-  },
-  [mediaQueries.largeUp]: {
-    fontSize: 40,
+  textAlign: 'center',
+  [mediaQueries.mediumDown]: {
+    fontSize: '2.75rem',
   },
 }))
 
@@ -29,3 +24,4 @@ const Hero = ({...rest}) => {
 }
 
 export default Hero
+export {Title}

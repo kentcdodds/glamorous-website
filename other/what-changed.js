@@ -6,7 +6,7 @@ const file = process.argv[2]
 const lang = process.argv[3]
 
 if (!file || !lang) {
-  const example = `node other/what-changed.js path/to/english/file.js es`
+  const example = `node other/what-changed.js path/to/english/file.md es`
   console.error(
     chalk.red(`You must specify a file and locale:\n  "${example}"`)
   )

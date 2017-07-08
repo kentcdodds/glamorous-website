@@ -1,5 +1,7 @@
 import React from 'react'
 import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live'
+import * as styledSystem from 'styled-system'
+import * as glamor from 'glamor'
 import glamorous from 'glamorous'
 import stripIndent from './utils/strip-indent'
 
@@ -28,7 +30,11 @@ const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
   padding: '1rem',
 }))
 
-function CodePreview({noInline = true, code, scope = {glamorous}}) {
+function CodePreview({
+  noInline = true,
+  code,
+  scope = {glamorous, styledSystem, glamor},
+}) {
   return (
     <StyledLiveProvider
       noInline={noInline}

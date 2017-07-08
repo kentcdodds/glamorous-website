@@ -1,6 +1,7 @@
 [ignore]
 <PROJECT_ROOT>/.*/__tests__/.*
 .*/node_modules/.*
+out/**
 
 [include]
 

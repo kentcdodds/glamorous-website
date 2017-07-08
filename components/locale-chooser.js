@@ -1,48 +1,241 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import {
-  fallbackLocale,
-  supportedLocales,
-  getLocaleAndHost,
-  withContent,
-} from './locale'
+import content from './content/locale-chooser.md'
+// get flags from https://github.com/lipis/flag-icon-css/tree/master/flags/4x3
+import EnSvg from './svgs/en.svg'
+import EsSvg from './svgs/es.svg'
+import FrSvg from './svgs/fr.svg'
+import DeSvg from './svgs/de.svg'
+import CnSvg from './svgs/cn.svg'
 
-const Select = glamorous.select((props, {colors}) => ({
-  textAlignLast: 'center',
-  fontSize: 14,
-  height: 40,
+const {supportedLocales, fallbackLocale} = require('../config.json')
+
+const svgStyle = {width: '1em', height: '100%'}
+const Wrapper = glamorous.div({
+  fontSize: '.8em',
+  cursor: 'pointer',
+})
+
+const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   backgroundColor: colors.white,
-  borderColor: colors.primary,
+  color: colors.primaryMed,
+  border: `1px solid ${colors.primaryMed}`,
+  textAlign: 'left',
+  padding: '3px 10px',
+  display: 'block',
+  fontSize: '1em',
+  width: '100%',
+  borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
+  [mediaQueries.largeDown]: {
+    textAlign: 'center',
+  },
 }))
 
-export default withContent({component: 'locale-chooser'}, LocaleChooser)
+const List = glamorous.ul((props, {colors, mediaQueries}) => ({
+  flexDirection: 'column',
+  padding: 0,
+  margin: 0,
+  opacity: '.9',
+  border: `1px solid ${colors.primaryMed}`,
+  display: props.open ? 'flex' : 'hidden',
+  visibility: props.open ? 'visible' : 'collapse',
+  position: props.top ? 'absolute' : 'relative',
+  width: props.top ? '' : '100%',
+  [mediaQueries.largeDown]: {
+    position: 'relative',
+    width: '100%',
+  },
+}))
 
-function LocaleChooser({locale, content, ...rest}) {
-  return (
-    <Select
-      value={locale}
-      onChange={changeLanguage}
-      {...rest}
-      aria-label="Locale selector"
-    >
-      <option value="en">en</option>
-      <option value="es">es</option>
-      <option value="fr">fr</option>
-      <option value="help">{content.help}</option>
-    </Select>
-  )
+const Item = glamorous.li((props, {colors, mediaQueries}) => ({
+  display: 'flex',
+  flex: 1,
+  textAlign: 'left',
+  margin: 0,
+  backgroundColor: colors.white,
+  lineHeight: 1,
+  [mediaQueries.largeDown]: {
+    textAlign: 'center',
+  },
+  '&::before': {
+    content: 'initial',
+  },
+}))
+
+const Link = glamorous.a((props, {colors}) => ({
+  width: '100%',
+  padding: '6px 10px',
+  transition: 'color .3s, background-color .3s',
+  outline: 'none',
+  '&:focus, &:hover, &:active': {
+    textDecoration: 'none',
+    color: colors.white,
+    backgroundColor: colors.primaryMed,
+  },
+}))
+
+const localeContent = ({display, Flag = () => null}) =>
+  (<div aria-hidden="true">
+    <Flag {...svgStyle} /> <span>{display}</span>
+  </div>)
+
+class LocaleChooser extends React.Component {
+  state = {
+    open: false,
+    locales: [],
+    currentLocale: process.env.LOCALE || fallbackLocale,
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.click, true)
+    document.addEventListener('keydown', this.keyDown, true)
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState(() => {
+      return {locales: [...supportedLocales, 'help'].map(mapLocale)}
+    })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.click, true)
+    document.removeEventListener('keydown', this.keyDown, true)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.open && !prevState.open) {
+      this['link-en'].focus()
+    }
+  }
+
+  toggleOpen = () => {
+    this.setState(prevState => {
+      return {open: !prevState.open}
+    })
+  }
+
+  click = event => {
+    if (!this.toggle.contains(event.target) && this.state.open) {
+      this.toggleOpen()
+    }
+  }
+
+  keyDown = event => {
+    // Close on escape
+    if (this.state.open && event.keyCode === 27) {
+      this.toggleOpen()
+      this.toggle.focus()
+    }
+  }
+
+  itemHover = event => {
+    event.target.focus()
+  }
+
+  itemBlur = event => {
+    event.target.blur()
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Toggle
+          onClick={this.toggleOpen}
+          isOpen={this.state.open}
+          aria-label={content.ariaLabelButton}
+          aria-haspopup="true"
+          aria-owns="locale-selector"
+          aria-expanded={this.state.open ? 'true' : 'false'}
+          innerRef={button => {
+            this.toggle = button
+          }}
+        >
+          {localeContent(mapLocale(this.state.currentLocale))}
+        </Toggle>
+        <List
+          id="locale-selector"
+          aria-label={content.ariaLabelList}
+          aria-hidden={!this.state.open}
+          open={this.state.open}
+          top={this.props.top}
+        >
+          {this.state.locales.map(({key, display, Flag}) =>
+            (<Item key={key}>
+              <Link
+                href={localeToHref(key, this.state.currentLocale)}
+                lang={key === 'help' ? null : key}
+                aria-label={display}
+                onMouseEnter={this.itemHover}
+                onMouseLeave={this.itemBlur}
+                innerRef={a => {
+                  this[`link-${key}`] = a
+                }}
+              >
+                {localeContent({Flag, display})}
+              </Link>
+            </Item>),
+          )}
+        </List>
+      </Wrapper>
+    )
+  }
+}
+export default LocaleChooser
+
+function localeToHref(locale, currentLocale) {
+  if (supportedLocales.includes(locale)) {
+    const host = getHost(currentLocale)
+    const {protocol, pathname, hash, search} = window.location
+    const prefix = fallbackLocale === locale ? '' : `${locale}.`
+    return `${protocol}//${prefix}${host}${pathname}${search}${hash}`
+  }
+
+  return 'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
 }
 
-function changeLanguage({target: {value}}) {
-  let url
-  if (supportedLocales.includes(value)) {
-    const {host} = getLocaleAndHost()
-    const {protocol, pathname, hash, search} = window.location
-    const prefix = fallbackLocale === value ? '' : `${value}.`
-    url = `${protocol}//${prefix}${host}${pathname}${search}${hash}`
-  } else {
-    url =
-      'https://github.com/kentcdodds/glamorous-website/blob/master/other/CONTRIBUTING_DOCUMENTATION.md'
+function getHost(currentLocale) {
+  const {host} = window.location
+  const [localePart, ...rest] = host.split('.')
+  if (localePart === currentLocale) {
+    return rest.join('.')
   }
-  window.location.assign(url)
+
+  return host
+}
+
+function mapLocale(key = fallbackLocale) {
+  const localeMap = {
+    en: {
+      key,
+      display: 'English',
+      Flag: EnSvg,
+    },
+    es: {
+      key,
+      display: 'Español',
+      Flag: EsSvg,
+    },
+    fr: {
+      key,
+      display: 'Français',
+      Flag: FrSvg,
+    },
+    de: {
+      key,
+      display: 'Deutsche',
+      Flag: DeSvg,
+    },
+    zh: {
+      key,
+      display: '中文',
+      Flag: CnSvg,
+    },
+    help: {
+      key,
+      display: content.help,
+    },
+    default: {
+      key,
+      display: key,
+    },
+  }
+  return localeMap[key] || localeMap.default
 }

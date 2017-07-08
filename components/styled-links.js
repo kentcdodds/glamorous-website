@@ -21,15 +21,37 @@ const activeLinkStyles = (props, theme) => ({
   textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
+const slugStyles = {
+  position: 'relative',
+  display: 'block',
+
+  '& svg': {
+    display: 'none',
+    position: 'absolute',
+    top: 0,
+    left: '-2.5rem',
+    width: '1.75em',
+    height: '2.827em',
+  },
+
+  '&:hover svg': {
+    display: 'block',
+  },
+}
+
 const StyledAnchor = glamorous.a(
   basicLinkStyles,
   anchorStyles,
   (props, theme) => activeLinkStyles(props, theme),
+  props => (props.isSlug ? slugStyles : ''),
 )
 
-const Anchor = ({href, prefetch, external, pathname, ...rest}) => {
+const Anchor = ({href, prefetch, external, pathname, isSlug, ...rest}) => {
   if (external) {
     return <StyledAnchor href={href} external {...rest} />
+  }
+  if (isSlug) {
+    return <StyledAnchor href={href} external isSlug {...rest} />
   }
   return (
     <Link prefetch={prefetch} href={href}>

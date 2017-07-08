@@ -3,7 +3,6 @@ import {css, rehydrate} from 'glamor'
 import glamorous, {ThemeProvider, Div} from 'glamorous'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
-import {LocaleProvider} from './locale'
 import Nav from './nav'
 import Footer from './footer'
 import Contributors from './contributors'
@@ -19,42 +18,52 @@ if (typeof window !== 'undefined' && window.__NEXT_DATA__ !== undefined) {
   rehydrate(window.__NEXT_DATA__.ids)
 }
 
-const Wrapper = glamorous.div((props, {fonts, colors}) => ({
-  fontFamily: fonts.sansserif,
-  backgroundColor: colors.primaryLight,
-  ':after': {
-    content: '""',
-    pointerEvents: 'none',
-    backgroundImage: 'url(/static/images/g-background.svg)',
-    backgroundSize: '800px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: '70% -300px',
-    position: 'absolute',
-    zIndex: 0,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-}))
+const Wrapper = glamorous.div(
+  ({top, theme: {colors, fonts, mediaQueries}}) => ({
+    fontFamily: fonts.sansserif,
+    backgroundColor: colors.primaryLight,
+    position: 'relative',
+    display: 'flex',
+    justifyContent: top ? 'flex-end' : 'flex-start',
+    flexDirection: top ? 'column' : 'row',
+    zIndex: 1,
 
-function Layout({pathname, children, locale, contributors}) {
+    [mediaQueries.largeDown]: {
+      display: 'block',
+      justifyContent: null,
+      flexDirection: null,
+    },
+
+    ':after': {
+      content: '""',
+      pointerEvents: 'none',
+      backgroundImage: 'url(/static/images/g-background.svg)',
+      backgroundSize: '800px',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: '70% -300px',
+      position: 'absolute',
+      zIndex: 0,
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+  }),
+)
+
+function Layout({pathname, children, contributors, topNav = false}) {
   css.insert(baseStyles())
   return (
-    <LocaleProvider locale={locale}>
-      <ThemeProvider theme={GlobalStyles}>
-        <Wrapper>
-          <Div position="relative" zIndex={1}>
-            <Div display="flex" justifyContent="flex-end" alignItems="center">
-              <Nav pathname={pathname} locale={locale} />
-            </Div>
-            {children}
-            <Contributors contributors={contributors || []} />
-            <Footer />
-          </Div>
-        </Wrapper>
-      </ThemeProvider>
-    </LocaleProvider>
+    <ThemeProvider theme={GlobalStyles}>
+      <Wrapper top={topNav}>
+        <Nav pathname={pathname} top={topNav} />
+        <Div overflow="auto" width="100%">
+          {children}
+          <Contributors contributors={contributors || []} />
+          <Footer />
+        </Div>
+      </Wrapper>
+    </ThemeProvider>
   )
 }
 

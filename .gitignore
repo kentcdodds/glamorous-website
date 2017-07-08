@@ -7,3 +7,4 @@ dist
 .opt-in
 .opt-out
 yarn-error.log
+out

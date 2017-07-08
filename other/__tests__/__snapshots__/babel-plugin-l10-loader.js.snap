@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1. babel-plugin-l10n-loader 1`] = `
+"
+/* eslint no-unused-vars:0 */
+import fs from 'fs'
+import content1 from './content'
+import content2 from './content/index.md'
+import raw1 from './content/file.raw'
+
+const path = require('path') // no change here
+
+const content3 = require('./content')
+const content4 = require('./content/index.md')
+const raw2 = require('./content/file.raw')
+
+const array = [
+  require('./content'),
+  require('./content/index.md'),
+  require('./content/file.raw'),
+]
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+/* eslint no-unused-vars:0 */
+import fs from 'fs';
+const content1 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\" }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
+const content2 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+const raw1 = '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n';
+
+
+const path = require('path'); // no change here
+
+const content3 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\" }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
+const content4 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+const raw2 = '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n';
+
+const array = [{ \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\" }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" }, { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\" }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] }, '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n'];
+"
+`;
+
+exports[`console error calls 1`] = `""`;

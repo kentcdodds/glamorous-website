@@ -1,9 +1,31 @@
-const npsUtils = require('nps-utils')
+const {concurrent, series, crossEnv, rimraf, mkdirp} = require('nps-utils')
 
-const concurrent = npsUtils.concurrent
-const series = npsUtils.series
-const rimraf = npsUtils.rimraf
 const hiddenFromHelp = true
+
+const {supportedLocales} = require('./config.json')
+
+const localeBuilds = supportedLocales.reduce((obj, locale) => {
+  const env = crossEnv(`LOCALE=${locale} DISABLE_CACHE=true`)
+  const build = `dist/${locale}`
+  const target = `out/${locale}`
+  obj[locale] = {
+    default: series(
+      rimraf(`${build} ${target}`),
+      mkdirp(build), // for some reason next.js won't create this for us 😑
+      `${env} next build`,
+      `${env} next export -o ${target}`,
+      `${env} node other/get-build-info.js > ${target}/build-info.json`,
+      process.env.CI ? `${env} ./other/now-travis` : ''
+    ),
+  }
+  return obj
+}, {})
+
+const localeDeploys = supportedLocales.reduce((obj, locale) => {
+  const target = `out/${locale}`
+  obj[locale] = `now --public --static --name ${locale}-glamorous ${target}`
+  return obj
+}, {})
 
 module.exports = {
   scripts: {
@@ -18,18 +40,17 @@ module.exports = {
       },
     },
     test: {
-      default: 'cross-env NODE_ENV=test jest --coverage',
-      update: 'cross-env NODE_ENV=test jest -u',
-      watch: 'cross-env NODE_ENV=test jest --watch',
+      default: crossEnv('NODE_ENV=test LOCALE=en jest --coverage'),
+      update: crossEnv('NODE_ENV=test LOCALE=en jest -u'),
+      watch: crossEnv('NODE_ENV=test LOCALE=en jest --watch'),
     },
     // default is run when you run `nps` or `npm start`
     default: 'next start',
     dev: 'next',
-    build: {
-      default: 'next build',
-      info: 'node other/get-build-info.js > static/build-info.json',
-      clean: rimraf('.next static/build-info.json'),
-    },
+    build: Object.assign(localeBuilds, {
+      default: series.nps(...supportedLocales.map(s => `build.${s}`)),
+    }),
+    deploy: localeDeploys,
     lint: {description: 'lint the entire project', script: 'eslint .'},
     flow: {description: 'flow type-check the entire project', script: 'flow'},
     reportCoverage: {
@@ -42,19 +63,9 @@ module.exports = {
         'This runs several scripts to make sure things look good before committing or on clean install',
       script: concurrent.nps('lint', 'flow', 'test'),
     },
-    deploy: {
-      hiddenFromHelp,
-      description: 'Runs the deploy script.',
-      script: series('nps build.info', './other/now-travis'),
-    },
     validateAndBuild: {
       hiddenFromHelp,
       script: concurrent.nps('validate', 'build'),
-    },
-    validateAndDeploy: {
-      hiddenFromHelp,
-      description: 'This runs the validation and deploy concurrently',
-      script: concurrent.nps('validateAndBuild', 'deploy'),
     },
   },
   options: {silent: false},
