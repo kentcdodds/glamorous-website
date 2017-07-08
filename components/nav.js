@@ -30,6 +30,11 @@ const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
   },
 }))
 
+const SearchBox = glamorous.input('algolia_searchbox', {
+  minWidth: 400,
+})
+SearchBox.defaultProps = {type: 'text'}
+
 const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
   fill: colors.primaryMed,
   backgroundColor: colors.white,
@@ -119,6 +124,7 @@ class Nav extends React.Component {
     const {pathname, top} = this.props
     return (
       <Navbar className="Navbar" top={top}>
+        <SearchBox />
         <NavToggle onClick={this.handleClick}>
           <MenuSVG />
         </NavToggle>

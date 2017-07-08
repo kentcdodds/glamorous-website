@@ -3,6 +3,7 @@ import Document, {Head, Main, NextScript} from 'next/document'
 import {renderStatic} from 'glamor/server'
 import GoogleAnalytics from '../../components/google-analytics'
 import ConsoleGreet from '../../components/console-greet'
+import AlgoliaConfig from '../../components/algolia-config'
 import content from './content/index.md'
 
 export default class MyDocument extends Document {
@@ -41,6 +42,7 @@ export default class MyDocument extends Document {
           <NextScript />
           <GoogleAnalytics />
           <ConsoleGreet />
+          <AlgoliaConfig />
         </body>
       </html>
     )
