@@ -1,3 +1,4 @@
+import preval from 'preval.macro'
 import React from 'react'
 import glamorous from 'glamorous'
 import {Anchor} from '../components/styled-links'
@@ -6,6 +7,14 @@ import Separator from './separator'
 import LocaleChooser from './locale-chooser'
 import MenuSVG from './svgs/menu.svg'
 import content from './content/nav.md'
+
+const base64SearchSVG = preval`
+  const fs = require('fs')
+  const path = require('path')
+  const svgString = fs.readFileSync(path.join(__dirname, 'svgs/search.svg'), 'utf8')
+  const base64String = new Buffer(svgString).toString('base64')
+  module.exports = base64String
+`
 
 // eslint-disable-next-line complexity
 const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
@@ -29,6 +38,42 @@ const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
     flexDirection: 'column',
   },
 }))
+const SearchBox = glamorous.input('algolia_searchbox', (props, {colors}) => ({
+  width: 130,
+  borderRadius: 50,
+  paddingTop: 4,
+  paddingBottom: 4,
+  paddingLeft: 30,
+  paddingRight: 10,
+  fontFamily: 'inherit',
+  fontSize: '0.75em',
+  lineHeight: '12px',
+  // Icons made by Madebyoliver from www.flaticon.com is licensed by CC 3.0 BY
+  // http://www.flaticon.com/authors/madebyoliver
+  backgroundImage: `url("data:image/svg+xml;base64,${base64SearchSVG}")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: '5px center',
+  backgroundSize: 'auto 80%',
+  border: `1px solid ${colors.primaryMed}`,
+  transition: 'width 0.2s',
+  transitionTimingFunction: 'cubic-bezier(0.075, 0.485, 0.605, 1.085)',
+  color: colors.darkGray,
+  ':focus': {
+    width: 220,
+    outline: 'none',
+    borderColor: `${colors.primaryMed}`,
+  },
+  ':valid': {
+    maxWidth: 220,
+    minWidth: 100,
+  },
+}))
+SearchBox.defaultProps = {
+  type: 'text',
+  pattern: '.*',
+  required: true,
+  placeholder: content.search,
+}
 
 const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
   fill: colors.primaryMed,
@@ -79,7 +124,7 @@ const List = glamorous.ul(
     margin: '0 auto',
     paddingLeft: top ? null : 0,
     height: 'auto',
-    overflow: 'hidden',
+    overflow: 'visible',
     backgroundColor: colors.white,
     padding: 0,
     [mediaQueries.largeUp]: {
@@ -148,6 +193,9 @@ class Nav extends React.Component {
           <ListItemAnchor href="/api">
             {content.api}
           </ListItemAnchor>
+          <ListItem>
+            <SearchBox />
+          </ListItem>
           <ListItem>
             <LocaleChooser top={top} />
           </ListItem>
