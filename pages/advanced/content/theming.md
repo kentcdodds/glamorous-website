@@ -9,8 +9,6 @@ contributors:
 
 It provides the `theme` to all glamorous components down the tree.
 
-> Try this out in your browser [here](https://codesandbox.io/s/o2yq9MkQk)!
-
 ```jsx
 import glamorous, {ThemeProvider} from 'glamorous'
 
@@ -56,9 +54,9 @@ const Title = glamorous.h1({
 </ThemeProvider>
 ```
 
-`glamorous` also exports a `withTheme` higher order component (HOC) so you can access your theme in any component!
+> Try this out in your browser [here](https://codesandbox.io/s/o2yq9MkQk)!
 
-> Try this out in your browser [here](https://codesandbox.io/s/qYmJjE4jy)!
+`glamorous` also exports a `withTheme` higher order component (HOC) so you can access your theme in any component!
 
 ```jsx
 import glamorous, {ThemeProvider,  withTheme} from 'glamorous'
@@ -88,6 +86,8 @@ const ThemedSubTitle = withTheme(SubTitle)
   <ThemedSubTitle>from withTheme!</ThemedSubTitle>
 </ThemeProvider>
 ```
+
+> Try this out in your browser [here](https://codesandbox.io/s/qYmJjE4jy)!
 
 Or if you prefer decorator syntax:
 
