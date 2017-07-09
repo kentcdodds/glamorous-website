@@ -11,7 +11,7 @@ It provides the `theme` to all glamorous components down the tree.
 
 > Try this out in your browser [here](https://codesandbox.io/s/o2yq9MkQk)!
 
-```js
+```jsx
 import glamorous, {ThemeProvider} from 'glamorous'
 
 // our main theme object
@@ -60,7 +60,7 @@ const Title = glamorous.h1({
 
 > Try this out in your browser [here](https://codesandbox.io/s/qYmJjE4jy)!
 
-```js
+```jsx
 import glamorous, {ThemeProvider,  withTheme} from 'glamorous'
 
 // our main theme object
@@ -91,7 +91,7 @@ const ThemedSubTitle = withTheme(SubTitle)
 
 Or if you prefer decorator syntax:
 
-```js
+```jsx
 import React, {Component} from 'react'
 import glamorous, {ThemeProvider,  withTheme} from 'glamorous'
 
