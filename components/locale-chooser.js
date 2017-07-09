@@ -25,7 +25,7 @@ const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
   display: 'block',
   fontSize: '1em',
   width: '100%',
-  borderBottomColor: props.isOpen ? 'transparent' : colors.primaryMed,
+  borderBottomColor: props.open ? 'transparent' : colors.primaryMed,
   [mediaQueries.largeDown]: {
     textAlign: 'center',
   },
@@ -37,7 +37,7 @@ const List = glamorous.ul((props, {colors, mediaQueries}) => ({
   margin: 0,
   opacity: '.9',
   border: `1px solid ${colors.primaryMed}`,
-  display: props.open ? 'flex' : 'hidden',
+  display: props.open ? 'flex' : 'none',
   visibility: props.open ? 'visible' : 'collapse',
   position: props.top ? 'absolute' : 'relative',
   width: props.top ? '' : '100%',
@@ -139,7 +139,7 @@ class LocaleChooser extends React.Component {
       <Wrapper>
         <Toggle
           onClick={this.toggleOpen}
-          isOpen={this.state.open}
+          open={this.state.open}
           aria-label={content.ariaLabelButton}
           aria-haspopup="true"
           aria-owns="locale-selector"
