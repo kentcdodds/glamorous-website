@@ -1,5 +1,8 @@
 ---
 title: Theming
+codeSandboxId: qYmJjE4jy
+contributors:
+  - paulmolluzzo
 ---
 
 `glamorous` fully supports theming using a special `<ThemeProvider>` component.
