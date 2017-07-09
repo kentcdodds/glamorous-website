@@ -7,7 +7,7 @@ separation between your dynamic and static styles by forcing you to choose
 between an object literal and a function. Here's an example of having both
 dynamic and static styles:
 
-```js
+```interactive
 const MyLink = glamorous.a(
   {
     color: 'blue',
@@ -15,29 +15,36 @@ const MyLink = glamorous.a(
   },
   ({size = 'small'}) => ({
     fontSize: size === 'big' ? 24 : 16,
-  }),
+  })
   // you can continue to provide any number of arguments
   // and `glamor` will merge them. In the event of a
   // style conflict, the last one wins.
+)
+
+render(
+  <div>
+    <MyLink href="#">Default is small</MyLink>
+    <br />
+    <MyLink href="#" size="big">size="big"</MyLink>
+  </div>
 )
 ```
 
 You can see a live preview of this example on [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
 
-<details>
-<summary>Note, you can also use arrays of styles if you need:</summary>
-
-```js
+```interactive {clickToRender: true, summary: 'Can use arrays to merge styles together'}
+const phoneMediaQuery = '@media only screen and (max-width: 480px)'
 const MyDiv = glamorous.div(
   [
     {
+      border: '1px solid',
       [phoneMediaQuery]: {
-        lineHeight: 1.2,
+        color: 'rebeccapurple',
       },
     },
     {
       [phoneMediaQuery]: {
-        lineHeight: 1.3, // this will win because it comes later
+        color: 'green', // this will win because it comes later
       },
     },
   ],
@@ -50,35 +57,27 @@ const MyDiv = glamorous.div(
     } :
       {}
 
-    const squareStyles = square ?
-    {
+    const squareStyles = {
       [phoneMediaQuery]: {
         borderRadius: 0,
       },
-    } :
-    {
+    }
+
+    const roundStyles = {
       [phoneMediaQuery]: {
         borderRadius: '50%',
       },
     }
+
+    const shapeStyles = square ? squareStyles : roundStyles
     // note that I'm returning an array here
-    return [bigStyles, squareStyles]
-  },
+    return [bigStyles, shapeStyles]
+  }
 )
 
-// result of <MyDiv big={true} square={false} /> will be:
-// @media (max-width: 640px) {
-//   .css-1bzhvkr,
-//   [data-css-1bzhvkr] {
-//     line-height: 1.3;
-//     font-size: 20px;
-//     border-radius: 50%;
-//   }
-// }
-//
-// <div
-//   class="css-1bzhvkr"
-// />
+render(
+  <MyDiv big={true} square={false}>
+    Resize your window to see media queries in action.
+  </MyDiv>
+)
 ```
-
-</details>

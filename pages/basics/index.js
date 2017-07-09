@@ -6,6 +6,7 @@ function Page({url}) {
     <DocsPage
       url={url}
       sections={[
+        require('./content/motivation.md'),
         require('./content/install.md'),
         require('./content/getting-started.md'),
         require('./content/core-concepts.md'),

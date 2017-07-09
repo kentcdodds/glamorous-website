@@ -1,6 +1,16 @@
 import pluginTester from 'babel-plugin-tester'
 import plugin from '../babel-plugin-l10n-loader'
 
+const locale = process.env.LOCALE
+
+beforeAll(() => {
+  process.env.LOCALE = 'en'
+})
+
+afterAll(() => {
+  process.env.LOCALE = locale
+})
+
 pluginTester({
   plugin,
   snapshot: true,

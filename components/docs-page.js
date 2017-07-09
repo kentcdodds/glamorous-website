@@ -12,7 +12,7 @@ import CodeSandboxEmbed from './code-sandbox-embed'
 import {Anchor} from './styled-links'
 import GitHubSVG from './svgs/github.svg'
 import LinkSVG from './svgs/link.svg'
-import {mdToHTMLUnwrapped} from './utils/md-to-html'
+import mdToHTML, {mdToHTMLUnwrapped} from './utils/md-to-html'
 import content from './content/page-sections.md'
 
 const repoEditRootURL =
@@ -122,7 +122,14 @@ function DocSection(props) {
           dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(title)}}
         />
       </Anchor>
-      <h4 dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(subtitle)}} />
+      <glamorous.Div
+        paddingLeft={10}
+        borderLeft="2px solid #ccc"
+        opacity={0.9}
+        marginTop={10}
+        marginBottom={20}
+        dangerouslySetInnerHTML={{__html: mdToHTML(subtitle)}}
+      />
       <DocSectionDetails {...props} />
     </Section>
   )
