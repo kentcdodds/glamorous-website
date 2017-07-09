@@ -3,7 +3,7 @@ title: glamorous API
 ---
 
 The `glamorous` function allows you to create your own `glamorousComponentFactory` (see 
-[below](#glamorousComponentFactory)) for any component you have. For [`example`](https://codesandbox.io/s/g5kDAyB9):
+[below](#glamorousComponentFactory)) for any component you have.
 
 ```js  
 const MyComponent = props => <div {...props} />
@@ -12,6 +12,8 @@ const MyGlamorousComponent = myGlamorousComponentFactory({/* styles */})
 
 <MyGlamorousComponent id="i-am-forwarded-to-the-div" />
 ```
+> Try this out in your browser [here](https://codesandbox.io/s/g5kDAyB9)!
+
 You can also provide a few options to help glamorous know how to handle your component:
 
 ### displayName
@@ -19,7 +21,7 @@ The `displayName` of a React component is used by React in the
 [`React DevTools`](https://github.com/facebook/react-devtools) and is really handy for debugging 
 React applications. Glamorous will do its best to give a good `displayName` for your component, 
 but, for the example above, the best it can do is: `glamorous(MyComponent)`. If you want to specify 
-a `displayName`, you can do so with this property. For [`example`](https://codesandbox.io/s/P3Lyw5j2):
+a `displayName`, you can do so with this property.
 
 ```js
 const MyComponent = props => <div {...props} />
@@ -28,6 +30,8 @@ const myGlamorousComponentFactory = glamorous(
   {displayName: 'MyGlamorousComponent'}
 )
 ```
+
+> Try this out in your browser [here](https://codesandbox.io/s/P3Lyw5j2)!
 
 >Note: the `displayName` can also included in the className that your components are given which makes 
 >the development experience a bit nicer. To enable this see the section about `config`. This will likely 
@@ -48,7 +52,7 @@ the underlying DOM element. However, if you create your own factory using a cust
 just forward all the props (because the component may actually need them and glamorous has no way of knowing). 
 But in some cases, the component may be spreading all of the props onto the root element that it renders. 
 For these cases, you can tell glamorous which element is being rendered and glamorous will apply the same logic 
-for which props to forward that it does for the built-in factories. For [example](https://codesandbox.io/s/P18oV4kD2):
+for which props to forward that it does for the built-in factories.
 
 ```js
 const MyComponent = props => <div {...props} />
@@ -69,12 +73,15 @@ const MyGlamorousComponent = myGlamorousComponentFactory(props => ({
 // is not a valid attribute for a `div` however `id` will be forwarded because
 // `id` is a valid prop
 ```
+
+> Try this out in your browser [here](https://codesandbox.io/s/P18oV4kD2)!
+
 ### forwardProps
 
 There are some cases where you're making a `glamorousComponentFactory` out of a custom component that spreads 
 some of the properties across an underlying DOM element, but not all of them. In this case you should use 
 `rootEl` to forward only the right props to be spread on the DOM element, but you can also use `forwardProps` 
-to specify extra props that should be forwarded. For [example](https://codesandbox.io/s/GZEo8jOyy):
+to specify extra props that should be forwarded.
 
 ```js
 const MyComponent = ({shouldRender, ...rest}) => (
@@ -97,10 +104,12 @@ const MyStyledComponent = glamorous(MyComponent, {
 // be forwarded to `MyComponent` because it is a valid prop for a `div`.
 ```
 
+> Try this out in your browser [here](https://codesandbox.io/s/GZEo8jOyy)!
+
 ### withComponent
 
 In some cases you might want to just copy the styles of an already created glamorous component with a 
-different tag altogether, `withComponent` function comes in handy then. For example:
+different tag altogether, `withComponent` function comes in handy then.
 
 ```js
 const Button = glamorous.button({

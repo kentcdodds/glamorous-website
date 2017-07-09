@@ -30,7 +30,7 @@ render(
 )
 ```
 
-You can see a live preview of this example on [codesandbox](https://codesandbox.io/s/mZkpo0lKA).
+> Try this out in your browser [here](https://codesandbox.io/s/mZkpo0lKA)!
 
 ```interactive {clickToRender: true, summary: 'Can use arrays to merge styles together'}
 const phoneMediaQuery = '@media only screen and (max-width: 480px)'
