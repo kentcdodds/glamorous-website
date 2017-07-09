@@ -7,8 +7,7 @@ import Nav from './nav'
 import Footer from './footer'
 import Contributors from './contributors'
 
-// when we can use babel-plugin-glamorous-displayname then this will be handy
-// glamorous.config.useDisplayNameInClassName = true
+glamorous.config.useDisplayNameInClassName = true
 
 // Adds server generated styles to glamor cache.
 // Has to run before any `style()` calls
