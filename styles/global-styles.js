@@ -44,6 +44,7 @@ export const colors = {
   darkGray: '#333',
   code: '#4F4F4F',
   black: '#000',
+  error: '#ff5555',
   ...statusColors,
 }
 
@@ -64,4 +65,8 @@ export const mediaQueries = {
   largeOnly: `@media ${screen} and (min-width: ${lowerLargeRange}px and (min-width: ${upperLargeRange}px)`,
 }
 
-export default {fonts, colors, mediaQueries}
+export const misc = {
+  boxShadow: '0.05rem 0.05rem 1.12rem rgba(20, 20, 20, 0.27)',
+}
+
+export default {fonts, colors, mediaQueries, misc}
