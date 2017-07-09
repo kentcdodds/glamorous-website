@@ -2,12 +2,13 @@ import React from 'react'
 import remark from 'remark'
 import remarkHtml from 'remark-html'
 import visit from 'unist-util-visit'
-import Prism from 'prismjs'
 import CodePreview from './code-preview'
 import Callout from './callout'
 import ClickToRender from './click-to-render'
 import stripIndent from './utils/strip-indent'
 import StaticCodeBlock from './static-code-block'
+import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-bash'
 
 export default interactiveMarkdown
 
@@ -62,7 +63,7 @@ function interactiveMarkdown(markdownString) {
         options,
         value,
         language: 'jsx',
-        highlighter: require('prismjs/components/prism-jsx'),
+        highlighter: Prism.languages.jsx,
       })
     },
     javascript: jsHighlighter,
@@ -80,7 +81,7 @@ function interactiveMarkdown(markdownString) {
         options,
         value,
         language: 'bash',
-        highlighter: require('prismjs/components/prism-bash'),
+        highlighter: Prism.languages.bash,
       })
     },
   }
