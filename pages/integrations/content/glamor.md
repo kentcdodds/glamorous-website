@@ -6,7 +6,7 @@ contributors:
 
 You can use `glamor` to define CSS and use the `className` to apply styles to a `glamorous` component. This is pretty handy for creating reusable style objects, or doing fun things like keyframe animations.
 
-```interactive {clickToRender: false, summary: 'Example of wrapping a glamorous component'}
+```interactive {clickToRender: false, summary: 'Example using glamor to create CSS keyframes'}
 const { css } = glamor
 
 // make the keyframes with glamor
