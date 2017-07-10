@@ -6,7 +6,8 @@ import glamorous from 'glamorous'
 import stripIndent from './utils/strip-indent'
 
 const StyledLiveProvider = glamorous(LiveProvider)({
-  margin: '0 auto',
+  marginLeft: 'auto',
+  marginRight: 'auto',
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',

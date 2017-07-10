@@ -31,6 +31,9 @@ const PageWrapper = glamorous.div((props, {colors}) => ({
     fill: `${colors.primary}`,
     width: '1rem',
   },
+  '& img': {
+    width: '100%',
+  },
 }))
 
 const EditAnchorWrap = glamorous(Div)({
@@ -68,12 +71,12 @@ function PageSections({title, note, heading, sections}) {
       <PageWrapper>
         <Title dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(title)}} />
         <Div
-          maxWidth="70rem"
+          maxWidth="50rem"
           margin="auto"
           dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(heading)}}
         />
         <Div
-          maxWidth="70rem"
+          maxWidth="50rem"
           margin="20px auto"
           borderLeft="3px solid"
           paddingLeft={20}
@@ -95,9 +98,9 @@ function DocSection(props) {
   const Section = glamorous.section((p, {colors}) => ({
     borderBottom: `1px solid ${colors.primary}`,
     width: '100%',
-    margin: '20px auto',
+    margin: '20px auto 75px',
     paddingBottom: 20,
-    maxWidth: '70rem',
+    maxWidth: '50rem',
   }))
 
   return (

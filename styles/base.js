@@ -1,4 +1,4 @@
-import {fonts, colors, mediaQueries} from '../styles/global-styles'
+import {fonts, colors} from '../styles/global-styles'
 
 export default () => `
   * {
@@ -23,7 +23,7 @@ export default () => `
 
   body {
     font-family: ${fonts.sansserif};
-    font-weight: 100;
+    font-weight: 400;
     font-size: 16px;
     color:  ${colors.darkGray};
     line-height: 1.5em;
@@ -35,11 +35,6 @@ export default () => `
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-  }
-  ${mediaQueries.largeUp} {
-    body {
-      font-size: 18px;
-    }
   }
 
   p {
@@ -56,7 +51,7 @@ export default () => `
   }
 
   h1 { font-size: 3.998em; }
-  h2 { font-size: 2.827em; }
+  h2 { font-size: 2.5em; }
   h3 { font-size: 1.999em; }
   h4 { font-size: 1.414em; }
   h5 { font-size: 1em; }
@@ -109,18 +104,20 @@ export default () => `
   }
 
   pre {
-    overflow-x: scroll;
+    overflow-x: hidden;
+    white-space: pre-wrap;
     max-width: 100%;
     color: ${colors.white};
     background-color: ${colors.blue};
     padding: 10px;
+    margin-bottom: 1.75em;
   }
 
   pre code {
     background-color: initial;
     padding: initial;
     border-radius: initial;
-    font-size: 1em;
+    font-size: 0.85em;
   }
 
   code {
@@ -144,8 +141,10 @@ export default () => `
   /* to be used by our code blocks */
   .prism-code {
     display: block;
-    white-space: pre;
-
+    white-space: pre-wrap !important;
+    /* Was having issues hunting down the multiple injections of
+    base styles - someone with more insight in the architecture can
+    feel free to hunt it down */
     background-color: #1D1F21;
     color: #C5C8C6;
 
