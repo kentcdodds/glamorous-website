@@ -23,7 +23,7 @@ export default () => `
 
   body {
     font-family: ${fonts.sansserif};
-    font-weight: 100;
+    font-weight: 400;
     font-size: 16px;
     color:  ${colors.darkGray};
     line-height: 1.5em;
