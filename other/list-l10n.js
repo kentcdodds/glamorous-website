@@ -1,8 +1,9 @@
 const path = require('path')
-const execSync = require('child_process').execSync
-const pathExists = require('path-exists')
 const glob = require('glob')
 const chalk = require('chalk')
+const translationStatus = require('./translation-status')
+
+const {OUTDATED, UP_TO_DATE, MISSING} = translationStatus
 
 const lang = process.argv[2]
 
@@ -22,17 +23,20 @@ const results = dirs
   .reduce(
     (acc, file) => {
       const {dir, base} = path.parse(file)
+      const status = translationStatus(file, lang)
       const transFile = `${dir}/${lang}/${base}`
-      if (pathExists.sync(transFile)) {
-        const enUpdate = git(`log -1 --pretty=format:"%at" -- ${file}`)
-        const transUpdate = git(`log -1 --pretty=format:"%at" -- ${transFile}`)
-        if (Number(enUpdate) > Number(transUpdate)) {
+      switch (status) {
+        case OUTDATED:
           acc.outdated.push(transFile)
-        } else {
+          break
+        case UP_TO_DATE:
           acc.upToDate.push(transFile)
-        }
-      } else {
-        acc.nonExistant.push(transFile)
+          break
+        case MISSING:
+          acc.nonExistant.push(transFile)
+          break
+        default:
+          throw new Error(`no status for ${transFile}`)
       }
       return acc
     },
@@ -56,9 +60,6 @@ function list(title, array) {
   return `${heading}:\n - ${array.join('\n - ')}`
 }
 
-function git(args) {
-  return execSync(`git ${args}`, {cwd}).toString()
-}
 // This is not transpiled
 /*
   eslint
