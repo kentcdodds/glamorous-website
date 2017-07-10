@@ -1,13 +1,37 @@
 // normally you'll start out with something like:
 // import glamorous from 'glamorous'
 
+const mediaQueries = {
+  phone: '@media only screen and (max-width: 500px)',
+}
+
+
+
 const Heading = glamorous.h1({
 
 })
 
+
+
 const Link = glamorous.a({
 
 })
+
+
+
+const ListItem = glamorous.li({
+
+})
+
+
+
+const CodeBlock = glamorous.pre({
+
+})
+
+
+
+// feel free to mess around with these too if you wanna
 
 const Paragraph = glamorous.p({
 
@@ -17,15 +41,7 @@ const Code = glamorous.code({
 
 })
 
-const CodeBlock = glamorous.pre({
-
-})
-
 const List = glamorous.ul({
-
-})
-
-const ListItem = glamorous.li({
 
 })
 
@@ -38,8 +54,14 @@ render(
       Paragraph,
       Code,
       CodeBlock: props => (
-        <CodeBlock key={props.nodeKey} className={props.className}>
-          <Code>{props.literal}</Code>
+        <CodeBlock
+          key={props.nodeKey}
+          language={props.language}
+          className={`language-${props.language} ${props.className}`}
+        >
+          <Code>
+            {props.literal}
+          </Code>
         </CodeBlock>
       ),
       List,
