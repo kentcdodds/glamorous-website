@@ -11,7 +11,7 @@ const StyledLiveProvider = glamorous(LiveProvider)({
   flexDirection: 'column',
   flexWrap: 'wrap',
   justifyContent: 'space-around',
-  maxWidth: '50rem',
+  maxWidth: '70rem',
   marginTop: 20,
   marginBottom: 20,
 })
