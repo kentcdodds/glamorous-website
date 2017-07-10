@@ -53,7 +53,6 @@ const StyledLivePreview = glamorous(LivePreview)(
   {
     padding: '1rem',
     backgroundColor: 'white',
-    overflow: 'scroll',
   },
   ({theme: {mediaQueries}}) => ({
     width: '100vw',
