@@ -18,24 +18,31 @@ const MyLink = glamorous.a(
   // `glamor`会把他们一起合并
   // 当样式冲突的时候，最后传入的会保留。
 )
+
+render(
+  <div>
+    <MyLink href="#">Default is small</MyLink>
+    <br />
+    <MyLink href="#" size="big">size="big"</MyLink>
+  </div>
+)
 ```
 
 你可以在[codesandbox](https://codesandbox.io/s/mZkpo0lKA)中动态预览这个例子。
 
-<details>
-<summary>顺便提一下, 如果需要的话你可以提供一个由样式对象组成的数组</summary>
-
-```js
+```interactive {clickToRender: true, summary: '可以使用数组来合并样式'}
+const phoneMediaQuery = '@media only screen and (max-width: 480px)'
 const MyDiv = glamorous.div(
   [
     {
+      border: '1px solid',
       [phoneMediaQuery]: {
-        lineHeight: 1.2,
+        color: 'rebeccapurple',
       },
     },
     {
       [phoneMediaQuery]: {
-        lineHeight: 1.3, // this will win because it comes later
+        color: 'green', // 这个样式会保留，因为它写在后面
       },
     },
   ],
@@ -48,35 +55,27 @@ const MyDiv = glamorous.div(
     } :
       {}
 
-    const squareStyles = square ?
-    {
+    const squareStyles = {
       [phoneMediaQuery]: {
         borderRadius: 0,
       },
-    } :
-    {
+    }
+
+    const roundStyles = {
       [phoneMediaQuery]: {
         borderRadius: '50%',
       },
     }
-    // note that I'm returning an array here
-    return [bigStyles, squareStyles]
-  },
+
+    const shapeStyles = square ? squareStyles : roundStyles
+    // 注意一下我这里是返回的数组
+    return [bigStyles, shapeStyles]
+  }
 )
 
-// <MyDiv big={true} square={false} /> 渲染的结果就会变成:
-// @media (max-width: 640px) {
-//   .css-1bzhvkr,
-//   [data-css-1bzhvkr] {
-//     line-height: 1.3;
-//     font-size: 20px;
-//     border-radius: 50%;
-//   }
-// }
-//
-// <div
-//   class="css-1bzhvkr"
-// />
+render(
+  <MyDiv big={true} square={false}>
+    缩放您的浏览器窗口看看media queries是否起作用
+  </MyDiv>
+)
 ```
-
-</details>
