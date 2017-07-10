@@ -104,7 +104,8 @@ export default () => `
   }
 
   pre {
-    overflow-x: scroll;
+    overflow-x: hidden;
+    white-space: pre-wrap;
     max-width: 100%;
     color: ${colors.white};
     background-color: ${colors.blue};
@@ -115,7 +116,7 @@ export default () => `
     background-color: initial;
     padding: initial;
     border-radius: initial;
-    font-size: 1em;
+    font-size: 0.85em;
   }
 
   code {
