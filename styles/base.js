@@ -1,4 +1,4 @@
-import {fonts, colors, mediaQueries} from '../styles/global-styles'
+import {fonts, colors} from '../styles/global-styles'
 
 export default () => `
   * {
@@ -35,11 +35,6 @@ export default () => `
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-  }
-  ${mediaQueries.largeUp} {
-    body {
-      font-size: 18px;
-    }
   }
 
   p {
