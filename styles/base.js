@@ -142,7 +142,9 @@ export default () => `
   .prism-code {
     display: block;
     white-space: pre-wrap !important;
-
+    /* Was having issues hunting down the multiple injections of
+    base styles - someone with more insight in the architecture can
+    feel free to hunt it down */
     background-color: #1D1F21;
     color: #C5C8C6;
 
