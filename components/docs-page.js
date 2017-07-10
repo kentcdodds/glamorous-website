@@ -71,12 +71,12 @@ function PageSections({title, note, heading, sections}) {
       <PageWrapper>
         <Title dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(title)}} />
         <Div
-          maxWidth="35rem"
+          maxWidth="50rem"
           margin="auto"
           dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(heading)}}
         />
         <Div
-          maxWidth="35rem"
+          maxWidth="50rem"
           margin="20px auto"
           borderLeft="3px solid"
           paddingLeft={20}
@@ -100,7 +100,7 @@ function DocSection(props) {
     width: '100%',
     margin: '20px auto 75px',
     paddingBottom: 20,
-    maxWidth: '35rem',
+    maxWidth: '50rem',
   }))
 
   return (
