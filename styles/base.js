@@ -51,7 +51,7 @@ export default () => `
   }
 
   h1 { font-size: 3.998em; }
-  h2 { font-size: 2.827em; }
+  h2 { font-size: 2.5em; }
   h3 { font-size: 1.999em; }
   h4 { font-size: 1.414em; }
   h5 { font-size: 1em; }
@@ -110,6 +110,7 @@ export default () => `
     color: ${colors.white};
     background-color: ${colors.blue};
     padding: 10px;
+    margin-bottom: 1.75em;
   }
 
   pre code {
@@ -140,7 +141,7 @@ export default () => `
   /* to be used by our code blocks */
   .prism-code {
     display: block;
-    white-space: pre;
+    white-space: pre-wrap !important;
 
     background-color: #1D1F21;
     color: #C5C8C6;
