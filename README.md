@@ -1,14 +1,13 @@
-<img src="https://github.com/paypal/glamorous/raw/master/other/logo/full.png" alt="glamorous logo" title="glamorous" align="right" width="150" height="150" />
-
-# glamorous-website
-
-This is the website for [`glamorous`](https://github.com/paypal/glamorous/) and is built with [`next`](https://github.com/zeit/next.js) and `glamorous` of course.
+<h1 align="center">
+  <img src="https://github.com/paypal/glamorous/raw/master/other/logo/full.png" alt="glamorous" title="glamorous" width="200">
+  <br>
+  glamorous-website 💄
+  <br>
+</h1>
+<p align="center" style="font-size: 1.2rem;">This is the website for [`glamorous`](https://github.com/paypal/glamorous/) and is built with [`next`](https://github.com/zeit/next.js) and `glamorous` of course.</p>
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![Dependencies][dependencyci-badge]][dependencyci]
-[![version][version-badge]][package]
-[![downloads][downloads-badge]][npm-stat]
 [![MIT License][license-badge]][LICENSE]
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors)
@@ -53,12 +52,6 @@ MIT
 [build]: https://travis-ci.org/kentcdodds/glamorous-website
 [coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/glamorous-website.svg?style=flat-square
 [coverage]: https://codecov.io/github/kentcdodds/glamorous-website
-[dependencyci-badge]: https://dependencyci.com/github/kentcdodds/glamorous-website/badge?style=flat-square
-[dependencyci]: https://dependencyci.com/github/kentcdodds/glamorous-website
-[version-badge]: https://img.shields.io/npm/v/glamorous-website.svg?style=flat-square
-[package]: https://www.npmjs.com/package/glamorous-website
-[downloads-badge]: https://img.shields.io/npm/dm/glamorous-website.svg?style=flat-square
-[npm-stat]: http://npm-stat.com/charts.html?package=glamorous-website&from=2016-04-01
 [license-badge]: https://img.shields.io/npm/l/glamorous-website.svg?style=flat-square
 [license]: https://github.com/kentcdodds/glamorous-website/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
