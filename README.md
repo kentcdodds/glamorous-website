@@ -16,15 +16,9 @@
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![MIT License][license-badge]][LICENSE]
-
 [![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
-[![Donate][donate-badge]][donate]
 [![Code of Conduct][coc-badge]][coc]
-[![Roadmap][roadmap-badge]][roadmap]
-[![Examples][examples-badge]][examples]
-
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
@@ -60,18 +54,10 @@ MIT
 [build]: https://travis-ci.org/kentcdodds/glamorous-website
 [coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/glamorous-website.svg?style=flat-square
 [coverage]: https://codecov.io/github/kentcdodds/glamorous-website
-[license-badge]: https://img.shields.io/npm/l/glamorous-website.svg?style=flat-square
-[license]: https://github.com/kentcdodds/glamorous-website/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[donate]: http://kcd.im/donate
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
 [coc]: https://github.com/kentcdodds/glamorous-website/blob/master/CODE_OF_CONDUCT.MD
-[roadmap-badge]: https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square
-[roadmap]: https://github.com/kentcdodds/glamorous-website/blob/master/other/ROADMAP.md
-[examples-badge]: https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg?style=flat-square
-[examples]: https://github.com/kentcdodds/glamorous-website/blob/master/other/EXAMPLES.md
 [github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/glamorous-website.svg?style=social
 [github-watch]: https://github.com/kentcdodds/glamorous-website/watchers
 [github-star-badge]: https://img.shields.io/github/stars/kentcdodds/glamorous-website.svg?style=social
