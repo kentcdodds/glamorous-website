@@ -4,7 +4,15 @@
   glamorous-website 💄
   <br>
 </h1>
-<p align="center" style="font-size: 1.2rem;">This is the website for [`glamorous`](https://github.com/paypal/glamorous/) and is built with [`next`](https://github.com/zeit/next.js) and `glamorous` of course.</p>
+<p align="center" style="font-size: 1.2rem;">
+  This is the website for
+  <a href="https://github.com/paypal/glamorous">glamorous</a>
+  and is built with
+  <a href="https://github.com/zeit/next.js">next</a>
+  and
+  <a href="https://github.com/paypal/glamorous">glamorous</a>
+  of course.
+</p>
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
