@@ -3,7 +3,7 @@ title: 动画
 codeSandboxId: 31VMyP7XO
 ---
 
-要用glamorous做动画的话，简单的可以用CSS transtion做，如果是复杂的工作你可以通过`glamor`的`css.keyframes`API用`keyframes`做。
+要用glamorous做动画的话，简单的可以用CSS transition做，如果是复杂的工作你可以通过`glamor`的`css.keyframes`API用`keyframes`做。
 
 ```interactive
 // import * as glamor from 'glamor'

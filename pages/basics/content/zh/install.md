@@ -18,12 +18,12 @@ npm install --save react glamor
 
 你可以使用下面任何一种模块格式
 
-- `main`: `dist/glamorous.cjs.js` - 通过CommonJs模块的形式导出
+- `main`: `dist/glamorous.cjs.js` - 通过CommonJS模块的形式导出
 - `global`: `dist/glamorous.umd.js` and `dist/glamorous.umd.min.js` - 通过umd模块的形式导出，可以在几种环境中使用，最常见的是作为全局变量使用
 - `jsnext:main` and module: `dist/glamorous.es.js` - exports itself using the ES modules specification, you'll need to configure webpack to make use of this file do this using the resolve.mainFields property.
-- `jsnext:main` and module: `dist/glamorous.es.js` - 通过ES模块规范导出，如果要通过这种形式使用的话你需要在webpack中配置resole.mainFields属性 
+- `jsnext:main` and module: `dist/glamorous.es.js` - 通过ES模块规范导出，如果要通过这种形式使用的话你需要在webpack中配置resolve.mainFields属性 
 
-不过最常见的场景还是通过CommonJs使用此模块：
+不过最常见的场景还是通过CommonJS使用此模块：
 
 ```js
 const glamorous = require('glamorous')
@@ -35,10 +35,10 @@ const {ThemeProvider} = glamorous
 ```js
 import glamorous, {ThemeProvider} from 'glamorous'
 
-// 你还可以导入特定的Gamorous组件（详见"内置"组件部分）
+// 你还可以导入特定的Glamorous组件（详见"内置"组件部分）
 import {Div, H2} from 'glamorous'
 
-// 和Javascript内置对象名字相同的标签可以通过Tag后缀导入
+// 和JavaScript内置对象名字相同的标签可以通过Tag后缀导入
 // 包含短横线-的标签会被转换成驼峰风格
 import {MapTag, ColorProfile} from 'glamorous'
 ```

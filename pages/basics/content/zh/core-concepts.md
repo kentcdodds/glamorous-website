@@ -47,8 +47,7 @@ function MyUserInterface({name, tagline, imageUrl, homepage, size}) {
 }
 ```
 
-> 点击[这里](https://codesandbox.io/s/wmRo8OKDm)!
-在你的浏览器中尝试一下
+> 点击[这里](https://codesandbox.io/s/wmRo8OKDm)在你的浏览器中尝试一下
 
 给每个组件命名是一个枯燥乏味的事情，所以这些预置的组件是很有用的！另一个很方便的地方就是你可以把样式当做属性传入。从上面的例子可以注意到，glamorous可以区分传入的属性是样式还是有语义的（比如对于`Img`和`A`组件`src`和`href`属性就有特殊意义）。
 
@@ -96,7 +95,8 @@ const MyUserInterface = withTheme(function ({tagline, theme}) {
 使用属性最常见的场景就是重写现有的组件样式（通过`glammorous`或者其他的方式生成）。结合`glamorous()`函数使用`className`,`css`,和`theme`或者简单的组件组合来实现重写。
 
 如果你对使用`theme`属性感兴趣的话可以看一看[主题](/advanced#Theming)章节。在这个章节我们先来解释一下怎么使用`className`,`css`,和组件组合的方式来重写一个组件的样式。
-让我们一起来看看下面的例子把。
+
+让我们一起来看看下面的例子吧。
 
 > 点击[这里](https://codesandbox.io/s/Kro5369wG)在你的浏览器中尝试一下
 
@@ -109,7 +109,7 @@ const MyStyledDiv = glamorous.div({margin: 1, fontSize: 1, padding: 1})
 
 对于你提供的每个`className`，`GlamorousComponent`都会检查它是否是一个由[`glamor`][glamor]生成的`className`(可以从glamor或者`glamorous`来，这并不重要)。如果是的话，就把产生这个`className`的原始样式和已经渲染的样式合并，冲突的属性会优先保留重写样式中的。
 
-对于不是由`glamor`生成的`className`就简单的转发给`GlamorousComponent`。
+对于不是`glamor`生成的`classNames`，就会和`glamor`生成的连接起来。
 
 ```js
 const myCustomGlamorStyles = glamor.css({fontSize: 2})
@@ -145,4 +145,4 @@ const MyComposedStyledDiv = glamorous(MyStyledDiv)({fontSize: 4, padding: 4})
 // {margin: 1, fontSize: 4, padding: 4}
 ```
 
-实际上，内置的DOM组件工厂只是提供了`glamorous()`函数的抽象，所以`glamorous.div`和`glamorous('div')两种写法的的效果是一样的。
+实际上，内置的DOM组件工厂只是提供了`glamorous()`函数的抽象，所以`glamorous.div`和`glamorous('div')`两种写法的的效果是一样的。
