@@ -13,12 +13,40 @@ import {Anchor} from './styled-links'
 import GitHubSVG from './svgs/github.svg'
 import LinkSVG from './svgs/link.svg'
 import mdToHTML, {mdToHTMLUnwrapped} from './utils/md-to-html'
-import content from './content/page-sections.md'
+import content from './content/docs-page.md'
 
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
 
-const PageWrapper = glamorous.div((props, {colors}) => ({
+const TranslationProblem = glamorous.div({
+  display: 'inline-block',
+  borderRadius: '2px',
+  marginTop: 10,
+  marginBottom: 10,
+  marginLeft: 20,
+  fontSize: '0.8rem',
+  paddingTop: 4,
+  paddingBottom: 4,
+  paddingLeft: 10,
+  paddingRight: 10,
+  '& p': {
+    margin: 0,
+  },
+})
+
+const OutdatedTranslation = glamorous(
+  TranslationProblem,
+)(({theme: {colors}}) => ({
+  backgroundColor: colors.dangerLight,
+}))
+
+const MissingTranslation = glamorous(
+  TranslationProblem,
+)(({theme: {colors}}) => ({
+  backgroundColor: colors.warningLight,
+}))
+
+const PageWrapper = glamorous.div(({theme: {colors}}) => ({
   backgroundColor: colors.white,
   width: '100%',
   padding: '1rem',
@@ -93,7 +121,7 @@ function PageSections({title, note, heading, sections}) {
 }
 
 function DocSection(props) {
-  const {title, subtitle, meta: {filename}} = props
+  const {title, subtitle, meta: {filename, isOutdated, isMissing}} = props
 
   const Section = glamorous.section((p, {colors}) => ({
     borderBottom: `1px solid ${colors.primary}`,
@@ -125,6 +153,23 @@ function DocSection(props) {
           dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(title)}}
         />
       </Anchor>
+      {isMissing ?
+        <MissingTranslation
+          dangerouslySetInnerHTML={{
+            __html: mdToHTML(content.missingTranslation),
+          }}
+        /> :
+        null}
+      {isOutdated ?
+        <OutdatedTranslation
+          dangerouslySetInnerHTML={{
+            __html: mdToHTML(content.outdatedTranslation).replace(
+                '__URL__',
+                `${repoEditRootURL}${filename}`,
+              ),
+          }}
+        /> :
+        null}
       <glamorous.Div
         paddingLeft={10}
         borderLeft="2px solid #ccc"
