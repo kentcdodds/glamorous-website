@@ -11,7 +11,7 @@ la prop `innerRef`.
 C'est une fonction, et si elle est fournie, elle sera appelée avec la référence de l'élément
 intérieur.
 
-```interactive {clickToRender: true, summary: 'Un `input` dans un `form`'}
+```interactive {clickToRender: true, summary: 'Un input dans un form'}
 const MyInput = glamorous.input({ borderRadius: 4, padding: '4px 8px' });
 
 class MyComponent extends React.Component {
