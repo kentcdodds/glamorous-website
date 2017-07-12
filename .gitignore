@@ -8,3 +8,4 @@ dist
 .opt-out
 yarn-error.log
 out
+.DS_Store

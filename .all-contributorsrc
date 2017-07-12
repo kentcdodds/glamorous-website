@@ -346,6 +346,16 @@
       "contributions": [
         "example"
       ]
+    },
+    {
+      "login": "motleydev",
+      "name": "Jesse",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1203804?v=3",
+      "profile": "https://github.com/motleydev",
+      "contributions": [
+        "design",
+        "translation"
+      ]
     }
   ]
 }
