@@ -4,8 +4,8 @@ const remark = require('remark')
 const visit = require('unist-util-visit')
 const yaml = require('js-yaml')
 const babylon = require('babylon')
-
 const {fallbackLocale, supportedLocales} = require('../config.json')
+const translationStatus = require('./translation-status')
 
 module.exports = function l10nLoader({template, types: t}) {
   let {LOCALE: lang} = process.env
@@ -79,12 +79,13 @@ module.exports = function l10nLoader({template, types: t}) {
     const projectRelativePath = localePath.replace(p.join(__dirname, '..'), '')
     const isMarkdown = source.endsWith('.md')
     const isRaw = source.includes('.raw')
+    const status = translationStatus(fallbackPath, lang)
     const data = {
       meta: {
         filename: projectRelativePath,
-        // TODO: let's try to determine whether the translation is outdated and add
-        // some metadata to the content which the website could use to show readers
-        // that the translation may be outdated or missing content.
+        isOutdated: status === translationStatus.OUTDATED,
+        isUpToDate: status === translationStatus.UP_TO_DATE,
+        isMissing: status === translationStatus.MISSING,
       },
     }
     if (isRaw) {
