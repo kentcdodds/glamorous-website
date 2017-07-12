@@ -2,8 +2,8 @@
 home: 'Home'
 gettingStarted: 'Anfangen'
 basics: 'Grundlagen'
-advanced: 'Fortschrittlich'
-examples: 'Beispielen'
+advanced: 'Fortgeschritten'
+examples: 'Beispiele'
 integrations: 'Integrationen'
 api: 'API'
 ---

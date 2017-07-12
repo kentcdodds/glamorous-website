@@ -1,5 +1,5 @@
 ---
-help: 'Hilfen bei übersetzen'
+help: 'Hilf bei der Übersetzung'
 ariaLabelList: 'Sprachauswahl'
-ariaLabelButton: 'Wechsel Sprache'
+ariaLabelButton: 'Sprache wechseln'
 ---
