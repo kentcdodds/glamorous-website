@@ -18,21 +18,30 @@ import content from './content/docs-page.md'
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
 
-const TranslationProblem = glamorous.div({
-  display: 'inline-block',
-  borderRadius: '2px',
-  marginTop: 10,
-  marginBottom: 10,
-  marginLeft: 20,
-  fontSize: '0.8rem',
-  paddingTop: 4,
-  paddingBottom: 4,
-  paddingLeft: 10,
-  paddingRight: 10,
-  '& p': {
-    margin: 0,
+const TranslationProblem = glamorous.div(
+  {
+    display: 'inline-block',
+    borderRadius: '2px',
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 20,
+    fontSize: '0.8rem',
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 10,
+    paddingRight: 10,
+    '& p': {
+      margin: 0,
+    },
   },
-})
+  ({theme: {mediaQueries}}) => ({
+    [mediaQueries.mediumDown]: {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  }),
+)
 
 const OutdatedTranslation = glamorous(
   TranslationProblem,
