@@ -68,7 +68,7 @@ const PageWrapper = glamorous.div(({theme: {colors}}) => ({
     fill: `${colors.primary}`,
     width: '1rem',
   },
-  '& img': {
+  '& img:not([src*="img.badgesize.io"])': {
     width: '100%',
   },
 }))
