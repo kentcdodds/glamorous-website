@@ -1,6 +1,6 @@
 ---
 home: 'Home'
-gettingStarted: 'Anfangen'
+gettingStarted: 'Erste Schritte'
 basics: 'Grundlagen'
 advanced: 'Fortgeschritten'
 examples: 'Beispiele'

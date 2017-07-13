@@ -363,6 +363,26 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/6382544?v=3",
       "profile": "https://leafpub.org",
       "contributions": [
+        "translation",
+        "review"
+      ]
+    },
+    {
+      "login": "kairichard",
+      "name": "Kai Richard König",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/35398?v=3",
+      "profile": "http://kairichardkoenig.de",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "MoeSattler",
+      "name": "Moe Sattler",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8615251?v=3",
+      "profile": "https://github.com/MoeSattler",
+      "contributions": [
+        "review",
         "translation"
       ]
     }
