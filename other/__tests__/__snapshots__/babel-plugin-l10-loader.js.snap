@@ -24,19 +24,19 @@ const array = [
 
 /* eslint no-unused-vars:0 */
 import fs from 'fs';
-const content1 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
-const content2 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\",
+const content1 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
+const content2 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\",
 
   \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
 const raw1 = '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n';
 
 
 const path = require('path'); // no change here
-const content3 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
-const content4 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
+const content3 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" };
+const content4 = { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] };
 const raw2 = '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n';
 
-const array = [{ \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" }, { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": false, \\"isMissing\\": true }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] }, '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n'];
+const array = [{ \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.js\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"title\\": \\"English title\\", \\"extra\\": \\"English extra\\" }, { \\"meta\\": { \\"filename\\": \\"/other/__tests__/fixtures/content/index.md\\", \\"isOutdated\\": false, \\"isUpToDate\\": true, \\"isMissing\\": false }, \\"markdown\\": \\"<!-- removed yaml -->\\\\n\\\\n# english markdown\\\\n\\", \\"title\\": \\"English title\\", \\"contributors\\": [\\"someone\\", \\"someoneelse\\"] }, '// this will be\\\\nraw(\\\\'totally english\\\\')\\\\n'];
 "
 `;
 
