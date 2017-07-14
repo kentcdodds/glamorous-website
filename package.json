@@ -45,7 +45,7 @@
     "await-url": "^0.3.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
-    "babel-macros": "^0.5.1",
+    "babel-macros": "0.5.1",
     "babel-plugin-glamorous-displayname": "1.1.3",
     "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-tester": "^3.2.0",
@@ -79,7 +79,7 @@
     "opt-cli": "^1.5.1",
     "path-exists": "^3.0.0",
     "prettier-eslint-cli": "^4.0.2",
-    "preval.macro": "^1.0.1",
+    "preval.macro": "1.0.1",
     "react-test-renderer": "^15.5.4",
     "url-regex": "^4.1.0"
   },
