@@ -354,7 +354,10 @@
       "profile": "https://github.com/motleydev",
       "contributions": [
         "design",
-        "translation"
+        "translation",
+        "code",
+        "doc",
+        "review"
       ]
     },
     {
@@ -384,6 +387,15 @@
       "contributions": [
         "review",
         "translation"
+      ]
+    },
+    {
+      "login": "RIanDeLaCruz",
+      "name": "Ian De La Cruz",
+      "avatar_url": "https://avatars5.githubusercontent.com/u/7766185?v=4",
+      "profile": "https://github.com/RIanDeLaCruz",
+      "contributions": [
+        "code"
       ]
     }
   ]

@@ -21,5 +21,6 @@ module.exports = {
     'transform-class-properties',
     'inline-react-svg',
     './other/babel-plugin-l10n-loader',
+    'babel-macros',
   ].filter(Boolean),
 }
