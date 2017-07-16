@@ -6,6 +6,8 @@ import Advanced from '../pages/advanced'
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
+global.docsearch = jest.fn(() => {})
+
 test('renders', () => {
   expect(() => mount(<Advanced />)).not.toThrow()
 })

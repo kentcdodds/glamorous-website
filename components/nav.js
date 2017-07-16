@@ -1,6 +1,7 @@
 import preval from 'preval.macro'
 import React from 'react'
 import glamorous from 'glamorous'
+import {algoliaSettings} from '../components/algolia-config'
 import {Anchor} from '../components/styled-links'
 import LipstickIcon from './lipstick-icon'
 import Separator from './separator'
@@ -152,6 +153,10 @@ const List = glamorous.ul(
 class Nav extends React.Component {
   state = {
     open: false,
+  }
+
+  componentDidMount() {
+    algoliaSettings()
   }
 
   handleClick = () => {
