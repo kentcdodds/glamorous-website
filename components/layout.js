@@ -1,6 +1,8 @@
 import React from 'react'
 import {css, rehydrate} from 'glamor'
 import glamorous, {ThemeProvider, Div} from 'glamorous'
+import Head from 'next/head'
+import {AlgoliaLink, AlgoliaScript} from '../components/algolia-config'
 import baseStyles from '../styles/base'
 import GlobalStyles from '../styles/global-styles'
 import Nav from './nav'
@@ -55,6 +57,10 @@ function Layout({pathname, children, contributors, topNav = false}) {
   return (
     <ThemeProvider theme={GlobalStyles}>
       <Wrapper top={topNav}>
+        <Head>
+          <AlgoliaLink />
+          <AlgoliaScript />
+        </Head>
         <Nav pathname={pathname} top={topNav} />
         <Div overflow="auto" width="100%">
           {children}

@@ -6,6 +6,8 @@ import Examples from '../pages/examples'
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
+global.docsearch = jest.fn(() => {})
+
 test('renders', () => {
   expect(() => mount(<Examples />)).not.toThrow()
 })

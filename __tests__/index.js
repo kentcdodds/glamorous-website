@@ -6,6 +6,8 @@ import Index from '../pages/index'
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
+global.docsearch = jest.fn(() => {})
+
 test('renders', () => {
   expect(() => mount(<Index />)).not.toThrow()
 })

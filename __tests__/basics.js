@@ -6,6 +6,8 @@ import Basics from '../pages/basics'
 expect.addSnapshotSerializer(serializer)
 expect.extend(matcher)
 
+global.docsearch = jest.fn(() => {})
+
 test('renders', () => {
   expect(() => mount(<Basics />)).not.toThrow()
 })
