@@ -6,7 +6,7 @@ contributors:
   - igitscor
 ---
 
-Voici une explication de comment, avec un composant réutilisble, exposer
+Voici une explication de comment, avec un composant réutilisable, exposer
 un mécanisme pour surcharger le style d'autres composants à l'aide d'une
 propriété `styleOverrides`.
 
@@ -15,6 +15,6 @@ La partie essentielle est de passer `styleOverrides` à la propriété `theme` d
 de votre application, il est toujours bon de rajouter un namespace
 (comme le montre cet exemple).
 
-Ensuite vous pouvez écrire un helper (`getStyleOverrides`) pour
-ajouter cette fonctionalité de surcharge à tous vos composants glamorous.
+Ensuite, vous pouvez écrire un helper (`getStyleOverrides`) pour
+ajouter cette fonctionnalité de surcharge à tous vos composants glamorous.
 Cela fonctionne aussi avec la propriété `css` !
