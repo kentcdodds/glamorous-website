@@ -7,8 +7,8 @@ contributors:
 
 Vous pouvez utiliser `glamor` pour définir un style CSS et utiliser l'attribut
 `className` pour l'appliquer à un composant `glamorous`. Ceci est très pratique
-pour créer des objets réutilisable pour du la gestion du style ou faire des choses
-amusantes comme des animations et la gestion des keyframes.
+pour créer des objets réutilisables pour la gestion du style ou s'amuser avec des
+animations et la gestion des keyframes par exemple.
 
 ```interactive
 const { css } = glamor

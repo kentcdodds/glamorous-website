@@ -6,10 +6,10 @@ contributors:
 ---
 
 `glamorous` crée des composants simples, si vous souhaitez complexifier
-ces composants, vous pouvez le faire facilement en les incluants dans un autre
+un composant, vous pouvez le faire facilement en l'encapsulant dans un autre
 composant:
 
-```interactive {clickToRender: true, summary: 'Exemple d\'inclusion d'un composant glamorous'}
+```interactive {clickToRender: true, summary: 'Exemple d\'inclusion d\'un composant glamorous'}
 const Anchor = glamorous.a(props => ({
   color: props.dark ? 'darkblue' : 'blue',
 }))
