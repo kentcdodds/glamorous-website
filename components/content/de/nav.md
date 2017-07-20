@@ -6,4 +6,5 @@ advanced: 'Fortgeschritten'
 examples: 'Beispiele'
 integrations: 'Integrationen'
 api: 'API'
+search: 'Suchen…'
 ---
