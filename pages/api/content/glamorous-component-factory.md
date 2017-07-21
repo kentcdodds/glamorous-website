@@ -26,8 +26,8 @@ const MyStyledDiv = glamorous.div(
   })
 )
 
-<MyStyledDiv /> // styles applied: {margin: 1, padding: 4}
-<MyStyledDiv noPadding /> // styles applied: {margin: 1, padding: 0}
+<MyStyledDiv /> // styles applied: { margin: 1px; padding: 4px; }
+<MyStyledDiv noPadding /> // styles applied: { margin: 1px; padding: 0; }
 ```
 
 ```callout {title: 'Tip', type: 'info'}
@@ -53,5 +53,14 @@ const MyStyledDiv = glamorous.div(
   styles5,
   'extra-thing',
 )
-<MyStyledDiv /> // styles applied: {padding-top: 1, padding-right: 2, padding-bottom: 3, padding-left: 4}, 'not-active' and anything coming from `extra-thing`.
+<MyStyledDiv /> 
+/* 
+styles applied: {
+  padding-top: 1px;
+  padding-right: 2px;
+  padding-bottom: 3px;
+  padding-left: 4px;
+}
+  as well as 'not-active' and anything coming from `extra-thing`.
+*/
 ```
