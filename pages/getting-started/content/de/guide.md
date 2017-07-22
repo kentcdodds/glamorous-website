@@ -125,7 +125,7 @@ const CodeBlock = glamorous.pre(props => {
 
 `glamorous` benutzt [`glamor`](https://github.com/threepointone/glamor),
 um das CSS zu generieren und einzufügen, welches du schreibst. Eins der tollen
-Eigenschaften von `glamor` ist die Zusammensetzbarkeit. Also kannst du mit
+Eigenschaften von `glamor` ist die Möglichkeit der Komposition. Also kannst du mit
 `glamorousComponentFactory`-Funktionen (wie beispielsweise `glamorous.pre`)
 beliebig viele Argumente übergeben und die Stile werden kombiniert.
 Zusätzlich kannst du für dynamische Stile Arrays übergeben oder zurückgeben,
