@@ -72,7 +72,8 @@ _Hast du diesen Link schon mal besucht? 😈_
 - eine
 - Liste
 
-Let's change how the list items are rendered here using pseudo elements.
+Nun verändern wir, wie die Einträge gerendert werden,
+indem wir die Pseudo-Elemente anpassen.
 
 ```js
 const ListItem = glamorous.li({
@@ -82,19 +83,18 @@ const ListItem = glamorous.li({
 })
 ```
 
-> NOTE! It's really common to forget that in CSS, the `content` property is
-> wrapped in quotes. Even though you're technically doing this because you set
-> `content` to a string, that string needs to include the quotes that will be
-> inserted into the CSS stylesheet.
+> Anmerkung! Im CSS vergisst man häufig, dass die `content`-Eigenschaft von
+> Anführungszeichen umschlossen wird. Obwohl man dies eigentlich tut, weil
+> man `content` einen String zuweist, muss dieser die Anführungszeichen
+> enthalten, welche in das CSS eingefügt werden.
 
-## Dynamic Styles
+## Dynamische Stile
 
-You can provide a function as an argument to a `glamorousComponentFactory` (by
-the way, that's what `glamorous.h1` is called). This function will be called
-with `props`.
+Du kannst eine Funktion als Argument an eine `glamorousComponentFactory` übergeben.
+(So heißt übrigens `glamorous.h1`). Diese Funktion wird mit `props` aufgerufen.
 
-The `CodeBlock` component receives the `language` as a prop. Here's code block
-that is `html`:
+Die `CodeBlock`-Komponente erhält die `language` als prop. Hier ist der Codeblock
+als `html`:
 
 ```html
 <html>
@@ -107,7 +107,7 @@ that is `html`:
 </html>
 ```
 
-Let's change the styles for `html` code blocks:
+Nun lass uns das Aussehen von `html` Codeblöcken verändern:
 
 ```js
 const CodeBlock = glamorous.pre(props => {
@@ -121,17 +121,18 @@ const CodeBlock = glamorous.pre(props => {
 })
 ```
 
-## Merging Styles
+  ## Stile verbinden
 
-`glamorous` uses [`glamor`](https://github.com/threepointone/glamor) under the
-hood to generate and insert the CSS you write. One of the cool features of
-`glamor` is how composable it is. So with `glamorousComponentFactory` functions,
-(like `glamorous.pre`) you can provide any number of arguments and the styles
-will be merged. In addition, you can also provide arrays or return arrays for
-dynamic styles and those will also be merged (where the last one wins in the
-event of a conflict). Let's try some of that out now:
+`glamorous` benutzt [`glamor`](https://github.com/threepointone/glamor),
+um das CSS zu generieren und einzufügen, welches du schreibst. Eins der tollen
+Eigenschaften von `glamor` ist die Zusammensetzbarkeit. Also kannst du mit
+`glamorousComponentFactory`-Funktionen (wie beispielsweise `glamorous.pre`)
+beliebig viele Argumente übergeben und die Stile werden kombiniert.
+Zusätzlich kannst du für dynamische Stile Arrays übergeben oder returnen,
+welche ebenfalls zusammengefügt werden (wobei im Falle eines Konflikts der
+letztere gewinnt). Probieren wir einiges davon mal aus:
 
-Update `CodeBlock` to look like this:
+Ändere `CodeBlock` hierzu:
 
 ```js
 const CodeBlock = glamorous.pre({
@@ -158,12 +159,12 @@ const CodeBlock = glamorous.pre({
       backgroundColor: '#0c1e35',
     })
   }
-  // returning an array here.
+  // Hier wird ein Array zurückgegeben.
   return styles
 })
 ```
 
-## That's it!
+## Das war's!
 
-That's all we have for now, but if you'd like to help with this guide that'd be
-super! Please check out [the GitHub repo!](https://github.com/kentcdodds/glamorous-website)
+Das ist alles was, wir bis jetzt haben, aber wenn du zu diesem Guide beitragen möchtest,
+wäre das super! Schau dir doch dazu [das GitHub Projekt](https://github.com/kentcdodds/glamorous-website) an.
