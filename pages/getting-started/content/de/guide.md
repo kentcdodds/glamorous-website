@@ -166,5 +166,5 @@ const CodeBlock = glamorous.pre({
 
 ## Das war's!
 
-Das ist alles was, wir bis jetzt haben, aber wenn du zu diesem Guide beitragen möchtest,
+Das ist alles, was wir bis jetzt haben, aber wenn du zu diesem Guide beitragen möchtest,
 wäre das super! Schau dir doch dazu [das GitHub Projekt](https://github.com/kentcdodds/glamorous-website) an.
