@@ -1,15 +1,15 @@
 # Hallo 👋
 
-Wir werden dir `glamorous` beibringen, indem du das Tuturial bearbeitest,
+Wir werden dir `glamorous` näherbringen, indem du das Tuturial bearbeitest,
 welches du gerade liest 😱
 
-Um anzufangen haben wir links bereits ein paar Komponenten für dich bereitgestellt,
-also musst du nur deren Stile anpassen, um die Art und Weise zu verändern,
-wie dieser Guide aussieht und sich bewegt.
+Um zu beginnen, haben wir links bereits ein paar Komponenten für dich bereitgestellt,
+also musst du nur deren Stile anpassen, um die Art und Weise, wie dieser Guide
+aussieht und sich bewegt, zu verändern.
 
 ## Grundstile
 
-Lass uns anfangen indem wir die Überschriften auf dieser Seite verschönern.
+Lass uns damit beginnen, die Überschriften dieser Seite zu verschönern.
 Mit `glamorous` nutzen wir normale JavaScript Objekte anstatt der regulären
 CSS-Syntax, mit der du vielleicht vertraut bist.
 
@@ -107,7 +107,7 @@ als `html`:
 </html>
 ```
 
-Nun lass uns das Aussehen von `html` Codeblöcken verändern:
+Nun lass uns das Aussehen von `html`-Codeblöcken verändern:
 
 ```js
 const CodeBlock = glamorous.pre(props => {
@@ -124,7 +124,7 @@ const CodeBlock = glamorous.pre(props => {
   ## Stile verbinden
 
 `glamorous` benutzt [`glamor`](https://github.com/threepointone/glamor),
-um das CSS zu generieren und einzufügen, welches du schreibst. Eins der tollen
+um das CSS zu generieren und einzufügen, welches du schreibst. Eine der tollen
 Eigenschaften von `glamor` ist die Möglichkeit der Komposition. Also kannst du mit
 `glamorousComponentFactory`-Funktionen (wie beispielsweise `glamorous.pre`)
 beliebig viele Argumente übergeben und die Stile werden kombiniert.
