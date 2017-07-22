@@ -11,7 +11,7 @@ wie dieser Guide aussieht und sich bewegt.
 
 Lass uns anfangen indem wir die Überschriften auf dieser Seite verschönern.
 Mit `glamorous` nutzen wir normale JavaScript Objekte anstatt der regulären
-CSS-Syntax mit der du vielleicht vertraut bist.
+CSS-Syntax, mit der du vielleicht vertraut bist.
 
 Ändere das `Heading` hierzu:
 
@@ -83,7 +83,7 @@ const ListItem = glamorous.li({
 })
 ```
 
-> Anmerkung! Im CSS vergisst man häufig, dass die `content`-Eigenschaft von
+> Anmerkung! In CSS vergisst man häufig, dass die `content`-Eigenschaft von
 > Anführungszeichen umschlossen wird. Obwohl man dies eigentlich tut, weil
 > man `content` einen String zuweist, muss dieser die Anführungszeichen
 > enthalten, welche in das CSS eingefügt werden.
@@ -128,7 +128,7 @@ um das CSS zu generieren und einzufügen, welches du schreibst. Eins der tollen
 Eigenschaften von `glamor` ist die Zusammensetzbarkeit. Also kannst du mit
 `glamorousComponentFactory`-Funktionen (wie beispielsweise `glamorous.pre`)
 beliebig viele Argumente übergeben und die Stile werden kombiniert.
-Zusätzlich kannst du für dynamische Stile Arrays übergeben oder returnen,
+Zusätzlich kannst du für dynamische Stile Arrays übergeben oder zurückgeben,
 welche ebenfalls zusammengefügt werden (wobei im Falle eines Konflikts der
 letztere gewinnt). Probieren wir einiges davon mal aus:
 
