@@ -220,7 +220,7 @@ function mapLocale(key = fallbackLocale) {
     },
     de: {
       key,
-      display: 'Deutsche',
+      display: 'Deutsch',
       Flag: DeSvg,
     },
     zh: {
