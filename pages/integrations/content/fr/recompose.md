@@ -5,7 +5,7 @@ contributors:
   - igitscor
 ---
 
-`glamorous` crée des composants simples, si vous souhaitez complexifier
+`glamorous` crée des composants simples. Si vous souhaitez complexifier
 un composant, vous pouvez le faire facilement en l'encapsulant dans un autre
 composant:
 
@@ -25,4 +25,4 @@ render(
 )
 ```
 
-Si cela est un peu trop abstrait pour vous, alors vous pouvez utiliser [`recompose`](https://github.com/acdlite/recompose).
+Si cela est un peu trop abstrait pour vous alors vous pouvez utiliser [`recompose`](https://github.com/acdlite/recompose).
