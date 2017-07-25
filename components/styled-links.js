@@ -43,7 +43,7 @@ const slugStyles = {
 const StyledAnchor = glamorous.a(
   basicLinkStyles,
   anchorStyles,
-  props => activeLinkStyles(props, props.theme),
+  activeLinkStyles,
   props => (props.isSlug ? slugStyles : ''),
 )
 
