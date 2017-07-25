@@ -14,11 +14,11 @@ const anchorStyles = {
   color: colors.primaryMed,
 }
 
-const activeLinkStyles = (props, theme) => ({
+const activeLinkStyles = props => ({
   color:
     props.active || props.external ?
-      theme.colors.primary :
-      theme.colors.primaryMed,
+      props.theme.colors.primary :
+      props.theme.colors.primaryMed,
   textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
