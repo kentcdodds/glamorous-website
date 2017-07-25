@@ -11,11 +11,12 @@ import twitterCard from '../../components/twitter-card'
 import homePageExample from './content/home-page-example.raw'
 import content from './content/index.md'
 
-const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
+const CodePreviewWrapper = glamorous.div(props => ({
   position: 'relative',
   padding: '1em',
   paddingTop: 0,
   background: 'transparent',
+
   '::after': {
     content: '""',
     top: '15em',
@@ -23,16 +24,16 @@ const CodePreviewWrapper = glamorous.div((props, {colors}) => ({
     bottom: 0,
     right: 0,
     position: 'absolute',
-    background: colors.primaryMed,
+    background: props.theme.colors.primaryMed,
     zIndex: -1,
   },
 }))
 
-const CodeBlock = glamorous.div((props, {colors, fonts}) => ({
-  background: colors.blue,
+const CodeBlock = glamorous.div(props => ({
+  background: props.theme.colors.blue,
   borderRadius: 5,
-  fontFamily: fonts.monospace,
-  color: colors.lightGray,
+  fontFamily: props.theme.fonts.monospace,
+  color: props.theme.colors.lightGray,
   padding: '15px 0',
   maxWidth: 650,
   width: '100%',
@@ -52,8 +53,8 @@ const GettingStarted = glamorous(Button)(
     width: '90%',
     maxWidth: 450,
   },
-  (props, {colors}) => ({
-    color: colors.white,
+  props => ({
+    color: props.theme.colors.white,
   }),
 )
 
@@ -68,10 +69,10 @@ const StyledLiveProvider = glamorous(LiveProvider)({
 
 const StyledLiveEditor = glamorous(LiveEditor)({})
 
-const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
-  color: colors.code,
-  fontFamily: fonts.monospace,
-  backgroundColor: colors.white,
+const StyledLiveError = glamorous(LiveError)(props => ({
+  color: props.theme.colors.code,
+  fontFamily: props.theme.fonts.monospace,
+  backgroundColor: props.theme.colors.white,
   flexBasis: '100%',
   width: '100%',
   maxWidth: '100%',
@@ -79,7 +80,8 @@ const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
 }))
 
 const HomepageLivePreview = (
-  {className, tryIt, ...rest},
+  // eslint-disable-next-line
+  { className, tryIt, ...rest },
   {live: {element: LiveButton}},
 ) => {
   return (

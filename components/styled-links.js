@@ -15,9 +15,10 @@ const anchorStyles = {
 }
 
 const activeLinkStyles = (props, theme) => ({
-  color: props.active || props.external ?
-    theme.colors.primary :
-    theme.colors.primaryMed,
+  color:
+    props.active || props.external ?
+      theme.colors.primary :
+      theme.colors.primaryMed,
   textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
@@ -42,7 +43,7 @@ const slugStyles = {
 const StyledAnchor = glamorous.a(
   basicLinkStyles,
   anchorStyles,
-  (props, theme) => activeLinkStyles(props, theme),
+  props => activeLinkStyles(props, props.theme),
   props => (props.isSlug ? slugStyles : ''),
 )
 

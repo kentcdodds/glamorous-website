@@ -16,61 +16,66 @@ const Wrapper = glamorous.div({
   cursor: 'pointer',
 })
 
-const Toggle = glamorous.button((props, {colors, mediaQueries}) => ({
-  backgroundColor: colors.white,
-  color: colors.primaryMed,
-  border: `1px solid ${colors.primaryMed}`,
+const Toggle = glamorous.button(props => ({
+  backgroundColor: props.theme.colors.white,
+  color: props.theme.colors.primaryMed,
+  border: `1px solid ${props.theme.colors.primaryMed}`,
   textAlign: 'left',
   padding: '3px 10px',
   display: 'block',
   fontSize: '1em',
   width: '100%',
-  borderBottomColor: props.open ? 'transparent' : colors.primaryMed,
-  [mediaQueries.largeDown]: {
+  borderBottomColor: props.open ? 'transparent' : props.theme.colors.primaryMed,
+
+  [props.theme.mediaQueries.largeDown]: {
     textAlign: 'center',
   },
 }))
 
-const List = glamorous.ul((props, {colors, mediaQueries}) => ({
+const List = glamorous.ul(props => ({
   flexDirection: 'column',
   padding: 0,
   margin: 0,
   opacity: '.9',
-  border: `1px solid ${colors.primaryMed}`,
+  border: `1px solid ${props.theme.colors.primaryMed}`,
   display: props.open ? 'flex' : 'none',
   visibility: props.open ? 'visible' : 'collapse',
   position: props.top ? 'absolute' : 'relative',
   width: props.top ? '' : '100%',
-  [mediaQueries.largeDown]: {
+
+  [props.theme.mediaQueries.largeDown]: {
     position: 'relative',
     width: '100%',
   },
 }))
 
-const Item = glamorous.li((props, {colors, mediaQueries}) => ({
+const Item = glamorous.li(props => ({
   display: 'flex',
   flex: 1,
   textAlign: 'left',
   margin: 0,
-  backgroundColor: colors.white,
+  backgroundColor: props.theme.colors.white,
   lineHeight: 1,
-  [mediaQueries.largeDown]: {
+
+  [props.theme.mediaQueries.largeDown]: {
     textAlign: 'center',
   },
+
   '&::before': {
     content: 'initial',
   },
 }))
 
-const Link = glamorous.a((props, {colors}) => ({
+const Link = glamorous.a(props => ({
   width: '100%',
   padding: '6px 10px',
   transition: 'color .3s, background-color .3s',
   outline: 'none',
+
   '&:focus, &:hover, &:active': {
     textDecoration: 'none',
-    color: colors.white,
-    backgroundColor: colors.primaryMed,
+    color: props.theme.colors.white,
+    backgroundColor: props.theme.colors.primaryMed,
   },
 }))
 

@@ -39,7 +39,7 @@ const Navbar = glamorous.nav(({top, theme: {mediaQueries}}) => ({
     flexDirection: 'column',
   },
 }))
-const SearchBox = glamorous.input('algolia_searchbox', (props, {colors}) => ({
+const SearchBox = glamorous.input('algolia_searchbox', props => ({
   width: 130,
   borderRadius: 50,
   paddingTop: 4,
@@ -49,21 +49,25 @@ const SearchBox = glamorous.input('algolia_searchbox', (props, {colors}) => ({
   fontFamily: 'inherit',
   fontSize: '0.75em',
   lineHeight: '12px',
+
   // Icons made by Madebyoliver from www.flaticon.com is licensed by CC 3.0 BY
   // http://www.flaticon.com/authors/madebyoliver
   backgroundImage: `url("data:image/svg+xml;base64,${base64SearchSVG}")`,
+
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '5px center',
   backgroundSize: 'auto 80%',
-  border: `1px solid ${colors.primaryMed}`,
+  border: `1px solid ${props.theme.colors.primaryMed}`,
   transition: 'width 0.2s',
   transitionTimingFunction: 'cubic-bezier(0.075, 0.485, 0.605, 1.085)',
-  color: colors.darkGray,
+  color: props.theme.colors.darkGray,
+
   ':focus': {
     width: 220,
     outline: 'none',
-    borderColor: `${colors.primaryMed}`,
+    borderColor: `${props.theme.colors.primaryMed}`,
   },
+
   ':valid': {
     maxWidth: 220,
     minWidth: 100,
@@ -76,23 +80,25 @@ SearchBox.defaultProps = {
   placeholder: content.search,
 }
 
-const NavToggle = glamorous.a((props, {colors, mediaQueries}) => ({
-  fill: colors.primaryMed,
-  backgroundColor: colors.white,
+const NavToggle = glamorous.a(props => ({
+  fill: props.theme.colors.primaryMed,
+  backgroundColor: props.theme.colors.white,
   display: 'flex',
   justifyContent: 'flex-end',
   width: '100%',
   paddingTop: '0.25rem',
   paddingBottom: '0.25rem',
   paddingRight: '0.25rem',
-  [mediaQueries.largeUp]: {
+
+  [props.theme.mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
 
-const NavSeparator = glamorous(Separator)((props, {mediaQueries}) => ({
+const NavSeparator = glamorous(Separator)(props => ({
   height: 1,
-  [mediaQueries.largeUp]: {
+
+  [props.theme.mediaQueries.largeUp]: {
     display: 'none',
   },
 }))
@@ -112,7 +118,7 @@ const ListItem = glamorous.li({
   paddingRight: 10,
   paddingBottom: 4,
   '&::before': {
-    content: 'initial',
+    display: 'none',
   },
 })
 
