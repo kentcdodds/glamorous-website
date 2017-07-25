@@ -124,8 +124,8 @@ function PageSections({title, note, heading, sections}) {
 function DocSection(props) {
   const {title, subtitle, meta: {filename, isOutdated, isMissing}} = props
 
-  const Section = glamorous.section((p, {colors}) => ({
-    borderBottom: `1px solid ${colors.primary}`,
+  const Section = glamorous.section(p => ({
+    borderBottom: `1px solid ${p.theme.colors.primary}`,
     width: '100%',
     margin: '20px auto 75px',
     paddingBottom: 20,
@@ -165,9 +165,9 @@ function DocSection(props) {
         <OutdatedTranslation
           dangerouslySetInnerHTML={{
             __html: mdToHTML(content.outdatedTranslation).replace(
-                '__URL__',
-                `${repoEditRootURL}${filename}`,
-              ),
+              '__URL__',
+              `${repoEditRootURL}${filename}`,
+            ),
           }}
         /> :
         null}

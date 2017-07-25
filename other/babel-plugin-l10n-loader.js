@@ -1,6 +1,7 @@
 const p = require('path')
 const fs = require('fs')
 const remark = require('remark')
+const frontmatter = require('remark-frontmatter')
 const visit = require('unist-util-visit')
 const yaml = require('js-yaml')
 const babylon = require('babylon')
@@ -132,7 +133,10 @@ function getMarkdownData(absolutePath) {
   const markdownString = fs.readFileSync(absolutePath, 'utf8')
   let data = null
 
-  const result = remark().use(dataPlugin).processSync(markdownString)
+  const result = remark()
+    .use(frontmatter, ['yaml'])
+    .use(dataPlugin)
+    .processSync(markdownString)
 
   return Object.assign(
     {

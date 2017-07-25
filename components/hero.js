@@ -2,12 +2,13 @@ import React from 'react'
 import glamorous, {Div} from 'glamorous'
 import Logo from '../components/glamorous-logo'
 
-const Title = glamorous.h1((props, {colors, mediaQueries}) => ({
+const Title = glamorous.h1(props => ({
   margin: '1em 0',
-  color: colors.primaryMed,
+  color: props.theme.colors.primaryMed,
   fontWeight: 'lighter',
   textAlign: 'center',
-  [mediaQueries.mediumDown]: {
+
+  [props.theme.mediaQueries.mediumDown]: {
     fontSize: '2.75rem',
   },
 }))

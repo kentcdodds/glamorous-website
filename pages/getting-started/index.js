@@ -62,10 +62,10 @@ const StyledLivePreview = glamorous(LivePreview)(
   }),
 )
 
-const StyledLiveError = glamorous(LiveError)((props, {colors, fonts}) => ({
-  color: colors.code,
-  fontFamily: fonts.monospace,
-  backgroundColor: colors.white,
+const StyledLiveError = glamorous(LiveError)(props => ({
+  color: props.theme.colors.code,
+  fontFamily: props.theme.fonts.monospace,
+  backgroundColor: props.theme.colors.white,
   width: '100%',
   padding: '1rem',
   whiteSpace: 'pre',

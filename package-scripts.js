@@ -5,7 +5,9 @@ const hiddenFromHelp = true
 const {supportedLocales} = require('./config.json')
 
 const localeBuilds = supportedLocales.reduce((obj, locale) => {
-  const env = crossEnv(`LOCALE=${locale} DISABLE_CACHE=true`)
+  const env = crossEnv(
+    `LOCALE=${locale} DISABLE_CACHE=true NODE_ENV=production`
+  )
   const build = `dist/${locale}`
   const target = `out/${locale}`
   obj[locale] = {
@@ -46,7 +48,7 @@ module.exports = {
     },
     // default is run when you run `nps` or `npm start`
     default: 'next start',
-    dev: 'next',
+    dev: crossEnv('NODE_ENV=development next'),
     build: Object.assign(localeBuilds, {
       default: series.nps(...supportedLocales.map(s => `build.${s}`)),
     }),
