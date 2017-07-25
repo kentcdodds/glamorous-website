@@ -14,7 +14,7 @@
   "keywords": ["glamorous", "react", "css-in-js"],
   "dependencies": {
     "common-tags": "^1.4.0",
-    "glamor": "^2.20.35",
+    "glamor": "^2.20.37",
     "glamorous": "^3.24.0",
     "html-loader": "^0.4.5",
     "json-loader": "^0.5.7",

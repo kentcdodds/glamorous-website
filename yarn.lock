@@ -2897,9 +2897,9 @@ glamor@^2.20.24:
     object-assign "^4.1.0"
     prop-types "^15.5.8"
 
-glamor@^2.20.35:
-  version "2.20.35"
-  resolved "https://registry.yarnpkg.com/glamor/-/glamor-2.20.35.tgz#ba7ad597e31969523de6c00d1b6492e9f44d9457"
+glamor@^2.20.37:
+  version "2.20.37"
+  resolved "https://registry.yarnpkg.com/glamor/-/glamor-2.20.37.tgz#3cd576deb760eaaf475dcc1f9b77bf6a7d2f8b26"
   dependencies:
     fbjs "^0.8.12"
     inline-style-prefixer "^3.0.6"
