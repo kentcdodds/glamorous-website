@@ -22,5 +22,6 @@ module.exports = {
     'inline-react-svg',
     './other/babel-plugin-l10n-loader',
     'babel-macros',
+    'transform-node-env-inline',
   ].filter(Boolean),
 }

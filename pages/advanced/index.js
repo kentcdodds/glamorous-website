@@ -9,6 +9,7 @@ function Page({url}) {
         require('./content/refs.md'),
         require('./content/existing-css.md'),
         require('./content/theming.md'),
+        require('./content/context.md'),
         require('./content/size.md'),
         require('./content/ssr.md'),
       ]}
