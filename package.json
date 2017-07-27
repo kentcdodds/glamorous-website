@@ -11,12 +11,16 @@
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
-  "keywords": ["glamorous", "react", "css-in-js"],
+  "keywords": [
+    "glamorous",
+    "react",
+    "css-in-js"
+  ],
   "dependencies": {
     "common-tags": "^1.4.0",
     "glamor": "^2.20.37",
-    "glamorous": "^3.24.0",
-    "html-loader": "^0.4.5",
+    "glamorous": "3.25.0",
+    "html-loader": "0.5.0",
     "json-loader": "^0.5.7",
     "markdown-loader": "^2.0.0",
     "marked": "^0.3.6",
@@ -33,7 +37,7 @@
     "slugify": "^1.1.0",
     "styled-system": "^1.0.0-9",
     "unist-util-visit": "^1.1.1",
-    "webpack": "^3.3.0"
+    "webpack": "3.4.1"
   },
   "devDependencies": {
     "all-contributors-cli": "^4.3.0",
@@ -46,6 +50,7 @@
     "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-tester": "^3.3.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-node-env-inline": "0.1.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -60,7 +65,7 @@
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.0.1",
-    "flow-bin": "^0.51.0",
+    "flow-bin": "0.51.1",
     "glob": "^7.1.2",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
@@ -82,7 +87,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFiles": ["./other/test-setup.js"],
+    "setupFiles": [
+      "./other/test-setup.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -91,8 +98,13 @@
         "statements": 50
       }
     },
-    "testPathIgnorePatterns": ["/fixtures/"],
-    "snapshotSerializers": ["enzyme-to-json/serializer", "jest-glamor-react"]
+    "testPathIgnorePatterns": [
+      "/fixtures/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer",
+      "jest-glamor-react"
+    ]
   },
   "lint-staged": {
     "*.js": [

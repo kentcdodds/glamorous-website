@@ -1,17 +1,18 @@
 const {concurrent, series, crossEnv, rimraf, mkdirp} = require('nps-utils')
+const {supportedLocales} = require('./config.json')
 
 const hiddenFromHelp = true
-
-const {supportedLocales} = require('./config.json')
+const cleanup = rimraf('./node_module/.cache')
 
 const localeBuilds = supportedLocales.reduce((obj, locale) => {
   const env = crossEnv(
-    `LOCALE=${locale} DISABLE_CACHE=true NODE_ENV=production`
+    `LOCALE=${locale} DISABLE_CACHE=true NODE_ENV=production USE_PREFETCH=true`
   )
   const build = `dist/${locale}`
   const target = `out/${locale}`
   obj[locale] = {
     default: series(
+      cleanup,
       rimraf(`${build} ${target}`),
       mkdirp(build), // for some reason next.js won't create this for us 😑
       `${env} next build`,
@@ -48,7 +49,8 @@ module.exports = {
     },
     // default is run when you run `nps` or `npm start`
     default: 'next start',
-    dev: crossEnv('NODE_ENV=development next'),
+    cleanup,
+    dev: series(cleanup, crossEnv('NODE_ENV=development next')),
     build: Object.assign(localeBuilds, {
       default: series.nps(...supportedLocales.map(s => `build.${s}`)),
     }),

@@ -1,11 +1,9 @@
 /* eslint import/no-extraneous-dependencies:0 */
 const fs = require('fs')
-const webpack = require('webpack')
 const marked = require('marked')
 
 const renderer = new marked.Renderer()
-const {LOCALE, NODE_ENV} = process.env
-const USE_PREFETCH = NODE_ENV !== 'test'
+const {LOCALE} = process.env
 
 renderer.heading = (text, level) => {
   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
@@ -24,14 +22,6 @@ const cacheIdentifier = JSON.stringify({
 module.exports = {
   distDir: `dist/${LOCALE || 'dev'}`,
   webpack: config => {
-    // Add in prefetch conditionally so we don't break jest snapshot testing
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.USE_PREFETCH': JSON.stringify(USE_PREFETCH),
-        'process.env.LOCALE': JSON.stringify(LOCALE),
-      })
-    )
-
     config.module.rules.forEach(rule => {
       if (rule.loader === 'babel-loader') {
         if (process.env.DISABLE_CACHE) {
@@ -40,15 +30,6 @@ module.exports = {
           rule.options.cacheIdentifier = cacheIdentifier
         }
       }
-    })
-
-    // Markdown loader so we can use docs as .md files
-    config.module.rules.push({
-      test: /\.md$/,
-      use: [
-        {loader: 'html-loader'},
-        {loader: 'markdown-loader', options: {pedantic: true, renderer}},
-      ],
     })
 
     config.node = config.node || {}
