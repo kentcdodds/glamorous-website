@@ -107,8 +107,7 @@ async function deploy(context, sha) {
     // if we're production, then we need to alias things
     console.log(`↪️ We're building for production, so let's alias this!`)
     const prefix = locale === fallbackLocale ? '' : `${locale}.`
-    // TODO: remove the `rc` when we're ready to go live
-    const domain = 'rc.glamorous.rocks'
+    const domain =  'glamorous.rocks'
     const alias = `${prefix}${domain}`
     const aliasArgs = ['alias', 'set', target_url, alias, '--token', nowToken]
     safeLog('spawning shell with command:', `now ${aliasArgs.join(' ')}`)
