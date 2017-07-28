@@ -3,17 +3,18 @@ import React from 'react'
 import Head from 'next/head'
 import glamorous, {Div} from 'glamorous'
 import slugify from 'slugify'
-import {Title} from './hero'
-import Layout from './layout'
-import twitterCard from './twitter-card'
-import interactiveMarkdown from './interactive-markdown'
-import ClickToRender from './click-to-render'
-import CodeSandboxEmbed from './code-sandbox-embed'
-import {Anchor} from './styled-links'
+import {Title} from '../hero'
+import Layout from '../layout'
+import twitterCard from '../twitter-card'
+import interactiveMarkdown from '../interactive-markdown'
+import ClickToRender from '../click-to-render'
+import CodeSandboxEmbed from '../code-sandbox-embed'
+import {Anchor} from '../styled-links'
+import mdToHTML, {mdToHTMLUnwrapped} from '../utils/md-to-html'
+import WhatChanged from './what-changed'
 import GitHubSVG from './svgs/github.svg'
 import LinkSVG from './svgs/link.svg'
-import mdToHTML, {mdToHTMLUnwrapped} from './utils/md-to-html'
-import content from './content/docs-page.md'
+import content from './content/index.md'
 
 const repoEditRootURL =
   'https://github.com/kentcdodds/glamorous-website/edit/master'
@@ -34,12 +35,6 @@ const TranslationProblem = glamorous.div({
     margin: 0,
   },
 })
-
-const OutdatedTranslation = glamorous(
-  TranslationProblem,
-)(({theme: {colors}}) => ({
-  backgroundColor: colors.dangerLight,
-}))
 
 const MissingTranslation = glamorous(
   TranslationProblem,
@@ -122,7 +117,12 @@ function PageSections({title, note, heading, sections}) {
 }
 
 function DocSection(props) {
-  const {title, subtitle, meta: {filename, isOutdated, isMissing}} = props
+  const {
+    title,
+    subtitle,
+    meta,
+    meta: {filename, isOutdated, isMissing},
+  } = props
 
   const Section = glamorous.section(p => ({
     borderBottom: `1px solid ${p.theme.colors.primary}`,
@@ -161,16 +161,7 @@ function DocSection(props) {
           }}
         /> :
         null}
-      {isOutdated ?
-        <OutdatedTranslation
-          dangerouslySetInnerHTML={{
-            __html: mdToHTML(content.outdatedTranslation).replace(
-              '__URL__',
-              `${repoEditRootURL}${filename}`,
-            ),
-          }}
-        /> :
-        null}
+      {isOutdated ? <OutdatedTranslation {...meta} /> : null}
       <glamorous.Div
         paddingLeft={10}
         borderLeft="2px solid #ccc"
@@ -181,6 +172,36 @@ function DocSection(props) {
       />
       <DocSectionDetails {...props} />
     </Section>
+  )
+}
+
+function OutdatedTranslation({
+  lastUpdatedSha,
+  lastUpdatedSourceSha,
+  filename,
+  fallbackFilename,
+}) {
+  const Wrapper = glamorous(TranslationProblem)(({theme: {colors}}) => ({
+    backgroundColor: colors.dangerLight,
+  }))
+  return (
+    <Wrapper>
+      <div>
+        {content.outdatedTranslation}
+      </div>
+      <details>
+        <summary>
+          {content.helpUpdateTranslation}
+        </summary>
+
+        <WhatChanged
+          filename={filename}
+          fallbackFilename={fallbackFilename}
+          start={lastUpdatedSha}
+          end={lastUpdatedSourceSha}
+        />
+      </details>
+    </Wrapper>
   )
 }
 

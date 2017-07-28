@@ -1,4 +1,8 @@
 <!--
+IS THIS A TRANSLATION??? Great! Thanks! All PRs for translations require at least
+one review from someone who is a native speaker of the language being translated.
+Please @mention someone or reach out to someone on twitter to review your PR. Thanks!
+
 Thanks for your interest in the project. I appreciate bugs filed and PRs submitted!
 
 Please make sure that you are familiar with and follow the Code of Conduct for

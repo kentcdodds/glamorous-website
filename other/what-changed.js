@@ -1,6 +1,7 @@
 const path = require('path')
 const execSync = require('child_process').execSync
 const chalk = require('chalk')
+const git = require('./git')
 
 const file = process.argv[2]
 const lang = process.argv[3]
@@ -24,9 +25,6 @@ execSync(`git whatchanged --since="${transUpdate}" -p ${file}`, {
   stdio: 'inherit',
 })
 
-function git(...args) {
-  return execSync(`git ${args.join(' ')}`, {cwd}).toString()
-}
 // This is not transpiled
 /*
   eslint
