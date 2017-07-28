@@ -13,13 +13,11 @@ const Title = glamorous.h1(props => ({
   },
 }))
 
-const Hero = ({...rest}) => {
+const Hero = ({css, ...rest}) => {
   return (
-    <Div margin={20}>
-      <Div margin="0 auto" maxWidth={800} textAlign="center">
-        <Logo margin="0 auto" />
-        <Title {...rest} />
-      </Div>
+    <Div margin="0 auto" maxWidth={800} textAlign="center" css={css}>
+      <Logo margin="0 auto" />
+      <Title {...rest} />
     </Div>
   )
 }

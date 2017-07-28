@@ -126,7 +126,7 @@ function Home({url}) {
           pathname: url ? url.pathname : '',
         })}
       </Head>
-      <Hero>
+      <Hero css={{maxWidth: 900}}>
         {content.tagline}
       </Hero>
       <CodePreviewWrapper>
