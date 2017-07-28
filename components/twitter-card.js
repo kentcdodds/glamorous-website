@@ -1,8 +1,7 @@
 import React from 'react'
 
+const locale = require('./utils/locale')()
 const {fallbackLocale} = require('../config.json')
-
-const {LOCALE: locale} = process.env
 
 function TwitterCard({
   card = 'summary_large_image',

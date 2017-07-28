@@ -1,6 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 import content from './content/locale-chooser.md'
+import getLocale from './utils/locale'
 // get flags from https://github.com/lipis/flag-icon-css/tree/master/flags/4x3
 import EnSvg from './svgs/en.svg'
 import EsSvg from './svgs/es.svg'
@@ -88,7 +89,7 @@ class LocaleChooser extends React.Component {
   state = {
     open: false,
     locales: [],
-    currentLocale: process.env.LOCALE || fallbackLocale,
+    currentLocale: getLocale(),
   }
 
   componentDidMount() {
