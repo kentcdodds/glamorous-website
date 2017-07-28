@@ -22,6 +22,9 @@ module.exports = {
     'inline-react-svg',
     './other/babel-plugin-l10n-loader',
     'babel-macros',
-    'transform-node-env-inline',
+    // the env variables in the tests aren't neededd to be transpiled
+    process.env.NODE_ENV !== 'test'
+      ? 'transform-inline-environment-variables'
+      : null,
   ].filter(Boolean),
 }

@@ -1,7 +1,12 @@
 const {supportedLocales, fallbackLocale} = require('../../config.json')
 
-let {LOCALE: lang} = process.env
-if (!supportedLocales.includes(lang)) {
-  lang = fallbackLocale
+function locale() {
+  const {LOCALE: lang} = process.env
+  if (supportedLocales.includes(lang)) {
+    return lang
+  }
+
+  return fallbackLocale
 }
-module.exports = lang
+
+module.exports = () => locale()
