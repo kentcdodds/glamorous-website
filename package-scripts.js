@@ -2,7 +2,7 @@ const {concurrent, series, crossEnv, rimraf, mkdirp} = require('nps-utils')
 const {supportedLocales} = require('./config.json')
 
 const hiddenFromHelp = true
-const cleanup = rimraf('./node_module/.cache')
+const cleanup = rimraf('./node_modules/.cache')
 
 const localeBuilds = supportedLocales.reduce((obj, locale) => {
   const env = crossEnv(

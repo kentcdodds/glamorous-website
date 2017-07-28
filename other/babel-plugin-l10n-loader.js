@@ -6,6 +6,7 @@ const visit = require('unist-util-visit')
 const yaml = require('js-yaml')
 const babylon = require('babylon')
 const {fallbackLocale, supportedLocales} = require('../config.json')
+const git = require('./git')
 const translationStatus = require('./translation-status')
 
 module.exports = function l10nLoader({template, types: t}) {
@@ -88,6 +89,15 @@ module.exports = function l10nLoader({template, types: t}) {
         isUpToDate: status === translationStatus.UP_TO_DATE,
         isMissing: status === translationStatus.MISSING,
       },
+    }
+    if (data.meta.isOutdated) {
+      Object.assign(data.meta, {
+        lastUpdatedSha: git(`log -n 1 --pretty=format:%h -- ${localePath}`),
+        lastUpdatedSourceSha: git(
+          `log -n 1 --pretty=format:%h -- ${fallbackPath}`,
+        ),
+        fallbackFilename: fallbackPath.replace(p.join(__dirname, '..'), ''),
+      })
     }
     if (isRaw) {
       Object.assign(data, {

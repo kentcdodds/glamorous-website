@@ -1,12 +1,11 @@
 const path = require('path')
-const execSync = require('child_process').execSync
 const pathExists = require('path-exists')
 const {fallbackLocale} = require('../config.json')
+const git = require('./git')
 
 const OUTDATED = 'OUTDATED'
 const UP_TO_DATE = 'UP_TO_DATE'
 const MISSING = 'MISSING'
-const cwd = path.join(__dirname, '..')
 
 module.exports = translationStatus
 Object.assign(module.exports, {
@@ -34,10 +33,6 @@ function translationStatus(englishFilePath, lang) {
     }
   }
   return MISSING
-}
-
-function git(args) {
-  return execSync(`git ${args}`, {cwd}).toString()
 }
 
 // This is not transpiled

@@ -28,6 +28,9 @@ const algoliaFacetFilters = preval`
 `
 
 function algoliaSettings() {
+  if (typeof docsearch === 'undefined') {
+    return
+  }
   // eslint-disable-next-line no-undef
   docsearch({
     apiKey: 'b5cb8dd730a01fb05e75f21396760fb8',
