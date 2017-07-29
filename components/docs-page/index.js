@@ -147,10 +147,10 @@ function DocSection(props) {
             <GitHubSVG /> {content.edit}
           </Anchor>
         </EditAnchorWrap>}
-      <Anchor href={`#${slugify(title)}`} isSlug={true}>
+      <Anchor href={`#${slugify(title).toLowerCase()}`} isSlug={true}>
         <LinkSVG />
         <h2
-          id={slugify(title)}
+          id={slugify(title).toLowerCase()}
           dangerouslySetInnerHTML={{__html: mdToHTMLUnwrapped(title)}}
         />
       </Anchor>
