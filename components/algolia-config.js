@@ -23,7 +23,7 @@ const algoliaFacetFilters = preval`
   if (lang === fallbackLocale) {
     module.exports = []
   } else {
-    module.exports = [\`language:\${lang}\`]
+    module.exports = [\`language:\${lang()}\`]
   }
 `
 
