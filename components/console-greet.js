@@ -32,14 +32,14 @@ function greet() {
   `
 
   /* eslint-disable */
-  console.log("%c💄 Welcome to 💄", "font-size: 24px; color: #444;")
+  console.log('%c💄 Welcome to 💄', 'font-size: 24px; color: #444;')
 
-  console.log(`%c${GLAMOROUS}`, "color: #ED5C70;")
+  console.log(`%c${GLAMOROUS}`, 'color: #ED5C70; font-family: monospace')
 
   console.log(callForContributors, gradientFont)
-  console.log(`%c${CONTRIBUTING}`, "font-size: 14px")
+  console.log(`%c${CONTRIBUTING}`, 'font-size: 14px')
 
   console.log(callToUsers, gradientFont)
-  console.log(`%c${USERS}`, "font-size: 14px")
+  console.log(`%c${USERS}`, 'font-size: 14px')
   /* eslint-enable */
 }
