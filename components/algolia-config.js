@@ -20,11 +20,8 @@ export function AlgoliaScript() {
 const algoliaFacetFilters = preval`
   const lang = require('./utils/locale')()
   const {fallbackLocale} = require('../config.json')
-  if (lang === fallbackLocale) {
-    module.exports = [\`language:''\`]
-  } else {
-    module.exports = [\`language:\${lang}.\`]
-  }
+
+  module.exports = [\`tags:\${lang}\`]
 `
 
 function algoliaSettings() {
