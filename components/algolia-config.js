@@ -18,12 +18,12 @@ export function AlgoliaScript() {
 
 // eslint-disable-next-line no-var vars-on-top
 const algoliaFacetFilters = preval`
-  const lang = require('./utils/locale')
+  const lang = require('./utils/locale')()
   const {fallbackLocale} = require('../config.json')
   if (lang === fallbackLocale) {
-    module.exports = []
+    module.exports = [\`language:''\`]
   } else {
-    module.exports = [\`language:\${lang()}\`]
+    module.exports = [\`language:\${lang}.\`]
   }
 `
 
