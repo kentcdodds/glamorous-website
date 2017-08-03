@@ -1,5 +1,10 @@
 import React from 'react'
-import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live'
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+  LivePreview,
+} from '@kentcdodds/temp-react-live'
 import * as styledSystem from 'styled-system'
 import * as glamor from 'glamor'
 import glamorous from 'glamorous'

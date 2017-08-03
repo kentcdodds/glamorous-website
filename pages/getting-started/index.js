@@ -2,7 +2,12 @@ import React, {Component} from 'react'
 import Head from 'next/head'
 import glamorous from 'glamorous'
 import ReactMarkdown from 'react-markdown'
-import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live'
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+  LivePreview,
+} from '@kentcdodds/temp-react-live'
 import stripIndent from '../../components/utils/strip-indent'
 import Layout from '../../components/layout'
 import twitterCard from '../../components/twitter-card'

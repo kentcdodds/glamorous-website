@@ -1,7 +1,11 @@
 import React from 'react'
 import glamorous from 'glamorous'
-import {LiveProvider, LiveEditor, LiveError} from 'react-live'
-import {LiveContextTypes} from 'react-live/lib/components/Live/LiveProvider'
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+} from '@kentcdodds/temp-react-live'
+import {LiveContextTypes} from '@kentcdodds/temp-react-live/lib/components/Live/LiveProvider'
 import Head from 'next/head'
 import stripIndent from '../../components/utils/strip-indent'
 import Layout from '../../components/layout'

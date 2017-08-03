@@ -9,8 +9,6 @@ import Nav from './nav'
 import Footer from './footer'
 import Contributors from './contributors'
 
-glamorous.config.useDisplayNameInClassName = true
-
 // Adds server generated styles to glamor cache.
 // Has to run before any `style()` calls
 // '__NEXT_DATA__.ids' is set in '_document.js'
