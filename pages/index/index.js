@@ -93,7 +93,7 @@ const HomepageLivePreview = (
       <LiveButton href="https://github.com/paypal/glamorous" primary>
         GitHub
       </LiveButton>
-      <LiveButton href="http://kcd.im/glamorous-help">
+      <LiveButton href="/getting-started">
         {tryIt}
       </LiveButton>
     </glamorous.Div>
