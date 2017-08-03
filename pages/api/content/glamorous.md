@@ -132,7 +132,7 @@ const MyStyledComponent = glamorous(MyComponent, {
  still be rerendered. `shouldClassNameUpdate` is only for allowing you to opt-out
  of generating the `className` unnecessarily.
 
- #### propsAreCssOverrides
+ ### propsAreCssOverrides
 
  This allows you to use props as CSS. You always have the `css` prop, but
  sometimes it's really nice to use just the props as CSS.
