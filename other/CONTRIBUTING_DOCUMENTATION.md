@@ -61,6 +61,20 @@ are supposed to be structured for the files. The files you'll be translating
 are *JavaScript*, so you'll need to make sure that you only translate the parts
 that should be translated (in strings) and that the end result is valid JS.
 
+### Adding a new language
+
+To add a new language to the site, you need to make a few updates:
+
+1. Add your locale code to the `config.json` file in `supportedLocales`.
+2. Download the SVG for a flag that best represents that language from
+   [flag-icon-css](https://github.com/lipis/flag-icon-css/tree/master/flags/4x3)
+   and put it in `components/svgs/{LOCALE}.svg`
+3. Import the svg into `components/locale-chooser.js` and add a reference to it
+   in the `localeMap` in that file.
+
+Make a PR for that. Once it's been merged you can start contributing
+translations!
+
 ### Code samples
 
 Please don't translate code samples unless you're certain the code sample still
@@ -81,6 +95,11 @@ anyone else is working on the language you are. If no issue exists, then
 indicating you'd like to translate content to a new language and you can use
 that to keep track of what translations you're working on and to coordinate with
 others who want to help.
+
+For the sections in the normal docs pages, you should be able to just go to the
+website to find the sections that are out of date or missing (there will be a
+note indicating that). But there are some translations files which don't have
+a notice on the website. For those, this workflow can be helpful:
 
 First, run `node other/list-l10n.js {locale}` (if you were doing French,
 `{locale}` would be `fr`, for Spanish, it would be `es`). This will list the
