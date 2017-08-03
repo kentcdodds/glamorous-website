@@ -8,7 +8,7 @@ just have to change their styles to change the way this guide looks and moves!
 ## Basic Styles
 
 Let's start by making the headings on this page look nice. With `glamorous`,
-instead of the normal CSS syntax you maybe familiar with, we regular JavaScript
+instead of the normal CSS syntax you maybe familiar with, we use regular JavaScript
 objects.
 
 Change the `Heading` to this:
