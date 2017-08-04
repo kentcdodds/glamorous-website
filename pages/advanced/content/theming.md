@@ -3,6 +3,7 @@ title: Theming
 codeSandboxId: qYmJjE4jy
 contributors:
   - paulmolluzzo
+  - JReinhold
 ---
 
 `glamorous` fully supports theming using a special `<ThemeProvider>` component.
