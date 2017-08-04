@@ -1,4 +1,4 @@
 {
-  "supportedLocales": ["en", "es", "fr", "de", "zh"],
+  "supportedLocales": ["en", "es", "fr", "de", "zh", "ru"],
   "fallbackLocale": "en"
 }

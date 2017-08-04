@@ -8,6 +8,7 @@ import EsSvg from './svgs/es.svg'
 import FrSvg from './svgs/fr.svg'
 import DeSvg from './svgs/de.svg'
 import CnSvg from './svgs/cn.svg'
+import RuSvg from './svgs/ru.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
@@ -233,6 +234,11 @@ function mapLocale(key = fallbackLocale) {
       key,
       display: '中文',
       Flag: CnSvg,
+    },
+    ru: {
+      key,
+      display: 'Russian',
+      Flag: RuSvg,
     },
     help: {
       key,
