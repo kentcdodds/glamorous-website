@@ -237,7 +237,7 @@ function mapLocale(key = fallbackLocale) {
     },
     ru: {
       key,
-      display: 'Russian',
+      display: 'Русский',
       Flag: RuSvg,
     },
     help: {
