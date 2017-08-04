@@ -25,7 +25,7 @@ const secondaryTheme = {
 // a themed <Title> component
 const Title = glamorous.h1({
   fontSize: '10px'
-}, (props, theme) => ({
+}, ({theme}) => ({
   color: theme.main.color
 }))
 
@@ -69,7 +69,7 @@ const theme = {
 // a themed <Title> component
 const Title = glamorous.h1({
   fontSize: '10px'
-}, (props, theme) => ({
+}, ({theme}) => ({
   color: theme.main.color
 }))
 
@@ -103,7 +103,7 @@ const theme = {
 // a themed <Title> component
 const Title = glamorous.h1({
   fontSize: '10px'
-}, (props, theme) => ({
+}, ({theme}) => ({
   color: theme.main.color
 }))
 
