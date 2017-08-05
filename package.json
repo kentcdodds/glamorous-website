@@ -11,11 +11,7 @@
   },
   "author": "Paul Molluzzo <paul@molluzzo.com> (https://paul.molluzzo.com)",
   "license": "MIT",
-  "keywords": [
-    "glamorous",
-    "react",
-    "css-in-js"
-  ],
+  "keywords": ["glamorous", "react", "css-in-js"],
   "dependencies": {
     "@kentcdodds/temp-react-live": "1.8.0",
     "common-tags": "^1.4.0",
@@ -84,9 +80,7 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFiles": [
-      "./other/test-setup.js"
-    ],
+    "setupFiles": ["./other/test-setup.js"],
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -95,13 +89,8 @@
         "statements": 50
       }
     },
-    "testPathIgnorePatterns": [
-      "/fixtures/"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer",
-      "jest-glamor-react"
-    ]
+    "testPathIgnorePatterns": ["/fixtures/"],
+    "snapshotSerializers": ["enzyme-to-json/serializer", "jest-glamor-react"]
   },
   "lint-staged": {
     "*.js": [
