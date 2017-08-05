@@ -2,59 +2,60 @@
 title: Установка
 ---
 
-This module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org) and should be installed as one of your project's `dependencies`:
+Этот модуль распространяется через [npm](https://www.npmjs.com/), связанного с [node](https://nodejs.org) и должен быть 
+установлен, как одна из зависимостей (`dependencies`) проекта:
 
 ```bash
 npm install --save glamorous
 ```
 
-This also depends on `react` and `glamor` so you'll need those in your project as well (if you don't already have them):
+Также, вам необходимо добавить `react` и `glamor` в ваш проект(если их там ещё нет):
 
 ```bash
 npm install --save react glamor
 ```
+>Внимание: Если вы используете React v15.5 или выше, вам также необходимо
+>установить `prop-types`: `npm install --save prop-types`
 
-> NOTE: If you're using React v15.5 or greater, you'll also need to have
-> `prop-types` installed: `npm install --save prop-types`
+Затем вы сможете использовать один из форматов модуля:
 
-You can then use one of the module formats:
+- `main`: `dist/glamorous.cjs.js` - экспортируется как CommonJS модуль
+- `global`: `dist/glamorous.umd.js` и `dist/glamorous.umd.min.js` - экспортируются как umd модуль, который употребим в 
+нескольких контекстах, наиболее значимый из которых - глобальный.
+- `jsnext:main` и модуль: `dist/glamorous.es.js` - экспортируются с использованием ES modules спецификации, вам будет нужно настроить webpack, чтобы использовать этот файл, с помощью resolve.mainFields свойства.
 
-- `main`: `dist/glamorous.cjs.js` - exports itself as a CommonJS module
-- `global`: `dist/glamorous.umd.js` and `dist/glamorous.umd.min.js` - exports itself as a umd module which is consumable in several environments, the most notable as a global.
-- `jsnext:main` and module: `dist/glamorous.es.js` - exports itself using the ES modules specification, you'll need to configure webpack to make use of this file do this using the resolve.mainFields property.
-
-The most common use-case is consuming this module via CommonJS:
+Наиболее распространённый способ использования этого модуля через CommonJS:
 
 ```js
 const glamorous = require('glamorous')
 const {ThemeProvider} = glamorous
-// etc.
+// итд.
 ```
 
-If you're transpiling (and/or using the jsnext:main):
+Если вы используете transpiling(и/или используете jsnext:main):
 
 ```js
 import glamorous, {ThemeProvider} from 'glamorous'
 
-// you can also import specific Glamorous Components (see section below on "Built-in" components)
+// вы можете импортировать нужный Glamorous Components (подробнее в разделе "Встроенные компоненты")
 import {Div, H2} from 'glamorous'
 
-// tags with the same name as built-in JavaScript objects are importable with a Tag suffix
-// and tag names that contain dashes are transformed to CamelCase
+// тэги с тем же именем, что и встроенные объекты JavaScript, импортируются с Tag суффиксом
+// и имя тэга, содержащее тире, нужно писать в CamelCase
 import {MapTag, ColorProfile} from 'glamorous'
 ```
 
-If you want to use the global:
+Если вы хотите использовать глобально:
 
 ```html
-<!-- Load dependencies -->
+<!-- Загрузка зависимостей -->
 <script src="https://unpkg.com/react/dist/react.js"></script>
 <script src="https://unpkg.com/prop-types/prop-types.js"></script>
 <script src="https://unpkg.com/glamor/umd/index.js"></script>
-<!-- load library -->
+<!-- загрузка библиотеки -->
 <script src="https://unpkg.com/glamorous/dist/glamorous.umd.js"></script>
 <script>
-// Use window.glamorous here...
+// Используй window.glamorous здесь...
 const glamorous = window.glamorous
 const {ThemeProvider} = glamorous
 </script>
