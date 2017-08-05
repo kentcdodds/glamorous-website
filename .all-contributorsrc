@@ -413,6 +413,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "gitpash",
+      "name": "Luzanov Pavel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22022930?v=4",
+      "profile": "http://gitpash.github.io",
+      "contributions": [
+        "translation"
+      ]
     }
   ]
 }
