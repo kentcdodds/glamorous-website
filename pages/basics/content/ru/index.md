@@ -1,4 +1,4 @@
 ---
 title: Основы
-heading: Краткая инструкция для `glamorous`
+heading: Краткое введение в `glamorous`
 ---
