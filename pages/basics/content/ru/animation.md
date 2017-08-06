@@ -4,8 +4,8 @@ codeSandboxId: 31VMyP7XO
 ---
 
 Для того, чтобы создавать анимацию с glamorous, вы можете использовать
-обычный CSS transitions - для простых вещей, а для продвинутых можете 
-использовать `keyframes` из `glamor`'овского `css.keyframes` API.
+обычный CSS transitions - для простых вещей, а для продвинутых -
+`keyframes` из `glamor`'овского `css.keyframes` API.
 
 ```interactive
 // import * as glamor from 'glamor'

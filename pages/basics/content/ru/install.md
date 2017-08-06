@@ -2,8 +2,8 @@
 title: Установка
 ---
 
-Этот модуль распространяется через [npm](https://www.npmjs.com/), связанного с [node](https://nodejs.org) и должен быть 
-установлен, как одна из зависимостей (`dependencies`) проекта:
+Этот модуль распространяется через [npm](https://www.npmjs.com/), предоставляемый [node](https://nodejs.org) и должен быть 
+установлен, как одна из зависимостей проекта:
 
 ```bash
 npm install --save glamorous
@@ -37,11 +37,11 @@ const {ThemeProvider} = glamorous
 ```js
 import glamorous, {ThemeProvider} from 'glamorous'
 
-// вы можете импортировать нужный Glamorous Components (подробнее в разделе "Встроенные компоненты")
+// вы можете импортировать нужный Glamorous Компонент (подробнее в разделе "Встроенные компоненты")
 import {Div, H2} from 'glamorous'
 
-// тэги с тем же именем, что и встроенные объекты JavaScript, импортируются с Tag суффиксом
-// и имя тэга, содержащее тире, нужно писать в CamelCase
+// тэги с тем же именем, что и встроенные объекты JavaScript, импортируются с Tag суффиксом.
+// Имя тэга, содержащее тире, нужно писать в CamelCase
 import {MapTag, ColorProfile} from 'glamorous'
 ```
 
