@@ -1,7 +1,7 @@
 ---
 home: 'Домой'
 gettingStarted: 'В Начале'
-basics: 'Основное'
+basics: 'Основы'
 advanced: 'Продвинутое'
 examples: 'Примеры'
 integrations: 'Интеграция'

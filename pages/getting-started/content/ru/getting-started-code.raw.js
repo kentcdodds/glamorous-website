@@ -1,4 +1,4 @@
-// Обычно вы начинаете с чего нибудь вроде:
+// Обычно вы начинаете с чего-нибудь вроде:
 // import glamorous from 'glamorous'
 
 const mediaQueries = {

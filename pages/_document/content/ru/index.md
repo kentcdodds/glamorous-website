@@ -1,3 +1,3 @@
 ---
-title: glamorous - Решение стилизации компонентов React 💄
+title: Glamorous - решение стилизации компонентов React 💄
 ---
