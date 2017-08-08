@@ -1,4 +1,4 @@
-const Button = glamorous.a({
+const BigLink = glamorous.a({
   border: '1px solid #F67982',
   width: '11em',
   padding: '0.7em 0',
