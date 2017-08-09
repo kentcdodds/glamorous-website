@@ -433,6 +433,16 @@
         "review",
         "translation"
       ]
+    },
+    {
+      "login": "glebez",
+      "name": "Gleb Kost",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9864073?v=4",
+      "profile": "https://github.com/glebez",
+      "contributions": [
+        "doc",
+        "translation"
+      ]
     }
   ]
 }
