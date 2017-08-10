@@ -58,7 +58,7 @@ const Title = glamorous.h1({
 </ThemeProvider>
 ```
 
-> Попробуй это в своем браузере [здесь](https://codesandbox.io/s/o2yq9MkQk)!
+> Попробуйте это в своем браузере [здесь](https://codesandbox.io/s/o2yq9MkQk)!
 
 `glamorous` также предоставляет компонент высшего порядка `withTheme`, так что вы можете получить доступ к своей теме из любого компонента!
 
@@ -91,7 +91,7 @@ const ThemedSubTitle = withTheme(SubTitle)
 </ThemeProvider>
 ```
 
-> Попробуй это в своем браузере [здесь](https://codesandbox.io/s/qYmJjE4jy)!
+> Попробуйте это в своем браузере [здесь](https://codesandbox.io/s/qYmJjE4jy)!
 
 Или если вы предпочитаете декораторы:
 

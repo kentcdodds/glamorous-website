@@ -11,7 +11,7 @@ title: Оптимизация размера
   (`glamorous('article')({/* styles */ }) `)
 2. Отсутствие встроенных компонентов glamorous  (`glamorous.Span`)
 3. Отсутствие фильтрации props для динамических стилей. Вместо этого вам
-приедтся передавать их в специальном свойстве `glam` (смотри пример ниже).
+придется передавать их в специальном свойстве `glam` (смотрите пример ниже).
 4. Если вам нужен `ThemeProvider` или `withTheme`, придется импортировать их
 вручную.
   Они не являются частью экспорта `glamorous/ tiny`, в отличие от `glamorous`.
@@ -52,7 +52,7 @@ export default Root
 У вас есть следующие варианты импорта:
 
 1. `glamorous/dist/glamorous.es.tiny.js` - используйте вместе с Webpack@>=2 или Rollup
-2. `glamorous/dist/glamorous.cjs.tiny.js` - используйте, если вы не делаете транспиляцию ESModules
+2. `glamorous/dist/glamorous.cjs.tiny.js` - используйте, если вы не преобразовываете ESModules
 3. `glamorous/dist/glamorous.umd.tiny.js` - ипользуйте, если хотите добавить через script тег (Также есть `.min.js` версия).
 ```
 
