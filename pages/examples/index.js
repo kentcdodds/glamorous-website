@@ -9,6 +9,7 @@ function Examples({url}) {
         require('./content/css-grid.md'),
         require('./content/style-overrides.md'),
         require('./content/button.md'),
+        require('./content/prop-styles.md'),
       ]}
       pageContent={require('./content/index.md')}
     />
