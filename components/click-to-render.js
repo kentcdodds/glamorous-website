@@ -19,7 +19,9 @@ class ClickToRender extends Component {
     const {render, component, props} = this.props
     return (
       <details ref={n => (this._details = n)} onClick={this.setRender}>
-        <summary>{this.props.summary}</summary>
+        <summary>
+          {this.props.summary}
+        </summary>
         {shouldRender && render ? render(props) : null}
         {shouldRender && component ?
           React.createElement(component, props) :

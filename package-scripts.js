@@ -56,7 +56,6 @@ module.exports = {
     }),
     deploy: localeDeploys,
     lint: {description: 'lint the entire project', script: 'eslint .'},
-    flow: {description: 'flow type-check the entire project', script: 'flow'},
     reportCoverage: {
       description:
         'Report coverage stats to codecov. This should be run after the `test` script',
@@ -65,7 +64,7 @@ module.exports = {
     validate: {
       description:
         'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'flow', 'test'),
+      script: concurrent.nps('lint', 'test'),
     },
     validateAndBuild: {
       hiddenFromHelp,

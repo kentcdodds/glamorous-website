@@ -12,12 +12,9 @@ module.exports = {
     'stage-2',
     'next/babel',
     'react',
-    'flow',
   ],
   plugins: [
-    // the glamorous-displayname plugin doesn't play nice
-    // with the istanbul plugin added automatically by jest during tests
-    process.env.NODE_ENV !== 'test' ? 'glamorous-displayname' : null,
+    'glamorous-displayname',
     'transform-class-properties',
     'inline-react-svg',
     './other/babel-plugin-l10n-loader',
