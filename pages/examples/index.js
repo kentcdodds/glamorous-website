@@ -10,6 +10,7 @@ function Examples({url}) {
         require('./content/style-overrides.md'),
         require('./content/button.md'),
         require('./content/prop-styles.md'),
+        require('./content/breadcrumbs.md'),
       ]}
       pageContent={require('./content/index.md')}
     />

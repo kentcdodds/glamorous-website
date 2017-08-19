@@ -443,6 +443,15 @@
         "doc",
         "translation"
       ]
+    },
+    {
+      "login": "kristian-puccio",
+      "name": "Kristian",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2113407?v=4",
+      "profile": "https://github.com/kristian-puccio",
+      "contributions": [
+        "example"
+      ]
     }
   ]
 }
