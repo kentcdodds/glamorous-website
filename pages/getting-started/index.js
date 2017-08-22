@@ -102,13 +102,13 @@ class CodePreview extends Component {
         code={stripIndent(codeString).trim()}
         scope={{glamorous, ReactMarkdown: StyledReactMarkdown}}
       >
-        <StyledLiveError />
         <glamorous.Div display="flex" overflow="auto" maxHeight="86vh">
           <StyledLiveEditor onChange={this.rehighlight} />
           <RightHandSide>
             <NarrowScreenNotice>
               {pageContent.tooNarrow}
             </NarrowScreenNotice>
+            <StyledLiveError />
             <StyledLivePreview
               innerRef={node => {
                 this._preview = node
