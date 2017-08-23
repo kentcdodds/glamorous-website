@@ -12,6 +12,7 @@ function Examples({url}) {
         require('./content/prop-styles.md'),
         require('./content/breadcrumbs.md'),
         require('./content/nav-link.md'),
+        require('./content/specificity.md'),
       ]}
       pageContent={require('./content/index.md')}
     />
