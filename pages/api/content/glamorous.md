@@ -106,6 +106,51 @@ const MyStyledComponent = glamorous(MyComponent, {
 
 > Try this out in your browser [here](https://codesandbox.io/s/GZEo8jOyy)!
 
+### filterProps
+
+Sometimes it's not possible to know which DOM element will be rendered at the end
+and therefore no `rootEl` can be set to avoid [Unknown Prop Warnings](https://facebook.github.io/react/warnings/unknown-prop.html).
+To filter out these properties from being forwarded to the child components you
+can set `filterProps`. `filterProps` takes an arrays of prop names.
+
+```js
+const withFlex = Component => {
+  return glamorous(Component, {
+    filterProps: ['flex'],
+  })(
+    ({flex}) => (flex ? {display: 'flex'} : undefined),
+  )
+}
+
+const MyComponent = withFlex(props => (<div {...props} />))
+
+<MyComponent flex />
+// this will render a <div> element with the display CSS property set to 'flex'.
+// The withFlex HOC can't set a `rootEl` because it accepts all kind of components.
+// The flex property will not be forwarded to the div because it is listed in
+// `filterProps`.
+```
+
+Another use case for `filterProps` is to use it in conjunction with
+`propsAreCssOverrides`. If `propsAreCssOverrides` is set to true all component
+properties are converted to styles and will be put into the generated CSS. To
+avoid adding unknown CSS properties and being able to add styles dynamically the
+properties used to generate the dynamic styles can be included in `filterProps`.
+
+```js
+const MyComponent = props => (<div {...props} />)
+
+const MyStyledComponent = glamorous(MyComponent, {
+  rootEl: 'div',
+  filterProps: ['big'],
+  propsAreCssOverrides: true,
+})(
+  ({big}) => ({fontSize: big ? 36 : 24})
+)
+
+<MyStyledComponent big margin={2}>Hello World</MyStyledComponent>
+```
+
 ### shouldClassNameUpdate
 
  Most of the time, glamor is super fast, but in some scenarios it may be nice to
