@@ -3,21 +3,17 @@ title: TypeScript
 subtitle: Using the `glamorous` TypeScript definitions
 ---
 
-The current bundled typescript definitions are incomplete and based around the needs of the developers who contributed them.
+The bundled typescript definitions are based around the needs of the developers who contributed them and may be missing recent features.
 
 Pull requests to improve them are welcome and appreciated. If you've never contributed to open source before, then you may find [this free video course](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github) helpful.
 
-## Complete support
+## Using the typings
+
+The glamorous definitions require typescript version 2.4 or above.
 
 ### glamorousComponentFactory
 
-The typings for
-* creating your own glamorous component factories
-* using built-in glamorous component factories
-are complete.
-* using `shouldClassNameUpdate`
-
-```jsx
+```tsx
 // Creating your own
 glamorous(Component)(/* styleArgument */)
 glamorous('div')(/* styleArgument */)
@@ -49,7 +45,7 @@ const WithPropsComponent = glamorous(Component)(/* styleArgument */).withProps(w
 
 By providing the typings for Props and Theme to Glamorous when setting up your component factory they will be typed on the props argument for function arguments automatically.
 
-```jsx
+```tsx
 interface Props {
   noPadding?: boolean,
   theme: { color: string }
@@ -86,23 +82,22 @@ In the future this may become possible with [Microsoft/TypeScript#6579](https://
 
 Alternatively support for full typesafety would be possible using patterns along the lines of http://typestyle.io/.
 
+## Known Issues
+
 ### Built-in Glamorous Components
 
-Currently support is limited to `Div` and `Svg`.
+Whilst you have typesafety on known properties, andy misspelt or missing CSSProperties will pass validation.
 
-## Unknown Support
-
-### Animations
-
-Possible support via [glamors typings](https://github.com/threepointone/glamor/blob/master/index.d.ts)
-
-## Known Issues
+ie.
+```ts
+<P bakgroundColor="...">
+```
 
 ### Generating Definition files
 
-When using glamorous in a library that you are generating definition files for you will need to include the following import and export to get around a typescript issue [Microsoft/TypeScript/issues/5938](https://github.com/Microsoft/TypeScript/issues/5938).
+When using glamorous in a library that you are generating definition files for you may need to include the following import and export to get around a typescript issue [Microsoft/TypeScript/issues/5938](https://github.com/Microsoft/TypeScript/issues/5938).
 
-```javascript
-import glamorous, { ExtraGlamorousProps, WithComponent  } from 'glamorous'
-export { ExtraGlamorousProps, WithComponent }
+```ts
+import glamorous, { GlamorousComponent  } from 'glamorous'
+export { GlamorousComponent }
 ```
