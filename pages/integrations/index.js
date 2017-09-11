@@ -14,6 +14,7 @@ function Page({url}) {
         require('./content/pseudo.md'),
         require('./content/glamor.md'),
         require('./content/recompose.md'),
+        require('./content/preact.md'),
       ]}
       pageContent={require('./content/index.md')}
     />
