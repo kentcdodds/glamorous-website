@@ -1,6 +1,6 @@
 ---
 madeWith: '
-  Fait avec <span role="img" aria-label="love">💙</span> par
+  Fait avec <span role="img" aria-label="love">💙</span>&nbsp; par
   <a href="https://github.com/paypal">PayPal</a> et
   <a href="https://github.com/paypal/glamorous/blob/master/README.md#contributors">les contributeurs</a>.
 '
