@@ -137,6 +137,7 @@ const List = glamorous.ul(
     [mediaQueries.largeUp]: {
       display: 'flex',
       justifyContent: top ? 'center' : 'flex-start',
+      alignItems: top ? 'center' : 'flex-start',
       flexDirection: top ? 'row' : 'column',
       width: top ? 'auto' : null,
       maxHeight: top ? '4rem' : null,
