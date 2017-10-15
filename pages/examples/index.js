@@ -13,6 +13,7 @@ function Examples({url}) {
         require('./content/breadcrumbs.md'),
         require('./content/nav-link.md'),
         require('./content/specificity.md'),
+        require('./content/component-as-selector.md'),
       ]}
       pageContent={require('./content/index.md')}
     />
