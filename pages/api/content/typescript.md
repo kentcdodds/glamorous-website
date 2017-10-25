@@ -86,7 +86,7 @@ Alternatively support for full typesafety would be possible using patterns along
 
 ### Built-in Glamorous Components
 
-Whilst you have typesafety on known properties, andy misspelt or missing CSSProperties will pass validation.
+Whilst you have typesafety on known properties, any misspelt or missing CSSProperties will pass validation.
 
 ie.
 ```ts
