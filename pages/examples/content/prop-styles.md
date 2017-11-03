@@ -1,9 +1,10 @@
 ---
 title: prop styles
-subtitle: Simple function making it easier to create glamorous components that accept prop flags for styles
-codeSandboxId: AGRRMl63
+subtitle: Simple utility making it easier to create glamorous components that accept prop flags for styles
+codeSandboxId: 92m6q0krqr
 contributors:
   - kentcdodds
+  - peterschussheim
 ---
 
 This allows you to create a glamorous component that accepts flags to enable/disable styles:
@@ -13,3 +14,4 @@ This allows you to create a glamorous component that accepts flags to enable/dis
 <Text heading>heading</Text>
 ```
 
+Please visit the [prop-styles](https://github.com/peterschussheim/prop-styles) repo for installation and usage details.
