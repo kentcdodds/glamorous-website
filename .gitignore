@@ -1,5 +1,5 @@
 .next
-.vscode/settings.json
+.vscode/
 node_modules
 npm-debug.log
 coverage
