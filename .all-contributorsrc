@@ -480,6 +480,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "peterschussheim",
+      "name": "Peter Schussheim",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3654683?v=4",
+      "profile": "https://peterschussheim.com/",
+      "contributions": [
+        "example",
+        "plugin"
+      ]
     }
   ]
 }
