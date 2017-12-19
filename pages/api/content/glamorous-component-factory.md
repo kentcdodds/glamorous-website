@@ -5,7 +5,7 @@ title: '`glamorousComponentFactory`'
 Whether you create one yourself or use one of the built-in ones mentioned above, each `glamorousComponentFactory` allows you to invoke it with styles and it returns you a new component which will have those styles applied when it's rendered. This is accomplished by generating a `className` for the styles you give and forwarding that `className` onto the rendered element. So if you're wrapping a component you intend to style, you'll need to make sure you accept the `className` as a prop and apply it to where you want the styles applied in your custom component (normally the root element).
 
 ```js
-const UnstyledComp = ({ className, children }) => <div className={`\${className} other-class`}>{children}</div>
+const UnstyledComp = ({ className, children }) => <div className={`${className} other-class`}>{children}</div>
 const MyStyledComp = glamorous(UnstyledComp)({ margin: 1 })
 
 <MyStyledComp>content</MyStyledComp>
