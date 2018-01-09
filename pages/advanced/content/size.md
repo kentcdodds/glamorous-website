@@ -52,7 +52,7 @@ You have the following options available for this import:
 3. `glamorous/dist/glamorous.umd.tiny.js` - use if you're including it as a script tag. (There's also a `.min.js` version).
 ```
 
-The current size of `glamorous/dist/glamorous.umd.tiny.min.js` is: [![tiny size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.min.tiny.js?label=size&style=flat-square)](https://unpkg.com/glamorous/dist/)
+The current size of `glamorous/dist/glamorous.umd.min.tiny.js` is: [![tiny size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.min.tiny.js?label=size&style=flat-square)](https://unpkg.com/glamorous/dist/)
 [![tiny gzip size](http://img.badgesize.io/https://unpkg.com/glamorous/dist/glamorous.umd.min.tiny.js?compression=gzip&label=gzip%20size&style=flat-square)](https://unpkg.com/glamorous/dist/)
 
 ```callout {title: 'Important note', type: 'warning'}
