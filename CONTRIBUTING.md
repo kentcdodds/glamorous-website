@@ -19,6 +19,8 @@ installed to clone the repo.
 3. Run `npm start validate` to validate you've got it working
 4. Create a branch for your PR
 
+To see and test your changes, run `npm start dev` - it fires up local dev server.
+
 This project uses [`nps`][nps] and you can run `npm start help` to see what scripts are available.
 
 > Tip: Keep your `master` branch pointing at the original repository and make
