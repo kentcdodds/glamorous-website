@@ -75,6 +75,9 @@ To add a new language to the site, you need to make a few updates:
 Make a PR for that. Once it's been merged you can start contributing
 translations!
 
+> You can look at [this PR](https://github.com/kentcdodds/glamorous-website/pull/259/files)
+> for an example of how to do this.
+
 ### Code samples
 
 Please don't translate code samples unless you're certain the code sample still
