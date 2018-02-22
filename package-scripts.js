@@ -56,6 +56,10 @@ module.exports = {
     }),
     deploy: localeDeploys,
     lint: {description: 'lint the entire project', script: 'eslint .'},
+    lintCSS: {
+      description: 'lint all css',
+      script: 'stylelint "components/**/*.js" "pages/**/*.js"',
+    },
     reportCoverage: {
       description:
         'Report coverage stats to codecov. This should be run after the `test` script',
@@ -64,7 +68,7 @@ module.exports = {
     validate: {
       description:
         'This runs several scripts to make sure things look good before committing or on clean install',
-      script: concurrent.nps('lint', 'test'),
+      script: concurrent.nps('lint', 'lintCSS', 'test'),
     },
     validateAndBuild: {
       hiddenFromHelp,

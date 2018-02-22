@@ -7,12 +7,16 @@ const getPathname = pathname => {
   return pathname === undefined ? '' : pathname
 }
 
-const basicLinkStyles = {cursor: 'pointer'}
+const basicLinkStyles =
+  // @css
+  {cursor: 'pointer'}
 
-const anchorStyles = {
-  textDecoration: 'underline',
-  color: colors.primaryMed,
-}
+const anchorStyles =
+  // @css
+  {
+    textDecoration: 'underline',
+    color: colors.primaryMed,
+  }
 
 const activeLinkStyles = props => ({
   color:
@@ -22,23 +26,25 @@ const activeLinkStyles = props => ({
   textDecoration: props.active || props.external ? 'underline' : 'none',
 })
 
-const slugStyles = {
-  position: 'relative',
-  display: 'block',
-
-  '& svg': {
-    display: 'none',
-    position: 'absolute',
-    top: 0,
-    left: '-2.5rem',
-    width: '1.75em',
-    height: '2.827em',
-  },
-
-  '&:hover svg': {
+const slugStyles =
+  // @css
+  {
+    position: 'relative',
     display: 'block',
-  },
-}
+
+    '& svg': {
+      display: 'none',
+      position: 'absolute',
+      top: 0,
+      left: '-2.5rem',
+      width: '1.75em',
+      height: '2.827em',
+    },
+
+    '&:hover svg': {
+      display: 'block',
+    },
+  }
 
 const StyledAnchor = glamorous.a(
   basicLinkStyles,
@@ -65,14 +71,20 @@ const Anchor = ({href, prefetch, external, pathname, isSlug, ...rest}) => {
   )
 }
 
-const solidColors = {backgroundColor: colors.primaryMed, color: 'white'}
+const solidColors =
+  // @css
+  {backgroundColor: colors.primaryMed, color: 'white'}
 
-const transparentColors = {
-  backgroundColor: 'rgba(255, 255, 255, 0.5)',
-  color: colors.primary,
-}
+const transparentColors =
+  // @css
+  {
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    color: colors.primary,
+  }
 
-const secondaryButtonStyles = {...transparentColors, ':hover': solidColors}
+const secondaryButtonStyles =
+  // @css
+  {...transparentColors, ':hover': solidColors}
 
 const Button = glamorous(Anchor)(
   basicLinkStyles,

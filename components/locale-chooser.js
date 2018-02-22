@@ -12,7 +12,10 @@ import RuSvg from './svgs/ru.svg'
 
 const {supportedLocales, fallbackLocale} = require('../config.json')
 
-const svgStyle = {width: '1em', height: '100%'}
+const svgStyle =
+  // @css
+  {width: '1em', height: '100%'}
+
 const Wrapper = glamorous.div({
   fontSize: '.8em',
   cursor: 'pointer',
@@ -81,10 +84,11 @@ const Link = glamorous.a(props => ({
   },
 }))
 
-const localeContent = ({display, Flag = () => null}) =>
-  (<div aria-hidden="true">
+const localeContent = ({display, Flag = () => null}) => (
+  <div aria-hidden="true">
     <Flag {...svgStyle} /> <span>{display}</span>
-  </div>)
+  </div>
+)
 
 class LocaleChooser extends React.Component {
   state = {
@@ -164,8 +168,8 @@ class LocaleChooser extends React.Component {
           open={this.state.open}
           top={this.props.top}
         >
-          {this.state.locales.map(({key, display, Flag}) =>
-            (<Item key={key}>
+          {this.state.locales.map(({key, display, Flag}) => (
+            <Item key={key}>
               <Link
                 href={localeToHref(key, this.state.currentLocale)}
                 lang={key === 'help' ? null : key}
@@ -178,8 +182,8 @@ class LocaleChooser extends React.Component {
               >
                 {localeContent({Flag, display})}
               </Link>
-            </Item>),
-          )}
+            </Item>
+          ))}
         </List>
       </Wrapper>
     )
