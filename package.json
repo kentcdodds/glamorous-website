@@ -78,6 +78,9 @@
     "preval.macro": "^1.0.2",
     "react-test-renderer": "^15.5.4",
     "remark-frontmatter": "^1.0.0",
+    "stylelint": "9.1.1",
+    "stylelint-config-standard": "18.1.0",
+    "stylelint-processor-glamorous": "0.2.0",
     "url-regex": "^4.1.0"
   },
   "jest": {

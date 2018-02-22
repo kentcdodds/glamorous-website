@@ -1,0 +1,12 @@
+{
+  "processors": ["stylelint-processor-glamorous"],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "length-zero-no-unit": null,
+    "number-leading-zero": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "selector-pseudo-element-colon-notation": null,
+    "function-comma-space-after": null,
+    "color-hex-case": null
+  }
+}
