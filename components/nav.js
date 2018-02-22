@@ -129,11 +129,11 @@ const List = glamorous.ul(
     display: 'block',
     fontSize: '1.25em',
     margin: '0 auto',
+    padding: 0,
     paddingLeft: top ? null : 0,
     height: 'auto',
     overflow: 'visible',
     backgroundColor: colors.white,
-    padding: 0,
     [mediaQueries.largeUp]: {
       display: 'flex',
       justifyContent: top ? 'center' : 'flex-start',
@@ -183,28 +183,18 @@ class Nav extends React.Component {
         <List isOpen={this.state.open} top={top}>
           <ListItemAnchor href="/" css={{textAlign: 'center'}}>
             <LipstickIcon width={top ? 20 : 40} />
-            <Hidden>
-              {content.home}
-            </Hidden>
+            <Hidden>{content.home}</Hidden>
           </ListItemAnchor>
           <ListItemAnchor href="/getting-started">
             {content.gettingStarted}
           </ListItemAnchor>
-          <ListItemAnchor href="/basics">
-            {content.basics}
-          </ListItemAnchor>
-          <ListItemAnchor href="/advanced">
-            {content.advanced}
-          </ListItemAnchor>
-          <ListItemAnchor href="/examples">
-            {content.examples}
-          </ListItemAnchor>
+          <ListItemAnchor href="/basics">{content.basics}</ListItemAnchor>
+          <ListItemAnchor href="/advanced">{content.advanced}</ListItemAnchor>
+          <ListItemAnchor href="/examples">{content.examples}</ListItemAnchor>
           <ListItemAnchor href="/integrations">
             {content.integrations}
           </ListItemAnchor>
-          <ListItemAnchor href="/api">
-            {content.api}
-          </ListItemAnchor>
+          <ListItemAnchor href="/api">{content.api}</ListItemAnchor>
           <ListItem>
             <SearchBox />
           </ListItem>
