@@ -490,6 +490,15 @@
         "example",
         "plugin"
       ]
+    },
+    {
+      "login": "knpwrs",
+      "name": "Ken Powers",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/174864?v=4",
+      "profile": "https://knpw.rs",
+      "contributions": [
+        "example"
+      ]
     }
   ]
 }
