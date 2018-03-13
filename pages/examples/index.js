@@ -14,6 +14,7 @@ function Examples({url}) {
         require('./content/nav-link.md'),
         require('./content/specificity.md'),
         require('./content/component-as-selector.md'),
+        require('./content/transition-group.md'),
       ]}
       pageContent={require('./content/index.md')}
     />
