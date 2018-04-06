@@ -91,7 +91,7 @@ You can provide a function as an argument to a `glamorousComponentFactory` (by
 the way, that's what `glamorous.h1` is called). This function will be called
 with `props`.
 
-The `CodeBlock` component receives the `language` as a prop. Here's code block
+The `CodeBlock` component receives the `language` as a prop. Here's a code block
 that is `html`:
 
 ```html
