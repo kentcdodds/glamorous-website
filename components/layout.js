@@ -59,6 +59,29 @@ function Layout({pathname, children, contributors, topNav = false}) {
           <AlgoliaLink />
           <AlgoliaScript />
         </Head>
+        <Div
+          css={{
+            fontWeight: 'bold',
+            borderBottom: '1px solid',
+            backgroundColor: 'white',
+            padding: '6px',
+          }}
+        >
+          <Div
+            css={{
+              fontSize: '1.3em',
+              textAlign: 'center',
+            }}
+          >
+            STATUS: UNMAINTAINED
+          </Div>
+          <div>
+            For details on the unmaintained status (and to help people with an
+            automated migration to <a href="https://emotion.sh">emotion</a>),
+            see{' '}
+            <a href="https://github.com/paypal/glamorous/issues/419">#419</a>.
+          </div>
+        </Div>
         <Nav pathname={pathname} top={topNav} />
         <Div overflow="auto" width="100%">
           {children}
