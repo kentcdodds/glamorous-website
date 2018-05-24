@@ -53,7 +53,10 @@ async function deploy(context, sha) {
     '--name',
     `${locale}-glamorous`,
     `out/${locale}`,
-  ])
+  ]).catch(err => {
+    onError(err)
+    throw err
+  })
 
   target_url = getUrl(result)
 
